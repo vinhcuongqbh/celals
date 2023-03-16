@@ -8,7 +8,7 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="robots" content="noindex, nofollow">
     <meta name="robots" content="noimageindex">
-    <title>アシストロボ</title>
+    <title>CELALS</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -56,8 +56,8 @@
             <!-- Brand Logo -->
             <div class="brand-link">
                 <img src="/img/logo.jpg" alt="Logo" class="brand-image img-size-64">
-                {{-- <a class="brand-text font-weight-light"
-                    href="{{ route('user.show', Auth::user()->userId) }}">{{ Auth::user()->name }}</a> --}}
+                <a class="brand-text font-weight-light"
+                    href="{{ route('user.show', Auth::user()->user_id) }}">{{ Auth::user()->name }}</a>
             </div>
 
             <!-- Sidebar -->

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('center_name');
             $table->string('center_address');
             $table->string('center_tel');
+            $table->boolean('center_status')->default(1);
             $table->timestamps();
         });
     }

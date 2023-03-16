@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('child_age')->nullable();
             $table->string('email')->nullable();
             $table->string('tel');
-            $table->tinyInteger('center_id');
+            $table->string('center_id');
             $table->timestamps();
         });
     }
