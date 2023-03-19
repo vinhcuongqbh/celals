@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white">
             <div class="container">
                 <a href="/" class="navbar-brand">
-                    <img src="/img/logo2.png" alt="Celals">
+                    <img src="/img/logo2.png" alt="Celals" style="width: 100%; object-fit: cover;">
                     <span class="brand-text font-weight-light"></span>
                 </a>
 
@@ -96,7 +96,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div><!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        <footer class="main-footer">
+        <footer class="main-footer" style="color: #03396c">
             <div class="row">
                 <div class="col-12 col-sm-4" style="margin-bottom:30px">
                     <b style="color:#d30404">TRỤ SỞ CHÍNH</b><br>

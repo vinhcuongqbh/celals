@@ -19,7 +19,6 @@
                         <li class="list-group-item">Đầu ra: Cam kết đầu ra >= 4.0+</li>
                         <li class="list-group-item">Đầu vào: Các bạn chưa có hoặc thiếu kiến thức cơ bản</li>
                         <li class="list-group-item">Thời gian: 03 tháng - 12 tháng</li>
-                        <li class="list-group-item">Học phí: 35 triệu</li>
                     </ul>
                     <div class="card-body">
                         <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
@@ -37,7 +36,6 @@
                         <li class="list-group-item">Đầu ra: Cam kết đầu ra >= 6.5+</li>
                         <li class="list-group-item">Đầu vào: Các bạn đã có kiến thức cơ bản, điểm IELTS từ 4.0-9.0</li>
                         <li class="list-group-item">Thời gian: 01 năm</li>
-                        <li class="list-group-item">Học phí: 75 triệu</li>
                     </ul>
                     <div class="card-body">
                         <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
@@ -55,7 +53,6 @@
                         <li class="list-group-item">Đầu ra: Tăng 1.5 - 3 band điểm</li>
                         <li class="list-group-item">Đầu vào: Đối với các bạn cần luyện thi cấp tốc đã có căn bản</li>
                         <li class="list-group-item">Thời gian: 12 tuần</li>
-                        <li class="list-group-item">Học phí: 35 triệu</li>
                     </ul>
                     <div class="card-body">
                         <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
@@ -74,7 +71,6 @@
                         <li class="list-group-item">Đầu vào: Học IELTS trong các trại hè đạt chuẩn từ các trường đại học
                         </li>
                         <li class="list-group-item">Thời gian: IELTS 9.0 summer (Tháng 6 - 8)</li>
-                        <li class="list-group-item">Học phí: 45 triệu</li>
                     </ul>
                     <div class="card-body">
                         <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
