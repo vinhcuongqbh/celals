@@ -19,53 +19,27 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-header -->
-                    <div class="card-body">
-                        {{-- <form action="{{ route('user.search') }}" method="post" id="store-search">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="user_id" name="user_id"
-                                        placeholder="{{ __('user_id') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="user_name" name="user_name"
-                                        placeholder="{{ __('user_name') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="tel" name="tel"
-                                        placeholder="{{ __('tel') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="address" name="address"
-                                        placeholder="{{ __('address') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="center_name" name="center_name"
-                                        placeholder="{{ __('center_name') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <button type="submit"
-                                        class="btn bg-olive text-white w-100 text-nowrap">{{ __('search') }}</button>
-                                </div>
-                            </div>
-                        </form> --}}
+                </div>
+                <div class="card card-default">
+                    <div class="card-body">    
                         <table id="user-table" class="table table-bordered table-striped">
                             <colgroup>
                                 <col style="width:5%;">
                                 <col style="width:20%;">
-                                <col style="width:30%;">
                                 <col style="width:10%;">
-                                <col style="width:20%;">
+                                <col style="width:10%;">
+                                <col style="width:30%;">
+                                <col style="width:10%;">                                
                                 <col style="width:10%;">
                                 <col style="width:5%;">
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
                                     <th>{{ __('user_id') }}</th>
+                                    <th>{{ __('name') }}</th>
                                     <th>{{ __('user_name') }}</th>
-                                    <th>{{ __('address') }}</th>
                                     <th>{{ __('tel') }}</th>
+                                    <th>{{ __('address') }}</th>                                    
                                     <th>{{ __('center_name') }}</th>
                                     <th>{{ __('user_role') }}</th>
                                     <th>{{ __('enable') }}/{{ __('disable') }}</th>
@@ -77,8 +51,9 @@
                                         <td style="text-align: center">{{ $user->user_id }}</td>
                                         <td><a href="{{ route('user.show', $user->user_id) }}">{{ $user->name }}</a>
                                         </td>
+                                        <td>{{ $user->user_name }}</td>
+                                        <td style="text-align: center">{{ $user->tel }}</td>
                                         <td>{{ $user->address }}</td>
-                                        <td>{{ $user->tel }}</td>
                                         <td>{{ $user->center_name }}</td>
                                         <td>{{ $user->role_name }}</td>                                        
                                         <td>

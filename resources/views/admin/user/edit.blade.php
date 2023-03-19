@@ -28,11 +28,18 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="name">{{ __('name') }}</label>
+                                    <label for="referral_link">{{ __('referral_link') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="name" name="name" value="{{ $user->name }}"
-                                        class="form-control">
+                                    <div class="input-group mb-3">
+                                        <input type="text" id="referral_link" name="referral_link"
+                                            value="http://127.0.0.1:8000/referral={{ $user->user_name }}"
+                                            class="form-control" disabled>
+                                        <div class="input-group-append">
+                                            <a onclick="copyText()" class="btn btn-info"><i class="fas fa-copy"></i>
+                                                Copy</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -44,6 +51,16 @@
                                         class="form-control" disabled>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    <label for="name">{{ __('name') }}</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" id="name" name="name" value="{{ $user->name }}"
+                                        class="form-control">
+                                </div>
+                            </div>
+
                             <div class="form-group row">
                                 <div class="col-sm-3">
                                     <label for="address">{{ __('address') }}</label>
@@ -102,9 +119,7 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">
-                            <button type="button" class="btn btn-danger text-white w-100 text-nowrap m-1"
-                                data-toggle="modal" data-target="#reset-pass">{{ __('changePassword') }}</button>
+                        <div class="card-footer d-flex justify-content-center">                            
                             <button type="submit"
                                 class="btn btn-warning w-100 text-nowrap m-1">{{ __('update') }}</button>
                             <button onclick="javascript:history.back()"
@@ -116,50 +131,7 @@
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
-    {{-- Cấp lại mật mã --}}
-    <form action="{{ route('user.resetpass', $user->user_id) }}" method="post" id="form-resetpass">
-        @csrf
-        <div class="modal fade" id="reset-pass">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">{{ __('changePassword') }}</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group row">
-                            <div class="col-4">
-                                <label for="password" class="col-form-label">{{ __('newPassword') }}</label>
-                            </div>
-                            <div class="col-8">
-                                <input type="password" id="password" name="password" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-4">
-                                <label for="confirmPassword" class="col-form-label">{{ __('confirmPassword') }}</label>
-                            </div>
-                            <div class="col-8">
-                                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">
-                            </div>
-                        </div>
-                        <input type="hidden" id="user_id" name="user_id" value="{{ $user->user_id }}">
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn bg-olive text-white text-nowrap"
-                            data-dismiss="modal">{{ __('close') }}</button>
-                        <button type="submit" class="btn bg-olive text-white text-nowrap">{{ __('update') }}</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
-    </form>
+    <!-- /.container-fluid -->    
 @stop
 
 @section('js')
@@ -240,5 +212,22 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function copyText() {
+            // Get the text field
+            var copyText = document.getElementById("referral_link");
+
+            // Select the text field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+
+            // Alert the copied text
+            alert("Đã copy link giới thiệu: " + copyText.value);
+        }
     </script>
 @stop

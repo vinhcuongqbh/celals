@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('user_referrals', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('user_referral_id');
+            $table->string('user_id')->nullable();
             $table->string('parent_name')->nullable();
             $table->string('child_age')->nullable();
             $table->string('email')->nullable();
             $table->string('tel');
-            $table->string('center_id');
+            $table->string('center_id')->nullable();
+            $table->boolean('ref_status_id')->default(1);
             $table->timestamps();
         });
     }

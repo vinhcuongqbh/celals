@@ -30,20 +30,20 @@ class CenterSeeder extends Seeder
                 'center_address' => 'Thị trấn Hoàn Lão - Huyện Bố Trạch - Tỉnh Quảng Bình',
                 'created_at' => Carbon::now(),
             ],
-            [
-                'center_id' => 3,
-                'center_name' => 'Trung tâm Ba Đồn',
-                'center_tel' => '0232 3826103',
-                'center_address' => 'Thị xã Ba Đồn - Tỉnh Quảng Bình',
-                'created_at' => Carbon::now(),
-            ],
-            [
-                'center_id' => 4,
-                'center_name' => 'Trung tâm Lệ Thủy',
-                'center_tel' => '0232 3823995',
-                'center_address' => 'Thị trấn Kiến Giang - Huyện Lệ Thủy - Tỉnh Quảng Bình',
-                'created_at' => Carbon::now(),
-            ],
+            // [
+            //     'center_id' => 3,
+            //     'center_name' => 'Trung tâm Ba Đồn',
+            //     'center_tel' => '0232 3826103',
+            //     'center_address' => 'Thị xã Ba Đồn - Tỉnh Quảng Bình',
+            //     'created_at' => Carbon::now(),
+            // ],
+            // [
+            //     'center_id' => 4,
+            //     'center_name' => 'Trung tâm Lệ Thủy',
+            //     'center_tel' => '0232 3823995',
+            //     'center_address' => 'Thị trấn Kiến Giang - Huyện Lệ Thủy - Tỉnh Quảng Bình',
+            //     'created_at' => Carbon::now(),
+            // ],
         ];
 
         Center::insert($center);

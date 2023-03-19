@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('heading')
-    {{ __('Dash Board') }}
+    {{ __('dash_board') }}
 @stop
 
 @section('content')

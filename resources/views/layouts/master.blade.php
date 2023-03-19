@@ -69,21 +69,38 @@
                         <li class="nav-item">
                             <a href="/admin" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>{{ __('Dashboard') }}</p>
+                                <p>{{ __('dash_board') }}</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/user" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>{{ __('User Management') }}</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/referral" class="nav-link">
+                        @if (Auth::user()->role_id == 1)
+                            <li class="nav-item">
+                                <a href="/admin/user" class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>{{ __('user_management') }}</p>
+                                </a>
+                            </li>
+                        @endif
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
-                                <p>{{ __('Referral') }}</p>
+                                <p>{{ __('referral_management') }}</p>
+                                <i class="fas fa-angle-left right"></i>
                             </a>
-                        </li>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/referral/customer" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>{{ __('customer') }}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/referral/referrer" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>{{ __('referrer') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>                       
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
