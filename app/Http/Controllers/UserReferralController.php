@@ -128,7 +128,7 @@ class UserReferralController extends Controller
 
     public function register(Request $request)
     {
-        $user = User::where('user_name', Cookie::get('referral'))->first();
+        $user = User::where('user_id', Cookie::get('referral'))->first();
 
         $userRef = new UserReferral();
         if (isset($user)) $userRef->user_id = $user->user_id;

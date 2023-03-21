@@ -17,8 +17,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
@@ -42,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse">
                     <!-- Left navbar links -->
-                    <ul class="navbar-nav">                       
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <label><a href="/gioi-thieu" class="nav-link text-nowrap" style="color:#03396c ">GIỚI
                                     THIỆU</a></label>
@@ -57,11 +55,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     HỌC</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/dang-ky-hoc-thu" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG KÝ
+                            <label><a href="/dang-ky-hoc-thu" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG
+                                    KÝ
                                     HỌC THỬ</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ SỞ ĐÀO
+                            <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ SỞ
+                                    ĐÀO
                                     TẠO</a></label>
                         </li>
                         <li class="nav-item">
@@ -116,32 +116,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="col-12 col-sm-4">
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>
-                    <a href="https://www.facebook.com/celals.cshv" target="_blank"><img src="/img/fb_logo.png" alt="" style="width:8%"></a><br>                    
+                    <a href="https://www.facebook.com/celals.cshv" target="_blank"><i
+                            class="fa-brands fa-square-facebook fa-beat fa-xl" style="color: #03396c;"></i></a><br>
                 </div>
             </div>
-            {{-- <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved. --}}
         </footer>
     </div>
     <!-- ./wrapper -->
 
-
-
-
-
     <!-- REQUIRED SCRIPTS -->
-
     <!-- jQuery -->
     <script src="/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/2bc23cb792.js" crossorigin="anonymous"></script>
 
     @yield('css')
     @yield('js')

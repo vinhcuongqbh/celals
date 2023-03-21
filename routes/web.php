@@ -55,7 +55,7 @@ Route::get('/login', function () {
     return redirect()->route('login');
 });
 
-Route::get('/referral={id}', [UserReferralController::class, 'setReferral'])->name('referral.setReferral');
+Route::get('/ref={id}', [UserReferralController::class, 'setReferral'])->name('referral.setReferral');
 Route::post('/referral/register', [UserReferralController::class, 'register'])->name('referral.register');
 
 Route::prefix('admin')->middleware('auth')->group(function () {

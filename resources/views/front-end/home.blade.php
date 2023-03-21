@@ -10,20 +10,29 @@
                 <li data-target="#gioi-thieu" data-slide-to="0" class="active"></li>
                 <li data-target="#gioi-thieu" data-slide-to="1"></li>
                 <li data-target="#gioi-thieu" data-slide-to="2"></li>
+                <li data-target="#gioi-thieu" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="/img/slide1.png" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
-                        <h1 style="color: #03396c ">Trung tâm Anh ngữ CELALS</h1>
-                        <p style="color: #03396c ">Địa chỉ uy tín hàng đầu</p>
+                        <h1 style="color: #03396c ">TRUNG TÂM ANH NGỮ CELALS - IELTS 9.0</h1>
+                        <p style="color: #03396c ">BẢN QUYỀN TỪ IELTS NINER - TOP 1 PHILIPPINES</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="/img/slide2.png" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="/img/slide3.png" alt="Third slide">
+                    <a href="/du-hoc"><img class="d-block w-100" src="/img/slide3.png" alt="Third slide"></a>
+                    <div class="carousel-caption d-none d-md-block" style="text-align:right">
+                        <a class="btn" style="background-color: #03396c; color:white" href="/du-hoc">
+                            Tìm hiểu thêm
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="/img/slide4.png" alt="Fourth slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#gioi-thieu" role="button" data-slide="prev">
@@ -42,16 +51,16 @@
                 <h3>CELALS - IELTS 9.0 <br>TỰ HÀO</h3>
             </div>
             <div class="col-12 col-sm-3" style="text-align:center">
-                <img src="/img/tuhao1.png" alt="" style="width: 20%; height: 5vw; object-fit: cover;">
+                <img src="/img/tuhao1.png" alt="" style="height: 80px !important; object-fit: cover;">
                 <h6>Hơn 50 giải thưởng từ BC, IDP</h6>
             </div>
             <div class="col-12 col-sm-3" style="text-align:center">
-                <img src="/img/tuhao2.png" alt="" style="width: 25%; height: 5vw; object-fit: cover;">
+                <img src="/img/tuhao2.png" alt="" style="height: 80px !important; object-fit: cover;">
                 <h6>Được bình chọn là đơn vị đào tạo IELTS hàng đầu Philippines, cũng như châu Á
                 </h6>
             </div>
             <div class="col-12 col-sm-3" style="text-align:center">
-                <img src="/img/tuhao3.png" alt="" style="width: 60%; height: 5vw; object-fit: cover;">
+                <img src="/img/tuhao3.png" alt="" style="height: 80px !important; object-fit: cover;">
                 <h6>Hàng nghìn học viên đạt điểm 6.5+</h6>
             </div>
         </div>
@@ -66,7 +75,7 @@
         {{-- Các khóa học --}}
         <div id="khoa-hoc" class="row" style="padding: 50px 10px 10px 10px; background-color: #03396c">
             <div class="col-12" style="color:white; text-align:center; padding-bottom: 20px">
-                <h3>CÁC KHÓA HỌC TẠI CELALS - IELTS 9.0</h3>
+                <h3>CÁC KHÓA HỌC TẠI CELALS - IELTS 9.0 (Trực tuyến - Trực tiếp kết nối song song)</h3>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
@@ -74,11 +83,11 @@
                         <b style="color: #03396c">Chương trình Beginner</b>
                     </div>
                     <img class="card-img-top" src="/img/khoahoc1.png" alt="Card image cap"
-                        style="width: 100%; height: 15vw; object-fit: cover;">
+                        style="width: 100%; height: 200px!important; object-fit: cover;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Đầu ra: Cam kết đầu ra >= 4.0+</li>
                         <li class="list-group-item">Đầu vào: Các bạn chưa có hoặc thiếu kiến thức cơ bản</li>
-                        <li class="list-group-item">Thời gian: 03 tháng - 12 tháng</li>                        
+                        <li class="list-group-item">Thời gian: 03 tháng - 12 tháng</li>
                     </ul>
                     <div class="card-body">
                         <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
@@ -91,7 +100,7 @@
                         <b style="color: #03396c">Chương trình IELTS 9.0</b>
                     </div>
                     <img class="card-img-top" src="/img/khoahoc2.png" alt="Card image cap"
-                        style="width: 100%; height: 15vw; object-fit: cover;">
+                        style="width: 100%; height: 200px!important; object-fit: cover;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Đầu ra: Cam kết đầu ra >= 6.5+</li>
                         <li class="list-group-item">Đầu vào: Các bạn đã có kiến thức cơ bản, điểm IELTS từ 4.0-9.0</li>
@@ -108,7 +117,7 @@
                         <b style="color: #03396c">Chương trình Cấp tốc 3 tháng</b>
                     </div>
                     <img class="card-img-top" src="/img/khoahoc3.png" alt="Card image cap"
-                        style="width: 100%; height: 15vw; object-fit: cover;">
+                        style="width: 100%; height: 200px!important; object-fit: cover;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Đầu ra: Tăng 1.5 - 3 band điểm</li>
                         <li class="list-group-item">Đầu vào: Đối với các bạn cần luyện thi cấp tốc đã có căn bản</li>
@@ -125,7 +134,7 @@
                         <b style="color: #03396c">Chương trình Summer Camp</b>
                     </div>
                     <img class="card-img-top" src="/img/khoahoc4.png" alt="Card image cap"
-                        style="width: 100%; height: 15vw; object-fit: cover;">
+                        style="width: 100%; height: 200px!important; object-fit: cover;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Đầu ra: Tăng 1.5 - 3 band điểm</li>
                         <li class="list-group-item">Đầu vào: Học IELTS trong các trại hè đạt chuẩn từ các trường đại học
@@ -142,56 +151,60 @@
         {{-- Cảm nghĩ học viên --}}
         <div id="cam-nghi-hoc-vien" class="row" style="padding: 50px 10px; background-color: #ffffff;">
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px">
-                <h3>CÁC HỌC VIÊN NGHĨ GÌ VỀ CELALS - ILETS 9.0</h3>
+                <h3>CÁC HỌC VIÊN NGHĨ GÌ VỀ CHƯƠNG TRÌNH CELALS - ILETS 9.0</h3>
             </div>
             <div class="col-12 col-sm-4">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
-                        <b style="color: #03396c">Bạn Trần Hương Giang (Chuyên Amsterdam) - Đầu ra 7.0</b>
+                        <b style="color: #03396c">Bạn Vũ Cường Thịnh</b>
                     </div>
-                    <iframe style="width: 100%; height: 17vw; object-fit: cover;"
-                        src="https://www.youtube.com/embed/3M9qGy6xk_s" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <img class="card-img-top" src="/img/camnghi1.png" alt="Card image cap"
+                        style="width: 100%; object-fit: cover;">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Với bản tính hay ngại và xấu hổ của mình thì mình chỉ muốn học 1 thầy
-                            và 1 trò thôi…Vì là học ở nhà nên rất tiện, mình có thể học vào những khoảng thời gian mà bạn
-                            rảnh. Và vì muốn học cấp tốc nên mình 1 tuần 5 buổi luôn, đây là điều mà khó có trung tâm nào có
-                            thể dạy các bạn được”</li>
+                        <li class="list-group-item">Thành tích: Đạt IELTS 8.0 sau 2 tháng</li>
+                        <li class="list-group-item">Với bản tính hay ngại và xấu hổ của mình thì mình chỉ muốn học 1
+                            thầy
+                            và 1 trò thôi…Vì là học ở nhà nên rất tiện, mình có thể học vào những khoảng thời gian mà
+                            bạn
+                            rảnh. Và vì muốn học cấp tốc nên mình 1 tuần 5 buổi luôn, đây là điều mà khó có trung tâm
+                            nào có
+                            thể dạy các bạn được</li>
                     </ul>
                 </div>
             </div>
             <div class="col-12 col-sm-4">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
-                        <b style="color: #03396c">Bạn Trần Việt Tùng - Đầu ra 8.0 (Sau 2.5 tháng)</b>
+                        <b style="color: #03396c">Bạn Nguyễn Văn Hiếu</b>
                     </div>
-                    <iframe style="width: 100%; height: 17vw; object-fit: cover;"
-                        src="https://www.youtube.com/embed/YrZUu_pycMg" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <img class="card-img-top" src="/img/camnghi2.png" alt="Card image cap"
+                        style="width: 100%; object-fit: cover;">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Mình rất may mắn khi được tham dự lớp tiếng anh do
-                            CELALS tổ chức, đây thật sự là môi trường rất tốt để mình được trải
-                            nghiệm tiếng anh tại đây<br><br><br></li>
+                        <li class="list-group-item">Thành tích: 03 tháng tăng 3 điểm IELTS</li>
+                        <li class="list-group-item">Với kết quả này em đủ điều kiện để đi du học và em dự kiến học
+                            trong
+                            vòng 1 tháng tới. Đến với IELTS 9.0 là chương trình không giới hạn về thời gian học, bạn có
+                            thể
+                            học từ 8:00 sáng đến 21h tối. Như các trung tâm khác bị giới hạn bới tiết học. Nhưng đến với
+                            IELTS 9.0 giờ học không bị giới hạn và bạn có thể sắp xếp thời gian học bất cứ lúc nào thời
+                            thời
+                            gian biểu của bạn. Đối với em, thì em dành hầu hết thời gian học ở trung tâm bất cứ khi nào
+                            em
+                            rảnh và em đã đạt kết quả như mong muốn</li>
                     </ul>
                 </div>
             </div>
             <div class="col-12 col-sm-4">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
-                        <b style="color: #03396c">Bạn Vũ Cường Thịnh - Đầu vào 8.0</b>
+                        <b style="color: #03396c">Bạn Trương Việt Tùng</b>
                     </div>
-                    <iframe style="width: 100%; height: 17vw; object-fit: cover;"
-                        src="https://www.youtube.com/embed/sR8JkMlNz40" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <img class="card-img-top" src="/img/camnghi3.png" alt="Card image cap"
+                        style="width: 100%; object-fit: cover;">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Mình xin cảm ơn CELALS tạo ra lớp học Tiếng Anh rất bổ
-                            ích và thú vị. Lớp học dành cho tất cả các bạn tham gia, không phân biệt độ tuổi. Chúc cho
-                            lớp học ngày mở rộng quy mô và được nhiều các bạn thanh niên, sinh viên biết đến và tham dự.
-                            <br>
-                        </li>
+                        <li class="list-group-item">Thành tích: Đạt IELTS 8.0 sau 2.5 tháng</li>
+                        <li class="list-group-item">Em đã đi du học Canada sau 2.5 tháng học tại IELTS 9.0. Có lẽ em ấn
+                            tượng nhất với mô hình Coaching 1:1, giúp em tăng band điểm rất nhanh</li>
                     </ul>
                 </div>
             </div>

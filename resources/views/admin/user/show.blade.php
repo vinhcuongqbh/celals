@@ -22,7 +22,7 @@
                             <div class="col-sm-9">
                                 <div class="input-group mb-3">
                                     <input type="text" id="referral_link" name="referral_link"
-                                        value="http://127.0.0.1:8000/referral={{ $user->user_name }}" class="form-control"
+                                        value="http://127.0.0.1:8000/ref={{ $user->user_id }}" class="form-control"
                                         disabled>
                                     <div class="input-group-append">
                                         <a onclick="copyText()" class="btn btn-info"><i class="fas fa-copy"></i> Copy</a>
