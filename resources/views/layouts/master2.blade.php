@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="robots" content="noindex, nofollow">
     <meta name="robots" content="noimageindex">
     <title>CELALS</title>
+    <link rel="icon" href="img/IELTS.png">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -117,7 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-12 col-sm-4">
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>
                     <a href="https://www.facebook.com/celals.cshv" target="_blank"><i
-                            class="fa-brands fa-square-facebook fa-beat fa-xl" style="color: #03396c;"></i></a><br>
+                            class="fa-brands fa-square-facebook fa-beat fa-xl" style="color: #03396c; margin-bottom:20px"></i></a><br>
                 </div>
             </div>
         </footer>
