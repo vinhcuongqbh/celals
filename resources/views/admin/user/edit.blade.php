@@ -33,8 +33,8 @@
                                 <div class="col-sm-9">
                                     <div class="input-group mb-3">
                                         <input type="text" id="referral_link" name="referral_link"
-                                            value="http://vinhcuong2023.xyz/ref={{ $user->user_id }}"
-                                            class="form-control" disabled>
+                                            value="http://vinhcuong2023.xyz/ref={{ $user->user_id }}" class="form-control"
+                                            disabled>
                                         <div class="input-group-append">
                                             <a onclick="copyText()" class="btn btn-info"><i class="fas fa-copy"></i>
                                                 Copy</a>
@@ -119,11 +119,11 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">                            
+                        <div class="card-footer d-flex justify-content-center">
                             <button type="submit"
-                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('update') }}</button>
-                            <button onclick="javascript:history.back()"
-                                class="btn bg-olive text-white w-100 text-nowrap m-1">{{ __('back') }}</button>
+                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('update') }}</button>                            
+                            <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                href="{{ route('user.show', $user->user_id) }}">{{ __('back') }}</a>
                         </div>
                     </form>
                 </div>
@@ -131,7 +131,7 @@
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->    
+    <!-- /.container-fluid -->
 @stop
 
 @section('js')
