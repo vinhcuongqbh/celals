@@ -72,7 +72,7 @@
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px">
                 <h3>ĐIỂM KHÁC BIỆT TẠI CELALS - IELTS 9.0</h3>
             </div>
-            <div id="khac-biet" class="carousel slide col-12 col-sm-10" data-interval="false">
+            <div id="khac-biet" class="carousel slide col-12 col-sm-10" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#khac-biet" data-slide-to="0" class="active"></li>
                     <li data-target="#khac-biet" data-slide-to="1"></li>
@@ -379,17 +379,17 @@
                     <div class="carousel-item active" style="text-align: center;">
                         <h5 style="color:white;">Trại hè tiếng anh</h5>
                         <img class="d-block w-100" src="/img/hoatdong1.png" alt="First slide"
-                            style="border-radius: 7px;">
+                            style="border-radius: 7px; border: 2px solid white">
                     </div>
                     <div class="carousel-item" style="text-align: center;">
                         <h5 style="color:white;">Trại hè tiếng anh</h5>
                         <img class="d-block w-100" src="/img/hoatdong2.png" alt="First slide"
-                            style="border-radius: 7px;">
+                            style="border-radius: 7px; border: 2px solid white">
                     </div>
                     <div class="carousel-item" style="text-align: center;">
                         <h5 style="color:white;">Thi thử hàng tuần</h5>
                         <img class="d-block w-100" src="/img/hoatdong3.png" alt="First slide"
-                            style="border-radius: 7px;">
+                            style="border-radius: 7px; border: 2px solid white">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#slide-hoat-dong" role="button" data-slide="prev">
@@ -411,80 +411,9 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
-
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
-
-        .swiper {
-            width: 100%;
-            height: 100%;
-            background: #000;
-        }
-
-        .swiper-slide {
-            font-size: 18px;
-            color: #fff;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            padding: 40px 60px;
-        }
-
-        .parallax-bg {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 130%;
-            height: 100%;
-            -webkit-background-size: cover;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .swiper-slide .title {
-            font-size: 41px;
-            font-weight: 300;
-        }
-
-        .swiper-slide .subtitle {
-            font-size: 21px;
-        }
-
-        .swiper-slide .text {
-            font-size: 14px;
-            max-width: 400px;
-            line-height: 1.3;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />  
 @stop
 
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            speed: 600,
-            parallax: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-    </script>
-@stop
+    @stop

@@ -23,13 +23,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
 </head>
 
+
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white">
             <div class="container">
                 <a href="/" class="navbar-brand">
-                    <img src="/img/logo2.png" alt="Celals" style="width: 100%; object-fit: cover;">
+                    <img src="/img/logo2.png" alt="Celals" style="width: 250px">
                     <span class="brand-text font-weight-light"></span>
                 </a>
 
@@ -39,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+                <div class="collapse navbar-collapse order-3" id="navbarCollapse"">
                     <!-- Left navbar links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -73,18 +74,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <label><a href="/tin-tuc" class="nav-link text-nowrap" style="color:#03396c ">TIN TỨC & SỰ
                                     KIỆN</a></label>
                         </li>
-                        {{-- <li class="nav-item dropdown">
-                            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false" class="nav-link dropdown-toggle">{{ __('language') }}</a>
-                            <div class="dropdown-menu dropdown-menu-sm-left dropdown-menu-right">
-                                <a href="/language/en" class="dropdown-item text-center">{{ __('english') }}</a>
-                                <a href="/language/jp" class="dropdown-item text-center">{{ __('japanese') }}</a>
-                            </div>
-                        </li> --}}
-                        {{-- <li class="nav-item">
-                            <a class="btn bg-olive text-white w-100 text-nowrap m-1"
-                            href="#">Đăng nhập</a>
-                        </li> --}}
+                        <li class="nav-item">
+                            <a class="btn text-white text-nowrap" style="background-color:#03396c" href="/login">Đăng
+                                nhập</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -118,7 +111,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-12 col-sm-4">
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>
                     <a href="https://www.facebook.com/celals.cshv" target="_blank"><i
-                            class="fa-brands fa-square-facebook fa-beat fa-xl" style="color: #03396c; margin-bottom:20px"></i></a><br>
+                            class="fa-brands fa-square-facebook fa-beat fa-xl"
+                            style="color: #03396c; margin-bottom:20px"></i></a><br>
                 </div>
             </div>
         </footer>
