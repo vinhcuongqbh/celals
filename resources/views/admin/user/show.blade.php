@@ -100,8 +100,9 @@
                             data-target="#reset-pass">{{ __('changePassword') }}</button>
                         <a class="btn btn-warning w-100 text-nowrap m-1"
                             href="{{ route('user.edit', $user->user_id) }}">{{ __('edit') }}</a>
+                            
                         <a class="btn bg-olive text-white w-100 text-nowrap m-1"
-                            href="javascript:history.back()">{{ __('back') }}</a>
+                            href="{{ route('user') }}">{{ __('back') }}</a>
                     </div>
                 </div>
                 <!-- /.card -->
