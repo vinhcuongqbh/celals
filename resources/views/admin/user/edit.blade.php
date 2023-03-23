@@ -12,7 +12,7 @@
             <div class="col-xl-6">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('user_informantion') }}</h3>
+                        <h3 class="card-title text-bold">{{ __('user_information') }}</h3>
                     </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -33,7 +33,7 @@
                                 <div class="col-sm-9">
                                     <div class="input-group mb-3">
                                         <input type="text" id="referral_link" name="referral_link"
-                                            value="http://127.0.0.1:8000/ref={{ $user->user_id }}"
+                                            value="http://vinhcuong2023.xyz/ref={{ $user->user_id }}"
                                             class="form-control" disabled>
                                         <div class="input-group-append">
                                             <a onclick="copyText()" class="btn btn-info"><i class="fas fa-copy"></i>
