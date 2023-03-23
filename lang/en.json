@@ -37,5 +37,7 @@
     "registed_customer": "Số người để lại thông tin",
     "accepted_customer": "Số người đã đăng ký học",
     "accepted_ratio": "Tỉ lệ đăng ký thành công",
-    "no": "STT"
+    "no": "STT",
+    "enterContent": "Vui lòng nhập nội dung",
+    "selectContent": "Vui lòng chọn nội dung"
 }
