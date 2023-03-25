@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('user_referrals', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
-            $table->string('parent_name')->nullable();
-            $table->string('child_age')->nullable();
-            $table->string('email')->nullable();
-            $table->string('tel');
-            $table->string('center_id')->nullable();
+            $table->tinyInteger('advise_type_id');
+            $table->string('student_name');
+            $table->string('student_age')->nullable();
+            $table->string('student_email')->nullable();
+            $table->string('student_tel');
+            $table->string('student_school')->nullable();
             $table->boolean('ref_status_id')->default(1);
             $table->timestamps();
         });

@@ -35,7 +35,7 @@ Route::get('/khoa-hoc', function () {
 });
 
 Route::get('/dang-ky-hoc-thu', function () {
-    return view('front-end.dang-ky-hoc-thu', ['centers' => (new CenterController)->centerQuery()]);
+    return view('front-end.dang-ky', ['centers' => (new CenterController)->centerQuery()]);
 });
 
 Route::get('/co-so-dao-tao', function () {
@@ -44,6 +44,10 @@ Route::get('/co-so-dao-tao', function () {
 
 Route::get('/du-hoc', function () {
     return view('front-end.du-hoc');
+});
+
+Route::get('/su-kien', function () {
+    return view('front-end.su-kien');
 });
 
 Route::get('/tin-tuc', function () {

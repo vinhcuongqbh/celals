@@ -28,47 +28,57 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="parent_name">{{ __('parent_name') }}</label>
+                                    <label for="advise_type_id">{{ __('advise_type_name') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="parent_name" name="parent_name"
-                                        value="{{ $userRef->parent_name }}" class="form-control" disabled>
+                                    <input type="text" id="advise_type_id" name="advise_type_id"
+                                        value="@if ($userRef->advise_type_id == 0) {{'Đăng ký học thử và Thi thử miễn phí'}}
+                                            @else {{'Tư vấn du học'}} @endif" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="tel">{{ __('tel') }}</label>
+                                    <label for="student_name">{{ __('name') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="tel" name="tel" value="{{ $userRef->tel }}"
-                                        class="form-control" disabled>
+                                    <input type="text" id="student_name" name="student_name"
+                                        value="{{ $userRef->student_name }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="email">{{ __('email') }}</label>
+                                    <label for="student_tel">{{ __('tel') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="email" name="email" value="{{ $userRef->email }}"
-                                        class="form-control" disabled>
+                                    <input type="text" id="student_tel" name="student_tel"
+                                        value="{{ $userRef->student_tel }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="child_age">{{ __('child_age') }}</label>
+                                    <label for="student_email">{{ __('email') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="child_age" name="child_age" value="{{ $userRef->child_age }}"
-                                        class="form-control" disabled>
+                                    <input type="text" id="student_email" name="student_email"
+                                        value="{{ $userRef->student_email }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="center_name">{{ __('center_name') }}</label>
+                                    <label for="student_age">{{ __('age') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="center_name" name="center_name"
-                                        value="{{ $userRef->center_name }}" class="form-control" disabled>
+                                    <input type="text" id="student_age" name="student_age"
+                                        value="{{ $userRef->student_age }}" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    <label for="student_school">{{ __('school') }}</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" id="student_school" name="student_school"
+                                        value="{{ $userRef->student_school }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="form-group row">

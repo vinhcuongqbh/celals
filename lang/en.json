@@ -30,7 +30,8 @@
     "date_end": "Đến ngày",
     "search": "Tìm kiếm",
     "parent_name": "Họ tên bố mẹ",
-    "child_age": "Độ tuổi của bé",
+    "age": "Độ tuổi",
+    "school": "Trường",
     "ref_name": "Tên người giới thiệu",
     "ref_status_name": "Trạng thái xử lý",
     "user_referral": "Thông tin Giới thiệu",
@@ -39,5 +40,6 @@
     "accepted_ratio": "Tỉ lệ đăng ký thành công",
     "no": "STT",
     "enterContent": "Vui lòng nhập nội dung",
-    "selectContent": "Vui lòng chọn nội dung"
+    "selectContent": "Vui lòng chọn nội dung",
+    "advise_type_name": "Loại hình Tư vấn"
 }

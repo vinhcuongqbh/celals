@@ -58,21 +58,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                         <li class="nav-item">
                             <label><a href="/dang-ky-hoc-thu" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG
-                                    KÝ
-                                    HỌC THỬ</a></label>
+                                    KÝ</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ SỞ
-                                    ĐÀO
-                                    TẠO</a></label>
+                            <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ SỞ</a></label>
                         </li>
                         <li class="nav-item">
                             <label><a href="/du-hoc" class="nav-link text-nowrap" style="color:#03396c ">DU
                                     HỌC</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/tin-tuc" class="nav-link text-nowrap" style="color:#03396c ">TIN TỨC & SỰ
-                                    KIỆN</a></label>
+                            <label><a href="/su-kien" class="nav-link text-nowrap" style="color:#03396c ">SỰ KIỆN NỔI BẬT</a></label>
+                        </li>
+                        <li class="nav-item">
+                            <label><a href="/tin-tuc" class="nav-link text-nowrap" style="color:#03396c ">TIN TỨC</a></label>
                         </li>
                         <li class="nav-item">
                             <a class="btn text-white text-nowrap" style="background-color:#03396c" href="/login">Đăng
@@ -93,20 +92,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <footer class="main-footer" style="color: #03396c">
             <div class="row">
                 <div class="col-12 col-sm-4" style="margin-bottom:30px">
-                    <b style="color:#d30404">TRỤ SỞ CHÍNH</b><br>
+                    <b style="color:#d30404">CƠ SỞ 1</b><br>
                     Số 35 Ngô Quyền, P. Đồng Phú, Đồng Hới, Quảng Bình.<br>
                     <br>
-                    <b>CHI NHÁNH BỐ TRẠCH</b><br>
+                    <b>CƠ SỞ 2</b><br>
                     Số 04 Lê Đại Hành, Tiểu khu 3, TT. Hoàn Lão, Quảng Bình.<br>
                     <br>
-                    <b>Hotline:</b> 0888108855 / 0918920106
+                    <b>Hotline:</b> 090.171.4555
                 </div>
                 <div class="col-12 col-sm-4" style="margin-bottom:30px">
                     <b style="color:#d30404">KHÓA HỌC</b><br>
                     <a href="/khoa-hoc">Chương trình Beginner</a><br>
                     <a href="/khoa-hoc">Chương trình IELTS 9.0</a><br>
                     <a href="/khoa-hoc">Chương trình cấp tốc 3 tháng</a><br>
-                    <a href="/khoa-hoc">Chương trình Summer Camp</a>
+                    <a href="/khoa-hoc">Chương trình Trại hè Tiếng Anh</a>
                 </div>
                 <div class="col-12 col-sm-4">
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>

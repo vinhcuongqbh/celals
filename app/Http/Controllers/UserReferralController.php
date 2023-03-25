@@ -31,8 +31,7 @@ class UserReferralController extends Controller
             $userRefs = UserReferral::whereBetween('user_referrals.created_at', [$date_start, $date_end])
                 ->leftjoin('users', 'users.user_id', 'user_referrals.user_id')
                 ->leftjoin('referral_statuses', 'referral_statuses.ref_status_id', 'user_referrals.ref_status_id')
-                ->leftjoin('centers', 'centers.center_id', 'user_referrals.center_id')
-                ->select('user_referrals.*', 'users.name', 'referral_statuses.ref_status_name', 'centers.center_name')
+                ->select('user_referrals.*', 'users.name', 'referral_statuses.ref_status_name')
                 ->orderby('ref_status_id', 'asc')
                 ->orderby('created_at', 'desc')
                 ->get();
@@ -41,8 +40,7 @@ class UserReferralController extends Controller
                 ->where('user_referrals.user_id', Auth::user()->user_id)
                 ->leftjoin('users', 'users.user_id', 'user_referrals.user_id')
                 ->leftjoin('referral_statuses', 'referral_statuses.ref_status_id', 'user_referrals.ref_status_id')
-                ->leftjoin('centers', 'centers.center_id', 'user_referrals.center_id')
-                ->select('user_referrals.*', 'users.name', 'referral_statuses.ref_status_name', 'centers.center_name')
+                ->select('user_referrals.*', 'users.name', 'referral_statuses.ref_status_name')
                 ->orderby('ref_status_id', 'asc')
                 ->orderby('created_at', 'desc')
                 ->get();
@@ -132,11 +130,12 @@ class UserReferralController extends Controller
 
         $userRef = new UserReferral();
         if (isset($user)) $userRef->user_id = $user->user_id;
-        $userRef->parent_name = $request->parent_name;
-        $userRef->child_age = $request->child_age;
-        $userRef->email = $request->email;
-        $userRef->tel = $request->tel;
-        $userRef->center_id = $request->center_id;
+        $userRef->advise_type_id = $request->advise_type_id;
+        $userRef->student_name = $request->student_name;
+        $userRef->student_age = $request->student_age;
+        $userRef->student_email = $request->student_email;
+        $userRef->student_tel = $request->student_tel;
+        $userRef->student_school = $request->student_school;
         $userRef->ref_status_id = 1;
         $userRef->created_at = Carbon::now();
         $userRef->save();
@@ -148,9 +147,8 @@ class UserReferralController extends Controller
     public function show($id)
     {
         $userRef = UserReferral::where('user_referrals.id', $id)
-            ->leftjoin('centers', 'centers.center_id', 'user_referrals.center_id')
             ->leftjoin('users', 'users.user_id', 'user_referrals.user_id')
-            ->select('user_referrals.*', 'centers.center_name', 'users.name')
+            ->select('user_referrals.*', 'users.name')
             ->first();
 
         $refStatuses = ReferralStatus::all();

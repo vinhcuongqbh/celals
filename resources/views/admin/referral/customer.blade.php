@@ -55,11 +55,12 @@
                             <thead style="text-align: center">
                                 <tr>
                                     <th class="text-nowrap">{{ __('no') }}</th>
-                                    <th class="text-nowrap">{{ __('parent_name') }}</th>
+                                    <th class="text-nowrap">{{ __('advise_type_name') }}</th>
+                                    <th class="text-nowrap">{{ __('name') }}</th>
                                     <th class="text-nowrap">{{ __('tel') }}</th>
                                     <th class="text-nowrap">{{ __('email') }}</th>
-                                    <th class="text-nowrap">{{ __('child_age') }}</th>
-                                    <th class="text-nowrap">{{ __('center_name') }}</th>
+                                    <th class="text-nowrap">{{ __('age') }}</th>
+                                    <th class="text-nowrap">{{ __('school') }}</th>
                                     <th class="text-nowrap">{{ __('ref_name') }}</th>
                                     <th class="text-nowrap">{{ __('ref_status_name') }}</th>
                                 </tr>
@@ -69,13 +70,20 @@
                                 @foreach ($userRefs as $userRef)
                                     <tr>
                                         <td style="text-align: center">{{ $i++ }}</td>
-                                        <td><a
-                                                href="{{ route('referral.show', $userRef->id) }}">{{ $userRef->parent_name }}</a>
+                                        <td style="text-align: center">
+                                            @if ($userRef->advise_type_id == 0)
+                                                {{'Đăng ký học thử và Thi thử miễn phí'}}
+                                            @else
+                                                {{'Tư vấn du học'}}
+                                            @endif
                                         </td>
-                                        <td style="text-align: center">{{ $userRef->tel }}</td>
-                                        <td>{{ $userRef->email }}</td>
-                                        <td style="text-align: center">{{ $userRef->child_age }}</td>
-                                        <td style="text-align: center">{{ $userRef->center_name }}</td>
+                                        <td><a
+                                                href="{{ route('referral.show', $userRef->id) }}">{{ $userRef->student_name }}</a>
+                                        </td>
+                                        <td style="text-align: center">{{ $userRef->student_tel }}</td>
+                                        <td>{{ $userRef->student_email }}</td>
+                                        <td style="text-align: center">{{ $userRef->student_age }}</td>
+                                        <td style="text-align: center">{{ $userRef->student_school }}</td>
                                         <td style="text-align: center">
                                             @if (isset($userRef->user_id))
                                                 <a href="{{ route('user.show', $userRef->user_id) }}">

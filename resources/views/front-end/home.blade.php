@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid">
         {{-- Slideshow --}}
-        <div id="gioi-thieu" class="carousel slide" data-ride="carousel">
+        <div id="gioi-thieu" class="carousel slide" data-ride="carousel" data-interval="3000">
             <ol class="carousel-indicators">
                 <li data-target="#gioi-thieu" data-slide-to="0" class="active"></li>
                 <li data-target="#gioi-thieu" data-slide-to="1"></li>
@@ -283,7 +283,7 @@
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
-                        <b style="color: #03396c">Chương trình Summer Camp</b>
+                        <b style="color: #03396c">Chương trình Trại hè Tiếng Anh</b>
                     </div>
                     <img class="card-img-top" src="/img/khoahoc4.png" alt="Card image cap"
                         style="width: 100%; height: 200px!important; object-fit: cover;">
@@ -304,61 +304,74 @@
         <div id="cam-nghi-hoc-vien" class="row"
             style="padding: 50px 10px; background-color: #ffffff; display: flex; justify-content: center;">
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px;">
-                <h3>CÁC HỌC VIÊN NGHĨ GÌ VỀ CHƯƠNG TRÌNH CELALS - ILETS 9.0</h3>
+                <h3>CÁC HỌC VIÊN NGHĨ GÌ VỀ CHƯƠNG TRÌNH CELALS - IELTS 9.0</h3>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
                         <b style="color: #03396c">Bạn Vũ Cường Thịnh</b>
+                        <br>
+                        <b>Thành tích: Đạt IELTS 8.0 sau 2 tháng</b>
                     </div>
                     <img class="card-img-top" src="/img/camnghi1.png" alt="Card image cap"
                         style="width: 100%; object-fit: cover;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Thành tích: Đạt IELTS 8.0 sau 2 tháng</li>
-                        <li class="list-group-item">Với bản tính hay ngại và xấu hổ của mình thì mình chỉ muốn học 1
-                            thầy
-                            và 1 trò thôi…Vì là học ở nhà nên rất tiện, mình có thể học vào những khoảng thời gian mà
-                            bạn
-                            rảnh. Và vì muốn học cấp tốc nên mình 1 tuần 5 buổi luôn, đây là điều mà khó có trung tâm
-                            nào có
-                            thể dạy các bạn được</li>
-                    </ul>
+                    <a data-toggle="collapse" href="#camnghi1" role="button" aria-expanded="false"
+                        aria-controls="camnghi1">
+                        <li class="list-group-item">Cảm nghĩ của học viên</li>
+                    </a>
+                    <div class="collapse" id="camnghi1">
+                        <div class="card-body" style="text-align: justify;">
+                            Với bản tính hay ngại và xấu hổ của mình thì mình chỉ muốn học 1 thầy và 1 trò thôi…Vì là học ở
+                            nhà nên rất tiện, mình có thể học vào những khoảng thời gian mà bạn rảnh. Và vì muốn học cấp tốc
+                            nên mình 1 tuần 5 buổi luôn, đây là điều mà khó có trung tâm nào có thể dạy các bạn được
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
                         <b style="color: #03396c">Bạn Nguyễn Văn Hiếu</b>
+                        <br>
+                        <b>Thành tích: 03 tháng tăng 3 điểm IELTS</b>
                     </div>
                     <img class="card-img-top" src="/img/camnghi2.png" alt="Card image cap"
                         style="width: 100%; object-fit: cover;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Thành tích: 03 tháng tăng 3 điểm IELTS</li>
-                        <li class="list-group-item">Với kết quả này em đủ điều kiện để đi du học và em dự kiến học
-                            trong
-                            vòng 1 tháng tới. Đến với IELTS 9.0 là chương trình không giới hạn về thời gian học, bạn có
-                            thể
-                            học từ 8:00 sáng đến 21h tối. Như các trung tâm khác bị giới hạn bới tiết học. Nhưng đến với
-                            IELTS 9.0 giờ học không bị giới hạn và bạn có thể sắp xếp thời gian học bất cứ lúc nào thời
-                            thời
-                            gian biểu của bạn. Đối với em, thì em dành hầu hết thời gian học ở trung tâm bất cứ khi nào
-                            em
-                            rảnh và em đã đạt kết quả như mong muốn</li>
-                    </ul>
+                    <a data-toggle="collapse" href="#camnghi2" role="button" aria-expanded="false"
+                        aria-controls="camnghi2">
+                        <li class="list-group-item">Cảm nghĩ của học viên</li>
+                    </a>
+                    <div class="collapse" id="camnghi2">
+                        <div class="card-body" style="text-align: justify;">
+                            Với kết quả này em đủ điều kiện để đi du học và em dự kiến học trong vòng 1 tháng tới. Đến với
+                            IELTS 9.0 là chương trình không giới hạn về thời gian học, bạn có thể học từ 8:00 sáng đến 21h
+                            tối. Như các trung tâm khác bị giới hạn bới tiết học. Nhưng đến với IELTS 9.0 giờ học không bị
+                            giới hạn và bạn có thể sắp xếp thời gian học bất cứ lúc nào thời gian biểu của bạn. Đối với em,
+                            thì em dành hầu hết thời gian học ở trung tâm bất cứ khi nào em rảnh và em đã đạt kết quả như
+                            mong muốn.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
                     <div class="card-header">
                         <b style="color: #03396c">Bạn Trương Việt Tùng</b>
+                        <br>
+                        <b>Thành tích: Đạt IELTS 8.0 sau 2.5 tháng</b>
                     </div>
                     <img class="card-img-top" src="/img/camnghi3.png" alt="Card image cap"
                         style="width: 100%; object-fit: cover;">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Thành tích: Đạt IELTS 8.0 sau 2.5 tháng</li>
-                        <li class="list-group-item">Em đã đi du học Canada sau 2.5 tháng học tại IELTS 9.0. Có lẽ em ấn
-                            tượng nhất với mô hình Coaching 1:1, giúp em tăng band điểm rất nhanh</li>
-                    </ul>
+                    <a data-toggle="collapse" href="#camnghi3" role="button" aria-expanded="false"
+                        aria-controls="camnghi3">
+                        <li class="list-group-item">Cảm nghĩ của học viên</li>
+                    </a>
+                    <div class="collapse" id="camnghi3">
+                        <div class="card-body" style="text-align: justify;">
+                            Em đã đi du học Canada sau 2.5 tháng học tại IELTS 9.0. Có lẽ em ấn
+                            tượng nhất với mô hình Coaching 1:1, giúp em tăng band điểm rất nhanh
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -411,9 +424,9 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 @stop
 
 @section('js')
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    @stop
+@stop
