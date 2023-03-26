@@ -157,10 +157,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             var copyText = document.getElementById("referral_link");
 
             // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText.innerText);
-
-            // Alert the copied text
-            alert("Đã copy link giới thiệu.");
+            navigator.clipboard.writeText(copyText.innerText).then(() => {
+                    alert("Đã copy link giới thiệu.");
+                })
+                .catch(() => {
+                    alert("Copy bị lỗi");
+                });
         }
     </script>
 
