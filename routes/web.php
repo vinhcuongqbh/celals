@@ -34,12 +34,12 @@ Route::get('/khoa-hoc', function () {
     return view('front-end.khoa-hoc');
 });
 
-Route::get('/dang-ky-hoc-thu', function () {
+Route::get('/dang-ky', function () {
     return view('front-end.dang-ky', ['centers' => (new CenterController)->centerQuery()]);
 });
 
 Route::get('/co-so-dao-tao', function () {
-    return view('front-end.gioi-thieu');
+    return view('front-end.co-so-dao-tao');
 });
 
 Route::get('/du-hoc', function () {
@@ -48,6 +48,14 @@ Route::get('/du-hoc', function () {
 
 Route::get('/su-kien', function () {
     return view('front-end.su-kien');
+});
+
+Route::get('/su-kien/1', function () {
+    return view('front-end.su-kien1');
+});
+
+Route::get('/su-kien/2', function () {
+    return view('front-end.su-kien2');
 });
 
 Route::get('/tin-tuc', function () {
@@ -60,6 +68,11 @@ Route::get('/login', function () {
 });
 
 Route::get('/ref={id}', [UserReferralController::class, 'setReferral'])->name('referral.setReferral');
+Route::get('/{any}/ref={id}', [UserReferralController::class, 'setReferral'])->where('any', '.*');
+// Route::get('/ref={id}/{any}', function () {
+//     return redirect()->route('referral.setReferral');
+// })->where('any', '.*');
+
 Route::post('/referral/register', [UserReferralController::class, 'register'])->name('referral.register');
 
 Route::prefix('admin')->middleware('auth')->group(function () {

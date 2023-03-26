@@ -31,11 +31,11 @@ class UserRoleSeeder extends Seeder
                 'role_name' => 'Cộng tác viên',
                 'created_at' => Carbon::now(),
             ],
-            [
-                'role_id' => 4,
-                'role_name' => 'Người dùng',
-                'created_at' => Carbon::now(),
-            ]
+            // [
+            //     'role_id' => 4,
+            //     'role_name' => 'Người dùng',
+            //     'created_at' => Carbon::now(),
+            // ]
         ];
 
         UserRole::insert($userRole);

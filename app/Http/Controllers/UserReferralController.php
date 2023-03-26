@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\CenterController;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\ReferralStatus;
 use App\Models\UserReferral;
 use App\Models\User;
@@ -114,13 +114,14 @@ class UserReferralController extends Controller
 
 
 
-    public function setReferral($id)
+    public function setReferral($any, $id)
     {
         Cookie::queue('referral', $id, 7 * 24 * 60);
 
-        $centers = (new CenterController)->centerQuery();
+        $link = substr(url()->current(), 0, strpos(url()->current(), "ref"));
 
-        return view('front-end.home', ['centers' => $centers]);
+
+        return Redirect::to($link);
     }
 
 

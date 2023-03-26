@@ -5,9 +5,7 @@
 @section('content')
     <div class="container-fluid">
         {{-- Điểm khác biệt --}}
-        <div id="diem-khac-biet" class="row"
-            style="padding: 50px 10px; background-color: #ffffff; 
-            display: flex; align-items: center; justify-content: center;">
+        <div id="diem-khac-biet" class="row" style="padding: 50px 10px; display: flex; align-items: center; justify-content: center;">
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px">
                 <h3>ĐIỂM KHÁC BIỆT TẠI CELALS - IELTS 9.0</h3>
             </div>

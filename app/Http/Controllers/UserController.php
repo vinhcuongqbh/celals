@@ -105,7 +105,7 @@ class UserController extends Controller
 
 
     public function update(Request $request, $id)
-    {      
+    {
         //Kiểm tra thông tin đầu vào
         $validated = $request->validate([
             'name' => 'required',

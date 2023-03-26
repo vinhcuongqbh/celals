@@ -57,26 +57,37 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     HỌC</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/dang-ky-hoc-thu" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG
+                            <label><a href="/dang-ky" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG
                                     KÝ</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ SỞ</a></label>
+                            <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ
+                                    SỞ</a></label>
                         </li>
                         <li class="nav-item">
                             <label><a href="/du-hoc" class="nav-link text-nowrap" style="color:#03396c ">DU
                                     HỌC</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/su-kien" class="nav-link text-nowrap" style="color:#03396c ">SỰ KIỆN NỔI BẬT</a></label>
+                            <label><a href="/su-kien" class="nav-link text-nowrap" style="color:#03396c ">SỰ KIỆN NỔI
+                                    BẬT</a></label>
                         </li>
                         <li class="nav-item">
-                            <label><a href="/tin-tuc" class="nav-link text-nowrap" style="color:#03396c ">TIN TỨC</a></label>
+                            <label><a href="/tin-tuc" class="nav-link text-nowrap" style="color:#03396c ">TIN
+                                    TỨC</a></label>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn text-white text-nowrap" style="background-color:#03396c" href="/login">Đăng
-                                nhập</a>
-                        </li>
+                        @if (Auth::check())
+                            <li class="nav-item">
+                                <a class="btn text-white text-nowrap" style="background-color:#03396c"
+                                    href="/admin">{{ Auth::user()->name }}</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="btn text-white text-nowrap" style="background-color:#03396c"
+                                    href="/login">Đăng
+                                    nhập</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -85,6 +96,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
+            @if (Auth::check())
+                @if (Auth::user()->role_id == 3)
+                    <div class="alert m-0 p-2" role="alert"
+                        style="border-radius: 0px; color: white; background-color: #03396c; text-align:center">
+                        Link Cộng tác viên:
+                        <label id="referral_link">
+                            {{ url()->current() . '/ref=' . Auth::user()->user_id }}
+                        </label>
+                        <button type="button" class="btn btn-sm btn-light" onclick="copyText()">Copy</button>
+                    </div>
+                @endif
+            @endif
             @yield('content')
         </div><!-- /.content-wrapper -->
 
@@ -127,6 +150,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/dist/js/adminlte.min.js"></script>
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/2bc23cb792.js" crossorigin="anonymous"></script>
+
+    <script>
+        function copyText() {
+            // Get the text field
+            var copyText = document.getElementById("referral_link");
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.innerText);
+
+            // Alert the copied text
+            alert("Đã copy link giới thiệu.");
+        }
+    </script>
 
     @yield('css')
     @yield('js')
