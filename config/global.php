@@ -1,5 +1,5 @@
 <?php
  
 return [
-    'site_url' => 'http://ielts-cela.vn' 
+    'site_url' => 'http://www.ielts-cela.vn' 
 ];
