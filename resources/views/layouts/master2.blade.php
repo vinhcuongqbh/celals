@@ -154,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         function copyText() {
             // Get the text field
-            var copyText = document.getElementById("referral_link");
+            var copyText = document.getElementById("referral_link");            
 
             // Copy the text inside the text field
             navigator.clipboard.writeText(copyText.innerText).then(() => {

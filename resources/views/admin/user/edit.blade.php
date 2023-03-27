@@ -25,23 +25,7 @@
                     @endif
                     <form action="{{ route('user.update', $user->user_id) }}" method="post" id="form-validate">
                         @csrf
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-sm-3">
-                                    <label for="referral_link">{{ __('referral_link') }}</label>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="input-group mb-3">
-                                        <input type="text" id="referral_link" name="referral_link"
-                                            value="{{config('global.site_url')}}/ref={{ $user->user_id }}" class="form-control"
-                                            disabled>
-                                        <div class="input-group-append">
-                                            <a onclick="copyText()" class="btn btn-info"><i class="fas fa-copy"></i>
-                                                Copy</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body">                            
                             <div class="form-group row">
                                 <div class="col-sm-3">
                                     <label for="user_name">{{ __('user_name') }}</label>
@@ -212,22 +196,5 @@
                 }
             });
         });
-    </script>
-
-    <script>
-        function copyText() {
-            // Get the text field
-            var copyText = document.getElementById("referral_link");
-
-            // Select the text field
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); // For mobile devices
-
-            // Copy the text inside the text field
-            navigator.clipboard.writeText(copyText.value);
-
-            // Alert the copied text
-            alert("Đã copy link giới thiệu: " + copyText.value);
-        }
     </script>
 @stop
