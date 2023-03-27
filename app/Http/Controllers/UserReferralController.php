@@ -111,15 +111,23 @@ class UserReferralController extends Controller
             ]
         );
     }
+   
 
 
-
-    public function setReferral($any, $id)
+    public function setReferral($id)
     {
         Cookie::queue('referral', $id, 7 * 24 * 60);
 
         $link = substr(url()->current(), 0, strpos(url()->current(), "ref"));
 
+        return Redirect::to($link);
+    }
+
+    public function setReferral2($any, $id)
+    {
+        Cookie::queue('referral', $id, 7 * 24 * 60);
+
+        $link = substr(url()->current(), 0, strpos(url()->current(), "ref"));
 
         return Redirect::to($link);
     }
@@ -141,7 +149,7 @@ class UserReferralController extends Controller
         $userRef->created_at = Carbon::now();
         $userRef->save();
 
-        return redirect()->route('home');
+        return redirect()->route('dang-ky')->with('message', 'Chúc mừng Bạn đã đăng ký thành công.');
     }
 
 

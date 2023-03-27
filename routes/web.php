@@ -36,7 +36,7 @@ Route::get('/khoa-hoc', function () {
 
 Route::get('/dang-ky', function () {
     return view('front-end.dang-ky', ['centers' => (new CenterController)->centerQuery()]);
-});
+})->name('dang-ky');
 
 Route::get('/co-so-dao-tao', function () {
     return view('front-end.co-so-dao-tao');
@@ -68,10 +68,7 @@ Route::get('/login', function () {
 });
 
 Route::get('/ref={id}', [UserReferralController::class, 'setReferral'])->name('referral.setReferral');
-Route::get('/{any}/ref={id}', [UserReferralController::class, 'setReferral'])->where('any', '.*');
-// Route::get('/ref={id}/{any}', function () {
-//     return redirect()->route('referral.setReferral');
-// })->where('any', '.*');
+Route::get('{any}/ref={id}', [UserReferralController::class, 'setReferral2'])->where('any', '.*');
 
 Route::post('/referral/register', [UserReferralController::class, 'register'])->name('referral.register');
 
