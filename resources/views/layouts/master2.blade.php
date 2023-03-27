@@ -115,7 +115,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <footer class="main-footer" style="color: #03396c">
             <div class="row">
                 <div class="col-12 col-sm-4" style="margin-bottom:30px">
-                    <b style="color:#d30404">CƠ SỞ 1</b><br>
+                    <b style="color:#d30404">THÔNG TIN LIÊN HỆ</b><br>
+                    <b>CƠ SỞ 1</b><br>
                     Số 35 Ngô Quyền, P. Đồng Phú, Đồng Hới, Quảng Bình.<br>
                     <br>
                     <b>CƠ SỞ 2</b><br>
