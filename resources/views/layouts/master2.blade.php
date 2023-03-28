@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-12 col-sm-4" style="margin-bottom:20px">
                     <b style="color:#d30404">THÔNG TIN LIÊN HỆ</b><br>
                     <b>CƠ SỞ 1</b><br>
-                    Số 35 Ngô Quyền, P. Đồng Phú, Đồng Hới, Quảng Bình.<br>
+                    Số 35 Ngô Quyền, P. Đồng Phú, TP. Đồng Hới, Quảng Bình.<br>
                     <br>
                     <b>CƠ SỞ 2</b><br>
                     Số 04 Lê Đại Hành, Tiểu khu 3, TT. Hoàn Lão, Quảng Bình.<br>
