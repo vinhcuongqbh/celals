@@ -2,24 +2,6 @@
 
 @section('title', 'CELALS')
 
-@section('head')
-    <title>Simple Map</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <style>
-        #map {
-            height: 500px;
-        }
-
-
-        html,
-        body {
-            height: 400px;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-@endsection
-
 @section('content')
     <div class="container">
         <div class="row" style="padding: 50px 0px">
