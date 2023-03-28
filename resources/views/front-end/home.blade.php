@@ -3,7 +3,7 @@
 @section('title', 'Store')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid">        
         {{-- Slideshow --}}
         <div id="gioi-thieu" class="carousel slide" data-ride="carousel" data-interval="3000" style="background-color: white">
             <ol class="carousel-indicators">
@@ -478,5 +478,4 @@
 @stop
 
 @section('js')
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 @stop

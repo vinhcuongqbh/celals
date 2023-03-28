@@ -20,7 +20,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
+    <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>   
+    @yield('head')
 </head>
 
 
@@ -92,7 +93,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </div>
         </nav>
-        <!-- /.navbar -->
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -109,12 +109,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @endif
             @endif
             @yield('content')
-        </div><!-- /.content-wrapper -->
+        </div>
 
         <!-- Main Footer -->
         <footer class="main-footer" style="color: #03396c">
             <div class="row">
-                <div class="col-12 col-sm-4" style="margin-bottom:30px">
+                <div class="col-12 col-sm-4" style="margin-bottom:20px">
                     <b style="color:#d30404">THÔNG TIN LIÊN HỆ</b><br>
                     <b>CƠ SỞ 1</b><br>
                     Số 35 Ngô Quyền, P. Đồng Phú, Đồng Hới, Quảng Bình.<br>
@@ -124,23 +124,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <br>
                     <b>Hotline:</b> 090.171.4555
                 </div>
-                <div class="col-12 col-sm-4" style="margin-bottom:30px">
+                <div class="col-12 col-sm-4" style="margin-bottom:20px">
                     <b style="color:#d30404">KHÓA HỌC</b><br>
                     <a href="/khoa-hoc">Chương trình Beginner</a><br>
                     <a href="/khoa-hoc">Chương trình IELTS 9.0</a><br>
                     <a href="/khoa-hoc">Chương trình cấp tốc 3 tháng</a><br>
                     <a href="/khoa-hoc">Chương trình Trại hè Tiếng Anh</a>
                 </div>
-                <div class="col-12 col-sm-4">
+                <div class="col-12 col-sm-4" style="margin-bottom:20px">
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>
                     <a href="https://www.facebook.com/celals.cshv" target="_blank"><i
                             class="fa-brands fa-square-facebook fa-beat fa-xl"
-                            style="color: #03396c; margin-bottom:20px"></i></a><br>
+                            style="color: #03396c;"></i></a><br>
                 </div>
             </div>
         </footer>
-    </div>
-    <!-- ./wrapper -->
+    </div>  
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
@@ -155,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script>
         function copyText() {
             // Get the text field
-            var copyText = document.getElementById("referral_link");            
+            var copyText = document.getElementById("referral_link");
 
             // Copy the text inside the text field
             navigator.clipboard.writeText(copyText.innerText).then(() => {
