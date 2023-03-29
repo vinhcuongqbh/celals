@@ -20,13 +20,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js">
+    <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
     @yield('head')
 </head>
 
-
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
+
+        <div class="quick-contact">
+            <ul>
+                <li>
+                    <a href="tel:0901714555" data-toggle="tooltip" data-placement="left" title="Hotline: 0901.714.555">
+                        <img src="/img/call-icon.png" alt="call"><label>Gọi điện</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://zalo.me/3047264741897118092" target="_blank">
+                        <img src="/img/zalo-icon.png" alt="zalo"><label>Zalo</label>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.facebook.com/messages/t/104453381217049" target="_blank">
+                        <img src="/img/messenger-icon.png" alt="messenger"><label>Messenger</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white">
             <div class="container">
@@ -134,12 +157,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-12 col-sm-4" style="margin-bottom:20px">
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>
                     <a href="https://www.facebook.com/celals.cshv" target="_blank"><i
-                            class="fa-brands fa-square-facebook fa-beat fa-xl"
-                            style="color: #03396c;"></i></a><br>
+                            class="fa-brands fa-square-facebook fa-beat fa-xl" style="color: #03396c;"></i></a><br>
                 </div>
             </div>
         </footer>
-    </div>  
+    </div>
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
@@ -165,6 +187,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 });
         }
     </script>
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+    <style>
+        .quick-contact {
+            position: fixed;
+            right: 10px;
+            bottom: 300px;
+            border-radius: 5px;
+            width: auto;
+            z-index: 150;
+            padding: 10px 0;
+        }
+
+        .quick-contact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .quick-contact ul li {
+            list-style: none !important;
+            padding-bottom: 35px;
+        }
+
+        .quick-contact ul li a {
+            border: none;
+            padding: 3px;
+            display: block;
+            border-radius: 5px;
+            text-align: center;
+
+            line-height: 15px;
+            color: #515151;
+            font-weight: 700;
+            max-width: 70px;
+            max-height: 54px;
+            text-decoration: none;
+        }
+
+        .quick-contact ul li img {
+            max-width: 70px;
+            max-height: 54px;
+        }
+
+        .quick-contact ul li label {
+            color: #03396c;
+            font-size: 14px;
+        }
+    </style>
 
     @yield('css')
     @yield('js')
