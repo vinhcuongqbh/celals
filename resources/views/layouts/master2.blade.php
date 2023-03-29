@@ -27,29 +27,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <body class="hold-transition layout-top-nav">
     <div class="wrapper">
-
-        <div class="quick-contact">
-            <ul>
-                <li>
-                    <a href="tel:0901714555" data-toggle="tooltip" data-placement="left" title="Hotline: 0901.714.555">
-                        <img src="/img/call-icon.png" alt="call"><label>Gọi điện</label>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://zalo.me/3047264741897118092" target="_blank">
-                        <img src="/img/zalo-icon.png" alt="zalo"><label>Zalo</label>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://www.facebook.com/messages/t/104453381217049" target="_blank">
-                        <img src="/img/messenger-icon.png" alt="messenger"><label>Messenger</label>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white">
             <div class="container">
@@ -161,6 +138,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </div>
         </footer>
+
+        <!-- Quick Contact -->
+        <div class="quick-contact">
+            <ul>
+                <li>
+                    <a href="tel:0901714555" data-toggle="tooltip" data-placement="left"
+                        title="Hotline: 0901.714.555">
+                        <img src="/img/call-icon.png" alt="call"><label>Gọi điện</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://zalo.me/3047264741897118092" target="_blank">
+                        <img src="/img/zalo-icon.png" alt="zalo"><label>Zalo</label>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://www.facebook.com/messages/t/104453381217049" target="_blank">
+                        <img src="/img/messenger-icon.png" alt="messenger"><label>Messenger</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <!-- REQUIRED SCRIPTS -->
