@@ -104,7 +104,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <label id="referral_link">
                             {{ url()->current() . '/ref=' . Auth::user()->user_id }}
                         </label>
-                        <button type="button" class="btn btn-sm btn-light" onclick="copyText()" style="margin-left:10px; padding:3px">Copy</button>
+                        <i class="fa-regular fa-copy fa-beat fa-lg" onclick="copyText()"
+                            style="margin-left:10px; padding:3px;" ></i>
                     </div>
                 @endif
             @endif
@@ -194,6 +195,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <style>
+        i:hover {
+            cursor: pointer;
+        }
         .quick-contact {
             position: fixed;
             right: 10px;
