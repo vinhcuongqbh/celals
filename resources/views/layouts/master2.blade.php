@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <meta name="Googlebot-News" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="robots" content="noimageindex"> --}}
     <title>CELALS</title>
     <link rel="icon" href="img/book-icon.png">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Popper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js">
     <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
+
     @yield('head')
 </head>
 
@@ -105,7 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             {{ url()->current() . '/ref=' . Auth::user()->user_id }}
                         </label>
                         <i class="fa-regular fa-copy fa-beat fa-lg" onclick="copyText()"
-                            style="margin-left:10px; padding:3px;" ></i>
+                            style="margin-left:10px; padding:3px;"></i>
                     </div>
                 @endif
             @endif
@@ -194,10 +190,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         })
     </script>
 
+
+
     <style>
         i:hover {
             cursor: pointer;
         }
+
         .quick-contact {
             position: fixed;
             right: 10px;
@@ -265,8 +264,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 padding-bottom: 35px;
                 display: inline-block;
             }
-
-
         }
     </style>
 

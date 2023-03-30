@@ -9,14 +9,19 @@
     <meta name="robots" content="noindex, nofollow">
     <meta name="robots" content="noimageindex">
     <title>CELALS</title>
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Popper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="/dist/css/asabo.css">
+    <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
 </head>
 
 <body class="sidebar-mini layout-navbar-fixed">
