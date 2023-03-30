@@ -239,6 +239,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
             color: #03396c;
             font-size: 14px;
         }
+
+        @media only screen and (max-width: 768px) {
+            .quick-contact {
+                position: fixed;
+                bottom: 0px;
+                border-radius: 5px;
+                width: auto;
+                z-index: 150;
+                padding: 10px 0;
+            }
+
+            .quick-contact ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .quick-contact ul li {
+                list-style: inline !important;
+                padding-bottom: 35px;
+                display: inline-block;
+            }
+
+
+        }
     </style>
 
     @yield('css')
