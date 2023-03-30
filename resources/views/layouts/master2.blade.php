@@ -100,11 +100,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 @if (Auth::user()->role_id == 3)
                     <div class="alert m-0 p-2" role="alert"
                         style="border-radius: 0px; color: white; background-color: #03396c; text-align:center">
-                        Link Cộng tác viên:
+                        Link Giới thiệu:
                         <label id="referral_link">
                             {{ url()->current() . '/ref=' . Auth::user()->user_id }}
                         </label>
-                        <button type="button" class="btn btn-sm btn-light" onclick="copyText()">Copy</button>
+                        <button type="button" class="btn btn-sm btn-light" onclick="copyText()" style="margin-left:10px; padding:3px">Copy</button>
                     </div>
                 @endif
             @endif
