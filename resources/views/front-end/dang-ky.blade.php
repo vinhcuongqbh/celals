@@ -23,9 +23,6 @@
                                 timer: 3000
                             })
                         </script>
-                        {{-- <div class="alert alert-success">
-                            <strong>{{ session()->get('message') }}</strong>
-                        </div> --}}
                     @endif
 
                     <!-- form start -->

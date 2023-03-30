@@ -177,7 +177,13 @@
 
             // Copy the text inside the text field
             navigator.clipboard.writeText(copyText.innerText).then(() => {
-                    alert("Đã copy link giới thiệu.");
+                    Swal.fire({
+                        icon: 'success',
+                        text: 'Đã Copy Link Giới thiệu',
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
                 })
                 .catch(() => {
                     alert("Copy bị lỗi");
