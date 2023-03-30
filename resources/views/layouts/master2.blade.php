@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="robots" content="noindex, nofollow">
     <meta name="robots" content="noimageindex"> --}}
     <title>CELALS</title>
-    <link rel="icon" href="img/IELTS.png">
+    <link rel="icon" href="img/book-icon.png">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
