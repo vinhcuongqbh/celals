@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <label id="referral_link">
                             {{ url()->current() . '/ref=' . Auth::user()->user_id }}
                         </label>
-                        {{-- <button type="button" class="btn btn-sm btn-light" onclick="copyText()">Copy</button> --}}
+                        <button type="button" class="btn btn-sm btn-light" onclick="copyText()">Copy</button>
                     </div>
                 @endif
             @endif
