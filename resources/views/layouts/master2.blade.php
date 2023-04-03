@@ -27,7 +27,7 @@
         <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white">
             <div class="container">
                 <a href="/" class="navbar-brand">
-                    <img src="/img/logo2.png" alt="Celals" style="width: 250px">
+                    <img src="/img/logo.png" alt="Celals" style="width: 250px">
                     <span class="brand-text font-weight-light"></span>
                 </a>
 
@@ -110,25 +110,35 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="color: #03396c">
-            <div class="row">
-                <div class="col-12 col-sm-4" style="margin-bottom:20px">
-                    <b style="color:#d30404">THÔNG TIN LIÊN HỆ</b><br>
-                    <b>CƠ SỞ 1</b><br>
-                    Số 35 Ngô Quyền, P. Đồng Phú, TP. Đồng Hới, Quảng Bình.<br>
-                    <br>
-                    <b>CƠ SỞ 2</b><br>
-                    Số 04 Lê Đại Hành, Tiểu khu 3, TT. Hoàn Lão, Quảng Bình.<br>
-                    <br>
+            <div class="row" style="text-align:justify">
+                <div class="col-12 col-sm-4" style="margin-bottom:20px; padding-left:20px; padding-right:20px">
+                    <b style="color:#d30404">Anh ngữ CELALS (Du học Philippines tại Việt Nam)</b><br>
+                    <p style="font-style:italic">Chương trình bản quyền từ IELTS Niner, thành lập
+                        năm 2007 tại
+                        Philippines. Đoạt trên 50 giải thưởng
+                        quốc tế, là đơn vị đào tạo IELTS hàng đầu thế giới do Hội đồng Anh (BC) và Tổ chức giáo dục của
+                        Úc
+                        (IDP) xếp hạng hàng năm. Trên 80% học viên đạt IELTS 7.0 trở lên và hàng nghìn học viên đạt điểm
+                        8.0-9.0 trong thời gian học từ 3-6 tháng.</p>
                     <b>Hotline:</b> 090.171.4555
                 </div>
-                <div class="col-12 col-sm-4" style="margin-bottom:20px">
+                <div class="col-12 col-sm-5" style="margin-bottom:20px; padding-left:20px; padding-right:20px">
+                    <b style="color:#d30404">Học viên IELTS có thể học online hoặc trực tiếp tại các cơ sở:</b><br>
+                    Cơ sở 1: Nhà C5 Đại học Thủy Lợi Hà Nội.<br>
+                    Cơ sở 2: Trường Cao đẳng Long Biên, Sài Đồng, Long Biên, Hà Nội.<br>
+                    Cơ sở 3: Trung tâm Ngoại ngữ, Tin học – Trường Đại học Lâm Nghiệp, Hà Nội.<br>
+                    Cơ sở 4: Trung tâm giáo dục thường xuyên Ngoại ngữ, Tin học tỉnh Hải Dương.<br>
+                    Cơ sở 5: Tân Dân, Việt Trì, Phú Thọ.<br>
+                    Cơ sở 6: Số 35 Ngô Quyền, Đồng Hới, Quảng Bình.<br>
+                    Cơ sở 7: KP1, Thành phố Biên Hòa, Đồng Nai.<br>
+                </div>
+                <div class="col-12 col-sm-3" style="margin-bottom:20px; padding-left:20px; padding-right:20px">
                     <b style="color:#d30404">KHÓA HỌC</b><br>
                     <a href="/khoa-hoc">Chương trình Beginner</a><br>
                     <a href="/khoa-hoc">Chương trình IELTS 9.0</a><br>
                     <a href="/khoa-hoc">Chương trình cấp tốc 3 tháng</a><br>
-                    <a href="/khoa-hoc">Chương trình Trại hè Tiếng Anh</a>
-                </div>
-                <div class="col-12 col-sm-4" style="margin-bottom:20px">
+                    <a href="/khoa-hoc">Chương trình Trại hè Tiếng Anh</a><br>
+                    <br>
                     <b style="color:#d30404">THEO DÕI CHÚNG TÔI</b><br>
                     <a href="https://www.facebook.com/celals.cshv" target="_blank"><i
                             class="fa-brands fa-square-facebook fa-beat fa-xl" style="color: #03396c;"></i></a><br>
@@ -148,12 +158,6 @@
                 <li>
                     <a href="https://zalo.me/3047264741897118092" target="_blank">
                         <img src="/img/zalo-icon.png" alt="zalo"><label>Zalo</label>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://www.facebook.com/messages/t/104453381217049" target="_blank">
-                        <img src="/img/messenger-icon.png" alt="messenger"><label>Messenger</label>
                     </a>
                 </li>
             </ul>
@@ -196,9 +200,15 @@
         })
     </script>
 
-
-
     <style>
+        body {
+            font-size: 16 px;
+            font-family: "BuenosAires-Light";
+            font-family: 'BuenosAiresVN', sans-serif;
+            font-weight: 300;
+            color: #474a57;
+        }
+
         i:hover {
             cursor: pointer;
         }

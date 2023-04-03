@@ -69,7 +69,7 @@
             style="padding: 50px 10px; background-color: #ffffff; 
             display: flex; align-items: center; justify-content: center;">
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px">
-                <h3>ĐIỂM KHÁC BIỆT TẠI CELALS - IELTS 9.0</h3>
+                <h3>ĐIỂM KHÁC BIỆT TẠI CELALS</h3>
             </div>
             <div id="khac-biet" class="carousel slide col-12 col-sm-10" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -257,7 +257,7 @@
         {{-- Các khóa học --}}
         <div id="khoa-hoc" class="row" style="padding: 50px 10px 10px 10px; background-color: #03396c">
             <div class="col-12" style="color:white; text-align:center; padding-bottom: 20px">
-                <h3>CÁC KHÓA HỌC TẠI CELALS - IELTS 9.0 (Trực tuyến - Trực tiếp kết nối song song)</h3>
+                <h3>CÁC KHÓA HỌC TẠI CELALS (Trực tuyến - Trực tiếp kết nối song)</h3>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
@@ -334,7 +334,7 @@
         <div id="cam-nghi-hoc-vien" class="row"
             style="padding: 50px 10px; background-color: #ffffff; display: flex; justify-content: center;">
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px;">
-                <h3>CÁC HỌC VIÊN NGHĨ GÌ VỀ CHƯƠNG TRÌNH CELALS - IELTS 9.0</h3>
+                <h3>CÁC HỌC VIÊN NGHĨ GÌ VỀ CHƯƠNG TRÌNH CELALS</h3>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
@@ -410,7 +410,7 @@
         <div id="hoat-dong" class="row d-flex justify-content-center"
             style="padding: 50px 10px; background-color: #03396c;">
             <div class="col-12" style="color:white; text-align:center; padding-bottom: 20px">
-                <h3>CÁC HOẠT ĐỘNG TẠI CELALS - IELTS 9.0</h3>
+                <h3>CÁC HOẠT ĐỘNG TẠI CELALS</h3>
             </div>
             <div id="slide-hoat-dong" class="carousel slide col-12 col-sm-8" data-ride="carousel">
                 <ol class="carousel-indicators">
