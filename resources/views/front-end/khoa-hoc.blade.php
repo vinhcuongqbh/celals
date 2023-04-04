@@ -21,7 +21,7 @@
                         <li class="list-group-item">Thời gian: 03 tháng - 12 tháng</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <li class="list-group-item">Thời gian: 01 năm</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <li class="list-group-item">Thời gian: 12 tuần</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                         <li class="list-group-item">Thời gian: IELTS 9.0 summer (Tháng 6 - 8)</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>

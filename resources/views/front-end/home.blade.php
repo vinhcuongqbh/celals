@@ -100,7 +100,7 @@
                                     phí. Không lo bị lỡ bài.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet1.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet1.png" alt="1st slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -123,7 +123,7 @@
                                     cung cấp 30 từ vựng/ 01 ngày.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet2.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet2.png" alt="2nd slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -142,7 +142,7 @@
                                     có. Không phụ thuộc band điểm của các bạn xung quanh như cách truyền thống.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet3.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet3.png" alt="3rd slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -160,7 +160,7 @@
                                     -21h mỗi ngày được tiếp xúc hoàn toàn bằng tiếng anh.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet4.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet4.png" alt="4th slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                                     tế và sư phạm, kinh nghiệm giảng dạy IELTS nhiều năm.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet5.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet5.png" alt="5th slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -197,7 +197,7 @@
                                     từng tuần học</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet6.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet6.png" alt="6th slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -216,7 +216,7 @@
                                 <p>Các em sẽ được học đến lúc đạt và không phát sinh chi phí.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet7.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet7.png" alt="7th slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -236,7 +236,7 @@
                                     nhau.</p>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <img class="d-block w-100" src="/img/diemkhacbiet8.png" alt="First slide"
+                                <img class="d-block w-100 img-fluid diem-khac-biet" src="/img/diemkhacbiet8.png" alt="8th slide"
                                     style="border-radius: 7px;">
                             </div>
                         </div>
@@ -257,7 +257,7 @@
         {{-- Các khóa học --}}
         <div id="khoa-hoc" class="row" style="padding: 50px 10px 10px 10px; background-color: #03396c">
             <div class="col-12" style="color:white; text-align:center; padding-bottom: 20px">
-                <h3>CÁC KHÓA HỌC TẠI CELALS (Trực tuyến - Trực tiếp kết nối song)</h3>
+                <h3>CÁC KHÓA HỌC TẠI CELALS (Trực tuyến - Trực tiếp kết nối song song)</h3>
             </div>
             <div class="col-12 col-sm-3">
                 <div class="card" style="width: 100%;">
@@ -272,7 +272,7 @@
                         <li class="list-group-item">Thời gian: 03 tháng - 12 tháng</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -289,7 +289,7 @@
                         <li class="list-group-item">Thời gian: 01 năm</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -306,7 +306,7 @@
                         <li class="list-group-item">Thời gian: 12 tuần</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -324,7 +324,7 @@
                         <li class="list-group-item">Thời gian: IELTS 9.0 summer (Tháng 6 - 8)</li>
                     </ul>
                     <div class="card-body">
-                        <a href="/dang-ky-hoc-thu" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
+                        <a href="/dang-ky" class="btn btn-primary" style="background-color: #03396c">Đăng ký</a>
                     </div>
                 </div>
             </div>
@@ -460,6 +460,11 @@
             height: 250px;
         }
 
+        .diem-khac-biet {
+            width: 100%;
+            height: 500px;
+        }
+
         @media only screen and (min-width: 992px) {
             .carousel-img {
                 width: 1000px !important;
@@ -472,6 +477,11 @@
                 width: 100%;
                 height: 200px;
             }
+
+            .diem-khac-biet {
+            width: 100%;
+            height: 250px;
+        }
         }
     </style>
 @stop

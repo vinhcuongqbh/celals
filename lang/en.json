@@ -41,5 +41,9 @@
     "no": "STT",
     "enterContent": "Vui lòng nhập nội dung",
     "selectContent": "Vui lòng chọn nội dung",
-    "advise_type_name": "Loại hình Tư vấn"
+    "advise_type_name": "Loại hình Tư vấn",
+    "UserName": "Tên đăng nhập",
+    "Password": "Mật mã",
+    "Remember me": "Lưu đăng nhập",
+    "Log in": "Đăng nhập"
 }
