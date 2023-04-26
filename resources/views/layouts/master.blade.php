@@ -12,9 +12,7 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Popper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js">
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">  
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- overlayScrollbars -->
@@ -71,19 +69,25 @@
                         data-accordion="false">
                         <li class="nav-item">
                             <a href="/admin" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fa-solid fa-gauge-high"></i>
                                 <p>{{ __('dash_board') }}</p>
                             </a>
                         </li>
                         @if (Auth::user()->role_id == 1)
                             <li class="nav-item">
                                 <a href="/admin/user" class="nav-link">
-                                    <i class="nav-icon fas fa-user"></i>
+                                    <i class="nav-icon fa-solid fa-user"></i>
                                     <p>{{ __('user_management') }}</p>
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="/admin/post" class="nav-link">
+                                    <i class="nav-icon fas fa-newspaper"></i>
+                                    <p>{{ __('post_management') }}</p>
+                                </a>
+                            </li>
                         @endif
-                        <li class="nav-item menu-open">
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>{{ __('referral_management') }}</p>
@@ -149,7 +153,7 @@
     <!-- AdminLTE App -->
     <script src="/dist/js/adminlte.min.js"></script>
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <script src="https://kit.fontawesome.com/2bc23cb792.js" crossorigin="anonymous"></script>
 
     @yield('css')
     @yield('js')

@@ -3,7 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CenterController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserReferralController;
+use App\Models\PostCatalogue;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -92,6 +94,17 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{id}/restore', [UserController::class, 'restore'])->name('user.restore');
         Route::post('{id}/resetpass', [UserController::class, 'resetpass'])->name('user.resetpass');
         Route::post('search', [UserController::class, 'search'])->name('user.search');
+    });
+
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('', [PostController::class, 'index'])->name('post');
+        Route::get('create', [PostController::class, 'create'])->name('post.create');
+        Route::post('store', [PostController::class, 'store'])->name('post.store');
+        Route::post('search', [PostController::class, 'search'])->name('post.search');
+        Route::get('{id}/', [PostController::class, 'show'])->name('post.show');
+        Route::get('{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+
+
     });
 
     Route::group(['prefix' => 'referral'], function () {
