@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             //UserReferralSeeder::class,
             CenterSeeder::class,
             ReferralStatusSeeder::class,
-            PostCatalogue::class,
+            PostCatalogueSeeder::class,
         ]);
     }
 }
