@@ -63,7 +63,7 @@
                             <div class="col-sm-2">
                                 <label for="post_content">{{ __('post_content') }}</label>
                             </div>
-                            <div class="col-sm-10">
+                            <div class="col-sm-10">                                
                                 {!! $post->post_content !!}
                             </div>
                         </div>
