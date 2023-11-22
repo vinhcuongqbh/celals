@@ -79,7 +79,7 @@
                         @else
                             <li class="nav-item">
                                 <a class="btn text-white text-nowrap" style="background-color:#03396c"
-                                    href="/login">Đăng
+                                    href="/login" target="_blank">Đăng
                                     nhập</a>
                             </li>
                         @endif
