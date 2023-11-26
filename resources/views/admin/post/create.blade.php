@@ -9,82 +9,101 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-12">
-                <div class="card card-default">
-                    <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('new_post') }}</h3>
+            <div class="col-12">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form action="{{ route('post.store') }}" method="post" id="form-validate">
-                        @csrf
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="post_catalogue_id">{{ __('post_catalogue') }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <select id="post_catalogue_id" name="post_catalogue_id"
-                                        class="form-control custom-select">
-                                        <option selected disabled></option>
-                                        @foreach ($postCatalogues as $postCatalogue)
-                                            <option value="{{ $postCatalogue->post_catalogue_id }}">
-                                                {{ $postCatalogue->post_catalogue_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="post_img">{{ __('post_img') }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="post_img" name="post_img"
-                                                accept="image/*">
-                                            <label class="custom-file-label" for="post_img"></label>
+                @endif
+                <form action="{{ route('post.store') }}" method="post" id="form-validate">
+                    @csrf
+                    <div class="row">
+                        <div class="col-12 col-sm-9">
+                            <div class="card card-default">
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <label for="post_title">{{ __('post_title') }}</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <input type="text" id="post_title" name="post_title"
+                                                    value="{{ old('post_title') }}" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <label for="post_content">{{ __('post_content') }}</label>
+                                            </div>
+                                            <div class="col-12" id="container">
+                                                <textarea id="editor" name="post_content">
+                                        </textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="post_title">{{ __('post_title') }}</label>
+                        </div>
+                        <div class="col-12 col-sm-3">
+                            <div class="card card-default">
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <label for="post_catalogue_id">{{ __('post_catalogue') }}</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <select id="post_catalogue_id" name="post_catalogue_id"
+                                                    class="form-control custom-select">
+                                                    <option selected disabled></option>
+                                                    @foreach ($postCatalogues as $postCatalogue)
+                                                        <option value="{{ $postCatalogue->post_catalogue_id }}">
+                                                            {{ $postCatalogue->post_catalogue_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                                <label for="post_img">{{ __('post_img') }}</label>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="post_img"
+                                                            name="post_img" accept="image/*">
+                                                        <label class="custom-file-label" for="post_img"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-12">
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="holder">
+                                                    <img id="imgPreview" alt="pic" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-10">
-                                    <input type="text" id="post_title" name="post_title" value="{{ old('post_title') }}"
-                                        class="form-control">
+                                <!-- /.card-body -->
+                                <div class="card-footer d-flex justify-content-center">
+                                    <button type="submit"
+                                        class="btn btn-warning w-100 text-nowrap m-1">{{ __('create') }}</button>
+                                    <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                        href="{{ route('post') }}">{{ __('back') }}</a>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="post_content">{{ __('post_content') }}</label>
-                                </div>
-                                <div class="col-sm-10" id="container">
-                                    <textarea id="editor" name="post_content">
-                                    </textarea>
-                                </div>
-
-                            </div>
                         </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">
-                            <button type="submit"
-                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('create') }}</button>
-                            <a class="btn bg-olive text-white w-100 text-nowrap m-1"
-                                href="{{ route('post') }}">{{ __('back') }}</a>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.card -->
+                    </div>
+                    <!-- /.card -->
+                </form>
             </div>
         </div>
     </div>
@@ -93,6 +112,17 @@
 
 @section('css')
     <style>
+        .holder {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            border: 1px solid black;
+        }
+
+        #imgPreview {
+            max-width: 100%;
+            aspect-ratio: 3 / 2;
+        }
+
         #container {
             width: 1000px;
             margin: 20px auto;
@@ -112,6 +142,7 @@
 @endsection
 
 @section('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- jquery-validation -->
     <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="/vendor/jquery-validation/additional-methods.min.js"></script>
@@ -165,7 +196,7 @@
             // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
             toolbar: {
                 items: [
-                    
+
                     'exportPDF', 'exportWord', '|',
                     'findAndReplace', 'selectAll', '|',
                     'heading', '|',
@@ -177,7 +208,8 @@
                     '-',
                     'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
                     'alignment', '|',
-                    'link', 'insertImage', 'CKFinder', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock', 'htmlEmbed',
+                    'link', 'insertImage', 'CKFinder', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock',
+                    'htmlEmbed',
                     '|',
                     'specialCharacters', 'horizontalLine', 'pageBreak', '|',
                     'textPartLanguage', '|',
@@ -351,6 +383,22 @@
                 'FormatPainter',
                 'TableOfContents'
             ]
+        });
+    </script>
+    <script>
+        $(document).ready(() => {
+            $('#post_img').change(function() {
+                const file = this.files[0];
+                console.log(file);
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(event) {
+                        console.log(event.target.result);
+                        $('#imgPreview').attr('src', event.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
         });
     </script>
 @stop

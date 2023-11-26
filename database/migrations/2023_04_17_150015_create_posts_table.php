@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('post_content')->nullable();
             $table->string('post_img')->nullable();
             $table->tinyInteger('post_catalogue_id');
+            $table->tinyInteger('post_author_id');
             $table->integer('post_priority')->nullable();           
             $table->tinyInteger('post_status')->default(1);
             $table->timestamps();

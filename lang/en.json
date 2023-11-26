@@ -46,5 +46,12 @@
     "UserName": "Tên đăng nhập",
     "Password": "Mật mã",
     "Remember me": "Lưu đăng nhập",
-    "Log in": "Đăng nhập"
+    "Log in": "Đăng nhập",
+    "post_id": "ID bài viết",
+    "new_post": "Bài viết mới",
+    "post_catalogue": "Mục tin",
+    "post_title": "Tựa đề bài viết",
+    "post_img": "Ảnh minh họa",
+    "post_content": "Nội dung bài viết",
+    "post_status": "Trạng thái"
 }

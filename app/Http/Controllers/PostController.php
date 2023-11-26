@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -35,20 +36,18 @@ class PostController extends Controller
             'post_catalogue_id' => 'required',
         ]);
 
-        //Tạo Nhân viên mới
+        //Tạo Bài viết mới
         $post = new Post;
         $post->post_title = $request->post_title;
         $post->post_content = $request->post_content;
         //$post->post_img = $request->post_img;
         $post->post_catalogue_id = $request->post_catalogue_id;
+        $post->post_author_id = Auth::id();
         $post->created_at = Carbon::now();
         $post->save();
 
-        echo $post->post_title;
-
         //return redirect()->route('post.show', ['id' => $post->post_id]);
     }
-
 
 
     public function show($id)
