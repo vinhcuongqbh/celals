@@ -19,7 +19,7 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('post.store') }}" method="post" id="form-validate">
+                <form action="{{ route('post.store') }}" method="post" id="form-validate" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12 col-sm-9">
@@ -69,7 +69,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <label for="post_img">{{ __('post_img') }}</label>
+                                                <label>{{ __('post_img') }}</label>
                                             </div>
                                             <div class="col-12">
                                                 <div class="input-group">
@@ -83,10 +83,8 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                            </div>
-                                            <div class="col-12">
                                                 <div class="holder">
-                                                    <img id="imgPreview" alt="pic" />
+                                                    <img id="imgPreview" src="/img/example.jpg" alt="pic" />
                                                 </div>
                                             </div>
                                         </div>
@@ -401,4 +399,11 @@
             });
         });
     </script>
+
+<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script>
+    $(function() {
+        bsCustomFileInput.init();
+    });
+</script>
 @stop
