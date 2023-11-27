@@ -39,6 +39,7 @@
                                     <th class="text-nowrap">{{ __('post_id') }}</th>
                                     <th class="text-nowrap">{{ __('post_title') }}</th>
                                     <th class="text-nowrap">{{ __('post_catalogue') }}</th>
+                                    <th class="text-nowrap">{{ __('post_author') }}</th>
                                     <th class="text-nowrap">{{ __('post_status') }}</th>
                                 </tr>
                             </thead>
@@ -46,8 +47,9 @@
                                 @foreach ($posts as $post)
                                     <tr>
                                         <td style="text-align:center">{{ $post->post_id }}</td>
-                                        <td><a href="{{ route('post.show', $post->post_id)}}">{{ $post->post_title }}</a></td>
+                                        <td><a href="{{ route('post.edit', $post->post_id)}}">{{ $post->post_title }}</a></td>
                                         <td style="text-align:center">{{ $post->post_catalogue_id }}</td>
+                                        <td style="text-align:center">{{ $post->post_author_id }}</td>
                                         <td style="text-align:center">{{ $post->post_status }}</td>
                                     </tr>
                                 @endforeach

@@ -103,6 +103,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('search', [PostController::class, 'search'])->name('post.search');
         Route::get('{id}/', [PostController::class, 'show'])->name('post.show');
         Route::get('{id}/edit', [PostController::class, 'edit'])->name('post.edit');
+        Route::post('{id}/update', [PostController::class, 'update'])->name('post.update');
 
 
     });

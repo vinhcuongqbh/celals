@@ -53,5 +53,6 @@
     "post_title": "Tựa đề bài viết",
     "post_img": "Ảnh minh họa",
     "post_content": "Nội dung bài viết",
-    "post_status": "Trạng thái"
+    "post_status": "Trạng thái",
+    "post_author": "Tác giả"
 }

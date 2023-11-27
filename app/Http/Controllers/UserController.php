@@ -150,7 +150,7 @@ class UserController extends Controller
         return back();
     }
 
-
+    // Cấp lại mật mã cho tài khoản
     public function resetpass(Request $request, $id)
     {
         //Tìm thông tin Nhân viên
@@ -163,7 +163,7 @@ class UserController extends Controller
         return redirect()->route('user.show', ['id' => $user->user_id]);
     }
 
-
+    // Tìm kiếm nhân viên
     public function search(Request $request)
     {
 
@@ -181,7 +181,6 @@ class UserController extends Controller
 
         if (Auth::user()->roleId != 3) return view('admin.user.result', ['users' => $user]);
     }
-
 
 
     //Thoát tài khoản 
