@@ -37,11 +37,7 @@
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse"">
                     <!-- Left navbar links -->
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <label><a href="/gioi-thieu" class="nav-link text-nowrap" style="color:#03396c ">GIỚI
-                                    THIỆU</a></label>
-                        </li>
+                    <ul class="navbar-nav">                        
                         <li class="nav-item">
                             <label><a href="/diem-khac-biet" class="nav-link text-nowrap" style="color:#03396c ">ĐIỂM
                                     KHÁC
@@ -51,18 +47,18 @@
                             <label><a href="/khoa-hoc" class="nav-link text-nowrap" style="color:#03396c ">KHÓA
                                     HỌC</a></label>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <label><a href="/dang-ky" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG
                                     KÝ</a></label>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ
                                     SỞ</a></label>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <label><a href="/du-hoc" class="nav-link text-nowrap" style="color:#03396c ">DU
                                     HỌC</a></label>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <label><a href="/su-kien" class="nav-link text-nowrap" style="color:#03396c ">SỰ KIỆN NỔI
                                     BẬT</a></label>
@@ -70,6 +66,10 @@
                         <li class="nav-item">
                             <label><a href="/tin-tuc" class="nav-link text-nowrap" style="color:#03396c ">TIN
                                     TỨC</a></label>
+                        </li>
+                        <li class="nav-item">
+                            <label><a href="/gioi-thieu" class="nav-link text-nowrap" style="color:#03396c ">GIỚI
+                                    THIỆU</a></label>
                         </li>
                         @if (Auth::check())
                             <li class="nav-item">

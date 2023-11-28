@@ -11,28 +11,18 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-4">
-                        <div class="card" style="width: 100%">
-                            <a href="/su-kien/1">
-                                <img class="card-img-top img-fluid" src="/img/sukien1.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">THI THỬ MIỄN PHÍ 4 KỸ NĂNG IELTS CHUẨN QUỐC TẾ TẠI ĐỒNG HỚI</h5>
-                                </div>
-                            </a>
+                    @foreach ($posts as $post)
+                        <div class="col-12 col-sm-4">
+                            <div class="card" style="width: 100%">
+                                <a href="/su-kien/{{ $post->post_id }}">
+                                    <img class="card-img-top img-fluid" src="{{ $post->post_img }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-justify">{{ $post->post_title }}</h5>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                        <div class="card" style="width: 100%">
-                            <a href="/su-kien/2">
-                                <img class="card-img-top img-fluid" src="/img/sukien2.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">GẶP GỠ ĐẠI DIỆN TRƯỜNG STANLEY COLLEGE</h5>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-4">
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

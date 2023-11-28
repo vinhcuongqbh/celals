@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CenterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserReferralController;
+use App\Http\Controllers\SukienController;
 use App\Models\PostCatalogue;
 use Illuminate\Support\Facades\Route;
 
@@ -48,16 +49,9 @@ Route::get('/du-hoc', function () {
     return view('front-end.du-hoc');
 });
 
-Route::get('/su-kien', function () {
-    return view('front-end.su-kien');
-});
-
-Route::get('/su-kien/1', function () {
-    return view('front-end.su-kien1');
-});
-
-Route::get('/su-kien/2', function () {
-    return view('front-end.su-kien2');
+Route::prefix('su-kien')->group(function () {
+    Route::get('', [SukienController::class, 'suKien'])->name('su-kien');
+    Route::get('/{id}', [SukienController::class, 'suKienChiTiet'])->name('su-kien-chi-tiet');
 });
 
 Route::get('/tin-tuc', function () {
