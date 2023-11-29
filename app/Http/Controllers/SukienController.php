@@ -15,6 +15,7 @@ class SukienController extends Controller
     {
         $posts = Post::where('post_catalogue_id', 2)
             ->where('post_status', 1)
+            ->orderBy('created_at', 'DESC')
             ->get();        
         
         return view('front-end.su-kien', ['posts' => $posts]);

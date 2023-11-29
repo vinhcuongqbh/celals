@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('post_catalogue_id');
             $table->tinyInteger('post_author_id');
             $table->integer('post_priority')->nullable();           
-            $table->tinyInteger('post_status')->default(1);
+            $table->tinyInteger('post_status');
             $table->timestamps();
         });
     }

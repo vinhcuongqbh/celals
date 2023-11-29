@@ -47,6 +47,7 @@ class PostController extends Controller
         $post->post_content = $request->post_content;
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();
+        $post->post_status = 0;
         $post->created_at = Carbon::now();
         //Xử lý file tải lên
         if ($request->hasFile('post_img')) {

@@ -17,7 +17,7 @@
                             <div class="row">
                                 <div class="col-12 col-sm-2">
                                     <a href="{{ route('post.create') }}"
-                                        class="btn bg-olive text-white w-50">{{ __('new_post') }}</a>
+                                        class="btn bg-olive text-white w-50 p-1">{{ __('new_post') }}</a>
                                 </div>
                             </div>
                             <!-- /.card-body -->
