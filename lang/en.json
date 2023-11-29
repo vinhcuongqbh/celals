@@ -54,5 +54,15 @@
     "post_img": "Ảnh minh họa",
     "post_content": "Nội dung bài viết",
     "post_status": "Trạng thái",
-    "post_author": "Tác giả"
+    "post_author": "Tác giả",
+    "action": "Xử lý",       
+    "public": "Đăng",
+    "publicPost": "Bạn muốn đăng bài viết này?",
+    "publicedPost": "Bài viết đã được đăng.",
+    "unpublic": "Ẩn",
+    "unpublicPost": "Bạn muốn ẩn bài viết này?",
+    "unpublicedPost": "Bài viết đã được ẩn.",
+    "destroy": "Xóa",   
+    "destroyPost": "Bạn muốn xóa bài viết này?",
+    "destroyedPost": "Bài viết đã được xóa."
 }

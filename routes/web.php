@@ -98,7 +98,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{id}/', [PostController::class, 'show'])->name('post.show');
         Route::get('{id}/edit', [PostController::class, 'edit'])->name('post.edit');
         Route::post('{id}/update', [PostController::class, 'update'])->name('post.update');
-
+        Route::get('{id}/public', [PostController::class, 'public'])->name('post.public');
+        Route::get('{id}/unpublic', [PostController::class, 'unpublic'])->name('post.unpublic');
+        Route::get('{id}/destroy', [PostController::class, 'destroy'])->name('post.destroy');
 
     });
 

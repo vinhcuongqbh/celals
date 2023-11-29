@@ -14,7 +14,10 @@ class PostController extends Controller
     public function index()
     {
         //Hiển thị danh sách bài biết
-        $posts = Post::where('post_status', '<>', 0)->get();
+        $posts = Post::leftjoin('post_catalogues', 'post_catalogues.post_catalogue_id', 'posts.post_catalogue_id')
+            ->leftjoin('users', 'users.user_id', 'posts.post_author_id')
+            ->select('posts.*', 'post_catalogues.post_catalogue_name','users.name')
+            ->get();
 
         return view('admin.post.index', ['posts' => $posts]);
     }
@@ -119,6 +122,36 @@ class PostController extends Controller
         return redirect()->route('post.edit', ['id' => $post->post_id]);
     }
 
+
+    //Đăng bài viết
+    public function public($id)
+    {
+        $post = Post::where('post_id', $id)->first();    
+        $post->post_status = 1;    
+        $post->save();
+
+        return back()->with('message', __('publicedPost'));
+    }
+
+
+    //Ẩn bài viết
+    public function unpublic($id)
+    {
+        $post = Post::where('post_id', $id)->first();    
+        $post->post_status = 0;    
+        $post->save();
+
+        return back()->with('message', __('unpublicedPost'));
+    }
+
+    //Xóa bài viết
+    public function destroy($id)
+    {
+        $post = Post::where('post_id', $id)->first();        
+        $post->delete();
+
+        return back()->with('message', __('destroyedPost'));
+    }
 
 
     public function search(Request $request)
