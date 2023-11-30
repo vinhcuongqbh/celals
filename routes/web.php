@@ -6,6 +6,8 @@ use App\Http\Controllers\CenterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserReferralController;
 use App\Http\Controllers\SukienController;
+use App\Http\Controllers\TintucController;
+use App\Http\Controllers\GioiThieuController;
 use App\Models\PostCatalogue;
 use Illuminate\Support\Facades\Route;
 
@@ -24,10 +26,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front-end.home', ['centers' => (new CenterController)->centerQuery()]);
 })->name('home');
-
-Route::get('/gioi-thieu', function () {
-    return view('front-end.gioi-thieu');
-});
 
 Route::get('/diem-khac-biet', function () {
     return view('front-end.diem-khac-biet');
@@ -54,8 +52,18 @@ Route::prefix('su-kien')->group(function () {
     Route::get('/{id}', [SukienController::class, 'suKienChiTiet'])->name('su-kien-chi-tiet');
 });
 
-Route::get('/tin-tuc', function () {
-    return view('front-end.tin-tuc');
+Route::prefix('tin-tuc')->group(function () {
+    Route::get('', [TinTucController::class, 'tinTuc'])->name('tin-tuc');
+    Route::get('/{id}', [TinTucController::class, 'tinTucChiTiet'])->name('tin-tuc-chi-tiet');
+});
+
+Route::prefix('gioi-thieu')->group(function () {
+    Route::get('', [GioiThieuController::class, 'gioiThieu'])->name('gioi-thieu');
+    
+});
+
+Route::get('/', function () {
+    return view('front-end.gioi-thieu');
 });
 
 

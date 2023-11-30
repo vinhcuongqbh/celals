@@ -2,32 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
-class SukienController extends Controller
+class TintucController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function suKien()
+    public function tinTuc()
     {
-        $posts = Post::where('post_catalogue_id', 2)
+        $posts = Post::where('post_catalogue_id', 3)
             ->where('post_status', 1)
             ->orderBy('created_at', 'DESC')
             ->get();        
         
-        return view('front-end.su-kien', ['posts' => $posts]);
+        return view('front-end.tin-tuc', ['posts' => $posts]);
     }
 
-    public function suKienChiTiet($id)
+    public function tinTucChiTiet($id)
     {
         $post = Post::where('post_id', $id)            
             ->first();        
         
-        return view('front-end.su-kien-chi-tiet', ['post' => $post]);
+        return view('front-end.tin-tuc-chi-tiet', ['post' => $post]);
     }
-
 
     /**
      * Show the form for creating a new resource.

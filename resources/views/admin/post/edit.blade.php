@@ -19,6 +19,16 @@
                         </ul>
                     </div>
                 @endif
+                @if (session()->has('message'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            text: `{{ session()->get('message') }}`,
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    </script>
+                @endif
                 <form action="{{ route('post.update', $post->post_id) }}" method="post" id="form-validate"
                     enctype="multipart/form-data">
                     @csrf

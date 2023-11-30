@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\PostCatalogue;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Console\Logger\ConsoleLogger;
 
 class PostController extends Controller
 {
@@ -16,7 +19,8 @@ class PostController extends Controller
         //Hiển thị danh sách bài biết
         $posts = Post::leftjoin('post_catalogues', 'post_catalogues.post_catalogue_id', 'posts.post_catalogue_id')
             ->leftjoin('users', 'users.user_id', 'posts.post_author_id')
-            ->select('posts.*', 'post_catalogues.post_catalogue_name','users.name')
+            ->select('posts.*', 'post_catalogues.post_catalogue_name', 'users.name')
+            ->orderby('created_at', 'desc')
             ->get();
 
         return view('admin.post.index', ['posts' => $posts]);
@@ -61,13 +65,13 @@ class PostController extends Controller
                 $img->resize(2000, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save('../public/storage/File/' . $imgName . '.' . $extension);
-                $path = "/storage/File/" . $imgName . "." . $extension;
+                $path = "/File/" . $imgName . "." . $extension;
             }
             $post->post_img = $path;
-        }        
+        }
         $post->save();
 
-        return redirect()->route('post.edit', ['id' => $post->post_id]);
+        return redirect()->route('post.edit', ['id' => $post->post_id])->with('message', __('storedPost'));
     }
 
 
@@ -102,6 +106,15 @@ class PostController extends Controller
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();
         $post->updated_at = Carbon::now();
+        $path_old_image = $post->post_img;  
+        if (Storage::disk('local')->exists($path_old_image)) {
+            var_dump('Có file');
+            Storage::delete($path_old_image); 
+        } else {
+            var_dump('Không có file');
+        }
+
+        
         //Xử lý file tải lên
         if ($request->hasFile('post_img')) {
             $image = $request->post_img;
@@ -114,21 +127,21 @@ class PostController extends Controller
                 $img->resize(2000, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save('../public/storage/File/' . $imgName . '.' . $extension);
-                $path = "/storage/File/" . $imgName . "." . $extension;
+                $path = "/File/" . $imgName . "." . $extension;
             }
             $post->post_img = $path;
         }
         $post->save();
 
-        return redirect()->route('post.edit', ['id' => $post->post_id]);
+        //return redirect()->route('post.edit', ['id' => $post->post_id])->with('message', __('updatedPost'));
     }
 
 
     //Đăng bài viết
     public function public($id)
     {
-        $post = Post::where('post_id', $id)->first();    
-        $post->post_status = 1;    
+        $post = Post::where('post_id', $id)->first();
+        $post->post_status = 1;
         $post->save();
 
         return back()->with('message', __('publicedPost'));
@@ -138,8 +151,8 @@ class PostController extends Controller
     //Ẩn bài viết
     public function unpublic($id)
     {
-        $post = Post::where('post_id', $id)->first();    
-        $post->post_status = 0;    
+        $post = Post::where('post_id', $id)->first();
+        $post->post_status = 0;
         $post->save();
 
         return back()->with('message', __('unpublicedPost'));
@@ -148,7 +161,7 @@ class PostController extends Controller
     //Xóa bài viết
     public function destroy($id)
     {
-        $post = Post::where('post_id', $id)->first();        
+        $post = Post::where('post_id', $id)->first();
         $post->delete();
 
         return back()->with('message', __('destroyedPost'));

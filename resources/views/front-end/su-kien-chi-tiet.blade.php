@@ -3,7 +3,7 @@
 @section('title', 'CELALS')
 
 @section('content')
-    <div class="container-fluid" style="">
+    <div class="container-fluid">
         <div class="row" style="padding: 50px 10px; display: flex; align-items: center; justify-content: center;">
             <div class="col-12" style="color: #03396c; text-align:center; padding-bottom: 20px">
                 <h3>{{ $post->post_title }}</h3>

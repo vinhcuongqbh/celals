@@ -64,5 +64,7 @@
     "unpublicedPost": "Bài viết đã được ẩn.",
     "destroy": "Xóa",   
     "destroyPost": "Bạn muốn xóa bài viết này?",
-    "destroyedPost": "Bài viết đã được xóa."
+    "destroyedPost": "Bài viết đã được xóa.",
+    "storedPost": "Bài viết đã được tạo.",
+    "updatedPost": "Bài viết đã được cập nhật."
 }
