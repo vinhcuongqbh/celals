@@ -63,7 +63,7 @@ Route::prefix('gioi-thieu')->group(function () {
 });
 
 Route::get('/', function () {
-    return view('front-end.gioi-thieu');
+    return view('front-end.home');
 });
 
 

@@ -14,8 +14,8 @@
                     @foreach ($posts as $post)
                         <div class="col-12 col-sm-4">
                             <div class="card" style="width: 100%">
-                                <a href="/su-kien/{{ $post->post_id }}">
-                                    <img class="card-img-top img-fluid" src="{{ $post->post_img }}" alt="Card image cap">
+                                <a href="/tin-tuc/{{ $post->post_id }}">
+                                    <img class="card-img-top img-fluid" src="/storage/{{ $post->post_img }}" alt="Card image cap">
                                     <div class="card-body">
                                         <h5 class="card-title text-justify">{{ $post->post_title }}</h5>
                                     </div>

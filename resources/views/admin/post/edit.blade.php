@@ -95,7 +95,7 @@
                                         <div class="form-group row">
                                             <div class="col-12">
                                                 <div class="holder">
-                                                    <img id="imgPreview" src="{{ $post->post_img }}" alt="pic" />
+                                                    <img id="imgPreview" src="/storage/{{ $post->post_img }}" alt="pic" />
                                                 </div>
                                             </div>
                                         </div>
@@ -205,7 +205,6 @@
             // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
             toolbar: {
                 items: [
-
                     'exportPDF', 'exportWord', '|',
                     'findAndReplace', 'selectAll', '|',
                     'heading', '|',

@@ -62,7 +62,7 @@ class PostController extends Controller
             if ($check) {
                 $imgName = Auth::user()->id . uniqid();
                 $img = Image::make($image->path());
-                $img->resize(2000, null, function ($constraint) {
+                $img->resize(1024, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save('../public/storage/File/' . $imgName . '.' . $extension);
                 $path = "/File/" . $imgName . "." . $extension;
@@ -105,18 +105,14 @@ class PostController extends Controller
         $post->post_content = $request->post_content;
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();
+        $post->post_status = 0;
         $post->updated_at = Carbon::now();
-        $path_old_image = $post->post_img;  
-        if (Storage::disk('local')->exists($path_old_image)) {
-            var_dump('Có file');
-            Storage::delete($path_old_image); 
-        } else {
-            var_dump('Không có file');
-        }
 
-        
         //Xử lý file tải lên
         if ($request->hasFile('post_img')) {
+            if (Storage::disk('public')->exists($post->post_img)) {               
+                Storage::disk('public')->delete($post->post_img); 
+            } 
             $image = $request->post_img;
             $allowedfileExtension = ['jpg', 'jpeg', 'png', 'bmp'];
             $extension = $image->getClientOriginalExtension();
@@ -124,7 +120,7 @@ class PostController extends Controller
             if ($check) {
                 $imgName = Auth::user()->id . uniqid();
                 $img = Image::make($image->path());
-                $img->resize(2000, null, function ($constraint) {
+                $img->resize(1024, null, function ($constraint) {
                     $constraint->aspectRatio();
                 })->save('../public/storage/File/' . $imgName . '.' . $extension);
                 $path = "/File/" . $imgName . "." . $extension;
@@ -133,7 +129,7 @@ class PostController extends Controller
         }
         $post->save();
 
-        //return redirect()->route('post.edit', ['id' => $post->post_id])->with('message', __('updatedPost'));
+        return redirect()->route('post.edit', ['id' => $post->post_id])->with('message', __('updatedPost'));
     }
 
 
