@@ -8,6 +8,7 @@ use App\Http\Controllers\UserReferralController;
 use App\Http\Controllers\SukienController;
 use App\Http\Controllers\TintucController;
 use App\Http\Controllers\GioiThieuController;
+use App\Http\Controllers\TestController;
 use App\Models\PostCatalogue;
 use Illuminate\Support\Facades\Route;
 
@@ -117,6 +118,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/customer/{id}', [UserReferralController::class, 'show'])->name('referral.show');
         Route::post('/customer/update/{id}', [UserReferralController::class, 'update'])->name('referral.update');
         Route::get('/referrer', [UserReferralController::class, 'referrer'])->name('referral.referrer');
+    });
+
+
+    Route::group(['prefix' => 'test'], function () {
+        Route::get('create', [TestController::class, 'create'])->name('test.create');
+        Route::post('search', [TestController::class, 'search'])->name('test.search');
+        Route::post('store', [TestController::class, 'store'])->name('test.store');
     });
 });
 

@@ -66,5 +66,8 @@
     "destroyPost": "Bạn muốn xóa bài viết này?",
     "destroyedPost": "Bài viết đã được xóa.",
     "storedPost": "Bài viết đã được tạo.",
-    "updatedPost": "Bài viết đã được cập nhật."
+    "updatedPost": "Bài viết đã được cập nhật.",
+    "class_management": "Quản lý Lớp học",
+    "test-create": "Tạo Bài kiểm tra",
+    "test-list": "Danh sách Bài Kiểm tra"
 }

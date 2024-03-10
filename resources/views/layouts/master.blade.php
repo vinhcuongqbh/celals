@@ -12,14 +12,15 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">  
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
+
 </head>
 
 <body class="sidebar-mini layout-navbar-fixed">
@@ -104,6 +105,27 @@
                                     <a href="/admin/referral/referrer" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>{{ __('referrer') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-warehouse"></i>
+                                <p>{{ __('class_management') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/test/create" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>{{ __('test-create') }}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/test/list" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>{{ __('test-list') }}</p>
                                     </a>
                                 </li>
                             </ul>
