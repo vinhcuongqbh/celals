@@ -78,8 +78,18 @@
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-end">
                             <label class="text-right text-danger col-3" id="error"></label>
-                            <button type="submit" class="btn bg-olive text-nowrap col-4 col-xl-1">Tạo Bài KT</button><br>
+                            <button type="submit" class="btn bg-olive text-nowrap col-4 col-xl-2">Tạo Bài KT</button><br>
                         </div>
+
+
+                        <input type="hidden" name="level_id_selected"
+                            value="@php if (isset($level_id_selected)) echo $level_id_selected; else echo "0"; @endphp">
+                        <input type="hidden" name="topic_id_1_selected"
+                            value="@php if (isset($topic_id_1_selected)) echo $topic_id_1_selected; else echo "0"; @endphp">
+                        <input type="hidden" name="topic_id_2_selected"
+                            value="@php if (isset($topic_id_2_selected)) echo $topic_id_2_selected; else echo "0"; @endphp">
+                        <input type="hidden" name="topic_id_3_selected"
+                            value="@php if (isset($topic_id_3_selected)) echo $topic_id_3_selected; else echo "0"; @endphp">
                     </form>
                 </div>
                 <!-- /.card -->

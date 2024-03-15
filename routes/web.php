@@ -59,8 +59,12 @@ Route::prefix('tin-tuc')->group(function () {
 });
 
 Route::prefix('gioi-thieu')->group(function () {
-    Route::get('', [GioiThieuController::class, 'gioiThieu'])->name('gioi-thieu');
-    
+    Route::get('', [GioiThieuController::class, 'gioiThieu'])->name('gioi-thieu');    
+});
+
+Route::prefix('test')->group(function () {
+    Route::get('{id}/testing', [TestController::class, 'testing'])->name('test.testing');    
+    Route::get('{id}/studing', [TestController::class, 'studing'])->name('test.studing');
 });
 
 Route::get('/', function () {
@@ -125,6 +129,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('create', [TestController::class, 'create'])->name('test.create');
         Route::post('search', [TestController::class, 'search'])->name('test.search');
         Route::post('store', [TestController::class, 'store'])->name('test.store');
+        Route::get('{id}/', [TestController::class, 'show'])->name('test.show');
+   
     });
 });
 

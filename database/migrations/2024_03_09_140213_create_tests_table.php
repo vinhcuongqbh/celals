@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('test_id')->unique();
             $table->tinyInteger('level_id');
-            $table->dateTime('create_time');
-            $table->dateTime('end_time');
-            $table->string('link');
+            $table->string('topic_id');
+            $table->string('word_selected_id');
+            $table->string('studing_link');
+            $table->string('testing_link');
+            $table->string('creator_id');
             $table->timestamps();
         });
     }
