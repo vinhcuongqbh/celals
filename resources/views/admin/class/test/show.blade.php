@@ -44,9 +44,9 @@
                                 <tr>
                                     <th class="text-center">STT</th>
                                     <th class="text-center">Từ vựng</th>
-                                    <th class="text-center">Loại</th>
+                                    <th class="text-center">Từ loại</th>
                                     <th class="text-center">Phát âm</th>
-                                    <th class="text-center">Nghĩa tiếng Việt</th>
+                                    <th class="text-center">Dịch nghĩa</th>
                                     <th class="text-center">Chủ đề</th>
                                 </tr>
                             </thead>
@@ -141,15 +141,22 @@
                             <div class="form-group row">
                                 <label class="text-left text-danger col-sm-12 col-form-label">Link học:</label>
                                 <div class="col-sm-12">
-                                    <a
-                                        href="{{ url('/') . $test->studing_link }}">{{ url('/') . $test->studing_link }}</a>
+                                    <a href="{{ url('/') . '/test/' . $test->test_id . '/studing' }}">{{ url('/') . '/test/' . $test->test_id . '/studing' }}</a>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="text-left text-danger col-sm-12 col-form-label">Link kiểm tra: </label>
                                 <div class="col-sm-12">
                                     <a
-                                        href="{{ url('/') . $test->testing_link }}">{{ url('/') . $test->testing_link }}</a>
+                                        href="{{ url('/') . '/test/' . $test->test_id . '/testing' }}">{{ url('/') . '/test/' . $test->test_id . '/testing' }}</a>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="text-left text-danger col-sm-12 col-form-label">Link
+                                    xếp hạng: </label>
+                                <div class="col-sm-12">
+                                    <a
+                                        href="{{ url('/') . '/test/' . $test->test_id . '/ranking' }}">{{ url('/') . '/test/' . $test->test_id . '/ranking' }}</a>
                                 </div>
                             </div>
                         </div>
@@ -197,5 +204,5 @@
                 },
             }).buttons().container().appendTo('#user-table_wrapper .col-md-6:eq(0)');
         });
-    </script>    
+    </script>
 @stop

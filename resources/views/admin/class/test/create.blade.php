@@ -46,13 +46,14 @@
                                     <tr>
                                         <th class="text-center">Chọn</th>
                                         <th class="text-center">Từ vựng</th>
-                                        <th class="text-center">Loại</th>
+                                        <th class="text-center">Từ loại</th>
                                         <th class="text-center">Phát âm</th>
-                                        <th class="text-center">Nghĩa tiếng Việt</th>
+                                        <th class="text-center">Dịch nghĩa</th>
                                         <th class="text-center">Chủ đề</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $i = 0; @endphp
                                     @if ($word != null)
                                         @foreach ($word as $word)
                                             <tr>
@@ -61,7 +62,7 @@
                                                         <input class="form-check-input" type="checkbox"
                                                             id="{{ $word->word_id }}" value="{{ $word->word_id }}"
                                                             name="word_selected_id[]"
-                                                            @if ($select_mode == 'automatic_select') checked @endif>
+                                                            @php $i++; if (($select_mode == 'automatic_select')&&($i <= 20)) echo "checked" @endphp>
                                                     </div>
                                                 </td>
                                                 <td>{{ $word->word }}</td>
@@ -285,6 +286,10 @@
                 searching: true,
                 autoWidth: false,
                 ordering: false,
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 400,
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },

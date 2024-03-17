@@ -5,8 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vocabulary extends Model
+class TestResultDetail extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'word_id';
 }

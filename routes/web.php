@@ -64,7 +64,10 @@ Route::prefix('gioi-thieu')->group(function () {
 
 Route::prefix('test')->group(function () {
     Route::get('{id}/testing', [TestController::class, 'testing'])->name('test.testing');    
+    Route::post('/testing/store', [TestController::class, 'testingStore'])->name('test.testing.store');
     Route::get('{id}/studing', [TestController::class, 'studing'])->name('test.studing');
+    Route::get('{id}/ranking', [TestController::class, 'ranking'])->name('test.ranking');
+    Route::get('{id}/testingShow', [TestController::class, 'testingShow'])->name('test.result.show');    
 });
 
 Route::get('/', function () {
@@ -127,6 +130,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::group(['prefix' => 'test'], function () {
         Route::get('create', [TestController::class, 'create'])->name('test.create');
+        Route::get('list', [TestController::class, 'list'])->name('test.list');
         Route::post('search', [TestController::class, 'search'])->name('test.search');
         Route::post('store', [TestController::class, 'store'])->name('test.store');
         Route::get('{id}/', [TestController::class, 'show'])->name('test.show');

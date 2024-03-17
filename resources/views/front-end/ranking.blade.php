@@ -11,10 +11,10 @@
                         echo $topic[0]['topic_name'];
                     }
                     if (isset($topic[1]['topic_id'])) {
-                        echo ", ".$topic[1]['topic_name'];
+                        echo ', ' . $topic[1]['topic_name'];
                     }
                     if (isset($topic[2]['topic_id'])) {
-                        echo ", ".$topic[2]['topic_name'];
+                        echo ', ' . $topic[2]['topic_name'];
                     }
                 @endphp</h3>
             </div>
@@ -32,33 +32,45 @@
                                                         class="table table-bordered table-striped m-0 p-0">
                                                         <colgroup>
                                                             <col style="width:5%;">
+                                                            <col style="width:35%;">
                                                             <col style="width:20%;">
-                                                            <col style="width:5%;">
-                                                            <col style="width:15%;">
-                                                            <col style="width:30%;">
+                                                            <col style="width:20%;">
+                                                            <col style="width:20%;">
                                                         </colgroup>
                                                         <thead style="text-align: center">
                                                             <tr>
                                                                 <th class="text-center">STT</th>
-                                                                <th class="text-center">Từ vựng</th>
-                                                                <th class="text-center">Từ Loại</th>
-                                                                <th class="text-center">Phát âm</th>
-                                                                <th class="text-center">Dịch nghĩa</th>
+                                                                <th class="text-center">Họ và tên</th>
+                                                                <th class="text-center">Kết quả</th>
+                                                                <th class="text-center">Đánh giá</th>                                                                
+                                                                <th class="text-center">Chi tiết bài làm</th>    
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if ($word != null)
+                                                            @if ($ranking != null)
                                                                 @php $i=1; @endphp
-                                                                @foreach ($word as $word)
+                                                                @foreach ($ranking as $ranking)
                                                                     <tr>
                                                                         <td class="text-center">
                                                                             {{ $i++ }}
                                                                         </td>
-                                                                        <td>{{ $word->word }}</td>
-                                                                        <td class="text-center">{{ $word->word_type_name }}
+                                                                        <td class="text-justify">
+                                                                            {{ $ranking->name }}
                                                                         </td>
-                                                                        <td>{{ $word->spelling }}</td>
-                                                                        <td class="text-justify">{{ $word->word_meaning }}
+                                                                        <td class="text-center">
+                                                                            {{ $ranking->right_answer }}/{{ $ranking->total_question }}
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            @php
+                                                                                if ($ranking->pass == 1) {
+                                                                                    echo 'Đạt';
+                                                                                } else {
+                                                                                    echo 'Chưa đạt';
+                                                                                }
+                                                                            @endphp
+                                                                        </td>
+                                                                        <td class="text-center">
+                                                                            <a href="{{ route('test.result.show', $ranking->test_answer_id) }}">{{ $ranking->test_answer_id }}</a>
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
@@ -145,18 +157,20 @@
                                                     <div class="card-body">
                                                         <div class="form-group row">
                                                             <label
-                                                                class="text-left text-danger col-sm-12 col-form-label">Link  học:</label>
+                                                                class="text-left text-danger col-sm-12 col-form-label">Link
+                                                                học:</label>
                                                             <div class="col-sm-12">
                                                                 <a
-                                                                    href="{{ url('/') ."/test/". $test->test_id."/studing" }}">{{ url('/') ."/test/". $test->test_id."/studing" }}</a>
+                                                                    href="{{ url('/') . '/test/' . $test->test_id . '/studing' }}">{{ url('/') . '/test/' . $test->test_id . '/studing' }}</a>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label
-                                                                class="text-left text-danger col-sm-12 col-form-label">Link kiểm tra: </label>
+                                                                class="text-left text-danger col-sm-12 col-form-label">Link
+                                                                kiểm tra: </label>
                                                             <div class="col-sm-12">
                                                                 <a
-                                                                    href="{{ url('/') ."/test/". $test->test_id."/testing" }}">{{ url('/') ."/test/". $test->test_id."/testing" }}</a>
+                                                                    href="{{ url('/') . '/test/' . $test->test_id . '/testing' }}">{{ url('/') . '/test/' . $test->test_id . '/testing' }}</a>
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -165,7 +179,7 @@
                                                                 xếp hạng: </label>
                                                             <div class="col-sm-12">
                                                                 <a
-                                                                    href="{{ url('/') ."/test/". $test->test_id."/ranking" }}">{{ url('/') ."/test/". $test->test_id."/ranking" }}</a>
+                                                                    href="{{ url('/') . '/test/' . $test->test_id . '/ranking' }}">{{ url('/') . '/test/' . $test->test_id . '/ranking' }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -174,19 +188,63 @@
                                         </div>
                                     </div>
                                     <!-- /.row -->
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div><!-- /.container-fluid -->
 @stop
 
-@section('js')
+@section('css')
 @stop
 
-@section('css')
+@section('js')
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/vendor/jquery-validation/additional-methods.min.js"></script>
+    <script>
+        $(function() {
+            $('#form-validate').validate({
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    age: {
+                        required: true,
+                    },
+                    tel: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    name: {
+                        required: "Vui lòng nhập thông tin",
+                    },
+                    age: {
+                        required: "Vui lòng nhập thông tin",
+                    }
+                    tel: {
+                        required: "Vui lòng nhập thông tin",
+                    }
+                },
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.col-sm-12').append(error);
+
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
 @stop

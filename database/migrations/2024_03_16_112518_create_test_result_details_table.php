@@ -11,13 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tests', function (Blueprint $table) {
+        Schema::create('test_result_details', function (Blueprint $table) {
             $table->id();
-            $table->string('test_id')->unique();
-            $table->tinyInteger('level_id');
-            $table->string('topic_id');
-            $table->string('word_selected_id');
-            $table->string('creator_id');
+            $table->string('test_answer_id');
+            $table->string('word_id');
+            $table->string('word_meaning');
+            $table->string('word');
+            $table->tinyInteger('point');
+            $table->string('answer');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('test_result_details');
     }
 };
