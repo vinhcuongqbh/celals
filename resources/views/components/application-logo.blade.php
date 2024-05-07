@@ -1,0 +1,1 @@
+<img src="/img/logo.png" alt="Celals" style="width: 500px">
