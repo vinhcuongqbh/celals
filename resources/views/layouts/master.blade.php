@@ -90,42 +90,46 @@
                                 <p>{{ __('dash_board') }}</p>
                             </a>
                         </li>
-                        <li class="nav-header">QUẢN TRỊ HỆ THỐNG</li>
-                        @if (Auth::user()->role_id == 1)
-                            <li class="nav-item">
-                                <a href="/admin/user" class="nav-link">
-                                    <i class="nav-icon fa-solid fa-user"></i>
-                                    <p>{{ __('user_management') }}</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/admin/post" class="nav-link">
-                                    <i class="nav-icon fas fa-newspaper"></i>
-                                    <p>{{ __('post_management') }}</p>
-                                </a>
-                            </li>
+                        @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
+                            <li class="nav-header">QUẢN TRỊ HỆ THỐNG</li>
+                            @if (Auth::user()->role_id == 1)
+                                <li class="nav-item">
+                                    <a href="/admin/user" class="nav-link">
+                                        <i class="nav-icon fa-solid fa-user"></i>
+                                        <p>{{ __('user_management') }}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/post" class="nav-link">
+                                        <i class="nav-icon fas fa-newspaper"></i>
+                                        <p>{{ __('post_management') }}</p>
+                                    </a>
+                                </li>
+                            @endif
+                            @if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-warehouse"></i>
+                                        <p>{{ __('referral_management') }}</p>
+                                        <i class="fas fa-angle-left right"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/admin/referral/customer" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('customer') }}</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/admin/referral/referrer" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('referrer') }}</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @endif
                         @endif
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-warehouse"></i>
-                                <p>{{ __('referral_management') }}</p>
-                                <i class="fas fa-angle-left right"></i>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/admin/referral/customer" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>{{ __('customer') }}</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/admin/referral/referrer" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>{{ __('referrer') }}</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         @if (Auth::user()->role_id == 1)
                             <li class="nav-header">QUẢN LÝ LỚP HỌC</li>
                             <li class="nav-item">
@@ -177,6 +181,25 @@
                                 </ul>
                             </li>
                         @endif
+                        @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
+                            <li class="nav-header">LỚP HỌC</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>{{ __('listening') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/student_block_show" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('self_studing_list') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

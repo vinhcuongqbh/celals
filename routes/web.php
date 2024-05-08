@@ -13,11 +13,13 @@ use App\Http\Controllers\ListeningBlockController;
 use App\Http\Controllers\ListeningController;
 use App\Http\Controllers\ListeningLessonController;
 use App\Http\Controllers\ListeningTestController;
+use App\Http\Controllers\StudentListeningBlockController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\VocabularyTestController;
 use App\Models\ListeningBlock;
 use App\Models\PostCatalogue;
+use App\Models\StudentListeningBlock;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -160,6 +162,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('{id}/block_edit', [ListeningBlockController::class, 'blockEdit'])->name('listening.block_edit');
             Route::get('{id}/block_show', [ListeningBlockController::class, 'blockShow'])->name('listening.block_show');
             Route::get('block_list', [ListeningBlockController::class, 'blockList'])->name('listening.block_list');
+            Route::get('student_block_show', [StudentListeningBlockController::class, 'blockShow'])->name('listening.student_block_show');
+            Route::get('student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
+            Route::get('student_test_show', [StudentListeningBlockController::class, 'testShow'])->name('listening.student_test_show');
         });
     });
 });

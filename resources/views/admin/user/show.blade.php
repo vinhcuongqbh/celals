@@ -128,8 +128,8 @@
                     </div>
                     <div class="modal-footer">                       
                         <button type="submit" class="btn bg-olive text-white text-nowrap">{{ __('update') }}</button>
-                        <button type="button" class="btn bg-olive text-white text-nowrap"
-                        data-dismiss="modal">{{ __('back') }}</button>
+                        {{-- <button type="button" class="btn bg-olive text-white text-nowrap"
+                        data-dismiss="modal">{{ __('back') }}</button> --}}
                     </div>
                 </div>
                 <!-- /.modal-content -->

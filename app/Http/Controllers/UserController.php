@@ -10,6 +10,8 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Http\Controllers\CenterController;
 use App\Http\Controllers\UserRoleController;
+use App\Models\ListeningBlock;
+use App\Models\StudentListeningBlock;
 
 class UserController extends Controller
 {
@@ -71,6 +73,15 @@ class UserController extends Controller
         $user->user_status = 1;
         $user->created_at = Carbon::now();
         $user->save();
+
+        //Tạo Listening Block cho Student
+        if ($user->role_id == 5) {
+            $first_block = ListeningBlock::first();
+            $student_listening_block = new StudentListeningBlock();
+            $student_listening_block->student_id = $user->user_id;
+            $student_listening_block->listening_block_id = $first_block->block_id;
+            $student_listening_block->save();
+        }
 
         return redirect()->route('user.show', ['id' => $user->user_id]);
     }
