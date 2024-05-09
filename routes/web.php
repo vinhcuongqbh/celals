@@ -163,8 +163,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('{id}/block_show', [ListeningBlockController::class, 'blockShow'])->name('listening.block_show');
             Route::get('block_list', [ListeningBlockController::class, 'blockList'])->name('listening.block_list');
             Route::get('student_block_show', [StudentListeningBlockController::class, 'blockShow'])->name('listening.student_block_show');
-            Route::get('student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
-            Route::get('student_test_show', [StudentListeningBlockController::class, 'testShow'])->name('listening.student_test_show');
+            Route::get('{id}/student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
+            Route::get('{id}/student_test_show', [StudentListeningBlockController::class, 'testShow'])->name('listening.student_test_show');
         });
     });
 });

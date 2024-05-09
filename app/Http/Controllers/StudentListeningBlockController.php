@@ -45,8 +45,10 @@ class StudentListeningBlockController extends Controller
     }
 
 
-    public function  blockUpdate($student_id, $block_id)
+    public function  lessonShow($id)
     {
-        
+        $lesson = ListeningLesson::where('lesson_id', $id)->first();
+
+        return view('admin.class.listening.student_lesson_show', ['lesson' => $lesson]);
     }
 }
