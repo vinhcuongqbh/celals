@@ -75,7 +75,7 @@
                                 <label for="question">{{ __('question') }}</label>
                             </div>
                             <div class="col-sm-9">
-                                <textarea id="question" name="question" class="form-control" rows="5" readonly>{{ $test->question }}</textarea>
+                                <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $test->question }}</textarea>
                             </div>
                         </div>
                         {{-- <div class="form-group row">

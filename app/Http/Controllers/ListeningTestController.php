@@ -43,7 +43,7 @@ class ListeningTestController extends Controller
         $test->test_form = $request->test_form;
         $test->test_duration = $request->test_duration;
         if (isset($request->question)) $test->question = $request->question;
-        //Xử lý link audio
+        //Xử lý link
         if (!empty($request->file('link_question'))) {
             $file = Storage::putFile('/public/File/Img', $request->file('link_question'));
             $path = Storage::url($file);

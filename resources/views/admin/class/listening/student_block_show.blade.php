@@ -46,7 +46,7 @@
                                         <td class="text-center">{{ $i++ }}</td>
                                         <td><a href="
                                             @if ($cl['type_id'] == "L") {{ route('listening.student_lesson_show', $cl['question_id']) }} 
-                                            @elseif ($cl['type_id'] == "T") {{ route('listening.student_test_show', $cl['question_id']) }} 
+                                            @elseif ($cl['type_id'] == "T") {{ route('listening.student_test_create', $cl['question_id']) }} 
                                             @endif">{{ $cl['subject'] }}</a></td>
                                     </tr>
                                 @endforeach

@@ -105,9 +105,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer d-flex justify-content-end">                       
+                        <a class="btn bg-olive text-white text-nowrap m-1"
+                            href="{{ route('listening.student_block_show') }}">{{ __('back') }}</a>
+                    </div>
 
                 </div>
             </div>
+            
         </div>
     </div>
     <!-- /.container-fluid -->

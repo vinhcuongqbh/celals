@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <h3 class="card-title">{{ __('user_information') }}</h3>
                     </div>
-                    <div class="card-body">                        
+                    <div class="card-body">
                         <div class="form-group row">
                             <div class="col-sm-3">
                                 <label for="user_name">{{ __('user_name') }}</label>
@@ -83,9 +83,10 @@
                     <div class="card-footer d-flex justify-content-center">
                         <button type="button" class="btn btn-danger text-white w-100 text-nowrap m-1" data-toggle="modal"
                             data-target="#reset-pass">{{ __('changePassword') }}</button>
-                        <a class="btn btn-warning w-100 text-nowrap m-1"
-                            href="{{ route('user.edit', $user->user_id) }}">{{ __('edit') }}</a>
-                            
+                        @if (Auth::user()->role == 1)
+                            <a class="btn btn-warning w-100 text-nowrap m-1"
+                                href="{{ route('user.edit', $user->user_id) }}">{{ __('edit') }}</a>
+                        @endif
                         <a class="btn bg-olive text-white w-100 text-nowrap m-1"
                             href="{{ route('user') }}">{{ __('back') }}</a>
                     </div>
@@ -126,7 +127,7 @@
                         </div>
                         <input type="hidden" id="user_id" name="user_id" value="{{ $user->user_id }}">
                     </div>
-                    <div class="modal-footer">                       
+                    <div class="modal-footer">
                         <button type="submit" class="btn bg-olive text-white text-nowrap">{{ __('update') }}</button>
                         {{-- <button type="button" class="btn bg-olive text-white text-nowrap"
                         data-dismiss="modal">{{ __('back') }}</button> --}}
@@ -173,5 +174,5 @@
                 }
             });
         });
-    </script>   
+    </script>
 @stop

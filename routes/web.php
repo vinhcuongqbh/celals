@@ -14,6 +14,7 @@ use App\Http\Controllers\ListeningController;
 use App\Http\Controllers\ListeningLessonController;
 use App\Http\Controllers\ListeningTestController;
 use App\Http\Controllers\StudentListeningBlockController;
+use App\Http\Controllers\StudentListeningTestController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\VocabularyTestController;
@@ -164,7 +165,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('block_list', [ListeningBlockController::class, 'blockList'])->name('listening.block_list');
             Route::get('student_block_show', [StudentListeningBlockController::class, 'blockShow'])->name('listening.student_block_show');
             Route::get('{id}/student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
-            Route::get('{id}/student_test_show', [StudentListeningBlockController::class, 'testShow'])->name('listening.student_test_show');
+            Route::get('{id}/student_test_create', [StudentListeningTestController::class, 'testCreate'])->name('listening.student_test_create');
+            Route::post('student_test_Store', [StudentListeningTestController::class, 'testStore'])->name('listening.student_test_store');
         });
     });
 });
