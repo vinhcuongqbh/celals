@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Level;
 use App\Models\ListeningTest;
 use App\Models\ListeningTestDetail;
 use App\Models\StudentListeningTest;
 use App\Models\TestType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class StudentListeningTestController extends Controller
@@ -22,7 +24,7 @@ class StudentListeningTestController extends Controller
             [
                 'test' => $test,
                 'test_details' => $test_details,
-                'test_types' => $test_types
+                'test_types' => $test_types,
             ]
         );
     }
@@ -41,4 +43,5 @@ class StudentListeningTestController extends Controller
         }        
         $test_result->save();
     }
+
 }

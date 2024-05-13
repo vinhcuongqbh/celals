@@ -23,8 +23,17 @@
                             </ul>
                         </div>
                     @endif
-
                     <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-sm-3">
+                                <label for="level">{{ __('level') }}</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <select id="level_id" name="level_id" class="form-control custom-select" disabled>
+                                    <option value="{{ $test->level_id }}">{{ $test->level_name }}</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
                                 <label for="subject">{{ __('subject') }}</label>
@@ -39,13 +48,8 @@
                                 <label for="">{{ __('test_type') }}</label>
                             </div>
                             <div class="col-sm-9">
-                                <select id="test_type_id" name="test_type_id" class="form-control custom-select" readonly>
-                                    @foreach ($test_types as $test_type)
-                                        <option value="{{ $test_type->test_type_id }}"
-                                            @if ($test_type->test_type_id == $test->test_type_id) selected @endif>
-                                            {{ $test_type->test_type_name }}
-                                        </option>
-                                    @endforeach
+                                <select id="test_type_id" name="test_type_id" class="form-control custom-select" disabled>
+                                    <option value="{{ $test->test_type_id }}">{{ $test->test_type_name }}</option>
                                 </select>
                             </div>
                         </div>
@@ -145,7 +149,7 @@
 @stop
 
 @section('css')
-    <style> 
+    <style>
         .holder {
             width: 100%;
         }
@@ -157,80 +161,4 @@
 @endsection
 
 @section('js')
-    <!-- jquery-validation -->
-    <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="/vendor/jquery-validation/additional-methods.min.js"></script>
-    <!-- Page specific script -->
-    <script>
-        $(function() {
-            $('#form-validate').validate({
-                rules: {
-                    subject: {
-                        required: true,
-                    },
-                    test_type_id: {
-                        required: true,
-                    },
-                    test_form: {
-                        required: true,
-                    },
-                    test_duration: {
-                        required: true,
-                    },
-                },
-                messages: {
-                    subject: {
-                        required: "{{ __('enterContent') }}",
-                    },
-                    test_type_id: {
-                        required: "{{ __('selectContent') }}",
-                    },
-                    test_form: {
-                        required: "{{ __('enterContent') }}",
-                    },
-                    test_duration: {
-                        required: "{{ __('enterContent') }}",
-                    },
-                },
-                errorElement: 'span',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.col-sm-9').append(error);
-
-                },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                }
-            });
-        });
-    </script>
-
-    <!-- IMG Preview -->
-    <script>
-        $(document).ready(() => {
-            $('#link_question').change(function() {
-                const file = this.files[0];
-                console.log(file);
-                if (file) {
-                    let reader = new FileReader();
-                    reader.onload = function(event) {
-                        console.log(event.target.result);
-                        $('#imgPreview').attr('src', event.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    </script>
-
-    <!-- Hiển thị tên file khi được upload -->
-    <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script>
 @stop

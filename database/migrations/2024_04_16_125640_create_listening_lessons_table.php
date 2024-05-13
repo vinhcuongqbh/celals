@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('listening_lessons', function (Blueprint $table) {
             $table->id();
             $table->string('lesson_id')->unique();
+            $table->tinyInteger('level_id');
             $table->text('subject');
             $table->text('link_audio');
             $table->text('answer')->nullable();

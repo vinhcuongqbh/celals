@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Level;
 use App\Models\ListeningLesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,13 +18,16 @@ class ListeningLessonController extends Controller
 
     public function lessonCreate()
     {
-        return view('admin.class.listening.lesson_create');
+        $levels = Level::all();
+
+        return view('admin.class.listening.lesson_create', ['levels' => $levels]);
     }
 
     public function lessonStore(Request $request)
     {
         //Kiểm tra thông tin đầu vào
         $validated = $request->validate([
+            'level_id' => 'required',
             'subject' => 'required',
             'link_audio' => 'required',
         ]);
@@ -31,6 +35,7 @@ class ListeningLessonController extends Controller
         //Tạo Bài nghe mới
         $lesson = new ListeningLesson();
         $lesson->lesson_id = uniqid();
+        $lesson->level_id = $request->level_id;
         $lesson->subject = $request->subject;
         //Xử lý link audio
         if (!empty($request->file('link_audio'))) {
@@ -53,26 +58,35 @@ class ListeningLessonController extends Controller
 
     public function lessonShow($id)
     {
-        $lesson = ListeningLesson::where('lesson_id', $id)->first();
+        $lesson = ListeningLesson::where('lesson_id', $id)
+                  ->leftjoin('levels','levels.level_id', 'listening_lessons.level_id')
+                  ->select('listening_lessons.*', 'levels.level_name')
+                  ->first();
+
         return view('admin.class.listening.lesson_show', ['lesson' => $lesson]);
     }
 
 
     public function lessonEdit($id)
     {
+
         $lesson = ListeningLesson::where('lesson_id', $id)->first();
-        return view('admin.class.listening.lesson_edit', ['lesson' => $lesson]);
+        $levels = Level::all();
+
+        return view('admin.class.listening.lesson_edit', ['lesson' => $lesson, 'levels' => $levels]);
     }
 
     public function lessonUpdate($id, Request $request)
     {
         //Kiểm tra thông tin đầu vào
         $validated = $request->validate([
+            'level_id' => 'required',
             'subject' => 'required',
         ]);
 
         //Tạo Bài nghe mới
         $lesson = ListeningLesson::where('lesson_id', $id)->first();
+        $lesson->level_id = $request->level_id;
         $lesson->subject = $request->subject;
 
         //Xử lý link audio

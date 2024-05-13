@@ -150,19 +150,23 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('lesson_create', [ListeningLessonController::class, 'lessonCreate'])->name('listening.lesson_create');
             Route::post('lesson_store', [ListeningLessonController::class, 'lessonStore'])->name('listening.lesson_store');
             Route::get('{id}/lesson_edit', [ListeningLessonController::class, 'lessonEdit'])->name('listening.lesson_edit');
-            Route::post('{id}/lesson_store', [ListeningLessonController::class, 'lessonUpdate'])->name('listening.lesson_update');
+            Route::post('{id}/lesson_update', [ListeningLessonController::class, 'lessonUpdate'])->name('listening.lesson_update');
             Route::get('{id}/lesson_show', [ListeningLessonController::class, 'lessonShow'])->name('listening.lesson_show');
             Route::get('lesson_list', [ListeningLessonController::class, 'lessonList'])->name('listening.lesson_list');
+
             Route::get('test_create', [ListeningTestController::class, 'testCreate'])->name('listening.test_create');
             Route::post('test_store', [ListeningTestController::class, 'testStore'])->name('listening.test_store');
             Route::get('{id}/test_edit', [ListeningTestController::class, 'testEdit'])->name('listening.test_edit');
+            Route::post('{id}/test_update', [ListeningLessonController::class, 'lessonUpdate'])->name('listening.test_update');
             Route::get('{id}/test_show', [ListeningTestController::class, 'testShow'])->name('listening.test_show');
             Route::get('test_list', [ListeningTestController::class, 'testList'])->name('listening.test_list');
+
             Route::get('block_create', [ListeningBlockController::class, 'blockCreate'])->name('listening.block_create');
             Route::post('block_store', [ListeningBlockController::class, 'blockStore'])->name('listening.block_store');
             Route::get('{id}/block_edit', [ListeningBlockController::class, 'blockEdit'])->name('listening.block_edit');
             Route::get('{id}/block_show', [ListeningBlockController::class, 'blockShow'])->name('listening.block_show');
             Route::get('block_list', [ListeningBlockController::class, 'blockList'])->name('listening.block_list');
+
             Route::get('student_block_show', [StudentListeningBlockController::class, 'blockShow'])->name('listening.student_block_show');
             Route::get('{id}/student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
             Route::get('{id}/student_test_create', [StudentListeningTestController::class, 'testCreate'])->name('listening.student_test_create');

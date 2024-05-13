@@ -1,18 +1,20 @@
 @extends('layouts.master')
 
-@section('title', 'Test Create')
+@section('title', 'Test Show')
 
 @section('heading')
     {{ __('test_management') }}
 @stop
 
 @section('content')
-    <form action="{{ route('listening.test_store') }}" method="post" id="form-validate" enctype="multipart/form-data">
+    <form action="{{ route('listening.test_update', $test->test_id) }}" method="post" id="form-validate" enctype="multipart/form-data">
         <div class="container-fluid">
-            @csrf
             <div class="row">
                 <div class="col-xl-6">
                     <div class="card card-default">
+                        {{-- <div class="card-header">
+                        <h3 class="card-title text-bold">{{ __('new') }}</h3>
+                        </div> --}}
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -31,7 +33,9 @@
                                     <select id="level_id" name="level_id" class="form-control custom-select">
                                         <option selected></option>
                                         @foreach ($levels as $level)
-                                            <option value="{{ $level->level_id }}">{{ $level->level_name }}</option>
+                                            <option value="{{ $level->level_id }}"
+                                                @if ($level->level_id == $test->level_id) selected @endif>{{ $level->level_name }}
+                                            </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -41,7 +45,7 @@
                                     <label for="subject">{{ __('subject') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="subject" name="subject" value="{{ old('subject') }}"
+                                    <input type="text" id="subject" name="subject" value="{{ $test->subject }}"
                                         class="form-control">
                                 </div>
                             </div>
@@ -51,9 +55,11 @@
                                 </div>
                                 <div class="col-sm-9">
                                     <select id="test_type_id" name="test_type_id" class="form-control custom-select">
-                                        <option selected disabled></option>
+                                        <option selected></option>
                                         @foreach ($test_types as $test_type)
-                                            <option value="{{ $test_type->test_type_id }}">{{ $test_type->test_type_name }}
+                                            <option value="{{ $test_type->test_type_id }}"
+                                                @if ($test_type->test_type_id == $test->test_type_id) selected @endif>
+                                                {{ $test_type->test_type_name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -64,7 +70,7 @@
                                     <label for="test_form">{{ __('test_form') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="test_form" name="test_form" value="{{ old('test_form') }}"
+                                    <input type="text" id="test_form" name="test_form" value="{{ $test->test_form }}"
                                         class="form-control">
                                 </div>
                             </div>
@@ -74,7 +80,7 @@
                                 </div>
                                 <div class="col-sm-9 input-group">
                                     <input type="number" id="test_duration" name="test_duration"
-                                        value="{{ old('test_duration') }}" class="form-control" min="0">
+                                        value="{{ $test->test_duration }}" class="form-control" min="0">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">phút</div>
                                     </div>
@@ -85,7 +91,7 @@
                                     <label for="question">{{ __('question') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <textarea id="question" name="question" class="form-control" rows="5">{{ old('question') }}</textarea>
+                                    <textarea id="question" name="question" class="form-control" rows="18">{{ $test->question }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -102,10 +108,22 @@
                                     </div>
                                 </div>
                             </div>
-                            @for ($i = 1; $i <= 10; $i++)
+                            @php
+                                $i = 1;
+                                $j = 1;
+                            @endphp
+                            @foreach ($test_details as $td)
                                 <div class="form-group row">
                                     <div class="col-3">
                                         <label for="">{{ __('link_audio') }} {{ $i }}</label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <audio controls controlsList="nodownload" src="{{ $td->link_audio }}"></audio>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-3">
+                                        <label for=""></label>
                                     </div>
                                     <div class="col-9">
                                         <div class="input-group">
@@ -114,17 +132,37 @@
                                                     id="link_audio_{{ $i }}"
                                                     name="link_audio_{{ $i }}" accept="audio/*">
                                                 <label class="custom-file-label"
-                                                    for="link_audio_{{ $i }}"></label>
+                                                    for="link_audio_{{ $i++ }}"></label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            @endforeach
+                            @if ($i < 10)
+                                @for ($j = $i; $j <= 10; $j++)
+                                    <div class="form-group row">
+                                        <div class="col-3">
+                                            <label for="">{{ __('link_audio') }} {{ $j }}</label>
+                                        </div>
+                                        <div class="col-9">
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input"
+                                                        id="link_audio_{{ $j }}"
+                                                        name="link_audio_{{ $j }}" accept="audio/*">
+                                                    <label class="custom-file-label"
+                                                        for="link_audio_{{ $j }}"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endfor
+                            @endif
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning text-nowrap col-2 m-1">{{ __('create') }}</button>
+                                class="btn btn-warning text-nowrap col-2 m-1">{{ __('update') }}</button>
                             <a class="btn bg-olive text-white text-nowrap col-2 m-1"
                                 href="{{ route('listening.test_list') }}">{{ __('back') }}</a>
                         </div>
@@ -137,7 +175,7 @@
                             <div class="form-group row">
                                 <div class="col-12">
                                     <div class="holder">
-                                        <img id="imgPreview" alt="pic" src="/img/blank.png" />
+                                        <img id="imgPreview" alt="pic" src="{{ $test->link_question }}" />
                                     </div>
                                 </div>
                             </div>
@@ -146,8 +184,8 @@
                 </div>
             </div>
         </div>
+        <!-- /.container-fluid -->
     </form>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')

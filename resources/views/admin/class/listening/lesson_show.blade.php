@@ -23,6 +23,18 @@
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-sm-3">
+                                <label for="level">{{ __('level') }}</label>
+                            </div>
+                            <div class="col-sm-9">
+                                <select id="level_id" name="level_id" class="form-control custom-select" disabled>
+                                    <option value="{{ $lesson->level_id }}">
+                                        {{ $lesson->level_name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-3">
                                 <label for="subject">{{ __('subject') }}</label>
                             </div>
                             <div class="col-sm-9">

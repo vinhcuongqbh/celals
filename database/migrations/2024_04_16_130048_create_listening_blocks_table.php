@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('listening_blocks', function (Blueprint $table) {
             $table->id();
             $table->string('block_id')->unique();
+            $table->tinyInteger('level_id');
             $table->text('block_name');
             $table->text('question_list');
             $table->tinyInteger('status')->default(1);

@@ -196,6 +196,12 @@
                                             <p>{{ __('self_studing_list') }}</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/student_history_study" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('history_study') }}</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif

@@ -29,6 +29,19 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-sm-3">
+                                    <label for="level">{{ __('level') }}</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="level_id" name="level_id" class="form-control custom-select">
+                                        <option selected></option>
+                                        @foreach ($levels as $level)
+                                            <option value="{{ $level->level_id }}">{{ $level->level_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-3">
                                     <label for="subject">{{ __('subject') }}</label>
                                 </div>
                                 <div class="col-sm-9">
@@ -123,6 +136,9 @@
         $(function() {
             $('#form-validate').validate({
                 rules: {
+                    level_id: {
+                        required: true,
+                    },
                     subject: {
                         required: true,
                     },
@@ -131,6 +147,9 @@
                     },
                 },
                 messages: {
+                    level_id: {
+                        required: "{{ __('selectContent') }}",
+                    },
                     subject: {
                         required: "{{ __('enterContent') }}",
                     },

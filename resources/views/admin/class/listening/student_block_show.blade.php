@@ -3,7 +3,7 @@
 @section('title', 'Block Show')
 
 @section('heading')
-    {{ __('block_management') }}
+    {{ __('self_studing_list') }}
 @stop
 
 @section('content')

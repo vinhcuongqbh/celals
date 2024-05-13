@@ -11,9 +11,6 @@
         <div class="row">
             <div class="col-xl-6">
                 <div class="card card-default">
-                    <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('new') }}</h3>
-                    </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -27,6 +24,20 @@
                         enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    <label for="level">{{ __('level') }}</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="level_id" name="level_id" class="form-control custom-select">
+                                        <option selected></option>
+                                        @foreach ($levels as $level)
+                                            <option value="{{ $level->level_id }}"
+                                                @if ($level->level_id == $lesson->level_id) selected @endif>{{ $level->level_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
                                     <label for="subject">{{ __('subject') }}</label>
@@ -130,11 +141,17 @@
         $(function() {
             $('#form-validate').validate({
                 rules: {
+                    level_id: {
+                        required: true,
+                    },
                     subject: {
                         required: true,
                     },
                 },
                 messages: {
+                    level_id: {
+                        required: "{{ __('selectContent') }}",
+                    },
                     subject: {
                         required: "{{ __('enterContent') }}",
                     },

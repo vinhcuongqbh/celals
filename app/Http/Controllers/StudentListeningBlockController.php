@@ -49,6 +49,22 @@ class StudentListeningBlockController extends Controller
     }
 
 
+    public function  historyStudy()
+    {
+        $test_list = StudentListeningTest::where('student_id', Auth::user()->user_id)
+            ->leftjoin('listening_tests', 'listening_test.test_id', 'student_listening_tests.test_id')    
+            ->select('student_listening_tests.*','listening_tests.test_subject')
+            ->get();
+
+        return view(
+            'admin.class.listening.student_history_study',
+            [
+                'test_list' => $test_list,
+            ]
+        );
+    }
+
+
     public function  lessonShow($id)
     {
         $lesson = ListeningLesson::where('lesson_id', $id)->first();
