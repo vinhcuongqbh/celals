@@ -131,7 +131,37 @@
                             @endif
                         @endif
                         @if (Auth::user()->role_id == 1)
-                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>
+                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>                            
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>{{ __('listening') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/lesson_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('lesson-list') }}</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/test_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('test-list') }}</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/block_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('block-list') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                        @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
+                            <li class="nav-header">GIÁO VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -161,28 +191,22 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/admin/class/listening/lesson_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('lesson-list') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="/admin/class/listening/test_list" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('test-list') }}</p>
+                                            <p>{{ __('test_list') }}</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/admin/class/listening/block_list" class="nav-link">
+                                        <a href="/admin/class/listening/student_list" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('block-list') }}</p>
+                                            <p>{{ __('student_list') }}</p>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
-                            <li class="nav-header">LỚP HỌC</li>
+                            <li class="nav-header">HỌC VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -204,8 +228,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif
-
+                        @endif                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -228,6 +251,25 @@
 
             <!-- Main content -->
             <section class="content">
+                @if (session()->has('msg_success'))
+                    <script>
+                        Swal.fire({
+                            icon: 'success',
+                            text: `{{ session()->get('msg_success') }}`,
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    </script>
+                @elseif (session()->has('msg_error'))
+                    <script>
+                        Swal.fire({
+                            icon: 'error',
+                            text: `{{ session()->get('msg_error') }}`,
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    </script>
+                @endif
                 @yield('content')
             </section>
             <!-- /.content -->

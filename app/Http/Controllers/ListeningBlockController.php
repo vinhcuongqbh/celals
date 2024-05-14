@@ -6,6 +6,9 @@ use App\Models\Level;
 use App\Models\ListeningBlock;
 use App\Models\ListeningLesson;
 use App\Models\ListeningTest;
+use App\Models\StudentListeningBlock;
+use App\Models\StudentListeningTest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
 
@@ -37,7 +40,7 @@ class ListeningBlockController extends Controller
         ]);
     }
 
-    
+
     public function  blockStore(Request $request)
     {
         //Kiểm tra thông tin đầu vào
@@ -154,12 +157,48 @@ class ListeningBlockController extends Controller
         }
         $question_list = substr($question_list, 0, strlen($question_list) - 1);
 
-        $block = ListeningBlock::where('block_id', $id)->first();        
+        $block = ListeningBlock::where('block_id', $id)->first();
         $block->level_id = $request->level_id;
         $block->block_name = $request->block_name;
         $block->question_list = $question_list;
         $block->save();
 
         return redirect()->route('listening.block_show', ['id' => $block->block_id]);
+    }
+
+
+    public function studentList()
+    {
+        $students = User::where('users.role_id', 5)
+            ->where('users.user_status', 1)
+            ->leftjoin('student_listening_blocks', 'student_listening_blocks.student_id', 'users.user_id')
+            ->leftjoin('listening_blocks', 'listening_blocks.block_id', 'student_listening_blocks.listening_block_id')
+            ->select('users.*', 'student_listening_blocks.listening_block_id', 'listening_blocks.block_name')
+            ->get();
+
+        return view('admin.class.student_list', ['students' => $students]);
+    }
+
+
+    public function changeBlock($id)
+    {
+        $student_block = StudentListeningBlock::where('student_id', $id)->first();
+        $block = ListeningBlock::all();
+        $collection = $block->getIterator();
+
+        foreach ($collection as $cl) {
+            if ($collection->current()->block_id == $student_block->listening_block_id) {
+                $collection->next();
+                if ($collection->current() <>null) $next_block = $collection->current()->block_id;
+            }
+        }
+
+        if (isset($next_block)) {
+            $student_block->listening_block_id = $next_block;
+            $student_block->save();
+            return redirect()->route('listening.student_list')->with('msg_success', 'Đã Đổi Block thành công');;
+        } else {
+            return redirect()->route('listening.student_list')->with('msg_error', 'Đã đến Block cuối cùng');;
+        }
     }
 }

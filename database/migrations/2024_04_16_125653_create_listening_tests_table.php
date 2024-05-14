@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('listening_tests', function (Blueprint $table) {
             $table->id();
             $table->string('test_id')->unique();
-            $table->tinyInteger('level_id');
+            //$table->tinyInteger('level_id');
             $table->text('subject');
             $table->tinyInteger('test_type_id');
             $table->text('test_form')->nullable();
