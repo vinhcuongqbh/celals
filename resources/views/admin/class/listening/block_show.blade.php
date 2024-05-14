@@ -21,7 +21,17 @@
             <div class="col-xl-4">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('new') }}</h3>
+                        <div class="form-group row mb-0">
+                            <div class="col-sm-1">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="level_id">{{ __('level') }}</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="text" id="level_id" name="level_id" value="{{ $block->level_name }}"
+                                    class="form-control" readonly>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">

@@ -7,25 +7,46 @@
 @stop
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-fluid">
-        <form action="{{ route('listening.block_store') }}" method="post" id="form-validate" enctype="multipart/form-data">
-            @csrf
-            <div class="row">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <div class="col-xl-4">
-                    <div class="card card-default">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="card card-default">
+                    <form action="{{ route('listening.block_create') }}" method="get">
                         <div class="card-header">
-                            <h3 class="card-title text-bold">{{ __('new') }}</h3>
+                            <div class="form-group row mb-0">
+                                <div class="col-sm-1">
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="level">{{ __('level') }}</label>
+                                </div>
+                                <div class="col-sm-7">
+                                    <select id="level_id" name="level_id" class="form-control custom-select"
+                                        onchange="this.form.submit()">
+                                        <option selected></option>
+                                        @foreach ($levels as $level)
+                                            <option value="{{ $level->level_id }}"
+                                                @if (isset($level_id_selected) and $level_id_selected == $level->level_id) selected @endif>{{ $level->level_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </div>
+                    </form>
+                    <form action="{{ route('listening.block_store') }}" method="post" id="form-validate"
+                        enctype="multipart/form-data">
+                        @csrf
                         <div class="card-body">
+                            <input type="hidden" name="level_id" value="{{ $level_id_selected }}">
                             <div class="form-group row">
                                 <div class="col-sm-1">
                                 </div>
@@ -40,7 +61,7 @@
                             @for ($i = 1; $i <= 10; $i++)
                                 <div class="form-group row">
                                     <div class="col-sm-1">
-                                        <label for="stt">{{ $i }}</label>
+                                        <label>{{ $i }}</label>
                                     </div>
                                     <div class="col-sm-4">
                                         <select id="type_id_{{ $i }}" name="type_id_{{ $i }}"
@@ -62,69 +83,74 @@
                             <a class="btn bg-olive text-white text-nowrap col-2 m-1"
                                 href="{{ route('listening.block_list') }}">{{ __('back') }}</a>
                         </div>
-                    </div>
+                    </form>
                 </div>
-                <!-- /.card -->
-                <div class="col-xl-4">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h3 class="card-title text-bold">{{ __('lesson_list') }}</h3>
-                        </div>
-                        <div class="card-body">
-                            <table id="data-table" class="table table-bordered table-striped">
-                                <colgroup>
-                                    <col style="width:5%;">
-                                    <col style="width:95%;">
-                                </colgroup>
-                                <thead style="text-align: center">
-                                    <tr>
-                                        <th class="text-center">ID</th>
-                                        <th class="text-center">Chủ đề</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+            </div>
+            <!-- /.card -->
+            <div class="col-xl-4">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title text-bold">{{ __('lesson_list') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="data-table" class="table table-bordered table-striped">
+                            <colgroup>
+                                <col style="width:5%;">
+                                <col style="width:95%;">
+                            </colgroup>
+                            <thead style="text-align: center">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Chủ đề</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (isset($lessons))
                                     @foreach ($lessons as $lesson)
                                         <tr>
                                             <td class="text-center">{{ $lesson->id }}</td>
                                             <td>{{ $lesson->subject }}</td>
                                         </tr>
                                     @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div class="col-xl-4">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h3 class="card-title text-bold">{{ __('test_list') }}</h3>
-                        </div>
-                        <div class="card-body">
-                            <table id="data-table" class="table table-bordered table-striped">
-                                <colgroup>
-                                    <col style="width:5%;">
-                                    <col style="width:95%;">
-                                </colgroup>
-                                <thead style="text-align: center">
-                                    <tr>
-                                        <th class="text-center">ID</th>
-                                        <th class="text-center">Chủ đề</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+            </div>
+            <div class="col-xl-4">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <h3 class="card-title text-bold">{{ __('test_list') }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="data-table" class="table table-bordered table-striped">
+                            <colgroup>
+                                <col style="width:5%;">
+                                <col style="width:95%;">
+                            </colgroup>
+                            <thead style="text-align: center">
+                                <tr>
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Chủ đề</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (isset($tests))
                                     @foreach ($tests as $test)
                                         <tr>
                                             <td class="text-center">{{ $test->id }}</td>
                                             <td>{{ $test->subject }}</td>
                                         </tr>
                                     @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                @endif
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
+
     </div>
     <!-- /.container-fluid -->
 @stop
@@ -150,11 +176,17 @@
         $(function() {
             $('#form-validate').validate({
                 rules: {
+                    level_id: {
+                        required: true,
+                    },
                     block_name: {
                         required: true,
                     },
                 },
                 messages: {
+                    level_id: {
+                        required: "{{ __('selectContent') }}",
+                    },
                     block_name: {
                         required: "{{ __('enterContent') }}",
                     },
@@ -162,7 +194,7 @@
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
                     error.addClass('invalid-feedback');
-                    element.closest('.col-sm-9').append(error);
+                    element.closest('.col-sm-7').append(error);
 
                 },
                 highlight: function(element, errorClass, validClass) {
@@ -199,5 +231,5 @@
         $(function() {
             bsCustomFileInput.init();
         });
-    </script>    
+    </script>
 @stop

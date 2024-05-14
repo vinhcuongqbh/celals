@@ -121,8 +121,7 @@ class ListeningTestController extends Controller
         ]);
 
 
-        $test = ListeningTest::where('test_id', $id)->first();
-        $test->test_id = uniqid();
+        $test = ListeningTest::where('test_id', $id)->first();        
         $test->level_id = $request->level_id;
         $test->subject = $request->subject;
         $test->test_type_id = $request->test_type_id;

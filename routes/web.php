@@ -164,6 +164,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('block_create', [ListeningBlockController::class, 'blockCreate'])->name('listening.block_create');
             Route::post('block_store', [ListeningBlockController::class, 'blockStore'])->name('listening.block_store');
             Route::get('{id}/block_edit', [ListeningBlockController::class, 'blockEdit'])->name('listening.block_edit');
+            Route::post('{id}/block_update', [ListeningBlockController::class, 'blockUpdate'])->name('listening.block_update');
             Route::get('{id}/block_show', [ListeningBlockController::class, 'blockShow'])->name('listening.block_show');
             Route::get('block_list', [ListeningBlockController::class, 'blockList'])->name('listening.block_list');
 
