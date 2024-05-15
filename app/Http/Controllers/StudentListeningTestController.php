@@ -42,6 +42,7 @@ class StudentListeningTestController extends Controller
             $test_result->link_answer = $path;
         }        
         $test_result->save();
-    }
 
+        return redirect()->route('listening.student_block_show')->with('msg_success','Đã gửi bài làm thành công');
+    }
 }

@@ -6,10 +6,14 @@ use App\Models\Level;
 use App\Models\ListeningBlock;
 use App\Models\ListeningLesson;
 use App\Models\ListeningTest;
+use App\Models\ListeningTestDetail;
 use App\Models\StudentListeningBlock;
 use App\Models\StudentListeningTest;
+use App\Models\TestType;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
 class ListeningBlockController extends Controller
@@ -141,7 +145,7 @@ class ListeningBlockController extends Controller
     }
 
 
-    public function  blockUpdate($id, Request $request)
+    public function blockUpdate($id, Request $request)
     {
         //Kiểm tra thông tin đầu vào
         $validated = $request->validate([
@@ -189,7 +193,7 @@ class ListeningBlockController extends Controller
         foreach ($collection as $cl) {
             if ($collection->current()->block_id == $student_block->listening_block_id) {
                 $collection->next();
-                if ($collection->current() <>null) $next_block = $collection->current()->block_id;
+                if ($collection->current() <> null) $next_block = $collection->current()->block_id;
             }
         }
 
@@ -200,5 +204,66 @@ class ListeningBlockController extends Controller
         } else {
             return redirect()->route('listening.student_list')->with('msg_error', 'Đã đến Block cuối cùng');;
         }
+    }
+
+
+    public function teacherTestList()
+    {
+        $tests = StudentListeningTest::where('student_listening_tests.status', 0)
+            ->leftjoin('users', 'users.user_id', 'student_listening_tests.student_id')
+            ->leftjoin('listening_tests', 'listening_tests.test_id', 'student_listening_tests.test_id')
+            ->leftjoin('levels', 'levels.level_id', 'listening_tests.level_id')
+            ->select('student_listening_tests.*', 'users.name', 'listening_tests.subject', 'levels.level_name')
+            ->get();
+
+        return view('admin.class.listening.teacher_test_list', ['tests' => $tests]);
+    }
+
+
+    public function teacherTestEdit($id)
+    {
+        $test = ListeningTest::where('test_id', $id)
+            ->leftjoin('levels', 'levels.level_id', 'listening_tests.level_id')
+            ->leftjoin('test_types', 'test_types.test_type_id', 'listening_tests.test_type_id')
+            ->select('listening_tests.*', 'levels.level_name', 'test_types.test_type_name')
+            ->first();
+        
+        $student_answer = StudentListeningTest::where('test_id', $id)->first();
+
+        $test_details = ListeningTestDetail::where('test_id', $id)->get();
+        $test_types = TestType::all();
+        $levels = Level::all();
+
+        return view(
+            'admin.class.listening.teacher_test_edit',
+            [
+                'test' => $test, 
+                'test_details' => $test_details,
+                'test_types' => $test_types, 
+                'levels' => $levels,
+                'student_answer' => $student_answer
+            ]
+        );
+    }
+
+
+    public function teacherTestupdate($id, Request $request)
+    {
+        //Kiểm tra thông tin đầu vào
+        $validated = $request->validate([
+            'comment' => 'required',
+            'point' => 'required',
+        ]);
+
+       
+        $test = StudentListeningTest::where('id', $id)->first();
+        $test->comment = $request->comment;
+        $test->point = $request->point;
+        $test->teacher_id = Auth::user()->user_id;
+        $test->date_comment = Carbon::now();
+        $test->status = 1;
+        $test->save();
+
+        return redirect()->route('listening.teacher_test_list')->with('msg_success', 'Đã chấm điểm thành công');;
     }
 }

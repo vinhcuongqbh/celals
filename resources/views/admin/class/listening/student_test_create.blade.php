@@ -139,31 +139,57 @@
                     </form>
                 </div>
             </div>
-            @if (isset($test->link_question))
-                <div class="col-xl-6">
-                    <div class="card card-default">
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-12">
-                                    <div class="holder">
-                                        <img id="imgPreview" alt="pic" src="{{ $test->link_question }}" />
-                                    </div>
+            <div class="col-xl-6">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <div class="holder">
+                                    <img id="imgPreview" alt="pic" src="/img/blank.png" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endif
+            </div>
+
         </div>
     </div>
     <!-- /.container-fluid -->
 @stop
 
 @section('css')
+    <style>
+        .holder {
+            width: 100%;
+        }
+
+        #imgPreview {
+            max-width: 100%;
+        }
+    </style>
 
 @endsection
 
 @section('js')
+    <!-- IMG Preview -->
+    <script>
+        $(document).ready(() => {
+            $('#link_answer').change(function() {
+                const file = this.files[0];
+                console.log(file);
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(event) {
+                        console.log(event.target.result);
+                        $('#imgPreview').attr('src', event.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        });
+    </script>
+
     <!-- Hiển thị tên file khi được upload -->
     <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script>

@@ -178,7 +178,7 @@
                                     <li class="nav-item">
                                         <a href="/admin/class/vocabulary/test_list" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('test-list') }}</p>
+                                            <p>{{ __('test_list') }}</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -191,7 +191,7 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/admin/class/listening/test_list" class="nav-link">
+                                        <a href="/admin/class/listening/teacher_test_list" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
@@ -199,7 +199,7 @@
                                     <li class="nav-item">
                                         <a href="/admin/class/listening/student_list" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('student_list') }}</p>
+                                            <p>{{ __('change_block') }}</p>
                                         </a>
                                     </li>
                                 </ul>

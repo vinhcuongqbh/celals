@@ -36,8 +36,8 @@
                                         <td class="text-center">{{ $i++ }}</td>
                                         <td class="text-center">{{ $user->user_id }}</td>
                                         <td>{{ $user->name }}</td>                                       
-                                        <td>{{ $user->block_name }}</td>    
-                                        <td> <a class="btn bg-olive text-white text-nowrap"
+                                        <td class="text-center">{{ $user->block_name }}</td>    
+                                        <td class="text-center"> <a class="btn bg-olive text-white text-nowrap"
                                             href="{{ route('listening.change_block', $user->user_id) }}">Đổi Block</td>
                                     </tr>
                                 @endforeach

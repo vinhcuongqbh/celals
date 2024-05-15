@@ -16,7 +16,7 @@ use MicrosoftAzure\Storage\Blob\Models\Block;
 
 class StudentListeningBlockController extends Controller
 {
-    public function  blockShow()
+    public function blockShow()
     {
         $student_listening_block = StudentListeningBlock::where('student_id', Auth::user()->user_id)->first();
         $current_block_id = $student_listening_block->listening_block_id;

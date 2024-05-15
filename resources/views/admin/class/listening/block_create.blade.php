@@ -21,6 +21,7 @@
             <div class="col-xl-4">
                 <div class="card card-default">
                     <form action="{{ route('listening.block_create') }}" method="get">
+                        @csrf
                         <div class="card-header">
                             <div class="form-group row mb-0">
                                 <div class="col-sm-1">

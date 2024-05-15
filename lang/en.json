@@ -96,5 +96,8 @@
     "send": "Gửi",
     "history_study": "Lịch sử tự học",
     "level": "Trình độ",
-    "student_management": "Quản lý học viên"
+    "student_management": "Quản lý học viên",
+    "change_block": "Thay đổi Block",
+    "comment": "Nhận xét",
+    "point": "Điểm số"
 }
