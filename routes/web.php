@@ -175,6 +175,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('{id}/change_block', [ListeningBlockController::class, 'changeBlock'])->name('listening.change_block');
 
             Route::get('student_block_show', [StudentListeningBlockController::class, 'blockShow'])->name('listening.student_block_show');
+            Route::get('student_history_study', [StudentListeningTestController::class, 'historyList'])->name('listening.student_history_study');
+            Route::get('{id}/student_history_show', [StudentListeningTestController::class, 'historyShow'])->name('listening.student_history_show');
             Route::get('{id}/student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
             Route::get('{id}/student_test_create', [StudentListeningTestController::class, 'testCreate'])->name('listening.student_test_create');
             Route::post('student_test_store', [StudentListeningTestController::class, 'testStore'])->name('listening.student_test_store');

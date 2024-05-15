@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::04gUJ7ziLSLjVeLZ',
+            '_route' => 'generated::QXoclb4tU4sWIFGS',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::cWkAxRE15I7G9Qmg',
+            '_route' => 'generated::GYIU9lNw18Az92rd',
           ),
           1 => NULL,
           2 => 
@@ -142,7 +142,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FMBwOKqNXxzUaTrH',
+            '_route' => 'generated::LrIwtLATz4HoxCKf',
           ),
           1 => NULL,
           2 => 
@@ -162,7 +162,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::0b4ItrcCVxZ7g94i',
+            '_route' => 'generated::TaDPFHOZ0V5THvsu',
           ),
           1 => NULL,
           2 => 
@@ -202,7 +202,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::f2Pw7ISPK0kQ6GIh',
+            '_route' => 'generated::EgvNGrwMoY556dYt',
           ),
           1 => NULL,
           2 => 
@@ -222,7 +222,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Bw57jL8pRcPTZxx5',
+            '_route' => 'generated::D4ltHv9mxzGaRuFt',
           ),
           1 => NULL,
           2 => 
@@ -338,7 +338,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::4lX94QjrnNeHtW52',
+            '_route' => 'generated::HfXWksEFOdsFxrvr',
           ),
           1 => NULL,
           2 => 
@@ -376,7 +376,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::VvZY6UETXpeqiFzT',
+            '_route' => 'generated::ldX5j0FTszfUR2ey',
           ),
           1 => NULL,
           2 => 
@@ -842,45 +842,6 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      '/admin/class/listening/student_block_show' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'listening.student_block_show',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/admin/class/listening/student_test_Store' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'listening.student_test_store',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
       '/admin/class/listening/teacher_test_list' => 
       array (
         0 => 
@@ -914,6 +875,65 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/class/listening/student_block_show' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'listening.student_block_show',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/class/listening/student_history_study' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'listening.student_history_study',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/class/listening/student_test_store' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'listening.student_test_store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -996,7 +1016,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::fxG7f1Bsu24bUwpp',
+            '_route' => 'generated::B3oedkCoDzJcp0f6',
           ),
           1 => NULL,
           2 => 
@@ -1126,7 +1146,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::2J2k71AUMZHKqJKz',
+            '_route' => 'generated::TxY0binHo8oV0eWT',
           ),
           1 => NULL,
           2 => 
@@ -1180,7 +1200,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/su\\-kien/([^/]++)(*:25)|/t(?|in\\-tuc/([^/]++)(*:53)|est/([^/]++)/(?|testing(?|(*:86)|Show(*:97))|studing(*:112)|ranking(*:127)))|/ref\\=([^/]++)(*:151)|/(.*)/ref\\=([^/]++)(*:178)|/admin/(?|user/(?|([^/]++)(?|(*:215)|/(?|edit(*:231)|update(*:245)|delete(*:259)|res(?|tore(*:277)|etpass(*:291))))|search(*:308))|post/([^/]++)(?|(*:333)|/(?|edit(*:349)|u(?|pdate(*:366)|npublic(*:381))|public(*:396)|destroy(*:411)))|referral/customer/(?|([^/]++)(*:450)|update/([^/]++)(*:473))|class/(?|vocabulary/([^/]++)(*:510)|listening/([^/]++)/(?|lesson_(?|edit(*:554)|update(*:568)|show(*:580))|te(?|st_(?|edit(*:604)|update(*:618)|show(*:630))|acher_test_(?|edit(*:657)|update(*:671)))|block_(?|edit(*:694)|update(*:708)|show(*:720))|student_(?|lesson_show(*:751)|test_create(*:770))|change_block(*:791))))|/reset\\-password/([^/]++)(*:827)|/verify\\-email/([^/]++)/([^/]++)(*:867))/?$}sDu',
+      0 => '{^(?|/su\\-kien/([^/]++)(*:25)|/t(?|in\\-tuc/([^/]++)(*:53)|est/([^/]++)/(?|testing(?|(*:86)|Show(*:97))|studing(*:112)|ranking(*:127)))|/ref\\=([^/]++)(*:151)|/(.*)/ref\\=([^/]++)(*:178)|/admin/(?|user/(?|([^/]++)(?|(*:215)|/(?|edit(*:231)|update(*:245)|delete(*:259)|res(?|tore(*:277)|etpass(*:291))))|search(*:308))|post/([^/]++)(?|(*:333)|/(?|edit(*:349)|u(?|pdate(*:366)|npublic(*:381))|public(*:396)|destroy(*:411)))|referral/customer/(?|([^/]++)(*:450)|update/([^/]++)(*:473))|class/(?|vocabulary/([^/]++)(*:510)|listening/([^/]++)/(?|lesson_(?|edit(*:554)|update(*:568)|show(*:580))|te(?|st_(?|edit(*:604)|update(*:618)|show(*:630))|acher_test_(?|edit(*:657)|update(*:671)))|block_(?|edit(*:694)|update(*:708)|show(*:720))|change_block(*:741)|student_(?|history_show(*:772)|lesson_show(*:791)|test_create(*:810)))))|/reset\\-password/([^/]++)(*:847)|/verify\\-email/([^/]++)/([^/]++)(*:887))/?$}sDu',
     ),
     3 => 
     array (
@@ -1351,7 +1371,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::cCQpHjonakbIXmQ6',
+            '_route' => 'generated::e41nNrDtPEgn9OXt',
           ),
           1 => 
           array (
@@ -1980,53 +2000,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      751 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'listening.student_lesson_show',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      770 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'listening.student_test_create',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      791 => 
+      741 => 
       array (
         0 => 
         array (
@@ -2049,7 +2023,76 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      827 => 
+      772 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'listening.student_history_show',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      791 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'listening.student_lesson_show',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      810 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'listening.student_test_create',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      847 => 
       array (
         0 => 
         array (
@@ -2072,7 +2115,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      867 => 
+      887 => 
       array (
         0 => 
         array (
@@ -2257,7 +2300,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::04gUJ7ziLSLjVeLZ' => 
+    'generated::QXoclb4tU4sWIFGS' => 
     array (
       'methods' => 
       array (
@@ -2280,7 +2323,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::04gUJ7ziLSLjVeLZ',
+        'as' => 'generated::QXoclb4tU4sWIFGS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2296,7 +2339,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::cWkAxRE15I7G9Qmg' => 
+    'generated::GYIU9lNw18Az92rd' => 
     array (
       'methods' => 
       array (
@@ -2318,7 +2361,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::cWkAxRE15I7G9Qmg',
+        'as' => 'generated::GYIU9lNw18Az92rd',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2334,7 +2377,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FMBwOKqNXxzUaTrH' => 
+    'generated::LrIwtLATz4HoxCKf' => 
     array (
       'methods' => 
       array (
@@ -2356,7 +2399,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::FMBwOKqNXxzUaTrH',
+        'as' => 'generated::LrIwtLATz4HoxCKf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2372,7 +2415,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::0b4ItrcCVxZ7g94i' => 
+    'generated::TaDPFHOZ0V5THvsu' => 
     array (
       'methods' => 
       array (
@@ -2394,7 +2437,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::0b4ItrcCVxZ7g94i',
+        'as' => 'generated::TaDPFHOZ0V5THvsu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2448,7 +2491,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::f2Pw7ISPK0kQ6GIh' => 
+    'generated::EgvNGrwMoY556dYt' => 
     array (
       'methods' => 
       array (
@@ -2470,7 +2513,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::f2Pw7ISPK0kQ6GIh',
+        'as' => 'generated::EgvNGrwMoY556dYt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2486,7 +2529,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Bw57jL8pRcPTZxx5' => 
+    'generated::D4ltHv9mxzGaRuFt' => 
     array (
       'methods' => 
       array (
@@ -2508,7 +2551,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Bw57jL8pRcPTZxx5',
+        'as' => 'generated::D4ltHv9mxzGaRuFt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2968,7 +3011,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::cCQpHjonakbIXmQ6' => 
+    'generated::e41nNrDtPEgn9OXt' => 
     array (
       'methods' => 
       array (
@@ -2989,7 +3032,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::cCQpHjonakbIXmQ6',
+        'as' => 'generated::e41nNrDtPEgn9OXt',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3042,7 +3085,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::VvZY6UETXpeqiFzT' => 
+    'generated::ldX5j0FTszfUR2ey' => 
     array (
       'methods' => 
       array (
@@ -3065,7 +3108,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::VvZY6UETXpeqiFzT',
+        'as' => 'generated::ldX5j0FTszfUR2ey',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4890,157 +4933,6 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'listening.student_block_show' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/class/listening/student_block_show',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'App\\Http\\Controllers\\StudentListeningBlockController@blockShow',
-        'controller' => 'App\\Http\\Controllers\\StudentListeningBlockController@blockShow',
-        'namespace' => NULL,
-        'prefix' => 'admin/class/listening',
-        'where' => 
-        array (
-        ),
-        'as' => 'listening.student_block_show',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'listening.student_lesson_show' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/class/listening/{id}/student_lesson_show',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'App\\Http\\Controllers\\StudentListeningBlockController@lessonShow',
-        'controller' => 'App\\Http\\Controllers\\StudentListeningBlockController@lessonShow',
-        'namespace' => NULL,
-        'prefix' => 'admin/class/listening',
-        'where' => 
-        array (
-        ),
-        'as' => 'listening.student_lesson_show',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'listening.student_test_create' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'admin/class/listening/{id}/student_test_create',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'App\\Http\\Controllers\\StudentListeningTestController@testCreate',
-        'controller' => 'App\\Http\\Controllers\\StudentListeningTestController@testCreate',
-        'namespace' => NULL,
-        'prefix' => 'admin/class/listening',
-        'where' => 
-        array (
-        ),
-        'as' => 'listening.student_test_create',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'listening.student_test_store' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'admin/class/listening/student_test_Store',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-          1 => 'auth',
-        ),
-        'uses' => 'App\\Http\\Controllers\\StudentListeningTestController@testStore',
-        'controller' => 'App\\Http\\Controllers\\StudentListeningTestController@testStore',
-        'namespace' => NULL,
-        'prefix' => 'admin/class/listening',
-        'where' => 
-        array (
-        ),
-        'as' => 'listening.student_test_store',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
     'listening.teacher_test_list' => 
     array (
       'methods' => 
@@ -5230,6 +5122,233 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'listening.student_block_show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/class/listening/student_block_show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StudentListeningBlockController@blockShow',
+        'controller' => 'App\\Http\\Controllers\\StudentListeningBlockController@blockShow',
+        'namespace' => NULL,
+        'prefix' => 'admin/class/listening',
+        'where' => 
+        array (
+        ),
+        'as' => 'listening.student_block_show',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'listening.student_history_study' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/class/listening/student_history_study',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StudentListeningTestController@historyList',
+        'controller' => 'App\\Http\\Controllers\\StudentListeningTestController@historyList',
+        'namespace' => NULL,
+        'prefix' => 'admin/class/listening',
+        'where' => 
+        array (
+        ),
+        'as' => 'listening.student_history_study',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'listening.student_history_show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/class/listening/{id}/student_history_show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StudentListeningTestController@historyShow',
+        'controller' => 'App\\Http\\Controllers\\StudentListeningTestController@historyShow',
+        'namespace' => NULL,
+        'prefix' => 'admin/class/listening',
+        'where' => 
+        array (
+        ),
+        'as' => 'listening.student_history_show',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'listening.student_lesson_show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/class/listening/{id}/student_lesson_show',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StudentListeningBlockController@lessonShow',
+        'controller' => 'App\\Http\\Controllers\\StudentListeningBlockController@lessonShow',
+        'namespace' => NULL,
+        'prefix' => 'admin/class/listening',
+        'where' => 
+        array (
+        ),
+        'as' => 'listening.student_lesson_show',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'listening.student_test_create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/class/listening/{id}/student_test_create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StudentListeningTestController@testCreate',
+        'controller' => 'App\\Http\\Controllers\\StudentListeningTestController@testCreate',
+        'namespace' => NULL,
+        'prefix' => 'admin/class/listening',
+        'where' => 
+        array (
+        ),
+        'as' => 'listening.student_test_create',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'listening.student_test_store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/class/listening/student_test_store',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth',
+        ),
+        'uses' => 'App\\Http\\Controllers\\StudentListeningTestController@testStore',
+        'controller' => 'App\\Http\\Controllers\\StudentListeningTestController@testStore',
+        'namespace' => NULL,
+        'prefix' => 'admin/class/listening',
+        'where' => 
+        array (
+        ),
+        'as' => 'listening.student_test_store',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'profile.edit' => 
     array (
       'methods' => 
@@ -5380,7 +5499,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::fxG7f1Bsu24bUwpp' => 
+    'generated::B3oedkCoDzJcp0f6' => 
     array (
       'methods' => 
       array (
@@ -5401,7 +5520,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::fxG7f1Bsu24bUwpp',
+        'as' => 'generated::B3oedkCoDzJcp0f6',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5417,7 +5536,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::4lX94QjrnNeHtW52' => 
+    'generated::HfXWksEFOdsFxrvr' => 
     array (
       'methods' => 
       array (
@@ -5438,7 +5557,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::4lX94QjrnNeHtW52',
+        'as' => 'generated::HfXWksEFOdsFxrvr',
       ),
       'fallback' => false,
       'defaults' => 
@@ -5758,7 +5877,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::2J2k71AUMZHKqJKz' => 
+    'generated::TxY0binHo8oV0eWT' => 
     array (
       'methods' => 
       array (
@@ -5779,7 +5898,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::2J2k71AUMZHKqJKz',
+        'as' => 'generated::TxY0binHo8oV0eWT',
       ),
       'fallback' => false,
       'defaults' => 

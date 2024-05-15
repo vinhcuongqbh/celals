@@ -222,15 +222,16 @@ class ListeningBlockController extends Controller
 
     public function teacherTestEdit($id)
     {
-        $test = ListeningTest::where('test_id', $id)
+        $student_answer = StudentListeningTest::where('id', $id)->first();
+        $test_id = $student_answer->test_id;
+
+        $test = ListeningTest::where('test_id', $test_id)
             ->leftjoin('levels', 'levels.level_id', 'listening_tests.level_id')
             ->leftjoin('test_types', 'test_types.test_type_id', 'listening_tests.test_type_id')
             ->select('listening_tests.*', 'levels.level_name', 'test_types.test_type_name')
             ->first();
-        
-        $student_answer = StudentListeningTest::where('test_id', $id)->first();
 
-        $test_details = ListeningTestDetail::where('test_id', $id)->get();
+        $test_details = ListeningTestDetail::where('test_id', $test_id)->get();
         $test_types = TestType::all();
         $levels = Level::all();
 

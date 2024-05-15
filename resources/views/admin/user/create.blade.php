@@ -108,10 +108,10 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">
+                        <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('create') }}</button>
-                            <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                class="btn bg-olive text-nowrap col-2 m-1">{{ __('create') }}</button>
+                            <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                                 href="{{ route('user') }}">{{ __('back') }}</a>
                         </div>
                     </form>

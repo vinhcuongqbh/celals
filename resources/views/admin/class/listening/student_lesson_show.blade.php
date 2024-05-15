@@ -9,15 +9,6 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <div class="col-12 col-sm-6">
                 <div class="card card-primary card-outline card-outline-tabs">
                     <div class="card-header p-0 border-bottom-0">
@@ -32,11 +23,11 @@
                                     href="#custom-tabs-four-profile" role="tab" aria-controls="custom-tabs-four-profile"
                                     aria-selected="false">Đáp án</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" id="custom-tabs-four-messages-tab" data-toggle="pill"
                                     href="#custom-tabs-four-messages" role="tab"
                                     aria-controls="custom-tabs-four-messages" aria-selected="false">Tự phát âm</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="card-body">
@@ -44,18 +35,18 @@
                             <div class="tab-pane fade active show" id="custom-tabs-four-home" role="tabpanel"
                                 aria-labelledby="custom-tabs-four-home-tab">
                                 <div class="form-group row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <label for="">{{ __('link_audio') }}</label>
                                     </div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-10">
                                         <audio controls controlsList="nodownload" src="{{ $lesson->link_audio }}"></audio>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <label for="student_answer">{{ __('student_answer') }}</label>
                                     </div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-10">
                                         <textarea id="student_answer" name="student_answer" class="form-control" rows="18">{{ old('student_answer') }}</textarea>
                                     </div>
                                 </div>
@@ -63,30 +54,35 @@
                             <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel"
                                 aria-labelledby="custom-tabs-four-profile-tab">
                                 <div class="form-group row">
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-2">
                                         <label for="">{{ __('link_audio') }}</label>
                                     </div>
-                                    <div class="col-sm-9">
+                                    <div class="col-sm-10">
                                         <audio controls controlsList="nodownload" src="{{ $lesson->link_audio }}"></audio>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-3">
-                                        <label for="answer">{{ __('answer') }}</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <textarea id="answer" name="answer" class="form-control" rows="10" readonly>{{ $lesson->answer }}</textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <div class="holder">
-                                            <img id="imgPreview" alt="pic" src="{{ $lesson->link_answer }}" />
+                                @if (isset($lesson->answer))
+                                    <div class="form-group row">
+                                        <div class="col-sm-2">
+                                            <label for="answer">{{ __('answer') }}</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <textarea id="answer" name="answer" class="form-control" rows="18" readonly>{{ $lesson->answer }}</textarea>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+                                @if (isset($lesson->link_answer))
+                                    <div class="form-group row">
+                                        <div class="col-sm-2">
+                                            <label for="answer">{{ __('answer') }}</label>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <div class="holder">
+                                                <img id="imgPreview" alt="pic" src="{{ $lesson->link_answer }}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel"
                                 aria-labelledby="custom-tabs-four-messages-tab">
@@ -105,21 +101,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer d-flex justify-content-end">                       
-                        <a class="btn bg-olive text-white text-nowrap m-1"
+                    <div class="card-footer d-flex justify-content-end">
+                        <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                             href="{{ route('listening.student_block_show') }}">{{ __('back') }}</a>
                     </div>
 
                 </div>
             </div>
-            
+
         </div>
     </div>
     <!-- /.container-fluid -->
 @stop
 
 @section('css')
-
 @endsection
 
 @section('js')

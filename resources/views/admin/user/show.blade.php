@@ -21,7 +21,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="user_name" name="user_name" value="{{ $user->user_name }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -30,7 +30,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="name" name="name" value="{{ $user->name }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="address" name="address" value="{{ $user->address }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="tel" name="tel" value="{{ $user->tel }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="email" name="email" value="{{ $user->email }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="center_name" name="center_name" value="{{ $user->center_name }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -75,19 +75,19 @@
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="role_name" name="role_name" value="{{ $user->role_name }}"
-                                    class="form-control" disabled>
+                                    class="form-control" readonly>
                             </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer d-flex justify-content-center">
-                        <button type="button" class="btn btn-danger text-white w-100 text-nowrap m-1" data-toggle="modal"
+                    <div class="card-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-danger text-white text-nowrap col-2 m-1" data-toggle="modal"
                             data-target="#reset-pass">{{ __('changePassword') }}</button>
-                        @if (Auth::user()->role == 1)
-                            <a class="btn btn-warning w-100 text-nowrap m-1"
+                        @if (Auth::user()->role_id == 1)
+                            <a class="btn bg-olive text-nowrap col-2 m-1"
                                 href="{{ route('user.edit', $user->user_id) }}">{{ __('edit') }}</a>
                         @endif
-                        <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                        <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                             href="{{ route('user') }}">{{ __('back') }}</a>
                     </div>
                 </div>

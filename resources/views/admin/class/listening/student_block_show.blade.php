@@ -3,7 +3,7 @@
 @section('title', 'Block Show')
 
 @section('heading')
-    {{ __('self_studing_list') }}
+    Danh sách bài tự học
 @stop
 
 @section('content')
@@ -21,7 +21,7 @@
             <div class="col-xl-6">
                 <div class="card card-default">
                     <div class="card-header">
-                        <div class="form-group row">
+                        <div class="form-group row mb-0">
                             <div class="col-sm-2">
                                 <label for="block_name">{{ __('block_name') }}</label>
                             </div>
@@ -55,142 +55,15 @@
                     </div>
                 </div>
             </div>
-            <!-- /.card -->
-            {{-- <div class="col-xl-4">
-                <div class="card card-default">
-                    <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('lesson_list') }}</h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="data-table" class="table table-bordered table-striped">
-                            <colgroup>
-                                <col style="width:5%;">
-                                <col style="width:95%;">
-                            </colgroup>
-                            <thead style="text-align: center">
-                                <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Chủ đề</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($lessons as $lesson)
-                                    <tr>
-                                        <td class="text-center">{{ $lesson->id }}</td>
-                                        <td>{{ $lesson->subject }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4">
-                <div class="card card-default">
-                    <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('test_list') }}</h3>
-                    </div>
-                    <div class="card-body">
-                        <table id="data-table" class="table table-bordered table-striped">
-                            <colgroup>
-                                <col style="width:5%;">
-                                <col style="width:95%;">
-                            </colgroup>
-                            <thead style="text-align: center">
-                                <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Chủ đề</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($tests as $test)
-                                    <tr>
-                                        <td class="text-center">{{ $test->id }}</td>
-                                        <td>{{ $test->subject }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </div>
     <!-- /.container-fluid -->
 @stop
 
-@section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-
-        #imgPreview {
-            max-width: 100%;
-        }
-    </style>
+@section('css')   
 @endsection
 
 @section('js')
-    <!-- jquery-validation -->
-    <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="/vendor/jquery-validation/additional-methods.min.js"></script>
-    <!-- Page specific script -->
-    <script>
-        $(function() {
-            $('#form-validate').validate({
-                rules: {
-                    block_name: {
-                        required: true,
-                    },
-                },
-                messages: {
-                    block_name: {
-                        required: "{{ __('enterContent') }}",
-                    },
-                },
-                errorElement: 'span',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.col-sm-9').append(error);
-
-                },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                }
-            });
-        });
-    </script>
-
-    <!-- IMG Preview -->
-    <script>
-        $(document).ready(() => {
-            $('#link_question').change(function() {
-                const file = this.files[0];
-                console.log(file);
-                if (file) {
-                    let reader = new FileReader();
-                    reader.onload = function(event) {
-                        console.log(event.target.result);
-                        $('#imgPreview').attr('src', event.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    </script>
-
-    <!-- Hiển thị tên file khi được upload -->
-    <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script>
-
     <script src="/vendor/jquery/jquery.min.js"></script>
     <!-- DataTables  & Plugins -->
     <script src="/vendor/datatables/jquery.dataTables.min.js"></script>

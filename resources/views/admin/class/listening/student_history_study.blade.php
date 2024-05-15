@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Block Show')
+@section('title', 'Test List')
 
 @section('heading')
     {{ __('test_list') }}
@@ -45,7 +45,7 @@
                                         <td class="text-center">{{ $i++ }}</td>
                                         <td>{{ $test->name }}</td>
                                         <td class="text-center"><a
-                                                href="{{ route('listening.teacher_test_edit', $test->id) }}">{{ $test->subject }}</a>
+                                                href="{{ route('listening.student_history_show', $test->id) }}">{{ $test->subject }}</a>
                                         </td>
                                         <td class="text-center">{{ $test->level_name }}</td>
                                     </tr>
