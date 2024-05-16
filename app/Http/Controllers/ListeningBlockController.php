@@ -20,7 +20,9 @@ class ListeningBlockController extends Controller
 {
     public function blockList()
     {
-        $blocks = ListeningBlock::all();
+        $blocks = ListeningBlock::leftjoin('levels', 'levels.level_id', 'listening_blocks.level_id')
+            ->select('listening_blocks.*', 'levels.level_name')
+            ->get();
 
         return view('admin.class.listening.block_list', ['blocks' => $blocks]);
     }

@@ -13,7 +13,9 @@ class ListeningTestController extends Controller
 {
     public function testList()
     {
-        $tests = ListeningTest::all();
+        $tests = ListeningTest::leftjoin('levels', 'levels.level_id', 'listening_tests.level_id')
+            ->select('listening_tests.*', 'levels.level_name')
+            ->get();
 
         return view('admin.class.listening.test_list', ['tests' => $tests]);
     }

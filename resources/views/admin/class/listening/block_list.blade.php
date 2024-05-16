@@ -9,11 +9,11 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-sm-6">
                 <div class="card card-default">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-sm-12">
                                 <a href="{{ route('listening.block_create') }}"
                                     class="btn bg-olive text-white">{{ __('new') }}</a>
                             </div>
@@ -36,13 +36,15 @@
                     <div class="card-body">
                         <table id="data-table" class="table table-bordered table-striped">
                             <colgroup>
-                                <col style="width:5%;">
-                                <col style="width:95%;">
+                                <col style="width:10%;">
+                                <col style="width:60%;">
+                                <col style="width:30%;">
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Tên Block</th>
+                                    <th class="text-center">Trình độ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -55,6 +57,7 @@
                                         <td><a
                                                 href="{{ route('listening.block_show', $block->block_id) }}">{{ $block->block_name }}</a>
                                         </td>
+                                        <td class="text-center">{{ $block->level_name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

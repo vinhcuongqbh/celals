@@ -9,40 +9,30 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-sm-6">
                 <div class="card card-default">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-sm-12">
                                 <a href="{{ route('listening.test_create') }}"
                                     class="btn bg-olive text-white">{{ __('new') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                @if (session()->has('message'))
-                    <script>
-                        Swal.fire({
-                            icon: 'success',
-                            text: `{{ session()->get('message') }}`,
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    </script>
-                @endif
-
                 <div class="card card-default">
                     <div class="card-body">
                         <table id="data-table" class="table table-bordered table-striped">
                             <colgroup>
-                                <col style="width:5%;">
-                                <col style="width:95%;">
+                                <col style="width:10%;">
+                                <col style="width:60%;">
+                                <col style="width:30%;">
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
                                     <th class="text-center">ID</th>
                                     <th class="text-center">Chủ đề bài Test</th>
+                                    <th class="text-center">Trình độ</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,13 +42,13 @@
                                         <td><a
                                                 href="{{ route('listening.test_show', $test->test_id) }}">{{ $test->subject }}</a>
                                         </td>
+                                        <td class="text-center">{{ $test->level_name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
                     <!-- /.card-body -->
-                    <!-- /.card -->
                 </div>
                 <!-- /.col -->
             </div>
@@ -79,7 +69,6 @@
                 max-width: 14.285%;
             }
         </style>
-
     @stop
 
     @section('js')

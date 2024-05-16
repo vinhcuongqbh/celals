@@ -11,7 +11,9 @@ class ListeningLessonController extends Controller
 {
     public function lessonList()
     {
-        $lesson = ListeningLesson::all();
+        $lesson = ListeningLesson::leftjoin('levels', 'levels.level_id', 'listening_lessons.level_id')
+            ->select('listening_lessons.*', 'levels.level_name')
+            ->get();
 
         return view('admin.class.listening.lesson_list', ['lesson' => $lesson]);
     }
@@ -52,7 +54,7 @@ class ListeningLessonController extends Controller
         $lesson->link_answer = $path;
         $lesson->save();
 
-        return redirect()->route('listening.lesson_show', ['id' => $lesson->lesson_id]);
+        return redirect()->route('listening.lesson_show', ['id' => $lesson->lesson_id])->with('msg_success','Đã tạo mới Bài nghe thành công');
     }
 
 

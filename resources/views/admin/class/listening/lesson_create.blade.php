@@ -7,31 +7,18 @@
 @stop
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="card card-default">
-                    {{-- <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('new') }}</h3>
-                    </div> --}}
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <form action="{{ route('listening.lesson_store') }}" method="post" id="form-validate"
-                        enctype="multipart/form-data">
-                        @csrf
+    <form action="{{ route('listening.lesson_store') }}" method="post" id="form-validate" enctype="multipart/form-data">
+        @csrf
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <div class="card card-default">
                         <div class="card-body">
                             <div class="form-group row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="level">{{ __('level') }}</label>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-10">
                                     <select id="level_id" name="level_id" class="form-control custom-select">
                                         <option selected></option>
                                         @foreach ($levels as $level)
@@ -41,19 +28,19 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="subject">{{ __('subject') }}</label>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-10">
                                     <input type="text" id="subject" name="subject" value="{{ old('subject') }}"
                                         class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="">{{ __('link_audio') }}</label>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-10">
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="link_audio"
@@ -64,18 +51,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     <label for="answer">{{ __('answer') }}</label>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-sm-10">
                                     <textarea id="answer" name="answer" class="form-control" rows="18">{{ old('answer') }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-3">
+                                <div class="col-sm-2">
                                     <label for="">{{ __('link_answer') }}</label>
                                 </div>
-                                <div class="col-9">
+                                <div class="col-sm-10">
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="link_answer"
@@ -85,34 +72,30 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-sm-2">
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="holder">
+                                        <img id="imgPreview" alt="pic" src="/img/blank_2.png" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning text-nowrap col-2 m-1">{{ __('create') }}</button>
-                            <a class="btn bg-olive text-white text-nowrap col-2 m-1"
+                                class="btn bg-olive text-nowrap col-2 m-1">{{ __('create') }}</button>
+                            <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                                 href="{{ route('listening.lesson_list') }}">{{ __('back') }}</a>
                         </div>
-                    </form>
-                </div>
-                <!-- /.card -->
-            </div>
-            <div class="col-xl-4">
-                <div class="card card-default">
-                    <div class="card-body">
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <div class="holder">
-                                    <img id="imgPreview" alt="pic" src="/img/blank.png"/>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                    <!-- /.card -->
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /.container-fluid -->
+        <!-- /.container-fluid -->
+    </form>
 @stop
 
 @section('css')
@@ -121,9 +104,9 @@
             width: 100%;
         }
 
-        #imgPreview {            
-            max-width: 100%;  
-        }       
+        #imgPreview {
+            max-width: 100%;
+        }
     </style>
 @endsection
 
@@ -160,7 +143,7 @@
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
                     error.addClass('invalid-feedback');
-                    element.closest('.col-sm-9').append(error);
+                    element.closest('.col-sm-10').append(error);
 
                 },
                 highlight: function(element, errorClass, validClass) {

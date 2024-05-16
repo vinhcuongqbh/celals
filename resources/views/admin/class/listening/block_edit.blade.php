@@ -7,18 +7,9 @@
 @stop
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-4">
+            <div class="col-12 col-sm-4">
                 <div class="card card-default">
                     <form action="{{ route('listening.block_edit', $block->block_id) }}" method="get">
                         <div class="card-header">
@@ -110,21 +101,21 @@
                         </div>
                         <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning text-nowrap col-2 m-1">{{ __('update') }}</button>
-                            <a class="btn bg-olive text-white text-nowrap col-2 m-1"
+                                class="btn bg-olive text-nowrap m-1">{{ __('update') }}</button>
+                            <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                                 href="{{ route('listening.block_list') }}">{{ __('back') }}</a>
                         </div>
                     </form>
                 </div>
             </div>
             <!-- /.card -->
-            <div class="col-xl-4">
+            <div class="col-12 col-sm-4">
                 <div class="card card-default">
                     <div class="card-header">
                         <h3 class="card-title text-bold">{{ __('lesson_list') }}</h3>
                     </div>
                     <div class="card-body">
-                        <table id="data-table" class="table table-bordered table-striped">
+                        <table id="data-table" class="table table-bordered table-striped data-table">
                             <colgroup>
                                 <col style="width:5%;">
                                 <col style="width:95%;">
@@ -149,13 +140,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4">
+            <div class="col-12 col-sm-4">
                 <div class="card card-default">
                     <div class="card-header">
                         <h3 class="card-title text-bold">{{ __('test_list') }}</h3>
                     </div>
                     <div class="card-body">
-                        <table id="data-table" class="table table-bordered table-striped">
+                        <table id="data-table2" class="table table-bordered table-striped data-table">
                             <colgroup>
                                 <col style="width:5%;">
                                 <col style="width:95%;">
@@ -187,6 +178,10 @@
 @stop
 
 @section('css')
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/vendor/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="/vendor/datatables-buttons/css/buttons.bootstrap4.min.css">
     <style>
         .holder {
             width: 100%;
@@ -238,29 +233,38 @@
         });
     </script>
 
-    <!-- IMG Preview -->
-    <script>
-        $(document).ready(() => {
-            $('#link_question').change(function() {
-                const file = this.files[0];
-                console.log(file);
-                if (file) {
-                    let reader = new FileReader();
-                    reader.onload = function(event) {
-                        console.log(event.target.result);
-                        $('#imgPreview').attr('src', event.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    </script>
-
-    <!-- Hiển thị tên file khi được upload -->
-    <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/vendor/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/vendor/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="/vendor/jszip/jszip.min.js"></script>
+    <script src="/vendor/pdfmake/pdfmake.min.js"></script>
+    <script src="/vendor/pdfmake/vfs_fonts.js"></script>
+    <script src="/vendor/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="/vendor/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="/vendor/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <!-- Page specific script -->
     <script>
         $(function() {
-            bsCustomFileInput.init();
+            $(".data-table").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "searching": true,
+                "autoWidth": false,
+                ordering: false,
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: 500,
+                "bInfo" : false,
+                "buttons": ["copy", "excel", "pdf", "print"],
+                "language": {
+                    url: '/plugins/datatables/vi.json'
+                },
+            }).buttons().container().appendTo('#data-table_wrapper .col-md-6:eq(0)');
         });
     </script>
 @stop
