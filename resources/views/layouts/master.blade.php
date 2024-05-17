@@ -131,7 +131,28 @@
                             @endif
                         @endif
                         @if (Auth::user()->role_id == 1)
-                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>                            
+                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>      
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>{{ __('vocabulary') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/vocabulary/test_create" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('test-create') }}</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/class/vocabulary/test_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('test_list') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>                      
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -157,32 +178,17 @@
                                             <p>{{ __('block-list') }}</p>
                                         </a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/student_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('change_block') }}</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                            <li class="nav-header">GIÁO VIÊN</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
-                                    <p>{{ __('vocabulary') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/vocabulary/test_create" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('test-create') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/vocabulary/test_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('test_list') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li class="nav-header">GIÁO VIÊN</li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -195,13 +201,7 @@
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/student_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('change_block') }}</p>
-                                        </a>
-                                    </li>
+                                    </li>                                    
                                 </ul>
                             </li>
                         @endif

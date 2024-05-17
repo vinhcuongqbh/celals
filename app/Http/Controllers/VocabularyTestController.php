@@ -116,7 +116,7 @@ class VocabularyTestController extends Controller
             $test->creator_id = Auth::user()->user_id;
             $test->save();
 
-            return redirect()->route('vocabulary.test_show', ['id' => $test_id]);
+            return redirect()->route('vocabulary.test_show', ['id' => $test_id])->with('msg_success', 'Đã tạo thành công');
         } else {
             return back()->with('msg_error', 'Không có từ vựng nào được lựa chọn');
         }
