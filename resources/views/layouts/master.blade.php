@@ -105,6 +105,33 @@
                                         <p>{{ __('post_management') }}</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-warehouse"></i>
+                                        <p>{{ __('listening') }}</p>
+                                        <i class="fas fa-angle-left right"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/admin/class/listening/lesson_list" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('lesson-list') }}</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/admin/class/listening/test_list" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('test-list') }}</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/admin/class/listening/block_list" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('block-list') }}</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             @endif
                             @if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
                                 <li class="nav-item">
@@ -130,8 +157,8 @@
                                 </li>
                             @endif
                         @endif
-                        @if (Auth::user()->role_id == 1)
-                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>      
+                        @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 6)
+                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -152,43 +179,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>                      
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
-                                    <p>{{ __('listening') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/lesson_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('lesson-list') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/test_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('test-list') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/block_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('block-list') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/student_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('change_block') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
-                        @endif
-                        @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                            <li class="nav-header">GIÁO VIÊN</li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -201,7 +192,31 @@
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
-                                    </li>                                    
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/student_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('change_block') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                        @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
+                            <li class="nav-header">GIÁO VIÊN</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>{{ __('listening') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/teacher_test_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('test_list') }}</p>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif
@@ -228,7 +243,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif                        
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
