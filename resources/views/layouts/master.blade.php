@@ -105,6 +105,33 @@
                                         <p>{{ __('post_management') }}</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-warehouse"></i>
+                                        <p>{{ __('listening') }}</p>
+                                        <i class="fas fa-angle-left right"></i>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="/admin/class/listening/lesson_list" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('lesson-list') }}</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/admin/class/listening/test_list" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('test-list') }}</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="/admin/class/listening/block_list" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>{{ __('block-list') }}</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             @endif
                             @if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
                                 <li class="nav-item">
@@ -152,6 +179,7 @@
                                         </a>
                                     </li>
                                 </ul>
+<<<<<<< HEAD
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
@@ -189,6 +217,9 @@
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
                             <li class="nav-header">GIÁO VIÊN</li>
+=======
+                            </li>
+>>>>>>> f7105500d2f2f3596f7154f6680a4cdf658c7eaf
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -202,6 +233,33 @@
                                             <p>{{ __('test_list') }}</p>
                                         </a>
                                     </li>
+<<<<<<< HEAD
+=======
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/student_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('change_block') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                        @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
+                            <li class="nav-header">GIÁO VIÊN</li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>{{ __('listening') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/listening/teacher_test_list" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('test_list') }}</p>
+                                        </a>
+                                    </li>
+>>>>>>> f7105500d2f2f3596f7154f6680a4cdf658c7eaf
                                 </ul>
                             </li>
                         @endif
