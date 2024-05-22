@@ -130,8 +130,8 @@
                                 </li>
                             @endif
                         @endif
-                        @if (Auth::user()->role_id == 1)
-                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>      
+                        @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 6)
+                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -152,7 +152,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>                      
+                            </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -188,7 +188,7 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                            <li class="nav-header">GIÁO VIÊN</li>                            
+                            <li class="nav-header">GIÁO VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-warehouse"></i>
@@ -201,7 +201,7 @@
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
-                                    </li>                                    
+                                    </li>
                                 </ul>
                             </li>
                         @endif
@@ -228,7 +228,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif                        
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
