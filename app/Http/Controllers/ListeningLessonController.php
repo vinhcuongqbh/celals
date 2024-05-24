@@ -43,15 +43,15 @@ class ListeningLessonController extends Controller
         if (!empty($request->file('link_audio'))) {
             $file = Storage::putFile('/public/File/Audio', $request->file('link_audio'));
             $path = Storage::url($file);
-        }
-        $lesson->link_audio = $path;
+            $lesson->link_audio = $path;
+        }        
         $lesson->answer = $request->answer;
         //Xử lý link đáp án
         if (!empty($request->file('link_answer'))) {
             $file = Storage::putFile('/public/File/Img', $request->file('link_answer'));
             $path = Storage::url($file);
+            $lesson->link_answer = $path;
         }
-        $lesson->link_answer = $path;
         $lesson->save();
 
         return redirect()->route('listening.lesson_show', ['id' => $lesson->lesson_id])->with('msg_success','Đã tạo mới Bài nghe thành công');
