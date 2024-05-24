@@ -157,7 +157,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('test_create', [ListeningTestController::class, 'testCreate'])->name('listening.test_create');
             Route::post('test_store', [ListeningTestController::class, 'testStore'])->name('listening.test_store');
             Route::get('{id}/test_edit', [ListeningTestController::class, 'testEdit'])->name('listening.test_edit');
-            Route::post('{id}/test_update', [ListeningLessonController::class, 'lessonUpdate'])->name('listening.test_update');
+            Route::post('{id}/test_update', [ListeningTestController::class, 'testUpdate'])->name('listening.test_update');
             Route::get('{id}/test_show', [ListeningTestController::class, 'testShow'])->name('listening.test_show');
             Route::get('test_list', [ListeningTestController::class, 'testList'])->name('listening.test_list');
 

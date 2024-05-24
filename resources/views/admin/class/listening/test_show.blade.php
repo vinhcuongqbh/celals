@@ -68,8 +68,8 @@
                                 <div class="col-sm-2">
                                     <label for="question">{{ __('question') }}</label>
                                 </div>
-                                <div class="col-sm-10">
-                                    <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $test->question }}</textarea>
+                                <div class="col-sm-10 ck-content">
+                                    {!! $test->question !!}
                                 </div>
                             </div>
                         @endif
@@ -124,6 +124,7 @@
             max-width: 100%;
         }
     </style>
+    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
 @endsection
 
 @section('js')
