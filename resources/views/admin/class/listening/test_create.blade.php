@@ -11,76 +11,27 @@
         <div class="container-fluid">
             @csrf
             <div class="row">
-                <div class="col-12 col-sm-8">
+                <div class="col-12 col-sm-9">
                     <div class="card card-default">
                         <div class="card-body">
                             <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="level">{{ __('level') }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <select id="level_id" name="level_id" class="form-control custom-select">
-                                        <option selected></option>
-                                        @foreach ($levels as $level)
-                                            <option value="{{ $level->level_id }}">{{ $level->level_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
+                                <div class="col-12">
                                     <label for="subject">{{ __('subject') }}</label>
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-12">
                                     <input type="text" id="subject" name="subject" value="{{ old('subject') }}"
                                         class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="">{{ __('test_type') }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <select id="test_type_id" name="test_type_id" class="form-control custom-select">
-                                        <option selected disabled></option>
-                                        @foreach ($test_types as $test_type)
-                                            <option value="{{ $test_type->test_type_id }}">{{ $test_type->test_type_name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="test_form">{{ __('test_form') }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <input type="text" id="test_form" name="test_form" value="{{ old('test_form') }}"
-                                        class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="test_duration">{{ __('test_duration') }}</label>
-                                </div>
-                                <div class="col-sm-10 input-group">
-                                    <input type="number" id="test_duration" name="test_duration"
-                                        value="{{ old('test_duration') }}" class="form-control" min="0">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">phút</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="form-group row">
-                                <div class="col-sm-2">
+                                <div class="col-12">
                                     <label for="question">{{ __('question') }}</label>
                                 </div>
-                                <div class="col-sm-10">
+                                <div class="col-12">
                                     <textarea id="question" name="question" class="form-control" rows="5">{{ old('question') }}</textarea>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <div class="col-sm-2">
                                     <label for="">{{ __('link_question') }}</label>
                                 </div>
@@ -120,13 +71,70 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endfor
+                            @endfor --}}
+                        </div>
+                        <!-- /.card-body -->                        
+                    </div>
+                </div>
+                <div class="col-12 col-sm-3">
+                    <div class="card card-default">
+                        <div class="card-body">
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <label for="level">{{ __('level') }}</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="level_id" name="level_id" class="form-control custom-select">
+                                            <option selected></option>
+                                            @foreach ($levels as $level)
+                                                <option value="{{ $level->level_id }}">{{ $level->level_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>                                
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <label for="">{{ __('test_type') }}</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="test_type_id" name="test_type_id" class="form-control custom-select">
+                                            <option selected disabled></option>
+                                            @foreach ($test_types as $test_type)
+                                                <option value="{{ $test_type->test_type_id }}">{{ $test_type->test_type_name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <label for="test_form">{{ __('test_form') }}</label>
+                                    </div>
+                                    <div class="col-12">
+                                        <input type="text" id="test_form" name="test_form" value="{{ old('test_form') }}"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <label for="test_duration">{{ __('test_duration') }}</label>
+                                    </div>
+                                    <div class="col-12 input-group">
+                                        <input type="number" id="test_duration" name="test_duration"
+                                            value="{{ old('test_duration') }}" class="form-control" min="0">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text">phút</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-end">
+                        <div class="card-footer d-flex justify-content-center">
                             <button type="submit"
-                                class="btn bg-olive text-nowrap col-2 m-1">{{ __('create') }}</button>
-                            <a class="btn bg-primary text-white text-nowrap col-2 m-1"
+                                class="btn bg-olive w-100 text-nowrap m-1">{{ __('create') }}</button>
+                            <a class="btn bg-primary text-white w-100 text-nowrap m-1"
                                 href="{{ route('listening.test_list') }}">{{ __('back') }}</a>
                         </div>
                     </div>
