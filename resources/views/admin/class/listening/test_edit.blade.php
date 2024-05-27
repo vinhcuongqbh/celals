@@ -259,7 +259,7 @@
     </script>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-<script type="text/javascript" src="/ckfinder/ckfinder.js"></script>
+<script type="text/javascript" src="/ckfinder_admin/ckfinder.js"></script>
 
 <script>
     // This sample still does not showcase all CKEditor 5 features (!)
@@ -292,7 +292,7 @@
 
         ckfinder: {
             // Upload the images to the server using the CKFinder QuickUpload command.
-            uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+            uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
 
             // Define the CKFinder configuration (if necessary).
             // options: {

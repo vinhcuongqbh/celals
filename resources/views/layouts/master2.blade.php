@@ -47,10 +47,10 @@
                             <label><a href="/khoa-hoc" class="nav-link text-nowrap" style="color:#03396c ">KHÓA
                                     HỌC</a></label>
                         </li>
-                        {{-- <li class="nav-item">
+                        <li class="nav-item">
                             <label><a href="/dang-ky" class="nav-link text-nowrap" style="color:#03396c ">ĐĂNG
                                     KÝ</a></label>
-                        </li> --}}
+                        </li>
                         <li class="nav-item">
                             <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ
                                     SỞ</a></label>
