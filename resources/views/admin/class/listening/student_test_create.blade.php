@@ -66,17 +66,17 @@
                             <hr>
                             @if (isset($test->question))
                                 <div class="form-group row">
-                                    <div class="col-12">
+                                    <div class="col-sm-2">
                                         <label for="question">{{ __('question') }}</label>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-sm-10">
                                         <div class="holder border">
                                             {!! $test->question !!}
                                         </div>
                                     </div>
                                 </div>
                             @endif
-                            @if (isset($test->link_question))
+                            {{-- @if (isset($test->link_question))
                                 <div class="form-group row">
                                     <div class="col-sm-2">       
                                         <label for="question">{{ __('question') }}</label>                                 
@@ -101,7 +101,7 @@
                                         <audio controls controlsList="nodownload" src="{{ $td->link_audio }}"></audio>
                                     </div>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
                         </div>
                         <!-- /.card-body -->
                     </div>

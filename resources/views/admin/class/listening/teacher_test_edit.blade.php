@@ -79,12 +79,12 @@
                                     <div class="col-sm-2">
                                         <label for="question">{{ __('question') }}</label>
                                     </div>
-                                    <div class="col-sm-10">
-                                        <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $test->question }}</textarea>
+                                    <div class="col-sm-10 border">
+                                        {!! $test->question !!}
                                     </div>
                                 </div>
                             @endif
-                            @if (isset($test->link_question))
+                            {{-- @if (isset($test->link_question))
                                 <div class="form-group row">
                                     <div class="col-sm-2">
                                         <label for="question">{{ __('question') }}</label>
@@ -108,7 +108,7 @@
                                         <audio controls controlsList="nodownload" src="{{ $td->link_audio }}"></audio>
                                     </div>
                                 </div>
-                            @endforeach
+                            @endforeach --}}
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -119,7 +119,7 @@
                             <label for="" class="text-danger">PHẦN HỌC VIÊN TRẢ LỜI</label>
                         </div>
                         <div class="card-body">
-                            @if (isset($student_answer->answer))
+                            @if (isset($student_answer->student_answer))
                                 <div class="form-group row">
                                     <div class="col-sm-2">
                                         <label for="student_answer">{{ __('student_answer') }}</label>
