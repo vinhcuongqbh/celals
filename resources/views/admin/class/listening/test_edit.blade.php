@@ -106,13 +106,7 @@
                                 @endfor
                             @endif --}}
                         </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-end">
-                            <button type="submit"
-                                class="btn bg-olive text-nowrap col-2 m-1">{{ __('update') }}</button>
-                            <a class="btn bg-primary text-white text-nowrap col-2 m-1"
-                                href="{{ route('listening.test_list') }}">{{ __('back') }}</a>
-                        </div>
+                        <!-- /.card-body -->                        
                     </div>
                 </div>
                 <div class="col-12 col-sm-3">
@@ -176,8 +170,8 @@
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-center">
                             <button type="submit"
-                                class="btn bg-olive w-100 text-nowrap m-1">{{ __('create') }}</button>
-                            <a class="btn bg-primary text-white w-100 text-nowrap m-1"
+                                class="btn bg-olive text-nowrap w-100 m-1">{{ __('update') }}</button>
+                            <a class="btn bg-primary text-white text-nowrap w-100 m-1"
                                 href="{{ route('listening.test_list') }}">{{ __('back') }}</a>
                         </div>
                     </div>
@@ -234,7 +228,7 @@
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
                     error.addClass('invalid-feedback');
-                    element.closest('.col-sm-10').append(error);
+                    element.closest('.col-12').append(error);
 
                 },
                 highlight: function(element, errorClass, validClass) {

@@ -72,11 +72,11 @@
                                     <label for="question">{{ __('question') }}</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $test->question }}</textarea>
+                                    {!! $test->question !!}</textarea>
                                 </div>
                             </div>
                         @endif
-                        @php
+                        {{-- @php
                             $i = 1;
                         @endphp
                         @foreach ($test_details as $td)
@@ -88,8 +88,7 @@
                                     <audio controls controlsList="nodownload" src="{{ $td->link_audio }}"></audio>
                                 </div>
                             </div>
-                        @endforeach
-                        @csrf
+                        @endforeach                        --}}
                         <div class="form-group row">
                             <div class="col-sm-3">
                                 <label for="student_answer">{{ __('student_answer') }}</label>

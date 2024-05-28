@@ -207,7 +207,7 @@
                 errorElement: 'span',
                 errorPlacement: function(error, element) {
                     error.addClass('invalid-feedback');
-                    element.closest('.col-sm-10').append(error);
+                    element.closest('.col-12').append(error);
 
                 },
                 highlight: function(element, errorClass, validClass) {

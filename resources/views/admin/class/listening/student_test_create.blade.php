@@ -66,12 +66,12 @@
                             <hr>
                             @if (isset($test->question))
                                 <div class="form-group row">
-                                    <div class="col-sm-2">
+                                    <div class="col-12">
                                         <label for="question">{{ __('question') }}</label>
                                     </div>
-                                    <div class="col-sm-10">
-                                        <div class="holder">
-                                            <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $test->question }}</textarea>
+                                    <div class="col-12">
+                                        <div class="holder border">
+                                            {!! $test->question !!}
                                         </div>
                                     </div>
                                 </div>
