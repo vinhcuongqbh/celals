@@ -81,7 +81,6 @@
                             <button type="submit" class="btn bg-olive text-nowrap">Tạo Bài KT</button><br>
                         </div>
 
-
                         <input type="hidden" name="level_id_selected"
                             value="@php if (isset($level_id_selected)) echo $level_id_selected; else echo "0"; @endphp">
                         <input type="hidden" name="topic_id_1_selected"
@@ -208,23 +207,7 @@
     <script src="/vendor/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/vendor/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/vendor/datatables-buttons/js/buttons.colVis.min.js"></script>
-
-    {{-- <script src="/js/jquery-3.7.0.js"></script> --}}
-    {{-- <script src="/js/jquery.dataTables.min.js"></script>
-    <script src="/js/dataTables.buttons.min.js"></script>
-    <script src="/js/jszip.min.js"></script>
-    <script src="/js/pdfmake.min.js"></script>
-    <script src="/js/vfs_fonts.js"></script>
-    <script src="/js/buttons.html5.min.js"></script>
-    <script src="/js/buttons.print.min.js"></script>
-    <script src="/js/dataTables.rowReorder.min.js"></script>
-    <script src="/js/dataTables.responsive.min.js"></script>
-
-    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="/css/rowReorder.dataTables.min.css">
-    <link rel="stylesheet" href="/css/responsive.dataTables.min.css"> --}}
-
+   
     <!-- Page specific script -->
     <script>
         $(function() {
