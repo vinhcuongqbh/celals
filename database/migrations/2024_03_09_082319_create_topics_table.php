@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('topics', function (Blueprint $table) {
             $table->id('topic_id');
             $table->string('topic_name');
+            //$table->tinyInteger('level_id');
             $table->timestamps();
         });
     }

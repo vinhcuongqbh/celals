@@ -82,7 +82,7 @@ class VocabularyTestController extends Controller
         }
 
         $level = Level::all();
-        $topic = Topic::orderBy('topic_name', 'ASC')->get();
+        $topic = Topic::where('level_id', $request->level_id)->orderBy('topic_name', 'ASC')->get();
 
 
         return view(
@@ -92,10 +92,8 @@ class VocabularyTestController extends Controller
                 'level' => $level,
                 'level_id_selected' => $request->level_id,
                 'topic' => $topic,
-                'topic_id_1_selected' => $request->topic_id_1,
-                'topic2' => $topic,
-                'topic_id_2_selected' => $request->topic_id_2,
-                'topic3' => $topic,
+                'topic_id_1_selected' => $request->topic_id_1,               
+                'topic_id_2_selected' => $request->topic_id_2,                
                 'topic_id_3_selected' => $request->topic_id_3,
                 'select_mode' => $request->select,
             ]
@@ -109,7 +107,7 @@ class VocabularyTestController extends Controller
         $test_id = uniqid();
         $topic_id = $request->topic_id_1_selected . "," . $request->topic_id_2_selected . "," . $request->topic_id_3_selected;
 
-        //Nếu có từ vựng được chọn để xuất kho
+        //Nếu có từ vựng được chọn
         if (isset($word_selected_id)) {
             //Tạo Bài kiểm tra
             $test = new VocabularyTest();

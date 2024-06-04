@@ -16,6 +16,7 @@ use App\Http\Controllers\ListeningTestController;
 use App\Http\Controllers\StudentListeningBlockController;
 use App\Http\Controllers\StudentListeningTestController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\TopicController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\VocabularyTestController;
 use App\Models\ListeningBlock;
@@ -116,6 +117,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('{id}/resetpass', [UserController::class, 'resetpass'])->name('user.resetpass');
         Route::post('search', [UserController::class, 'search'])->name('user.search');
     });
+    
+    Route::group(['prefix' => 'topic'], function () {       
+        Route::post('topicList', [TopicController::class, 'topicList'])->name('topic.topicList');
+    });
 
     Route::group(['prefix' => 'post'], function () {
         Route::get('', [PostController::class, 'index'])->name('post');
@@ -143,7 +148,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('test_list', [VocabularyTestController::class, 'testList'])->name('vocabulary.test_list');
             Route::post('test_search', [VocabularyTestController::class, 'testSearch'])->name('vocabulary.test_search');
             Route::post('test_store', [VocabularyTestController::class, 'testStore'])->name('vocabulary.test_store');
-            Route::get('{id}/', [VocabularyTestController::class, 'testShow'])->name('vocabulary.test_show');
+            Route::get('{id}/', [VocabularyTestController::class, 'testShow'])->name('vocabulary.test_show');            
         });
 
         Route::group(['prefix' => 'listening'], function () {

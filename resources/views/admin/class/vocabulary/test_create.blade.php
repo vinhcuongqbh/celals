@@ -117,13 +117,15 @@
                                     <label class="col-sm-3 col-form-label" for="topic_id_1">Chủ đề 1</label>
                                     <div class="col-sm-9">
                                         <select id="topic_id_1" name="topic_id_1" class="form-control custom-select">
-                                            <option selected></option>
-                                            @foreach ($topic as $topic)
-                                                <option value="{{ $topic->topic_id }}"
-                                                    @if (isset($topic_id_1_selected) && $topic_id_1_selected == $topic->topic_id) selected @endif>
-                                                    {{ $topic->topic_name }}
-                                                </option>
-                                            @endforeach
+                                            <option value=""></option>
+                                            @if (isset($topic_id_1_selected))
+                                                @foreach ($topic as $tp)
+                                                    <option value="{{ $tp->topic_id }}"
+                                                        @if ($topic_id_1_selected == $tp->topic_id) selected @endif>
+                                                        {{ $tp->topic_name }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
@@ -131,13 +133,15 @@
                                     <label class="col-sm-3 col-form-label" for="topic_id_2">Chủ đề 2</label>
                                     <div class="col-sm-9">
                                         <select id="topic_id_2" name="topic_id_2" class="form-control custom-select">
-                                            <option selected></option>
-                                            @foreach ($topic2 as $topic2)
-                                                <option value="{{ $topic2->topic_id }}"
-                                                    @if (isset($topic_id_2_selected) && $topic_id_2_selected == $topic2->topic_id) selected @endif>
-                                                    {{ $topic2->topic_name }}
-                                                </option>
-                                            @endforeach
+                                            <option value=""></option>
+                                            @if (isset($topic_id_2_selected))
+                                                @foreach ($topic as $tp)
+                                                    <option value="{{ $tp->topic_id }}"
+                                                        @if ($topic_id_2_selected == $tp->topic_id) selected @endif>
+                                                        {{ $tp->topic_name }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
@@ -145,13 +149,15 @@
                                     <label class="col-sm-3 col-form-label" for="topic_id_3">Chủ đề 3</label>
                                     <div class="col-sm-9">
                                         <select id="topic_id_3" name="topic_id_3" class="form-control custom-select">
-                                            <option selected></option>
-                                            @foreach ($topic3 as $topic3)
-                                                <option value="{{ $topic3->topic_id }}"
-                                                    @if (isset($topic_id_3_selected) && $topic_id_3_selected == $topic3->topic_id) selected @endif>
-                                                    {{ $topic3->topic_name }}
-                                                </option>
-                                            @endforeach
+                                            <option value=""></option>
+                                            @if (isset($topic_id_3_selected))
+                                                @foreach ($topic as $tp)
+                                                    <option value="{{ $tp->topic_id }}"
+                                                        @if ($topic_id_3_selected == $tp->topic_id) selected @endif>
+                                                        {{ $tp->topic_name }}
+                                                    </option>
+                                                @endforeach
+                                            @endif
                                         </select>
                                     </div>
                                 </div>
@@ -207,7 +213,7 @@
     <script src="/vendor/datatables-buttons/js/buttons.html5.min.js"></script>
     <script src="/vendor/datatables-buttons/js/buttons.print.min.js"></script>
     <script src="/vendor/datatables-buttons/js/buttons.colVis.min.js"></script>
-   
+
     <!-- Page specific script -->
     <script>
         $(function() {
@@ -292,5 +298,39 @@
             $('#count').html("Số từ vựng đã chọn: " + count);
         });
         //$('input[name="word_selected_id[]"]:checked').length;
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#level_id').on('change', function() {
+                var level_id = this.value;
+                $("#topic_id_1").html('');
+                $("#topic_id_2").html('');
+                $("#topic_id_3").html('');
+                $.ajax({
+                    url: "{{ url('admin/topic/topicList') }}",
+                    type: "POST",
+                    data: {
+                        level_id: level_id,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        $('#topic_id_1').html('<option value=""></option>');
+                        $('#topic_id_2').html('<option value=""></option>');
+                        $('#topic_id_3').html('<option value=""></option>');
+
+                        $.each(result.topic, function(key, value) {
+                            $("#topic_id_1").append('<option value="' + value
+                                .topic_id + '">' + value.topic_name + '</option>');
+                            $("#topic_id_2").append('<option value="' + value
+                                .topic_id + '">' + value.topic_name + '</option>');
+                            $("#topic_id_3").append('<option value="' + value
+                                .topic_id + '">' + value.topic_name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
     </script>
 @stop

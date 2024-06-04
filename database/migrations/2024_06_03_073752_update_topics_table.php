@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('listening_blocks', function (Blueprint $table) {          
-            $table->tinyInteger('level_id')->after('block_id');
+        Schema::table('topics', function (Blueprint $table) {          
+            $table->tinyInteger('level_id');
         });
     }
 
