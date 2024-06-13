@@ -17,7 +17,7 @@ return new class extends Migration
             //$table->tinyInteger('level_id');
             $table->text('subject');
             $table->text('link_audio');
-            $table->text('answer')->nullable();
+            $table->longText('answer')->nullable();
             $table->text('link_answer')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();

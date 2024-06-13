@@ -133,7 +133,7 @@
                                     </ul>
                                 </li>
                             @endif
-                            @if (Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
+                            @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon fas fa-warehouse"></i>

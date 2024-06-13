@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('test_type_id');
             $table->text('test_form')->nullable();
             $table->tinyInteger('test_duration')->nullable();
-            $table->text('question')->nullable();
+            $table->longText('question')->nullable();
             $table->text('link_question')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
