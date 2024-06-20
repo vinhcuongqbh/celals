@@ -228,7 +228,7 @@ class VocabularyTestController extends Controller
         }
 
         //Trộn thứ tự ngẫu nhiên danh sách từ vựng
-        $word = $word->shuffle();
+        $word_shuffle = $word->shuffle();
 
         return view(
             'front-end.testing',
@@ -238,6 +238,7 @@ class VocabularyTestController extends Controller
                 'level' => $level,
                 'topic' => $topic,
                 'word' => $word,
+                'word_shuffle' => $word_shuffle,
                 'word2' => $word,
             ]
         );

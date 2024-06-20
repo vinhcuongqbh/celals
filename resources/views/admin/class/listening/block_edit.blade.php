@@ -77,8 +77,8 @@
                                 </div>
                                 @php $i++ @endphp
                             @endforeach
-                            @if ($i < 10)
-                                @for ($j = $i; $j <= 10; $j++)
+                            @if ($i < 15)
+                                @for ($j = $i; $j <= 15; $j++)
                                     <div class="form-group row">
                                         <div class="col-sm-1">
                                             <label for="stt">{{ $j }}</label>

@@ -58,9 +58,9 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @if ($word != null)
+                                                            @if ($word_shuffle != null)
                                                                 @php $i=1; @endphp
-                                                                @foreach ($word as $word)
+                                                                @foreach ($word_shuffle as $word)
                                                                     <tr>
                                                                         <td class="text-center">
                                                                             {{ $i++ }}

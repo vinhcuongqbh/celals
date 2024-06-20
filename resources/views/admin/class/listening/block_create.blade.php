@@ -59,7 +59,7 @@
                                         class="form-control">
                                 </div>
                             </div>
-                            @for ($i = 1; $i <= 10; $i++)
+                            @for ($i = 1; $i <= 15; $i++)
                                 <div class="form-group row">
                                     <div class="col-sm-1">
                                         <label>{{ $i }}</label>

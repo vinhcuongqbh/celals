@@ -56,7 +56,7 @@ class ListeningBlockController extends Controller
         ]);
 
         $question_list = "";
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
             if (isset($request->{'stt_' . $i})) {
                 $question_list = $question_list . $request->{'type_id_' . $i} . $request->{'stt_' . $i} . ";";
             }
@@ -156,7 +156,7 @@ class ListeningBlockController extends Controller
         ]);
 
         $question_list = "";
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
             if (isset($request->{'stt_' . $i})) {
                 $question_list = $question_list . $request->{'type_id_' . $i} . $request->{'stt_' . $i} . ";";
             }
