@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Coach Subject Create')
+@section('title', 'Coach Question Create')
 
 @section('heading')
-    {{ __('coach_subject_management') }}
+    {{ __('coach_question_management') }}
 @stop
 
 @section('content')
@@ -23,8 +23,38 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('coach_subject.store') }}" method="post" id="couch_subject_create">
+                    <form action="{{ route('coach_question.store') }}" method="post" id="form">
                         @csrf
+                        <div class="card-body">                            
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    <label for="coach_type">{{ __('coach_type') }}</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="coach_type" name="coach_type" class="form-control custom-select">
+                                        <option selected disabled></option>
+                                        @foreach ($coach_types as $coach_type)
+                                            <option value="{{ $coach_type->id }}">{{ $coach_type->type_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">                            
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    <label for="coach_subject">{{ __('coach_subject') }}</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <select id="coach_subject" name="coach_subject" class="form-control custom-select">
+                                        <option selected disabled></option>
+                                        @foreach ($coach_subjects as $coach_subject)
+                                            <option value="{{ $coach_subject->id }}">{{ $coach_subject->subject_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body">                            
                             <div class="form-group row">
                                 <div class="col-sm-3">
@@ -59,7 +89,7 @@
     <!-- Page specific script -->
     <script>
         $(function() {
-            $('#couch_subject_create').validate({
+            $('#form').validate({
                 rules: {
                     subject_name: {
                         required: true,

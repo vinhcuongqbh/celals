@@ -3,7 +3,7 @@
 @section('title', 'Coach Subject Edit')
 
 @section('heading')
-    {{ __('coach_subject_managament') }}
+    {{ __('coach_subject_management') }}
 @stop
 
 @section('content')
