@@ -31,47 +31,6 @@
                                     <textarea id="question" name="question" class="form-control" rows="5">{{ old('question') }}</textarea>
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="">{{ __('link_question') }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="link_question"
-                                                name="link_question" accept="image/*">
-                                            <label class="custom-file-label" for="link_question"></label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-2">                                   
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="holder">
-                                        <img id="imgPreview" alt="pic" src="/img/blank_2.png" />
-                                    </div>
-                                </div>
-                            </div>
-                            @for ($i = 1; $i <= 10; $i++)
-                                <div class="form-group row">
-                                    <div class="col-sm-2">
-                                        <label for="">{{ __('link_audio') }} {{ $i }}</label>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input"
-                                                    id="link_audio_{{ $i }}"
-                                                    name="link_audio_{{ $i }}" accept="audio/*">
-                                                <label class="custom-file-label"
-                                                    for="link_audio_{{ $i }}"></label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endfor --}}
                         </div>
                         <!-- /.card-body -->                        
                     </div>

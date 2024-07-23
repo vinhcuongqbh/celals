@@ -103,5 +103,12 @@
     "coach_subject_management": "Quản lý Coach Subject",
     "newSubject": "Chủ đề mới",
     "subject_name": "Tên chủ đề",
-    "enter_content": "Vui lòng nhập nội dung"
+    "enter_content": "Vui lòng nhập nội dung",
+    "question_management": "Quản lý câu hỏi",
+    "coach_type": "Hình thức coach",
+    "coach_subject": "Chủ đề coach",
+    "suggest_answer": "Gợi ý câu trả lời",
+    "select_content": "Vui lòng chọn nội dung",
+    "coach_question": "Câu hỏi coach",
+    "coaching": "Phần Coaching"
 }

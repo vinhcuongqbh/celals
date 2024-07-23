@@ -1,15 +1,17 @@
 @extends('layouts.master')
 
-@section('title', 'Coach Question Create')
+@section('title', 'Coach Question Edit')
 
 @section('heading')
     {{ __('question_management') }}
 @stop
 
 @section('content')
-    <form action="{{ route('coach_question.store') }}" method="post" id="form" enctype="multipart/form-data">
+    <form action="{{ route('coach_question.update', $coach_question->id) }}" method="post" id="form"
+        enctype="multipart/form-data">
         <div class="container-fluid">
             @csrf
+            @method('PUT')
             <div class="row">
                 <div class="col-12 col-sm-9">
                     <div class="card card-default">
@@ -19,7 +21,7 @@
                                     <label for="question">{{ __('question') }}</label>
                                 </div>
                                 <div class="col-12">
-                                    <textarea id="question" name="question" class="form-control" rows="15">{{ old('question') }}</textarea>
+                                    <textarea id="question" name="question" class="form-control" rows="15">{{ $coach_question->question }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +33,7 @@
                                     <label for="suggest_answer">{{ __('suggest_answer') }}</label>
                                 </div>
                                 <div class="col-12">
-                                    <textarea id="suggest_answer" name="suggest_answer" class="form-control" rows="15">{{ old('suggest_answer') }}</textarea>
+                                    <textarea id="suggest_answer" name="suggest_answer" class="form-control" rows="15">{{ $coach_question->suggest_answer }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +52,10 @@
                                         <select id="coach_type" name="coach_type" class="form-control custom-select">
                                             <option selected disabled></option>
                                             @foreach ($coach_types as $coach_type)
-                                                <option value="{{ $coach_type->id }}">{{ $coach_type->type_name }}</option>
+                                                <option value="{{ $coach_type->id }}"
+                                                    {{ $coach_question->coach_type == $coach_type->id ? 'selected' : '' }}>
+                                                    {{ $coach_type->type_name }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -63,7 +68,8 @@
                                         <select id="coach_subject" name="coach_subject" class="form-control custom-select">
                                             <option selected disabled></option>
                                             @foreach ($coach_subjects as $coach_subject)
-                                                <option value="{{ $coach_subject->id }}">
+                                                <option value="{{ $coach_subject->id }}"
+                                                    {{ $coach_question->coach_subject == $coach_subject->id ? 'selected' : '' }}>
                                                     {{ $coach_subject->subject_name }}
                                                 </option>
                                             @endforeach
@@ -74,7 +80,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-center">
-                            <button type="submit" class="btn bg-olive w-100 text-nowrap m-1">{{ __('create') }}</button>
+                            <button type="submit" class="btn bg-olive w-100 text-nowrap m-1">{{ __('update') }}</button>
                             <a class="btn bg-primary text-white w-100 text-nowrap m-1"
                                 href="{{ route('coach_question.index') }}">{{ __('back') }}</a>
                         </div>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->tinyInteger('coach_type');
             $table->tinyInteger('coach_subject');
             $table->longText('question');
+            $table->longText('suggest_answer');
             $table->timestamps();
         });
     }
