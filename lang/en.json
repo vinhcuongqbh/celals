@@ -99,5 +99,9 @@
     "student_management": "Quản lý học viên",
     "change_block": "Thay đổi Block",
     "comment": "Nhận xét",
-    "point": "Điểm số"
+    "point": "Điểm số",
+    "coach_subject_managament": "Quản lý Coach Subject",
+    "newSubject": "Chủ đề mới",
+    "subject_name": "Tên chủ đề",
+    "enter_content": "Vui lòng nhập nội dung"
 }

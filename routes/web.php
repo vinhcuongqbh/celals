@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CenterController;
+use App\Http\Controllers\CoachSubjectController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserReferralController;
 use App\Http\Controllers\SukienController;
@@ -185,6 +186,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('{id}/student_lesson_show', [StudentListeningBlockController::class, 'lessonShow'])->name('listening.student_lesson_show');
             Route::get('{id}/student_test_create', [StudentListeningTestController::class, 'testCreate'])->name('listening.student_test_create');
             Route::post('student_test_store', [StudentListeningTestController::class, 'testStore'])->name('listening.student_test_store');
+        });
+
+
+        Route::group(['prefix' => 'coaching'], function () {
+            Route::resource('coach_subject', CoachSubjectController::class);
         });
     });
 });
