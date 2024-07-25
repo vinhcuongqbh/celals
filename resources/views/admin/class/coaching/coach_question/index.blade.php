@@ -51,10 +51,10 @@
                                         <td class="text-center"><a
                                                 href="{{ route('coach_question.edit', $coach_question->id) }}">{{ $coach_question->subject_name }}</a>
                                         </td>
-                                        <td class="text-center ck-content"><a
+                                        <td class="text-left ck-content"><a
                                                 href="{{ route('coach_question.edit', $coach_question->id) }}">{!! $coach_question->question !!}</a>
                                         </td>
-                                        <td class="text-center ck-content"><a
+                                        <td class="text-left ck-content"><a
                                                 href="{{ route('coach_question.edit', $coach_question->id) }}">{!! $coach_question->suggest_answer !!}</a>
                                         </td>
                                     </tr>

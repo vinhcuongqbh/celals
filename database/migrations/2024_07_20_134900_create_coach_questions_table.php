@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('coach_questions', function (Blueprint $table) {
             $table->id();            
             $table->tinyInteger('coach_type');
-            $table->tinyInteger('coach_subject');
+            $table->tinyInteger('coach_subject')->nullable();
             $table->longText('question');
-            $table->longText('suggest_answer');
+            $table->longText('suggest_answer')->nullable();
             $table->timestamps();
         });
     }

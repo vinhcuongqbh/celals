@@ -39,7 +39,7 @@
 
 </head>
 
-<body class="sidebar-mini layout-navbar-fixed">
+<body class="sidebar-mini layout-navbar"> <!--<body class="sidebar-mini layout-navbar-fixed">-->
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->

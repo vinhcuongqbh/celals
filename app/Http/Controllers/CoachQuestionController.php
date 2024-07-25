@@ -47,7 +47,6 @@ class CoachQuestionController extends Controller
     {
         $request->validate([
             'coach_type' => 'required',
-            'coach_subject' => 'required',
             'question' => 'required',            
         ]);
 
@@ -93,7 +92,6 @@ class CoachQuestionController extends Controller
     {
         $request->validate([
             'coach_type' => 'required',
-            'coach_subject' => 'required',
             'question' => 'required',            
         ]);
 

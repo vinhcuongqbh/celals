@@ -132,18 +132,12 @@
                     coach_type: {
                         required: true,
                     },
-                    coach_subject: {
-                        required: true,
-                    },
                     question: {
                         required: true,
                     },
                 },
                 messages: {
                     coach_type: {
-                        required: "{{ __('select_content') }}",
-                    },
-                    coach_subject: {
                         required: "{{ __('select_content') }}",
                     },
                     question: {
