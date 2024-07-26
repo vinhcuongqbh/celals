@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="col-12">
                                         <select id="coach_type" name="coach_type" class="form-control custom-select">
-                                            <option selected disabled></option>
+                                            <option selected></option>
                                             @foreach ($coach_types as $coach_type)
                                                 <option value="{{ $coach_type->id }}">{{ $coach_type->type_name }}</option>
                                             @endforeach

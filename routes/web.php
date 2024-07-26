@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CenterController;
 use App\Http\Controllers\CoachQuestionController;
+use App\Http\Controllers\CoachStudentController;
 use App\Http\Controllers\CoachSubjectController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserReferralController;
@@ -193,6 +194,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::group(['prefix' => 'coaching'], function () {
             Route::resource('coach_subject', CoachSubjectController::class);
             Route::resource('coach_question', CoachQuestionController::class);
+            Route::get('coach_phongvan', [CoachStudentController::class, 'coach_phongvan'])->name('coaching.coach_phongvan');
         });
         
     });
