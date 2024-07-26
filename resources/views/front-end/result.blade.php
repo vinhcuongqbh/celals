@@ -43,7 +43,7 @@
                                                                 <th class="text-center">Dịch nghĩa</th>
                                                                 <th class="text-center">Từ vựng</th>
                                                                 <th class="text-center">Kết quả</th>
-                                                                <th class="text-center">Đáp án</th>
+                                                                <th class="text-center">Đáp án của học viên</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>

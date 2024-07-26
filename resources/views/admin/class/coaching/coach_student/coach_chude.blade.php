@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card card-default">
-                    <form action="{{ route('coaching.coach_phongvan') }}" method="post" id="form-search">
+                    <form action="{{ route('coaching.coach_chude') }}" method="post" id="form-search">
                         @csrf
                         <div class="card-header">
                             <div class="row">

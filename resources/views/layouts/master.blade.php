@@ -240,6 +240,29 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <p>{{ __('coaching') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/coach_phongvan" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('coach_phongvan') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/coach_chude" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('coach_chude') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
                         @endif
                         @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
                             <li class="nav-header">HỌC VIÊN</li>
