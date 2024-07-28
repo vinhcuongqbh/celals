@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
-@section('title', 'Coach Phỏng vấn')
+@section('title', 'Coach Chủ đề')
 
 @section('heading')
-    {{ __('Coach Phỏng vấn') }}
+    {{ __('Coach Chủ đề') }}
 @stop
 
 @section('content')

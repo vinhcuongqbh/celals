@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <select id="student_id" name="student_id" class="form-control custom-select">
-                                            <option selected></option>
+                                            <option value="0" selected></option>
                                             @foreach ($students as $student)
                                                 <option value="{{ $student->user_id }}"
                                                     @if ($student->user_id == $selected_student) selected @endif>{{ $student->name }}
@@ -67,7 +67,7 @@
                                         <td class="text-center">{{ $coach_question->subject_name }}</td>
                                         <td class="text-left ck-content">{!! $coach_question->question !!}</td>
                                         <td class="text-left ck-content">{!! $coach_question->suggest_answer !!}</td>
-                                        <td><input type="number" min="0" max="10" placeholder="0"
+                                        <td><input type="number" name="qu{{$coach_question->id}}" min="0" max="10" placeholder="0"
                                                 class="form-control text-center"></td>
                                     </tr>
                                 @endforeach
