@@ -188,10 +188,10 @@ class ListeningBlockController extends Controller
 
     public function changeBlock($id)
     {
-        $student_listening_block = StudentListeningBlock::where('student_id', $id)->first(); 
-        $listening_block = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();       
-        $block = ListeningBlock::where('level_id', $listening_block->level_id)->get();
-       
+        $student_listening_block = StudentListeningBlock::where('student_id', $id)->first();
+        //$listening_block = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();
+        $block = ListeningBlock::orderby('level_id', 'ASC')->get();
+
         $collection = $block->getIterator();
 
         foreach ($collection as $cl) {
@@ -242,9 +242,9 @@ class ListeningBlockController extends Controller
         return view(
             'admin.class.listening.teacher_test_edit',
             [
-                'test' => $test, 
+                'test' => $test,
                 'test_details' => $test_details,
-                'test_types' => $test_types, 
+                'test_types' => $test_types,
                 'levels' => $levels,
                 'student_answer' => $student_answer
             ]
@@ -260,7 +260,7 @@ class ListeningBlockController extends Controller
             'point' => 'required',
         ]);
 
-       
+
         $test = StudentListeningTest::where('id', $id)->first();
         $test->comment = $request->comment;
         $test->point = $request->point;
