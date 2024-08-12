@@ -188,20 +188,22 @@ class ListeningBlockController extends Controller
 
     public function changeBlock($id)
     {
-        $student_block = StudentListeningBlock::where('student_id', $id)->first();
-        $block = ListeningBlock::all();
+        $student_listening_block = StudentListeningBlock::where('student_id', $id)->first(); 
+        $listening_block = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();       
+        $block = ListeningBlock::where('level_id', $listening_block->level_id)->get();
+       
         $collection = $block->getIterator();
 
         foreach ($collection as $cl) {
-            if ($collection->current()->block_id == $student_block->listening_block_id) {
+            if ($collection->current()->block_id == $student_listening_block->listening_block_id) {
                 $collection->next();
                 if ($collection->current() <> null) $next_block = $collection->current()->block_id;
             }
         }
 
         if (isset($next_block)) {
-            $student_block->listening_block_id = $next_block;
-            $student_block->save();
+            $student_listening_block->listening_block_id = $next_block;
+            $student_listening_block->save();
             return redirect()->route('listening.student_list')->with('msg_success', 'Đã Đổi Block thành công');;
         } else {
             return redirect()->route('listening.student_list')->with('msg_error', 'Đã đến Block cuối cùng');;
