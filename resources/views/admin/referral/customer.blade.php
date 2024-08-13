@@ -30,7 +30,7 @@
                                         value="{{ $date_end }}">
                                 </div>
 
-                                <div class="col-12 col-sm-2">
+                                <div class="col-12 col-sm-auto">
                                     <button type="submit"
                                         class="btn bg-olive text-white w-100">{{ __('search') }}</button>
                                 </div>
@@ -54,15 +54,15 @@
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
-                                    <th class="text-nowrap">{{ __('no') }}</th>
-                                    <th class="text-nowrap">{{ __('advise_type_name') }}</th>
-                                    <th class="text-nowrap">{{ __('name') }}</th>
-                                    <th class="text-nowrap">{{ __('tel') }}</th>
-                                    <th class="text-nowrap">{{ __('email') }}</th>
-                                    <th class="text-nowrap">{{ __('age') }}</th>
-                                    <th class="text-nowrap">{{ __('school') }}</th>
-                                    <th class="text-nowrap">{{ __('ref_name') }}</th>
-                                    <th class="text-nowrap">{{ __('ref_status_name') }}</th>
+                                    <th class="text-center align-middle">{{ __('no') }}</th>
+                                    <th class="text-center align-middle">{{ __('advise_type_name') }}</th>
+                                    <th class="text-center align-middle">{{ __('name') }}</th>
+                                    <th class="text-center align-middle">{{ __('tel') }}</th>
+                                    <th class="text-center align-middle">{{ __('email') }}</th>
+                                    <th class="text-center align-middle">{{ __('age') }}</th>
+                                    <th class="text-center align-middle">{{ __('school') }}</th>
+                                    <th class="text-center align-middle">{{ __('ref_name') }}</th>
+                                    <th class="text-center align-middle">{{ __('ref_status_name') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

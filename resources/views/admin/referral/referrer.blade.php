@@ -29,7 +29,7 @@
                                     <input type="date" class="form-control" id="date_end" name="date_end"
                                         value="{{ $date_end }}">
                                 </div>
-                                <div class="col-12 col-sm-2">
+                                <div class="col-12 col-sm-auto">
                                     <button type="submit"
                                         class="btn bg-olive text-white w-100">{{ __('search') }}</button>
                                 </div>
@@ -50,11 +50,11 @@
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
-                                    <th class="text-nowrap">{{ __('no') }}</th>
-                                    <th class="text-nowrap">{{ __('name') }}</th>
-                                    <th class="text-nowrap">{{ __('registed_customer') }}</th>
-                                    <th class="text-nowrap">{{ __('accepted_customer') }}</th>
-                                    <th class="text-nowrap">{{ __('accepted_ratio') }} (%)</th>
+                                    <th class="text-center align-middle">{{ __('no') }}</th>
+                                    <th class="text-center align-middle">{{ __('name') }}</th>
+                                    <th class="text-center align-middle">{{ __('registed_customer') }}</th>
+                                    <th class="text-center align-middle">{{ __('accepted_customer') }}</th>
+                                    <th class="text-center align-middle">{{ __('accepted_ratio') }} (%)</th>
                                 </tr>
                             </thead>
                             <tbody>

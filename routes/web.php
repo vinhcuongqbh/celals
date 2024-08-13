@@ -96,7 +96,6 @@ Route::get('/login', function () {
 
 Route::get('/ref={id}', [UserReferralController::class, 'setReferral'])->name('referral.setReferral');
 Route::get('{any}/ref={id}', [UserReferralController::class, 'setReferral2'])->where('any', '.*');
-
 Route::post('/referral/register', [UserReferralController::class, 'register'])->name('referral.register');
 
 Route::prefix('admin')->middleware('auth')->group(function () {

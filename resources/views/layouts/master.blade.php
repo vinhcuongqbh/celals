@@ -10,16 +10,22 @@
     <meta name="robots" content="noimageindex">
     <title>CELALS</title>
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/css/adminlte.min.css">
     <!-- SweetAlert2 -->
     <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
+
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="/js/adminlte.js"></script>
 
     <script src="/js/jquery-3.7.0.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>
@@ -36,7 +42,7 @@
     <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
     <link rel="stylesheet" href="/css/rowReorder.dataTables.min.css">
     <link rel="stylesheet" href="/css/responsive.dataTables.min.css">
-
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 </head>
 
 <body class="sidebar-mini layout-navbar"> <!--<body class="sidebar-mini layout-navbar-fixed">-->
@@ -62,7 +68,7 @@
                 <li class="nav-item">
                     <form action="{{ route('logout') }}" method="post">
                         {{ csrf_field() }}
-                        <input class="btn btn-danger btn-sm" type="submit" value="{{ __('Log Out') }}">
+                        <input class="btn btn-danger btn-sm" type="submit" value="{{ __('Log out') }}">
                     </form>
                 </li>
             </ul>
@@ -70,32 +76,39 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar elevation-4 sidebar-light-teal">
+        <aside class="main-sidebar elevation-4 sidebar-light-olive">
             <!-- Brand Logo -->
-            <div class="brand-link">
-                <a href="/"><img src="/img/logo.jpg" alt="Logo" class="brand-image img-size-64"></a>
-                <a class="brand-text font-weight-light"
-                    href="{{ route('user.show', Auth::user()->user_id) }}">{{ Auth::user()->name }}</a>
-            </div>
-
+            <a href="/dashboard" class="brand-link text-center">
+                <span class="brand-text font-weight-light"><b>CELALS</b></span>
+            </a>
             <!-- Sidebar -->
             <div class="sidebar os-theme-light">
                 <!-- Sidebar Menu -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="{{ route('user.show', Auth::user()->user_id) }}"
+                            class="d-block">{{ Auth::user()->name }}</a>
+                    </div>
+                </div>
+
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-                        <li class="nav-item">
-                            <a href="/admin" class="nav-link">
+                        {{-- <li class="nav-item">
+                            <a href="/admin/dashboard" class="nav-link">
                                 <i class="nav-icon fa-solid fa-gauge-high"></i>
                                 <p>{{ __('dash_board') }}</p>
                             </a>
-                        </li>
+                        </li> --}}
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
-                            <li class="nav-header">QUẢN TRỊ HỆ THỐNG</li>
+                            <li class="nav-header text-success">QUẢN TRỊ HỆ THỐNG</li>
                             @if (Auth::user()->role_id == 1)
                                 <li class="nav-item">
                                     <a href="/admin/user" class="nav-link">
-                                        <i class="nav-icon fa-solid fa-user"></i>
+                                        <i class="nav-icon fa fa-user"></i>
                                         <p>{{ __('user_management') }}</p>
                                     </a>
                                 </li>
@@ -107,7 +120,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-warehouse"></i>
+                                        <i class="nav-icon fas fa-music"></i>
                                         <p>{{ __('listening') }}</p>
                                         <i class="fas fa-angle-left right"></i>
                                     </a>
@@ -134,7 +147,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-warehouse"></i>
+                                        <i class="nav-icon fas fa-heartbeat"></i>
                                         <p>{{ __('coaching') }}</p>
                                         <i class="fas fa-angle-left right"></i>
                                     </a>
@@ -179,10 +192,10 @@
                             @endif
                         @endif
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 6)
-                            <li class="nav-header">QUẢN LÝ LỚP HỌC</li>
+                            <li class="nav-header text-success">QUẢN LÝ LỚP HỌC</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <i class="nav-icon fas fa-book"></i>
                                     <p>{{ __('vocabulary') }}</p>
                                     <i class="fas fa-angle-left right"></i>
                                 </a>
@@ -203,7 +216,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <i class="nav-icon fas fa-music"></i>
                                     <p>{{ __('listening') }}</p>
                                     <i class="fas fa-angle-left right"></i>
                                 </a>
@@ -224,10 +237,10 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                            <li class="nav-header">GIÁO VIÊN</li>
+                            <li class="nav-header text-success">GIÁO VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <i class="nav-icon fas fa-music"></i>
                                     <p>{{ __('listening') }}</p>
                                     <i class="fas fa-angle-left right"></i>
                                 </a>
@@ -242,7 +255,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <i class="nav-icon fas fa-heartbeat"></i>
                                     <p>{{ __('coaching') }}</p>
                                     <i class="fas fa-angle-left right"></i>
                                 </a>
@@ -265,10 +278,10 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
-                            <li class="nav-header">HỌC VIÊN</li>
+                            <li class="nav-header text-success">HỌC VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-warehouse"></i>
+                                    <i class="nav-icon fas fa-music"></i>
                                     <p>{{ __('listening') }}</p>
                                     <i class="fas fa-angle-left right"></i>
                                 </a>
@@ -343,19 +356,27 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- jQuery -->
-    <script src="/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/dist/js/adminlte.min.js"></script>
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/2bc23cb792.js" crossorigin="anonymous"></script>
-
     @yield('css')
     @yield('js')
+
+    <script>
+        /*** add active class and stay opened when selected ***/
+        var url = window.location;
+
+        // for sidebar menu entirely but not cover treeview
+        $('ul.nav-sidebar a').filter(function() {
+            if (this.href) {
+                return this.href == url || url.href.indexOf(this.href) == 0;
+            }
+        }).addClass('active');
+
+        // for the treeview
+        $('ul.nav-treeview a').filter(function() {
+            if (this.href) {
+                return this.href == url || url.href.indexOf(this.href) == 0;
+            }
+        }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('menu-open').prev('a').addClass('active');
+    </script>
 </body>
 
 </html>

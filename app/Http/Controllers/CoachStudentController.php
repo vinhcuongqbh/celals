@@ -24,10 +24,8 @@ class CoachStudentController extends Controller
         // Lấy câu hỏi thuộc lĩnh vực coach
         $coach_questions = CoachQuestion::where('coach_questions.coach_type', 1)
             ->leftjoin('coach_types', 'coach_types.id', 'coach_questions.coach_type')
-            ->leftjoin('coach_subjects', 'coach_subjects.id', 'coach_questions.coach_subject')
-            ->leftjoin('coach_student_results', 'coach_student_results.question_id', 'coach_questions.id')
-            //->where('coach_student_results.user_id', $selected_student)
-            ->select('coach_questions.*', 'coach_types.type_name', 'coach_subjects.subject_name', 'coach_student_results.point', 'coach_student_results.pass')
+            ->leftjoin('coach_subjects', 'coach_subjects.id', 'coach_questions.coach_subject')           
+            ->select('coach_questions.*', 'coach_types.type_name', 'coach_subjects.subject_name')
             ->get();
         
 

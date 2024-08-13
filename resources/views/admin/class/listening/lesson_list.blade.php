@@ -11,16 +11,6 @@
         <div class="row">
             <div class="col-12 col-sm-6">
                 <div class="card card-default">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-12">
-                                <a href="{{ route('listening.lesson_create') }}"
-                                    class="btn bg-olive text-white">{{ __('new') }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-default">
                     <div class="card-body">
                         <table id="data-table" class="table table-bordered table-striped">
                             <colgroup>
@@ -58,11 +48,7 @@
     <!-- /.container-fluid -->
 @stop
 
-@section('css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="/vendor/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="/vendor/datatables-buttons/css/buttons.bootstrap4.min.css">
+@section('css')   
     <style>
         .col-xl-2 {
             width: 14.285%;
@@ -73,31 +59,32 @@
 @stop
 
 @section('js')
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/vendor/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/vendor/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="/vendor/jszip/jszip.min.js"></script>
-    <script src="/vendor/pdfmake/pdfmake.min.js"></script>
-    <script src="/vendor/pdfmake/vfs_fonts.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Page specific script -->
     <script>
         $(function() {
             $("#data-table").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "pageLength": 20,
-                "searching": true,
-                "autoWidth": false,
-                "ordering": false,
-                "language": {
+                responsive: true,
+                lengthChange: false,
+                pageLength: 20,
+                searching: true,
+                autoWidth: false,
+                ordering: false,
+                dom: 'Bfrtip',
+                buttons: [{
+                        text: 'Tạo mới',
+                        className: 'bg-olive',
+                        action: function(e, dt, node, config) {
+                            window.location = '{{ route('listening.lesson_create') }}';
+                        },
+                    },
+                    {
+                        extend: 'spacer',
+                        style: 'bar',
+                        text: 'Xuất:'
+                    },
+                    'excel',
+                    'pdf',
+                ],
+                language: {
                     url: '/plugins/datatables/vi.json'
                 },
             }).buttons().container().appendTo('#data-table_wrapper .col-md-6:eq(0)');

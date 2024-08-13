@@ -37,10 +37,10 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">
+                        <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning col-2 text-nowrap m-1">{{ __('create') }}</button>
-                            <a class="btn bg-olive text-white col-2 text-nowrap m-1"
+                                class="btn bg-olive col-2 text-nowrap m-1">{{ __('create') }}</button>
+                            <a class="btn bg-primary text-white col-2 text-nowrap m-1"
                                 href="{{ route('coach_subject.index') }}">{{ __('back') }}</a>
                         </div>
                     </form>
