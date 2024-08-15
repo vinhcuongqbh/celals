@@ -190,7 +190,7 @@ class ListeningBlockController extends Controller
     {
         $student_listening_block = StudentListeningBlock::where('student_id', $id)->first();
         //$listening_block = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();
-        $block = ListeningBlock::orderby('level_id', 'ASC')->get();
+        $block = ListeningBlock::orderby('level_id', 'ASC')->orderby('id')->get();
 
         $collection = $block->getIterator();
 

@@ -9,7 +9,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-8">
                 @if (session()->has('message'))
                     <script>
                         Swal.fire({

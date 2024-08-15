@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();            
             $table->text('user_id');            
             $table->Integer('question_id');           
-            $table->tinyInteger('point')->default(0);
-            $table->boolean('pass')->default(0);
+            $table->float('point', 8, 2);
+            $table->string('pass');
             $table->longText('result')->nullable();
             $table->timestamps();
         });

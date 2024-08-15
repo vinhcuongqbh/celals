@@ -261,17 +261,49 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_phongvan" class="nav-link">
+                                        <a href="/admin/class/coaching/coach_student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('coach_phongvan') }}</p>
+                                            <p>{{ __('Coach phỏng vấn') }}</p>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_chude" class="nav-link">
+                                        <a href="/admin/class/coaching/coach_student/2" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>{{ __('coach_chude') }}</p>
+                                            <p>{{ __('Coach chủ đề') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/coach_student/3" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('Coach Ngữ pháp TC') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/coach_student/4" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('Coach câu 51') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/coach_student/5" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('Coach câu 52') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/coach_student/6" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('Coach câu 53') }}</p>
                                         </a>
                                     </li>
                                 </ul>

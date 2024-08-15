@@ -33,8 +33,8 @@
                                 @foreach ($coach_questions as $coach_question)
                                     <tr>
                                         <td class="text-center">{{ $coach_question->id }}</td>
-                                        <td class="text-center">{{ $coach_question->type_name }}</td>
-                                        <td class="text-center">{{ $coach_question->subject_name }}</td>
+                                        <td class="text-center">{{ $coach_question->coach_type->type_name }}</td>
+                                        <td class="text-center">{{ $coach_question->coach_subject->subject_name }}</td>
                                         <td class="text-left ck-content"><a
                                                 href="{{ route('coach_question.edit', $coach_question->id) }}">{!! $coach_question->question !!}</a>
                                         </td>

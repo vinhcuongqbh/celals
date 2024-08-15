@@ -81,7 +81,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-end">
-                        <button type="button" class="btn btn-danger text-white text-nowrap col-2 m-1" data-toggle="modal"
+                        <button type="button" class="btn btn-danger text-white text-nowrap col-auto m-1" data-toggle="modal"
                             data-target="#reset-pass">{{ __('changePassword') }}</button>
                         @if (Auth::user()->role_id == 1)
                             <a class="btn bg-olive text-nowrap col-2 m-1"

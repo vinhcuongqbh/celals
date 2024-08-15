@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cookie;
 
 class CoachStudentController extends Controller
 {
-    public function coach_phongvan(Request $request)
+    public function coach_student($coach_type_id, Request $request)
     {
         // Lấy danh sách học viên
         $students = User::where('role_id', 5)->get();
@@ -22,46 +22,40 @@ class CoachStudentController extends Controller
 
         
         // Lấy câu hỏi thuộc lĩnh vực coach
-        $coach_questions = CoachQuestion::where('coach_questions.coach_type', 1)
-            ->leftjoin('coach_types', 'coach_types.id', 'coach_questions.coach_type')
-            ->leftjoin('coach_subjects', 'coach_subjects.id', 'coach_questions.coach_subject')           
-            ->select('coach_questions.*', 'coach_types.type_name', 'coach_subjects.subject_name')
+        $coach_questions = CoachQuestion::where('coach_questions.coach_type_id', $coach_type_id)
+            ->leftjoin('coach_student_results', function ($join) use ($selected_student) {
+                $join->on('coach_student_results.question_id', 'coach_questions.id')
+                    ->where('coach_student_results.user_id', $selected_student);
+            })
+            ->select('coach_questions.*', 'coach_student_results.point', 'coach_student_results.pass')
             ->get();
-        
-
 
         return view(
-            'admin.class.coaching.coach_student.coach_phongvan',
+            'admin.class.coaching.coach_student.coach_type',
             [
                 'students' => $students,
                 'selected_student' => $selected_student,
-                'coach_questions' => $coach_questions
+                'coach_questions' => $coach_questions,
+                'coach_type_id' =>$coach_type_id
             ]
         );
     }
 
 
-    public function coach_chude(Request $request)
+    public function student_result_update($user_id, $coach_type_id, Request $request)
     {
-        $students = User::where('role_id', 5)->get();
-        if ($request->student_id <> null && $request->student_id <> Cookie::get('selected_student')) $selected_student = $request->student_id;
-        else $selected_student = Cookie::get('selected_student');
+        $questions = CoachQuestion::where('coach_type_id', $coach_type_id)->orderby('id', 'ASC')->get();
 
-        Cookie::queue('selected_student', $selected_student, 60);
+        foreach ($questions as $question) {
+            $point = floatval($request->input('question' . $question->id));
+            ($point >= 8) ? $pass = "Đạt" : $pass = "Chưa đạt";
 
-        $coach_questions = CoachQuestion::where('coach_type', 2)
-            ->leftjoin('coach_types', 'coach_types.id', 'coach_questions.coach_type')
-            ->leftjoin('coach_subjects', 'coach_subjects.id', 'coach_questions.coach_subject')
-            ->select('coach_questions.*', 'coach_types.type_name', 'coach_subjects.subject_name')
-            ->get();
+            $result = CoachStudentResult::updateOrCreate(
+                ['user_id' => $user_id, 'question_id' => $question->id],
+                ['point' => $point, 'pass' => $pass]
+            );
+        }
 
-        return view(
-            'admin.class.coaching.coach_student.coach_chude',
-            [
-                'students' => $students,
-                'selected_student' => $selected_student,
-                'coach_questions' => $coach_questions
-            ]
-        );
+        return back()->with('msg_success', 'Đã cập nhật thành công');
     }
 }

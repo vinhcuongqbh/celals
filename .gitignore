@@ -3,6 +3,8 @@
 /public/build
 /public/hot
 /public/storage
+/public/ckfinder/userfiles
+/public/ckfinder_admin/userfiles
 /storage/*.key
 /vendor
 .env

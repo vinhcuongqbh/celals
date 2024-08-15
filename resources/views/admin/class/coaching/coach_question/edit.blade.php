@@ -46,14 +46,14 @@
                             <div class="col-12">
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="coach_type">{{ __('coach_type') }}</label>
+                                        <label for="coach_type_id">{{ __('coach_type') }}</label>
                                     </div>
                                     <div class="col-12">
-                                        <select id="coach_type" name="coach_type" class="form-control custom-select">
+                                        <select id="coach_type_id" name="coach_type_id" class="form-control custom-select">
                                             <option selected></option>
                                             @foreach ($coach_types as $coach_type)
                                                 <option value="{{ $coach_type->id }}"
-                                                    {{ $coach_question->coach_type == $coach_type->id ? 'selected' : '' }}>
+                                                    {{ $coach_question->coach_type_id == $coach_type->id ? 'selected' : '' }}>
                                                     {{ $coach_type->type_name }}
                                                 </option>
                                             @endforeach
@@ -62,14 +62,14 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <label for="coach_subject">{{ __('coach_subject') }}</label>
+                                        <label for="coach_subject_id">{{ __('coach_subject') }}</label>
                                     </div>
                                     <div class="col-12">
-                                        <select id="coach_subject" name="coach_subject" class="form-control custom-select">
+                                        <select id="coach_subject_id" name="coach_subject_id" class="form-control custom-select">
                                             <option selected disabled></option>
                                             @foreach ($coach_subjects as $coach_subject)
                                                 <option value="{{ $coach_subject->id }}"
-                                                    {{ $coach_question->coach_subject == $coach_subject->id ? 'selected' : '' }}>
+                                                    {{ $coach_question->coach_subject_id == $coach_subject->id ? 'selected' : '' }}>
                                                     {{ $coach_subject->subject_name }}
                                                 </option>
                                             @endforeach
@@ -129,7 +129,7 @@
         $(function() {
             $('#form').validate({
                 rules: {
-                    coach_type: {
+                    coach_type_id: {
                         required: true,
                     },
                     question: {
@@ -137,7 +137,7 @@
                     },
                 },
                 messages: {
-                    coach_type: {
+                    coach_type_id: {
                         required: "{{ __('select_content') }}",
                     },
                     question: {

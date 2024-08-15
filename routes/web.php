@@ -193,10 +193,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::group(['prefix' => 'coaching'], function () {
             Route::resource('coach_subject', CoachSubjectController::class);
             Route::resource('coach_question', CoachQuestionController::class);
-            Route::get('coach_phongvan', [CoachStudentController::class, 'coach_phongvan']);
-            Route::post('coach_phongvan', [CoachStudentController::class, 'coach_phongvan'])->name('coaching.coach_phongvan');
-            Route::get('coach_chude', [CoachStudentController::class, 'coach_chude']);
-            Route::post('coach_chude', [CoachStudentController::class, 'coach_chude'])->name('coaching.coach_chude');
+            Route::get('coach_student/{coach_type_id}', [CoachStudentController::class, 'coach_student']);
+            Route::post('coach_student/{coach_type_id}', [CoachStudentController::class, 'coach_student'])->name('coaching.coach_student');
+            Route::post('{user_id}/{coach_type_id}/student_result_update', [CoachStudentController::class, 'student_result_update'])->name('coaching.student_result.update');
         });
         
     });

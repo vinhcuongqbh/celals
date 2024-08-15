@@ -81,24 +81,6 @@
 @stop
 
 @section('js')
-    <!-- Page specific script -->
-    {{-- <script>
-        $(function() {
-            $("#user-table").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "pageLength": 25,
-                "searching": true,
-                "autoWidth": false,
-                "ordering": false,
-                "buttons": ["copy", "excel", "pdf", "print"],                
-                "language": {
-                    url: '/plugins/datatables/vi.json'
-                },
-            }).buttons().container().appendTo('#user-table_wrapper .col-md-6:eq(0)');
-        });
-    </script> --}}
-
     <script>
         $(function() {
             $("#user-table").DataTable({

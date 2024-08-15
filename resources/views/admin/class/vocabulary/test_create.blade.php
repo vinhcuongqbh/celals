@@ -163,10 +163,10 @@
                                 </div>
                             </div>
                             <!-- /.card-body -->
-                            <div class="card-footer d-flex justify-content-center">
-                                <button type="submit" class="btn bg-primary text-nowrap mx-2" name="select"
+                            <div class="card-footer d-flex justify-content-center px-2">
+                                <button type="submit" class="btn bg-primary col-auto m-1" name="select"
                                     value="manual_select">Chọn thủ công</button>
-                                <button type="submit" class="btn bg-primary text-nowrap mx-2" name="select"
+                                <button type="submit" class="btn bg-primary col-auto m-1" name="select"
                                     value="automatic_select">Chọn tự động</button>
                             </div>
                         </form>
