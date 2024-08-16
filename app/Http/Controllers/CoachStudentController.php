@@ -18,7 +18,7 @@ class CoachStudentController extends Controller
         // Học viên được chọn + Set cookie cho học viên được chọn
         if ($request->student_id <> null && $request->student_id <> Cookie::get('selected_student')) $selected_student = $request->student_id;
         else $selected_student = Cookie::get('selected_student');
-        Cookie::queue('selected_student', $selected_student, 60);
+        Cookie::queue('selected_student', $selected_student, 300);
 
         
         // Lấy câu hỏi thuộc lĩnh vực coach
@@ -28,6 +28,7 @@ class CoachStudentController extends Controller
                     ->where('coach_student_results.user_id', $selected_student);
             })
             ->select('coach_questions.*', 'coach_student_results.point', 'coach_student_results.pass')
+            ->orderby('coach_student_results.pass')
             ->get();
 
         return view(
