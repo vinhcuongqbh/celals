@@ -9,7 +9,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-sm-6">
+            <div class="col-12 col-sm-8">
                 <div class="card card-default">
                     <div class="card-body">
                         <table id="data-table" class="table table-bordered table-striped">
@@ -76,13 +76,6 @@
                             window.location = '{{ route('listening.test_create') }}';
                         },
                     },
-                    {
-                        extend: 'spacer',
-                        style: 'bar',
-                        text: 'Xuất:'
-                    },
-                    'excel',
-                    'pdf',
                 ],
                 language: {
                     url: '/plugins/datatables/vi.json'

@@ -21,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('listening_lessons', function (Blueprint $table) {          
+            $table->tinyInteger('lesson_id')->after('level_id');
+        });
     }
 };

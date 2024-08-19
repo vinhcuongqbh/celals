@@ -261,6 +261,14 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
+                                        <a href="/admin/class/coaching/summary" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>{{ __('Tổng quan') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/1" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>{{ __('Coach phỏng vấn') }}</p>

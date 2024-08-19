@@ -3,7 +3,34 @@
 @section('title', 'Coach Phỏng vấn')
 
 @section('heading')
-    {{ __('Coach Phỏng vấn') }}
+    @switch($coach_type_id)
+        @case(1)
+            {{ __('Coach Phỏng vấn') }}
+        @break
+
+        @case(2)
+            {{ __('Coach Chủ đề') }}
+        @break
+
+        @case(3)
+            {{ __('Coach Ngữ pháp Trung cấp') }}
+        @break
+
+        @case(4)
+            {{ __('Coach Câu 51') }}
+        @break
+
+        @case(5)
+            {{ __('Coach Câu 52') }}
+        @break
+
+        @case(6)
+            {{ __('Coach Câu 53') }}
+        @break
+
+        @default
+    @endswitch
+
 @stop
 
 @section('content')
@@ -20,7 +47,8 @@
                                         <label class="col-form-label" for="student_id">{{ __('student') }}</label>
                                     </div>
                                     <div class="col-auto">
-                                        <select id="student_id" name="student_id" class="form-control custom-select" onchange="this.form.submit()">
+                                        <select id="student_id" name="student_id" class="form-control custom-select"
+                                            onchange="this.form.submit()">
                                             <option value="0" selected></option>
                                             @foreach ($students as $student)
                                                 <option value="{{ $student->user_id }}"
@@ -36,8 +64,8 @@
                     </form>
                 </div>
                 @if ($selected_student > 0)
-                    <form action="{{ route('coaching.student_result.update', [$selected_student, $coach_type_id]) }}" method="post"
-                        id="formSubmit">
+                    <form action="{{ route('coaching.student_result.update', [$selected_student, $coach_type_id]) }}"
+                        method="post" id="formSubmit">
                         @csrf
                         <div class="card card-default">
                             <div class="card-body">
@@ -63,15 +91,17 @@
                                     <tbody>
                                         @foreach ($coach_questions as $coach_question)
                                             <tr>
-                                                <td class="text-center">{{ $coach_question->id }}</td>
-                                                <td class="text-center" id="result{{ $coach_question->id }}">
+                                                <td class="text-center align-top">{{ $coach_question->id }}</td>
+                                                <td class="text-center align-top" id="result{{ $coach_question->id }}">
                                                     {{ isset($coach_question->pass) ? $coach_question->pass : 'Chưa đạt' }}
                                                 </td>
-                                                <td class="text-center">{{ $coach_question->coach_subject->subject_name }}
+                                                <td class="text-center align-top">
+                                                    {{ $coach_question->coach_subject->subject_name }}
                                                 </td>
-                                                <td class="text-left ck-content">{!! $coach_question->question !!}</td>
-                                                <td class="text-left ck-content">{!! $coach_question->suggest_answer !!}</td>
-                                                <td><input type="number" id="question{{ $coach_question->id }}"
+                                                <td class="text-left ck-content align-top">{!! $coach_question->question !!}</td>
+                                                <td class="text-left ck-content align-top">{!! $coach_question->suggest_answer !!}</td>
+                                                <td class="text-center align-top"><input type="number"
+                                                        id="question{{ $coach_question->id }}"
                                                         name="question{{ $coach_question->id }}" min="0"
                                                         max="10" placeholder="0" value="{{ $coach_question->point }}"
                                                         class="form-control text-center">
@@ -155,21 +185,13 @@
                 scrollY: 500,
                 dom: 'Bfrtip',
                 buttons: [{
-                        text: 'Cập nhật',
-                        className: 'bg-olive',
-                        action: function(e, dt, node, config) {
-                            $('#table').dataTable().fnFilter('');
-                            document.forms["formSubmit"].submit();
-                        },
+                    text: 'Cập nhật',
+                    className: 'bg-olive',
+                    action: function(e, dt, node, config) {
+                        $('#table').dataTable().fnFilter('');
+                        document.forms["formSubmit"].submit();
                     },
-                    {
-                        extend: 'spacer',
-                        style: 'bar',
-                        text: 'Xuất:'
-                    },
-                    'excel',
-                    'pdf',
-                ],
+                }, ],
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },

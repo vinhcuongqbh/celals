@@ -92,13 +92,6 @@
                             window.location = '{{ route('listening.block_create') }}';
                         },
                     },
-                    {
-                        extend: 'spacer',
-                        style: 'bar',
-                        text: 'Xuất:'
-                    },
-                    'excel',
-                    'pdf',
                 ],
                 language: {
                     url: '/plugins/datatables/vi.json'

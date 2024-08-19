@@ -9,8 +9,10 @@ class CoachStudentResult extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id',
-        'question_id',        
+        'student_id',
+        'question_id',     
+        'coach_type_id',   
+        'teacher_id',
         'point',
         'pass',
         'result'

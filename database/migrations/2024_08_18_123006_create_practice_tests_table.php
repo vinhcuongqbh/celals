@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('listening_tests', function (Blueprint $table) {
+        Schema::create('practice_tests', function (Blueprint $table) {
             $table->id();
             $table->string('test_id')->unique();            
             $table->text('subject');
@@ -19,7 +19,8 @@ return new class extends Migration
             $table->text('test_form')->nullable();
             $table->tinyInteger('test_duration')->nullable();
             $table->longText('question')->nullable();
-            $table->text('link_question')->nullable();
+            $table->longText('sugest_answer')->nullable();
+            $table->text('creator_id');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('listening_tests');
+        Schema::dropIfExists('practice_tests');
     }
 };

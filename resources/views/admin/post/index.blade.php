@@ -111,13 +111,6 @@
                             window.location = '{{ route('post.create') }}';
                         },
                     },
-                    {
-                        extend: 'spacer',
-                        style: 'bar',
-                        text: 'Xuất:'
-                    },
-                    'excel',
-                    'pdf',
                 ],
                 language: {
                     url: '/plugins/datatables/vi.json'

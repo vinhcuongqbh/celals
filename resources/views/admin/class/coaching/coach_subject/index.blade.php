@@ -9,7 +9,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-sm-8">
                 <div class="card card-default">
                     <div class="card-body">
                         <table id="table" class="table table-bordered table-striped">
@@ -68,13 +68,6 @@
                             window.location = '{{ route('coach_subject.create') }}';
                         },
                     },
-                    {
-                        extend: 'spacer',
-                        style: 'bar',
-                        text: 'Xuất:'
-                    },
-                    'excel',
-                    'pdf',
                 ],
                 language: {
                     url: '/plugins/datatables/vi.json'

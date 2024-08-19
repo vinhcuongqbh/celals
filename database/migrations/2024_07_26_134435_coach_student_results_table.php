@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('coach_student_results', function (Blueprint $table) {
-            $table->id();            
-            $table->text('user_id');            
-            $table->Integer('question_id');           
-            $table->float('point', 8, 2);
-            $table->string('pass');
-            $table->longText('result')->nullable();
+            $table->id();
+            $table->text('student_id');
+            $table->integer('question_id');
+            $table->tinyInteger('coach_type_id');
+            $table->text('teacher_id')->nullable();
+            $table->float('point', 8, 2)->nullable();
+            $table->string('pass')->nullable();
             $table->timestamps();
         });
     }

@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('topics', function (Blueprint $table) {          
-            $table->tinyInteger('level_id');
-        });
+        Schema::dropIfExists('users');
     }
 
     /**
@@ -21,8 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('topics', function (Blueprint $table) {
-            $table->dropColumn('level_id');
-        });
+        //
     }
 };

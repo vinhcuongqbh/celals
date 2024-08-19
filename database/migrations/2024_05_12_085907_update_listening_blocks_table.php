@@ -21,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('listening_blocks', function (Blueprint $table) {          
+            $table->tinyInteger('block_id')->after('level_id');
+        });
     }
 };

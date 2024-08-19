@@ -34,11 +34,10 @@ class VocabularyTestController extends Controller
 
     public function testList()
     {
-        $test = VocabularyTest::where('creator_id', Auth::user()->user_id)
-        ->leftjoin('levels','levels.level_id', 'vocabulary_tests.level_id')
-        ->select('vocabulary_tests.*', 'levels.level_name')
-        ->orderby('vocabulary_tests.created_at', 'DESC')
-        ->get();
+        $test = VocabularyTest::leftjoin('levels', 'levels.level_id', 'vocabulary_tests.level_id') //VocabularyTest::where('creator_id', Auth::user()->user_id)        
+            ->select('vocabulary_tests.*', 'levels.level_name')
+            ->orderby('vocabulary_tests.created_at', 'DESC')
+            ->get();
 
         return view(
             'admin.class.vocabulary.test_list',
@@ -92,8 +91,8 @@ class VocabularyTestController extends Controller
                 'level' => $level,
                 'level_id_selected' => $request->level_id,
                 'topic' => $topic,
-                'topic_id_1_selected' => $request->topic_id_1,               
-                'topic_id_2_selected' => $request->topic_id_2,                
+                'topic_id_1_selected' => $request->topic_id_1,
+                'topic_id_2_selected' => $request->topic_id_2,
                 'topic_id_3_selected' => $request->topic_id_3,
                 'select_mode' => $request->select,
             ]
