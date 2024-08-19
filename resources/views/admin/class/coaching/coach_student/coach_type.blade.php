@@ -72,10 +72,10 @@
                                 <table id="table" class="table table-bordered table-striped">
                                     <colgroup>
                                         <col style="width:5%;">
+                                        <col style="width:5%;">
                                         <col style="width:10%;">
-                                        <col style="width:15%;">
-                                        <col style="width:30%;">
-                                        <col style="width:30%;">
+                                        <col style="width:35%;">
+                                        <col style="width:35%;">
                                         <col style="width:10%;">
                                     </colgroup>
                                     <thead style="text-align: center">
@@ -135,6 +135,7 @@
             max-width: 100%;
         }
     </style>
+    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
 @stop
 
 @section('js')

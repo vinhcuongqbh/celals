@@ -35,10 +35,14 @@
                                         <td class="text-center">{{ $coach_question->id }}</td>
                                         <td class="text-center">{{ $coach_question->coach_type->type_name }}</td>
                                         <td class="text-center">{{ $coach_question->coach_subject->subject_name }}</td>
-                                        <td class="text-left ck-content"><a
-                                                href="{{ route('coach_question.edit', $coach_question->id) }}">{!! $coach_question->question !!}</a>
+                                        <td class="text-left"><a
+                                                href="{{ route('coach_question.edit', $coach_question->id) }}">
+                                                <div class="ck-content">{!! $coach_question->question !!}</div>
+                                            </a>
                                         </td>
-                                        <td class="text-left ck-content">{!! $coach_question->suggest_answer !!}</td>
+                                        <td class="text-left">
+                                            <div class="ck-content">{!! $coach_question->suggest_answer !!}</div>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -65,7 +69,7 @@
             max-width: 100%;
         }
     </style>
-    {{-- <link rel="stylesheet" href="/css/content-styles.css" type="text/css">     --}}
+    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
 @stop
 
 @section('js')
@@ -80,13 +84,12 @@
                 ordering: true,
                 dom: 'Bfrtip',
                 buttons: [{
-                        text: 'Tạo mới',
-                        className: 'bg-olive',
-                        action: function(e, dt, node, config) {
-                            window.location = '{{ route('coach_question.create') }}';
-                        },
+                    text: 'Tạo mới',
+                    className: 'bg-olive',
+                    action: function(e, dt, node, config) {
+                        window.location = '{{ route('coach_question.create') }}';
                     },
-                ],
+                }, ],
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },
