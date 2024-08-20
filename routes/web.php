@@ -16,6 +16,7 @@ use App\Http\Controllers\ListeningBlockController;
 use App\Http\Controllers\ListeningController;
 use App\Http\Controllers\ListeningLessonController;
 use App\Http\Controllers\ListeningTestController;
+use App\Http\Controllers\PracticeTestController;
 use App\Http\Controllers\StudentListeningBlockController;
 use App\Http\Controllers\StudentListeningTestController;
 use App\Http\Controllers\TestController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\VocabularyTestController;
 use App\Models\ListeningBlock;
 use App\Models\PostCatalogue;
+use App\Models\PracticeTest;
 use App\Models\StudentListeningBlock;
 use Illuminate\Support\Facades\Route;
 
@@ -119,8 +121,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('{id}/resetpass', [UserController::class, 'resetpass'])->name('user.resetpass');
         Route::post('search', [UserController::class, 'search'])->name('user.search');
     });
-    
-    Route::group(['prefix' => 'topic'], function () {       
+
+    Route::group(['prefix' => 'topic'], function () {
         Route::post('topicList', [TopicController::class, 'topicList'])->name('topic.topicList');
     });
 
@@ -150,7 +152,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('test_list', [VocabularyTestController::class, 'testList'])->name('vocabulary.test_list');
             Route::post('test_search', [VocabularyTestController::class, 'testSearch'])->name('vocabulary.test_search');
             Route::post('test_store', [VocabularyTestController::class, 'testStore'])->name('vocabulary.test_store');
-            Route::get('{id}/', [VocabularyTestController::class, 'testShow'])->name('vocabulary.test_show');            
+            Route::get('{id}/', [VocabularyTestController::class, 'testShow'])->name('vocabulary.test_show');
         });
 
         Route::group(['prefix' => 'listening'], function () {
@@ -199,7 +201,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::post('coach_student/{coach_type_id}', [CoachStudentController::class, 'coach_student'])->name('coaching.coach_student');
             Route::post('{user_id}/{coach_type_id}/student_result_update', [CoachStudentController::class, 'student_result_update'])->name('coaching.student_result.update');
         });
-        
+
+        Route::resource('practice_test', PracticeTestController::class);
+
     });
 });
 

@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('test_id')->unique();            
             $table->text('subject');
+            $table->tinyInteger('level_id');
             $table->tinyInteger('test_type_id');
             $table->text('test_form')->nullable();
             $table->tinyInteger('test_duration')->nullable();
             $table->longText('question')->nullable();
-            $table->longText('sugest_answer')->nullable();
-            $table->text('creator_id');
+            $table->longText('suggested_answer')->nullable();
+            $table->string('creator_id');
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
