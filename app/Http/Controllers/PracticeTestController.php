@@ -100,6 +100,8 @@ class PracticeTestController extends Controller
         $test->test_form = $request->test_form;
         $test->test_duration = $request->test_duration;
         $test->question = $request->question;
+        $test->suggested_answer = $request->suggested_answer;
+        $test->creator_id = Auth::user()->user_id;
         $test->save();
 
         return redirect()->route('practice_test.show', ['practice_test' => $test->test_id]);

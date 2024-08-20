@@ -26,6 +26,7 @@
                                     <th class="text-center">{{ __('user_id') }}</th>
                                     <th class="text-center">{{ __('name') }}</th>   
                                     <th class="text-center">Block hiện tại</th>   
+                                    <th class="text-center">Trình độ</th>
                                     <th class="text-center">Thay đổi</th>   
                                 </tr>
                             </thead>
@@ -37,6 +38,7 @@
                                         <td class="text-center">{{ $user->user_id }}</td>
                                         <td>{{ $user->name }}</td>                                       
                                         <td class="text-center">{{ $user->block_name }}</td>    
+                                        <td class="text-center">{{ $user->level_id }}</td>  
                                         <td class="text-center"> <a class="btn bg-olive text-white text-nowrap"
                                             href="{{ route('listening.change_block', $user->user_id) }}">Đổi Block</td>
                                     </tr>

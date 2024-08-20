@@ -24,11 +24,11 @@ class PracticeTest extends Model
 
     public function level(): BelongsTo
     {
-        return $this->belongsTo(Level::class);
+        return $this->belongsTo(Level::class, 'level_id')->withDefault();
     }
 
     public function test_type(): BelongsTo
     {
-        return $this->belongsTo(TestType::class);
+        return $this->belongsTo(TestType::class, 'test_type_id')->withDefault();
     }
 }

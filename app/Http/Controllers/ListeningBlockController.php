@@ -179,7 +179,7 @@ class ListeningBlockController extends Controller
             ->where('users.user_status', 1)
             ->leftjoin('student_listening_blocks', 'student_listening_blocks.student_id', 'users.user_id')
             ->leftjoin('listening_blocks', 'listening_blocks.block_id', 'student_listening_blocks.listening_block_id')
-            ->select('users.*', 'student_listening_blocks.listening_block_id', 'listening_blocks.block_name')
+            ->select('users.*', 'student_listening_blocks.listening_block_id', 'listening_blocks.*')
             ->get();
 
         return view('admin.class.student_list', ['students' => $students]);
@@ -189,10 +189,10 @@ class ListeningBlockController extends Controller
     public function changeBlock($id)
     {
         $student_listening_block = StudentListeningBlock::where('student_id', $id)->first();
-        //$listening_block = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();
-        $block = ListeningBlock::orderby('level_id', 'ASC')->orderby('id')->get();
+        $level = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();
+        $blocks = ListeningBlock::where('level_id', $level->level_id)->orderby('id')->get();
 
-        $collection = $block->getIterator();
+        $collection = $blocks->getIterator();
 
         foreach ($collection as $cl) {
             if ($collection->current()->block_id == $student_listening_block->listening_block_id) {
