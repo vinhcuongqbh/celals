@@ -15,34 +15,41 @@
             <div class="row">
                 <div class="col-12 col-sm-9">
                     <div class="card card-default">
-                        <div class="card-body">
+                        <div class="card-header">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="subject">{{ __('subject') }}</label>
+                                    <label class="text-danger" for="subject">{{ __('subject') }}</label>
                                 </div>
                                 <div class="col-12">
                                     <input type="text" id="subject" name="subject" value="{{ $test->subject }}"
                                         class="form-control">
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="question">{{ __('question') }}</label>
+                                    <label class="text-danger" for="question">{{ __('question') }}</label>
                                 </div>
                                 <div class="col-12">
                                     <textarea id="question" name="question" class="form-control" rows="18">{{ $test->question }}</textarea>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card card-default">
+                        <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="suggested_answer">{{ __('suggested_answer') }}</label>
+                                    <label class="text-danger" for="suggested_answer">{{ __('suggested_answer') }}</label>
                                 </div>
                                 <div class="col-12">
                                     <textarea id="suggested_answer" name="suggested_answer" class="form-control" rows="18">{{ $test->suggested_answer }}</textarea>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.card-body -->
+                        </div>                        
                     </div>
                 </div>
                 <div class="col-12 col-sm-3">

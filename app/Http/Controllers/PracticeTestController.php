@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Level;
 use App\Models\PracticeTest;
+use App\Models\PracticeTestPublic;
 use App\Models\TestType;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -106,4 +108,18 @@ class PracticeTestController extends Controller
 
         return redirect()->route('practice_test.show', ['practice_test' => $test->test_id]);
     }
+
+
+    public function public($practice_test_id)
+    {
+        $public_date = uniqid();
+        $public_test = new PracticeTestPublic();
+        $public_test->public_test_id = $practice_test_id."_".$public_date;
+        $public_test->practice_test_id = $practice_test_id;
+        $public_test->creator_id = Auth::user()->user_id;
+        $public_test->save();
+
+        return redirect()->route('practice_test.public_test.show', $public_test->public_test_id);
+    }
+
 }

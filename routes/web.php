@@ -17,6 +17,7 @@ use App\Http\Controllers\ListeningController;
 use App\Http\Controllers\ListeningLessonController;
 use App\Http\Controllers\ListeningTestController;
 use App\Http\Controllers\PracticeTestController;
+use App\Http\Controllers\PracticeTestPublicController;
 use App\Http\Controllers\StudentListeningBlockController;
 use App\Http\Controllers\StudentListeningTestController;
 use App\Http\Controllers\TestController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\VocabularyTestController;
 use App\Models\ListeningBlock;
 use App\Models\PostCatalogue;
 use App\Models\PracticeTest;
+use App\Models\PracticeTestPublic;
 use App\Models\StudentListeningBlock;
 use Illuminate\Support\Facades\Route;
 
@@ -203,6 +205,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         });
 
         Route::resource('practice_test', PracticeTestController::class);
+        Route::get('practice_test/{test_id}/public', [PracticeTestController::class, 'public'])->name('practice_test.public');
+        Route::get('practice_test/public_test/{test_id}', [PracticeTestPublicController::class, 'index'])->name('practice_test.public_text.index');
+        Route::get('public_test', [PracticeTestPublicController::class, 'index'])->name('public_text');
+        Route::get('public_test/{test_id}/', [PracticeTestPublicController::class, 'show'])->name('public_text.show');
 
     });
 });

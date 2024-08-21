@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('listening_test_details');
+        Schema::create('practice_test_publics', function (Blueprint $table) {
+            $table->id();
+            $table->string('public_test_id');
+            $table->string('practice_test_id');
+            $table->string('creator_id');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('practice_test_publics');
     }
 };

@@ -14,31 +14,38 @@
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-12">
-                                <label for="subject">{{ __('subject') }}</label>
+                                <label class="text-danger" for="subject">{{ __('subject') }}</label>
                             </div>
                             <div class="col-12">
                                 <input type="text" id="subject" name="subject" value="{{ $test->subject }}"
                                     class="form-control" readonly>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="card card-default">
+                    <div class="card-body">
                         <div class="form-group row">
                             <div class="col-12">
-                                <label for="question">{{ __('question') }}</label>
+                                <label class="text-danger" for="question">{{ __('question') }}</label>
                             </div>
                             <div class="col-12 border ck-content">
                                 {!! $test->question !!}
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="card card-default">
+                    <div class="card-body">
                         <div class="form-group row">
                             <div class="col-12">
-                                <label for="suggested_answer">{{ __('suggested_answer') }}</label>
+                                <label class="text-danger" for="suggested_answer">{{ __('suggested_answer') }}</label>
                             </div>
                             <div class="col-12 border ck-content">
                                 {!! $test->suggested_answer !!}
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                 </div>
             </div>
             <div class="col-12 col-sm-3">
@@ -92,6 +99,8 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-center">
+                        <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                            href="{{ route('practice_test.public', $test->test_id) }}">{{ __('export') }}</a>
                         <a class="btn bg-olive text-white w-100 text-nowrap m-1"
                             href="{{ route('practice_test.edit', $test->test_id) }}">{{ __('edit') }}</a>
                         <a class="btn bg-primary text-white w-100 text-nowrap m-1"
