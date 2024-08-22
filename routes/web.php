@@ -11,24 +11,16 @@ use App\Http\Controllers\UserReferralController;
 use App\Http\Controllers\SukienController;
 use App\Http\Controllers\TintucController;
 use App\Http\Controllers\GioiThieuController;
-use App\Http\Controllers\Listening;
 use App\Http\Controllers\ListeningBlockController;
-use App\Http\Controllers\ListeningController;
 use App\Http\Controllers\ListeningLessonController;
 use App\Http\Controllers\ListeningTestController;
 use App\Http\Controllers\PracticeTestController;
 use App\Http\Controllers\PracticeTestPublicController;
 use App\Http\Controllers\StudentListeningBlockController;
 use App\Http\Controllers\StudentListeningTestController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\TopicController;
-use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\VocabularyTestController;
-use App\Models\ListeningBlock;
-use App\Models\PostCatalogue;
-use App\Models\PracticeTest;
-use App\Models\PracticeTestPublic;
-use App\Models\StudentListeningBlock;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,6 +80,9 @@ Route::prefix('test')->group(function () {
     Route::get('{id}/ranking', [VocabularyTestController::class, 'ranking'])->name('test.ranking');
     Route::get('{id}/testingShow', [VocabularyTestController::class, 'testingShow'])->name('test.result.show');
 });
+
+Route::get('public_test/{test_id}/testing', [PracticeTestPublicController::class, 'testing'])->name('public_test.testing');
+Route::post('public_test/{test_id}/store', [PracticeTestPublicController::class, 'store'])->name('public_test.store');
 
 Route::get('/', function () {
     return view('front-end.home');
@@ -209,7 +204,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('practice_test/public_test/{test_id}', [PracticeTestPublicController::class, 'index'])->name('practice_test.public_text.index');
         Route::get('public_test', [PracticeTestPublicController::class, 'index'])->name('public_text');
         Route::get('public_test/{test_id}/', [PracticeTestPublicController::class, 'show'])->name('public_text.show');
-
     });
 });
 

@@ -9,9 +9,9 @@
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">   
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
@@ -20,6 +20,25 @@
 </head>
 
 <body class="hold-transition layout-top-nav">
+    @if (session()->has('msg_success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                text: `{{ session()->get('msg_success') }}`,
+                showConfirmButton: false,
+                timer: 3000
+            })
+        </script>
+    @elseif (session()->has('msg_error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                text: `{{ session()->get('msg_error') }}`,
+                showConfirmButton: false,
+                timer: 3000
+            })
+        </script>
+    @endif
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand-lg navbar-light navbar-white">
@@ -37,7 +56,7 @@
 
                 <div class="collapse navbar-collapse order-3" id="navbarCollapse"">
                     <!-- Left navbar links -->
-                    <ul class="navbar-nav">                        
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <label><a href="/diem-khac-biet" class="nav-link text-nowrap" style="color:#03396c ">ĐIỂM
                                     KHÁC
@@ -78,8 +97,8 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="btn text-white text-nowrap" style="background-color:#03396c"
-                                    href="/login" target="_blank">Đăng
+                                <a class="btn text-white text-nowrap" style="background-color:#03396c" href="/login"
+                                    target="_blank">Đăng
                                     nhập</a>
                             </li>
                         @endif
