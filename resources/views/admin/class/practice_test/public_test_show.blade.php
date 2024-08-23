@@ -50,7 +50,9 @@
                                 @foreach ($student_test_list as $data)
                                     <tr>
                                         <td class="text-center"></td>
-                                        <td class="text-center">{{ $data->student_name }}</td>
+                                        <td class="text-left"><a
+                                                href="{{ route('public_test.edit', [$data->public_test_id, $data->id]) }}">{{ $data->student_name }}</a>
+                                        </td>
                                         <td class="text-center">{{ $data->student_age }}</td>
                                         <td class="text-center">{{ $data->student_tel }}</td>
                                     </tr>

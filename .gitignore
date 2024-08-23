@@ -5,6 +5,7 @@
 /public/storage
 /public/ckfinder/userfiles
 /public/ckfinder_admin/userfiles
+/public/ckfinder_guest/userfiles
 /storage/*.key
 /vendor
 .env

@@ -59,4 +59,10 @@ class PracticeTestPublicController extends Controller
 
         return back()->with('msg_success', 'Đã nộp bài thành công');
     }
+
+
+    public function edit($test_id, $student_id, Request $request)
+    {
+        echo "hahaha";
+    }
 }

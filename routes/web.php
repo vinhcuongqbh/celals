@@ -84,6 +84,7 @@ Route::prefix('test')->group(function () {
 Route::get('public_test/{test_id}/testing', [PracticeTestPublicController::class, 'testing'])->name('public_test.testing');
 Route::post('public_test/{test_id}/store', [PracticeTestPublicController::class, 'store'])->name('public_test.store');
 
+
 Route::get('/', function () {
     return view('front-end.home');
 });
@@ -204,6 +205,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('practice_test/public_test/{test_id}', [PracticeTestPublicController::class, 'index'])->name('practice_test.public_text.index');
         Route::get('public_test', [PracticeTestPublicController::class, 'index'])->name('public_text');
         Route::get('public_test/{test_id}/', [PracticeTestPublicController::class, 'show'])->name('public_text.show');
+        Route::get('public_test/{test_id}/{student_id}/edit', [PracticeTestPublicController::class, 'edit'])->name('public_test.edit');
     });
 });
 
