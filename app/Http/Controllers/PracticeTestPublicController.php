@@ -6,6 +6,7 @@ use App\Models\PracticeTest;
 use App\Models\PracticeTestPublic;
 use App\Models\StudentPracticeTest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PracticeTestPublicController extends Controller
 {
@@ -61,8 +62,31 @@ class PracticeTestPublicController extends Controller
     }
 
 
-    public function edit($test_id, $student_id, Request $request)
+    public function edit($public_test_id, $student_id, Request $request)
     {
-        echo "hahaha";
+        $public_test = PracticeTestPublic::where('public_test_id', $public_test_id)->first();
+
+        $practice_test = PracticeTest::where('test_id', $public_test->practice_test_id)->first();
+
+        $student_test = StudentPracticeTest::where('id', $student_id)->first();
+
+        return view(
+            'admin.class.practice_test.teacher_edit',
+            [
+                'test' => $practice_test,
+                'student_answer' => $student_test
+            ]
+        );
+    }
+
+
+    public function update($student_id, Request $request) {
+        $student_test = StudentPracticeTest::where('id', $student_id)->first();
+        $student_test->comment = $request->comment;
+        $student_test->point = $request->point;
+        $student_test->teacher_id = Auth::user()->user_id;
+        $student_test->save();
+        
+        return redirect()->route('practice_test.edit', $student_id)->with('msg_success', 'Đã chấm xong');
     }
 }

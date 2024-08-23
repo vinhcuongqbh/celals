@@ -7,8 +7,7 @@
 @stop
 
 @section('content')
-    <form action="{{ route('practice_test.update', $test->test_id) }}" method="post" id="form-validate"
-        enctype="multipart/form-data">
+    <form action="{{ route('public_test.teacher_test.update', $student_answer->id) }}" method="post" id="form-validate">
         @csrf
         @method('PUT')
         <div class="container-fluid">
@@ -16,10 +15,10 @@
                 <div class="col-12 col-sm-9">
                     <div class="card card-default">
                         <div class="card-header">
+                            <label class="text-uppercase text-danger">{{ __('subject') }}</label>
+                        </div>
+                        <div class="card-body">
                             <div class="form-group row">
-                                <div class="col-12">
-                                    <label class="text-danger" for="subject">{{ __('subject') }}</label>
-                                </div>
                                 <div class="col-12">
                                     <input type="text" id="subject" name="subject" value="{{ $test->subject }}"
                                         class="form-control">
@@ -49,7 +48,7 @@
                                     <textarea id="suggested_answer" name="suggested_answer" class="form-control" rows="18">{{ $test->suggested_answer }}</textarea>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-3">
@@ -111,7 +110,6 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-center">
                             <button type="submit" class="btn bg-olive text-nowrap w-100 m-1">{{ __('update') }}</button>
                             <a class="btn bg-primary text-white text-nowrap w-100 m-1"
@@ -119,19 +117,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.card -->
             </div>
         </div>
-        <!-- /.container-fluid -->
     </form>
 @stop
 
-@section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-    </style>
+@section('css')    
 @endsection
 
 @section('js')
@@ -143,10 +134,10 @@
         $(function() {
             $('#form-validate').validate({
                 rules: {
-                    level_id: {
+                    subject: {
                         required: true,
                     },
-                    subject: {
+                    level_id: {
                         required: true,
                     },
                     test_type_id: {
@@ -154,12 +145,13 @@
                     },
                 },
                 messages: {
-                    level_id: {
-                        required: "{{ __('selectContent') }}",
-                    },
                     subject: {
                         required: "{{ __('enterContent') }}",
                     },
+                    level_id: {
+                        required: "{{ __('selectContent') }}",
+                    },
+
                     test_type_id: {
                         required: "{{ __('selectContent') }}",
                     },
@@ -184,179 +176,35 @@
     <script type="text/javascript" src="/ckfinder_admin/ckfinder.js"></script>
 
     <script>
-        // This sample still does not showcase all CKEditor 5 features (!)
-        // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
-        CKEDITOR.ClassicEditor.create(document.getElementById("question"), {
-            // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
+        CKEDITOR.ClassicEditor.create(document.getElementById("question"), {           
             toolbar: {
                 items: [
-
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', '|',
+                    'insertImage', 'CKFinder', 'insertTable', 'link', '|',
+                    'alignment', 'htmlEmbed', '|',                    
+                    '-',
+                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                    'undo', 'redo', '|',
                     'exportPDF', 'exportWord', '|',
                     'findAndReplace', 'selectAll', '|',
                     'heading', '|',
-                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
                     'removeFormat', '|',
                     'bulletedList', 'numberedList', 'todoList', '|',
                     'outdent', 'indent', '|',
-                    'undo', 'redo',
-                    '-',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
-                    'alignment', '|',
-                    'link', 'insertImage', 'CKFinder', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock',
-                    'htmlEmbed',
-                    '|',
-                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                    'blockQuote', 'mediaEmbed', 'codeBlock', '|',                    
                     'textPartLanguage', '|',
                     'sourceEditing',
                 ],
-                shouldNotGroupWhenFull: true
+                shouldNotGroupWhenFull: false
             },
 
-            ckfinder: {
-                // Upload the images to the server using the CKFinder QuickUpload command.
-                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-
-                // Define the CKFinder configuration (if necessary).
-                // options: {
-                //     resourceType: 'Images'
-                // }
+            ckfinder: {               
+                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',              
             },
-            // Changing the language of the interface requires loading the language file using the <script> tag.
-            // language: 'es',
-            list: {
-                properties: {
-                    styles: true,
-                    startIndex: true,
-                    reversed: true
-                }
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Paragraph',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading1',
-                        view: 'h1',
-                        title: 'Heading 1',
-                        class: 'ck-heading_heading1'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Heading 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Heading 3',
-                        class: 'ck-heading_heading3'
-                    },
-                    {
-                        model: 'heading4',
-                        view: 'h4',
-                        title: 'Heading 4',
-                        class: 'ck-heading_heading4'
-                    },
-                    {
-                        model: 'heading5',
-                        view: 'h5',
-                        title: 'Heading 5',
-                        class: 'ck-heading_heading5'
-                    },
-                    {
-                        model: 'heading6',
-                        view: 'h6',
-                        title: 'Heading 6',
-                        class: 'ck-heading_heading6'
-                    }
-                ]
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-            placeholder: 'Welcome to CKEditor 5!',
-            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
-            fontFamily: {
-                options: [
-                    'default',
-                    'Arial, Helvetica, sans-serif',
-                    'Courier New, Courier, monospace',
-                    'Georgia, serif',
-                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                    'Tahoma, Geneva, sans-serif',
-                    'Times New Roman, Times, serif',
-                    'Trebuchet MS, Helvetica, sans-serif',
-                    'Verdana, Geneva, sans-serif'
-                ],
-                supportAllValues: true
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature
-            fontSize: {
-                options: [10, 12, 14, 'default', 18, 20, 22],
-                supportAllValues: true
-            },
-            // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
-            // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
-            htmlSupport: {
-                allow: [{
-                    name: /.*/,
-                    attributes: true,
-                    classes: true,
-                    styles: true
-                }]
-            },
-            // Be careful with enabling previews
-            // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
-            htmlEmbed: {
-                showPreviews: true
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
-            link: {
-                decorators: {
-                    addTargetToExternalLinks: true,
-                    defaultProtocol: 'https://',
-                    toggleDownloadable: {
-                        mode: 'manual',
-                        label: 'Downloadable',
-                        attributes: {
-                            download: 'file'
-                        }
-                    }
-                }
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
-            mention: {
-                feeds: [{
-                    marker: '@',
-                    feed: [
-                        '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes',
-                        '@chocolate', '@cookie', '@cotton', '@cream',
-                        '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread',
-                        '@gummi', '@ice', '@jelly-o',
-                        '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding',
-                        '@sesame', '@snaps', '@soufflé',
-                        '@sugar', '@sweet', '@topping', '@wafer'
-                    ],
-                    minimumCharacters: 1
-                }]
-            },
-            // The "super-build" contains more premium features that require additional configuration, disable them below.
-            // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
-            removePlugins: [
-                // These two are commercial, but you can try them out without registering to a trial.
-                // 'ExportPdf',
-                // 'ExportWord',
-                'CKBox',
-                // 'CKFinder',
+            removePlugins: [                
+                'CKBox',                
                 'EasyImage',
-                // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
-                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
-                // Storing images as Base64 is usually a very bad idea.
-                // Replace it on production website with other solutions:
-                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
-                // 'Base64UploadAdapter',
                 'RealTimeCollaborativeComments',
                 'RealTimeCollaborativeTrackChanges',
                 'RealTimeCollaborativeRevisionHistory',
@@ -367,10 +215,7 @@
                 'RevisionHistory',
                 'Pagination',
                 'WProofreader',
-                // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
-                // from a local file system (file://) - load this site via HTTP server if you enable MathType.
                 'MathType',
-                // The following features are part of the Productivity Pack and require additional license.
                 'SlashCommand',
                 'Template',
                 'DocumentOutline',
@@ -379,180 +224,37 @@
             ]
         });
     </script>
+
     <script>
-        // This sample still does not showcase all CKEditor 5 features (!)
-        // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
         CKEDITOR.ClassicEditor.create(document.getElementById("suggested_answer"), {
-            // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
             toolbar: {
                 items: [
-
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
+                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', '|',
+                    'insertImage', 'CKFinder', 'insertTable', 'link', '|',
+                    'alignment', 'htmlEmbed', '|',                    
+                    '-',
+                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                    'undo', 'redo', '|',
                     'exportPDF', 'exportWord', '|',
                     'findAndReplace', 'selectAll', '|',
                     'heading', '|',
-                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
                     'removeFormat', '|',
                     'bulletedList', 'numberedList', 'todoList', '|',
                     'outdent', 'indent', '|',
-                    'undo', 'redo',
-                    '-',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
-                    'alignment', '|',
-                    'link', 'insertImage', 'CKFinder', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock',
-                    'htmlEmbed',
-                    '|',
-                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
+                    'blockQuote', 'mediaEmbed', 'codeBlock', '|',                    
                     'textPartLanguage', '|',
                     'sourceEditing',
                 ],
-                shouldNotGroupWhenFull: true
+                shouldNotGroupWhenFull: false
             },
 
-            ckfinder: {
-                // Upload the images to the server using the CKFinder QuickUpload command.
-                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-
-                // Define the CKFinder configuration (if necessary).
-                // options: {
-                //     resourceType: 'Images'
-                // }
+            ckfinder: {               
+                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',              
             },
-            // Changing the language of the interface requires loading the language file using the <script> tag.
-            // language: 'es',
-            list: {
-                properties: {
-                    styles: true,
-                    startIndex: true,
-                    reversed: true
-                }
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Paragraph',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading1',
-                        view: 'h1',
-                        title: 'Heading 1',
-                        class: 'ck-heading_heading1'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Heading 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Heading 3',
-                        class: 'ck-heading_heading3'
-                    },
-                    {
-                        model: 'heading4',
-                        view: 'h4',
-                        title: 'Heading 4',
-                        class: 'ck-heading_heading4'
-                    },
-                    {
-                        model: 'heading5',
-                        view: 'h5',
-                        title: 'Heading 5',
-                        class: 'ck-heading_heading5'
-                    },
-                    {
-                        model: 'heading6',
-                        view: 'h6',
-                        title: 'Heading 6',
-                        class: 'ck-heading_heading6'
-                    }
-                ]
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-            placeholder: 'Welcome to CKEditor 5!',
-            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
-            fontFamily: {
-                options: [
-                    'default',
-                    'Arial, Helvetica, sans-serif',
-                    'Courier New, Courier, monospace',
-                    'Georgia, serif',
-                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                    'Tahoma, Geneva, sans-serif',
-                    'Times New Roman, Times, serif',
-                    'Trebuchet MS, Helvetica, sans-serif',
-                    'Verdana, Geneva, sans-serif'
-                ],
-                supportAllValues: true
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature
-            fontSize: {
-                options: [10, 12, 14, 'default', 18, 20, 22],
-                supportAllValues: true
-            },
-            // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
-            // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
-            htmlSupport: {
-                allow: [{
-                    name: /.*/,
-                    attributes: true,
-                    classes: true,
-                    styles: true
-                }]
-            },
-            // Be careful with enabling previews
-            // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
-            htmlEmbed: {
-                showPreviews: true
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
-            link: {
-                decorators: {
-                    addTargetToExternalLinks: true,
-                    defaultProtocol: 'https://',
-                    toggleDownloadable: {
-                        mode: 'manual',
-                        label: 'Downloadable',
-                        attributes: {
-                            download: 'file'
-                        }
-                    }
-                }
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
-            mention: {
-                feeds: [{
-                    marker: '@',
-                    feed: [
-                        '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes',
-                        '@chocolate', '@cookie', '@cotton', '@cream',
-                        '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread',
-                        '@gummi', '@ice', '@jelly-o',
-                        '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding',
-                        '@sesame', '@snaps', '@soufflé',
-                        '@sugar', '@sweet', '@topping', '@wafer'
-                    ],
-                    minimumCharacters: 1
-                }]
-            },
-            // The "super-build" contains more premium features that require additional configuration, disable them below.
-            // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
-            removePlugins: [
-                // These two are commercial, but you can try them out without registering to a trial.
-                // 'ExportPdf',
-                // 'ExportWord',
-                'CKBox',
-                // 'CKFinder',
+            removePlugins: [                
+                'CKBox',                
                 'EasyImage',
-                // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
-                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
-                // Storing images as Base64 is usually a very bad idea.
-                // Replace it on production website with other solutions:
-                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
-                // 'Base64UploadAdapter',
                 'RealTimeCollaborativeComments',
                 'RealTimeCollaborativeTrackChanges',
                 'RealTimeCollaborativeRevisionHistory',
@@ -563,10 +265,7 @@
                 'RevisionHistory',
                 'Pagination',
                 'WProofreader',
-                // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
-                // from a local file system (file://) - load this site via HTTP server if you enable MathType.
                 'MathType',
-                // The following features are part of the Productivity Pack and require additional license.
                 'SlashCommand',
                 'Template',
                 'DocumentOutline',
