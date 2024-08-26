@@ -6,16 +6,14 @@ use App\Models\Level;
 use App\Models\PracticeTest;
 use App\Models\PracticeTestPublic;
 use App\Models\TestType;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class PracticeTestController extends Controller
 {
     public function index()
     {
-        $tests = PracticeTest::get();
+        $tests = PracticeTest::orderby('created_at', 'DESC')->get();
 
         return view('admin.class.practice_test.list', ['tests' => $tests]);
     }
@@ -119,7 +117,7 @@ class PracticeTestController extends Controller
         $public_test->creator_id = Auth::user()->user_id;
         $public_test->save();
 
-        return redirect()->route('practice_test.public_test.show', $public_test->public_test_id);
+        return redirect()->route('public_text.show', $public_test->public_test_id);
     }
 
 }

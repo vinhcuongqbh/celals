@@ -53,7 +53,7 @@
                     </div>
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="" class="col-form-label text-danger p-0">PHẦN NHẬN XÉT GIÁO VIÊN</label>
+                            <label for="" class="col-form-label text-danger p-0">PHẦN GIÁO VIÊN NHẬN XÉT</label>
                         </div>
                         <div class="card-body p-0">
                             <textarea id="comment" name="comment" class="form-control">{!! $student_answer->comment !!}</textarea>

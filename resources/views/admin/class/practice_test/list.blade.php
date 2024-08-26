@@ -26,9 +26,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $i = 1; @endphp
                                 @foreach ($tests as $test)
                                     <tr>
-                                        <td class="text-center">{{ $test->id }}</td>
+                                        <td class="text-center">{{ $i++ }}</td>
                                         <td><a
                                                 href="{{ route('practice_test.show', $test->test_id) }}">{{ $test->subject }}</a>
                                         </td>

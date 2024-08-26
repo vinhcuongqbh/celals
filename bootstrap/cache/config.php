@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:P1+4L30wc9AbHVpMGLU4WQCSiUFj8h9OXSxfA+vnFxU=',
+    'key' => 'base64:nM/WsbkEGfYmAotOwKqDynVaeQ57FO7M/GYq2dl2isI=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -196,7 +196,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\WORK\\laragon\\www\\celals\\storage\\framework/cache/data',
+        'path' => 'D:\\laragon\\www\\celals\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -369,13 +369,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\WORK\\laragon\\www\\celals\\storage\\app',
+        'root' => 'D:\\laragon\\www\\celals\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\WORK\\laragon\\www\\celals\\storage\\app/public',
+        'root' => 'D:\\laragon\\www\\celals\\storage\\app/public',
         'url' => 'http://www.ielts-cela.vn/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -395,7 +395,7 @@
     ),
     'links' => 
     array (
-      'D:\\WORK\\laragon\\www\\celals\\public\\storage' => 'D:\\WORK\\laragon\\www\\celals\\storage\\app/public',
+      'D:\\laragon\\www\\celals\\public\\storage' => 'D:\\laragon\\www\\celals\\storage\\app/public',
     ),
   ),
   'global' => 
@@ -438,13 +438,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\WORK\\laragon\\www\\celals\\storage\\logs/laravel.log',
+        'path' => 'D:\\laragon\\www\\celals\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\WORK\\laragon\\www\\celals\\storage\\logs/laravel.log',
+        'path' => 'D:\\laragon\\www\\celals\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -497,7 +497,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\WORK\\laragon\\www\\celals\\storage\\logs/laravel.log',
+        'path' => 'D:\\laragon\\www\\celals\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -563,7 +563,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\WORK\\laragon\\www\\celals\\resources\\views/vendor/mail',
+        0 => 'D:\\laragon\\www\\celals\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -669,7 +669,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\WORK\\laragon\\www\\celals\\storage\\framework/sessions',
+    'files' => 'D:\\laragon\\www\\celals\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -689,9 +689,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\WORK\\laragon\\www\\celals\\resources\\views',
+      0 => 'D:\\laragon\\www\\celals\\resources\\views',
     ),
-    'compiled' => 'D:\\WORK\\laragon\\www\\celals\\storage\\framework\\views',
+    'compiled' => 'D:\\laragon\\www\\celals\\storage\\framework\\views',
   ),
   'image' => 
   array (
@@ -741,7 +741,7 @@
   ),
   'ignition' => 
   array (
-    'editor' => 'phpstorm',
+    'editor' => 'vscode',
     'theme' => 'auto',
     'enable_share_button' => true,
     'register_commands' => false,
@@ -770,7 +770,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\WORK\\laragon\\www\\celals',
+    'remote_sites_path' => 'D:\\laragon\\www\\celals',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

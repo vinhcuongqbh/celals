@@ -12,7 +12,7 @@ class PracticeTestPublicController extends Controller
 {
     public function index()
     {
-        $public_test = PracticeTestPublic::get();
+        $public_test = PracticeTestPublic::orderby('created_at', 'DESC')->get();        
 
         return view('admin.class.practice_test.public_test_list', ['tests' => $public_test]);
     }
@@ -20,7 +20,7 @@ class PracticeTestPublicController extends Controller
 
     public function show($test_id)
     {
-        $student_test_list = StudentPracticeTest::where('public_test_id', $test_id)->get();
+        $student_test_list = StudentPracticeTest::where('public_test_id', $test_id)->orderby('created_at', 'DESC')->get();   
         $public_test = PracticeTestPublic::where('public_test_id', $test_id)->first();
 
         return view(

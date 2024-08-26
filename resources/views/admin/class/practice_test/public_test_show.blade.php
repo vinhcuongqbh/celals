@@ -44,6 +44,7 @@
                                     <th class="text-center">Họ và tên</th>
                                     <th class="text-center">Tuổi</th>
                                     <th class="text-center">Số điện thoại</th>
+                                    <th class="text-center">Giáo viên chấm bài</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,6 +57,7 @@
                                         </td>
                                         <td class="text-center">{{ $data->student_age }}</td>
                                         <td class="text-center">{{ $data->student_tel }}</td>
+                                        <td class="text-center">{{ $data->user->name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -65,13 +67,13 @@
                 <!-- /.card -->
             </div>
             <div class="col-12 col-sm-3">
-                <div class="col-12">
+                {{-- <div class="col-12">
                     <div class="card card-default">
                         <div class="card-body">
 
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- /.card -->
                 <div class="col-12">
                     <div class="card card-default">

@@ -3,39 +3,38 @@
 @section('title', 'Coach Phỏng vấn')
 
 @section('heading')
-    {{ __('Coach Phỏng vấn') }}
+    <form action="{{ route('coaching.coach_student.summary') }}" method="post" id="form">
+        @csrf
+        <div class="row">
+            <div class="col-12 col-sm-2">
+                {{ __('Tổng quan') }}
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="row justify-content-end">
+                    <div class="col-12 col-sm-2">
+                        <label class="h6" for="student_id">{{ __('student') }}</label>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <select id="student_id" name="student_id" class="form-control custom-select"
+                            onchange="this.form.submit()">
+                            <option value="0" selected></option>
+                            @foreach ($students as $student)
+                                <option value="{{ $student->user_id }}" @if ($student->user_id == $selected_student) selected @endif>
+                                    {{ $student->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
-                <div class="card card-default">
-                    <form action="{{ route('coaching.coach_student.summary') }}" method="post" id="form">
-                        @csrf
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="form-group row">
-                                    <div class="col-auto">
-                                        <label class="col-form-label" for="student_id">{{ __('student') }}</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <select id="student_id" name="student_id" class="form-control custom-select"
-                                            onchange="this.form.submit()">
-                                            <option value="0" selected></option>
-                                            @foreach ($students as $student)
-                                                <option value="{{ $student->user_id }}"
-                                                    @if ($student->user_id == $selected_student) selected @endif>
-                                                    {{ $student->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 @if ($selected_student > 0)
                     <div class="card card-default">
                         <div class="card-body">

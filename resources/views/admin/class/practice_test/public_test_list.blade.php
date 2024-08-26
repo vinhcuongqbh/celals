@@ -31,9 +31,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $i = 1 @endphp
                                 @foreach ($tests as $test)
                                     <tr>
-                                        <td class="text-center">{{ $test->id }}</td>
+                                        <td class="text-center">{{ $i++ }}</td>
                                         <td>
                                             <a href="{{ route('public_text.show', $test->public_test_id) }}">{{ $test->practice_test->subject }}</a>
                                         </td>
@@ -52,13 +53,6 @@
 @stop
 
 @section('css')
-    <style>
-        .col-xl-2 {
-            width: 14.285%;
-            flex: 0 0 14.285%;
-            max-width: 14.285%;
-        }
-    </style>
 @stop
 
 @section('js')
