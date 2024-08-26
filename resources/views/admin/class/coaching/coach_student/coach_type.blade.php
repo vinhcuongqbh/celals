@@ -3,66 +3,64 @@
 @section('title', 'Coach Phỏng vấn')
 
 @section('heading')
-    @switch($coach_type_id)
-        @case(1)
-            {{ __('Coach Phỏng vấn') }}
-        @break
+    <form action="{{ route('coaching.coach_student', $coach_type_id) }}" method="post" id="form">
+        @csrf
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                @switch($coach_type_id)
+                    @case(1)
+                        {{ __('Coach Phỏng vấn') }}
+                    @break
 
-        @case(2)
-            {{ __('Coach Chủ đề') }}
-        @break
+                    @case(2)
+                        {{ __('Coach Chủ đề') }}
+                    @break
 
-        @case(3)
-            {{ __('Coach Ngữ pháp Trung cấp') }}
-        @break
+                    @case(3)
+                        {{ __('Coach Ngữ pháp Trung cấp') }}
+                    @break
 
-        @case(4)
-            {{ __('Coach Câu 51') }}
-        @break
+                    @case(4)
+                        {{ __('Coach Câu 51') }}
+                    @break
 
-        @case(5)
-            {{ __('Coach Câu 52') }}
-        @break
+                    @case(5)
+                        {{ __('Coach Câu 52') }}
+                    @break
 
-        @case(6)
-            {{ __('Coach Câu 53') }}
-        @break
+                    @case(6)
+                        {{ __('Coach Câu 53') }}
+                    @break
 
-        @default
-    @endswitch
-
+                    @default
+                @endswitch
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="row justify-content-end">
+                    <div class="col-12 col-sm-2">
+                        <label class="h6" for="student_id">{{ __('student') }}</label>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                        <select id="student_id" name="student_id" class="form-control custom-select"
+                            onchange="this.form.submit()">
+                            <option value="0" selected></option>
+                            @foreach ($students as $student)
+                                <option value="{{ $student->user_id }}" @if ($student->user_id == $selected_student) selected @endif>
+                                    {{ $student->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card card-default">
-                    <form action="{{ route('coaching.coach_student', $coach_type_id) }}" method="post" id="form">
-                        @csrf
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="form-group row">
-                                    <div class="col-auto">
-                                        <label class="col-form-label" for="student_id">{{ __('student') }}</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <select id="student_id" name="student_id" class="form-control custom-select"
-                                            onchange="this.form.submit()">
-                                            <option value="0" selected></option>
-                                            @foreach ($students as $student)
-                                                <option value="{{ $student->user_id }}"
-                                                    @if ($student->user_id == $selected_student) selected @endif>
-                                                    {{ $student->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 @if ($selected_student > 0)
                     <form action="{{ route('coaching.student_result.update', [$selected_student, $coach_type_id]) }}"
                         method="post" id="formSubmit">
@@ -111,31 +109,17 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
                     </form>
                 @endif
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
-
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-
-        #imgPreview {
-            max-width: 100%;
-        }
-    </style>
-    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @stop
 
 @section('js')

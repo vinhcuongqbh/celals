@@ -7,23 +7,15 @@
 @stop
 
 @section('content')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    <form action="{{ route('public_test.teacher_test.update', [$public_test->public_test_id, $student_answer->id]) }}" method="post" id="form-validate">
+    <form action="{{ route('public_test.teacher_test.update', [$public_test->public_test_id, $student_answer->id]) }}"
+        method="post" id="form-validate">
         @csrf
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-sm-6">
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="" class="text-danger">PHẦN ĐỀ BÀI</label>
+                            <label for="" class="col-form-label text-danger p-0">PHẦN ĐỀ BÀI</label>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
@@ -35,7 +27,7 @@
                     </div>
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="" class="text-danger">PHẦN GỢI Ý TRẢ LỜI</label>
+                            <label for="" class="col-form-label text-danger p-0">PHẦN GỢI Ý TRẢ LỜI</label>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
@@ -49,7 +41,7 @@
                 <div class="col-12 col-sm-6">
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="" class="text-danger">PHẦN HỌC VIÊN TRẢ LỜI</label>
+                            <label for="" class="col-form-label text-danger p-0">PHẦN HỌC VIÊN TRẢ LỜI</label>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">
@@ -61,25 +53,23 @@
                     </div>
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="" class="text-danger">PHẦN GIÁO VIÊN CHẤM ĐIỂM</label>
+                            <label for="" class="col-form-label text-danger p-0">PHẦN NHẬN XÉT GIÁO VIÊN</label>
                         </div>
-                        <div class="card-body">
-                            <div class="form-group row">
-                                <div class="col-12">
-                                    <textarea id="comment" name="comment" class="form-control" rows="18">{!! $student_answer->comment !!}</textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
+                        <div class="card-body p-0">
+                            <textarea id="comment" name="comment" class="form-control">{!! $student_answer->comment !!}</textarea>
+                            <div class="form-group row m-3">
                                 <div class="col-12">
                                     <label for="point">{{ __('point') }}</label>
                                 </div>
                                 <div class="col-12">
-                                    <input type="number" id="point" name="point" class="form-control" value="{{ $student_answer->point }}">
+                                    <input type="number" id="point" name="point" class="form-control"
+                                        value="{{ $student_answer->point }}">
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-end">
-                            <button type="submit" class="btn bg-olive text-nowrap col-auto mx-1">{{ __('update') }}</button>
+                            <button type="submit"
+                                class="btn bg-olive text-nowrap col-auto mx-1">{{ __('update') }}</button>
                             <a class="btn bg-primary text-white text-nowrap col-auto"
                                 href="{{ route('public_text.show', $student_answer->public_test_id) }}">{{ __('back') }}</a>
                         </div>
@@ -91,7 +81,8 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')
@@ -134,42 +125,42 @@
         });
     </script>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-<script type="text/javascript" src="/ckfinder_guest/ckfinder.js"></script>
-<script>
-    CKEDITOR.ClassicEditor.create(document.getElementById("comment"), {            
-        toolbar: {
-            items: [                    
-                'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',                    
-                'alignment', '|',
-                'link', 'insertImage', 
-            ],
-            shouldNotGroupWhenFull: true
-        },
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/ckfinder_admin/ckfinder.js"></script>
+    <script>
+        CKEDITOR.ClassicEditor.create(document.getElementById("comment"), {
+            toolbar: {
+                items: [
+                    'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript',
+                    'alignment', '|',
+                    'link', 'insertImage',
+                ],
+                shouldNotGroupWhenFull: true
+            },
 
-        ckfinder: {
-            uploadUrl: '/ckfinder_guest/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-        },
-        removePlugins: [
-            'CKBox',
-            'EasyImage',
-            'RealTimeCollaborativeComments',
-            'RealTimeCollaborativeTrackChanges',
-            'RealTimeCollaborativeRevisionHistory',
-            'PresenceList',
-            'Comments',
-            'TrackChanges',
-            'TrackChangesData',
-            'RevisionHistory',
-            'Pagination',
-            'WProofreader',
-            'MathType',
-            'SlashCommand',
-            'Template',
-            'DocumentOutline',
-            'FormatPainter',
-            'TableOfContents',
-        ]
-    });
-</script>
+            ckfinder: {
+                uploadUrl: '/ckfinder_guest/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+            },
+            removePlugins: [
+                'CKBox',
+                'EasyImage',
+                'RealTimeCollaborativeComments',
+                'RealTimeCollaborativeTrackChanges',
+                'RealTimeCollaborativeRevisionHistory',
+                'PresenceList',
+                'Comments',
+                'TrackChanges',
+                'TrackChangesData',
+                'RevisionHistory',
+                'Pagination',
+                'WProofreader',
+                'MathType',
+                'SlashCommand',
+                'Template',
+                'DocumentOutline',
+                'FormatPainter',
+                'TableOfContents',
+            ]
+        });
+    </script>
 @stop

@@ -1,8 +1,13 @@
-iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
+.ck-editor__editable[role="textbox"] {
+    min-height: 250px;
 }
 
 .ck-content img {
     width: 100%;
+    margin: 20px auto;
+}
+
+iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
 }

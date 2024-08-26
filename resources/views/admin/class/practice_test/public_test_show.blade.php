@@ -47,9 +47,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $i=1; @endphp
                                 @foreach ($student_test_list as $data)
                                     <tr>
-                                        <td class="text-center"></td>
+                                        <td class="text-center">{{ $i++ }}</td>
                                         <td class="text-left"><a
                                                 href="{{ route('public_test.edit', [$data->public_test_id, $data->id]) }}">{{ $data->student_name }}</a>
                                         </td>

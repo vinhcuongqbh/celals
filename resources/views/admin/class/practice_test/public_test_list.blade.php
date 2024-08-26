@@ -37,7 +37,6 @@
                                         <td>
                                             <a href="{{ route('public_text.show', $test->public_test_id) }}">{{ $test->practice_test->subject }}</a>
                                         </td>
-                                        {{-- <td class="text-center">{{ $test->public_test_level->level_name }}</td>--}}
                                         <td></td>
                                         <td class="aligned-middle text-center">{{ $test->user->name }}</td>
                                         <td class="aligned-middle text-center">{{ $test->created_at }}</td>
@@ -46,14 +45,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
@@ -75,15 +70,7 @@
                 pageLength: 25,
                 searching: true,
                 autoWidth: false,
-                ordering: false,
-                dom: 'Bfrtip',
-                buttons: [{
-                    text: 'Tạo mới',
-                    className: 'bg-olive',
-                    action: function(e, dt, node, config) {
-                        window.location = '{{ route('practice_test.create') }}';
-                    },
-                }, ],
+                ordering: false,               
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },

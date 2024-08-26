@@ -53,7 +53,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php $i = 1 @endphp
+                                    @php $i = 1; @endphp
                                     @foreach ($data as $data)
                                         <tr>
                                             <td class="text-center">{{ $i++ }}</td>
@@ -65,17 +65,11 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                 @endif
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
-
 @stop
 
 @section('css')

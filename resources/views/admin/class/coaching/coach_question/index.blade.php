@@ -48,28 +48,15 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-
-        #imgPreview {
-            max-width: 100%;
-        }
-    </style>
-    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @stop
 
 @section('js')

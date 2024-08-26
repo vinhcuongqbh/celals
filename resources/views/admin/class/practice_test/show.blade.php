@@ -11,20 +11,18 @@
         <div class="row">
             <div class="col-12 col-sm-9">
                 <div class="card card-default">
-                    <div class="card-header">
-                        <div class="form-group row">
-                            <div class="col-auto">
-                                <label for="" class="text-uppercase text-danger">{{ __('subject') }}</label>
-                            </div>
-                            <div class="col-10 text-center">
-                                <label class="text-uppercase" for="">{{ $test->subject }}</label>
-                            </div>
+                    <div class="card-header row">
+                        <div class="col-12 col-sm-2">
+                            <label for="" class="col-form-label text-uppercase text-danger">{{ __('subject') }}</label>
+                        </div>
+                        <div class="col-12 col-sm-10">
+                            <label for="" class="col-form-label">{{ $test->subject }}</label>
                         </div>
                     </div>
                 </div>
                 <div class="card card-default">
                     <div class="card-header">
-                        <label for="" class="text-uppercase text-danger ">{{ __('question') }}</label>
+                        <label for="" class="col-form-label text-uppercase text-danger p-0">{{ __('question') }}</label>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
@@ -36,14 +34,12 @@
                 </div>
                 <div class="card card-default">
                     <div class="card-header">
-                        <label for="" class="text-uppercase text-danger">{{ __('suggested_answer') }}</label>
+                        <label for="" class="col-form-label text-uppercase text-danger p-0">{{ __('suggested_answer') }}</label>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="holder">
-                                <div class="col-12 ck-content">
-                                    {!! $test->suggested_answer !!}
-                                </div>
+                            <div class="col-12 ck-content">
+                                {!! $test->suggested_answer !!}
                             </div>
                         </div>
                     </div>
@@ -55,7 +51,7 @@
                         <div class="col-12">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="level">{{ __('level') }}</label>
+                                    <label for="level" class="col-form-label">{{ __('level') }}</label>
                                 </div>
                                 <div class="col-12">
                                     <select id="level_id" name="level_id" class="form-control custom-select" disabled>
@@ -65,7 +61,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="">{{ __('test_type') }}</label>
+                                    <label for="" class="col-form-label">{{ __('test_type') }}</label>
                                 </div>
                                 <div class="col-12">
                                     <select id="test_type_id" name="test_type_id" class="form-control custom-select"
@@ -78,7 +74,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="test_form">{{ __('test_form') }}</label>
+                                    <label for="test_form" class="col-form-label">{{ __('test_form') }}</label>
                                 </div>
                                 <div class="col-12">
                                     <input type="text" id="test_form" name="test_form" value="{{ $test->test_form }}"
@@ -87,7 +83,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label for="test_duration">{{ __('test_duration') }}</label>
+                                    <label for="test_duration" class="col-form-label">{{ __('test_duration') }}</label>
                                 </div>
                                 <div class="col-12 input-group">
                                     <input type="number" id="test_duration" name="test_duration"
@@ -114,16 +110,14 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
     <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')
     <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
     <script>
         document.querySelectorAll('oembed[url]').forEach(element => {
-            // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
-            // to discover the media.
             const anchor = document.createElement('a');
 
             anchor.setAttribute('href', element.getAttribute('url'));
