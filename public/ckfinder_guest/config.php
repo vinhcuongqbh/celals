@@ -32,8 +32,7 @@ $config['authentication'] = function () {
 /*============================ License Key ============================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_licenseKey
 
-//$config['licenseName'] = 'celals.vn';
-$config['licenseName'] = '127.0.0.1';
+$config['licenseName'] = 'celals.vn';
 $config['licenseKey']  = 'NJ7JGBDTR28CVS5YA95839Q6WDUCE';
 
 /*============================ CKFinder Internal Directory ============================*/
@@ -51,14 +50,15 @@ $config['privateDir'] = array(
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_images
 
 $config['images'] = array(
-    'maxWidth'  => 1600,
-    'maxHeight' => 1200,
+    'maxWidth'  => 0,
+    'maxHeight' => 0,
     'quality'   => 80,
     'sizes' => array(
         'small'  => array('width' => 480, 'height' => 320, 'quality' => 80),
         'medium' => array('width' => 600, 'height' => 480, 'quality' => 80),
         'large'  => array('width' => 800, 'height' => 600, 'quality' => 80)
-    )
+    ),
+    'threshold' => array('pixels' => 80, 'percent' => 10)
 );
 
 /*=================================== Backends ========================================*/

@@ -13,88 +13,73 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="card" style="width: 100%">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-12 col-sm-9">
-                                            <div class="card card-default">
-                                                <div class="form-group row">
-                                                    <div class="col-12">
-                                                        <label class="text-danger"
-                                                            for="question">{{ __('question') }}</label>
-                                                    </div>
-                                                    <div class="col-12 ck-content">
-                                                        {!! $practice_test->question !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card card-default">
-                                                <div class="form-group row">
-                                                    <div class="col-12">
-                                                        <label class="text-danger" for="answer">{{ __('answer') }}</label>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <textarea id="answer" name="answer" class="form-control" rows="10">{{ old('answer') }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {{-- <input type="hidden" name="public_test_id" value="{{ $public_test->public_test_id }}">                                             --}}
+
+                            <div class="row">
+                                <div class="col-12 col-sm-9">
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <label class="text-danger" for="question">{{ __('question') }}</label>
                                         </div>
-                                        <div class="col-12 col-sm-3">
-                                            <div class="col-12">
-                                                <div class="card card-default">
-                                                    <div class="card-body">
-                                                        <div class="form-group row">
-                                                            <label class="text-left col-sm-12 col-form-label">Họ và
-                                                                tên:</label>
-                                                            <div class="col-sm-12">
-                                                                <input type="text" class="form-control" name="name"
-                                                                    id="name">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="text-left col-sm-12 col-form-label">Độ
-                                                                tuổi</label>
-                                                            <div class="col-sm-12">
-                                                                <input type="number" class="form-control" name="age"
-                                                                    id="age">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <label class="text-left col-sm-12 col-form-label">Điện
-                                                                thoại</label>
-                                                            <div class="col-sm-12">
-                                                                <input type="text" class="form-control" name="tel"
-                                                                    id="tel">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer d-flex justify-content-end">
-                                                        <button type="submit"
-                                                            class="btn bg-olive text-nowrap col-4 col-xl-6">Nộp Bài
-                                                        </button><br>
-                                                    </div>
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <div class="col-12 ck-content">
+                                                    {!! $practice_test->question !!}
                                                 </div>
                                             </div>
-                                            {{-- <div class="col-12">
-                                                <div class="card card-default">
-                                                    <div class="card-body">
-                                                        <div class="form-group row">
-                                                            <label
-                                                                class="text-left text-danger col-sm-12 col-form-label">Link
-                                                                theo dõi kết quả: </label>
-                                                            <div class="col-sm-12">
-                                                                <a
-                                                                    href="{{ url('/') . '/public_test/' . $public_test->public_test_id . '/result' }}">{{ url('/') . '/public_test/' . $public_test->public_test_id . '/result' }}</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
                                         </div>
                                     </div>
-                                    <!-- /.row -->
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <label class="text-danger" for="answer">{{ __('answer') }}</label>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <div class="col-12">
+                                                    <textarea id="answer" name="answer" class="form-control" rows="10">{{ old('answer') }}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                <div class="col-12 col-sm-3">
+                                    <div class="card card-default">
+                                        <div class="card-header">
+                                            <label class="text-danger" for="answer">THÔNG TIN THÍ SINH</label>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group row">
+                                                <label class="text-left col-sm-12 col-form-label">Họ và
+                                                    tên:</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" name="name"
+                                                        id="name">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="text-left col-sm-12 col-form-label">Độ
+                                                    tuổi</label>
+                                                <div class="col-sm-12">
+                                                    <input type="number" class="form-control" name="age"
+                                                        id="age">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="text-left col-sm-12 col-form-label">Điện
+                                                    thoại</label>
+                                                <div class="col-sm-12">
+                                                    <input type="text" class="form-control" name="tel"
+                                                        id="tel">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer d-flex justify-content-end">
+                                            <button type="submit" class="btn bg-olive text-nowrap col-4 col-xl-6">Nộp Bài
+                                            </button><br>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -189,10 +174,10 @@
         CKEDITOR.ClassicEditor.create(document.getElementById("answer"), {
             // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
             toolbar: {
-                items: [                    
-                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',                    
+                items: [
+                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
                     'alignment', '|',
-                    'link', 'insertImage', 
+                    'link', 'insertImage',
                 ],
                 shouldNotGroupWhenFull: true
             },

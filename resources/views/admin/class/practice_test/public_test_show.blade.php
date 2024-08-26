@@ -81,15 +81,7 @@
                                     <a
                                         href="{{ url('/') . '/public_test/' . $test->public_test_id . '/testing' }}">{{ url('/') . '/public_test/' . $test->public_test_id . '/testing' }}</a>
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="text-left text-danger col-sm-12 col-form-label">Link
-                                    kết quả: </label>
-                                <div class="col-sm-12">
-                                    <a
-                                        href="{{ url('/') . '/public_test/' . $test->public_test_id . '/result' }}">{{ url('/') . '/public_test/' . $test->public_test_id . '/result' }}</a>
-                                </div>
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>

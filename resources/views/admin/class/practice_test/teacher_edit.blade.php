@@ -3,7 +3,7 @@
 @section('title', 'Block Show')
 
 @section('heading')
-    <label for="subject">{{ __('subject') }}:</label>{{ ' ' . $test->subject }}
+    <label for="subject">{{ __('subject') }}:</label>{{ ' ' . $practice_test->subject }}
 @stop
 
 @section('content')
@@ -16,7 +16,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('public_test.teacher_test.update', $student_answer->id) }}" method="post" id="form-validate">
+    <form action="{{ route('public_test.teacher_test.update', [$public_test->public_test_id, $student_answer->id]) }}" method="post" id="form-validate">
         @csrf
         <div class="container-fluid">
             <div class="row">
@@ -28,7 +28,7 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-12 ck-content">
-                                    {!! $test->question !!}
+                                    {!! $practice_test->question !!}
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-12 ck-content">
-                                    {!! $test->suggested_answer !!}
+                                    {!! $practice_test->suggested_answer !!}
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="card-body">
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <textarea id="comment" name="comment" class="form-control" rows="18">{{ old('comment') }}</textarea>
+                                    <textarea id="comment" name="comment" class="form-control" rows="18">{!! $student_answer->comment !!}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -74,7 +74,7 @@
                                     <label for="point">{{ __('point') }}</label>
                                 </div>
                                 <div class="col-12">
-                                    <input type="number" id="point" name="point" class="form-control">
+                                    <input type="number" id="point" name="point" class="form-control" value="{{ $student_answer->point }}">
                                 </div>
                             </div>
                         </div>
@@ -91,11 +91,6 @@
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-    </style>
     <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
 @endsection
 
@@ -138,4 +133,43 @@
             });
         });
     </script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+<script type="text/javascript" src="/ckfinder_guest/ckfinder.js"></script>
+<script>
+    CKEDITOR.ClassicEditor.create(document.getElementById("comment"), {            
+        toolbar: {
+            items: [                    
+                'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',                    
+                'alignment', '|',
+                'link', 'insertImage', 
+            ],
+            shouldNotGroupWhenFull: true
+        },
+
+        ckfinder: {
+            uploadUrl: '/ckfinder_guest/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
+        },
+        removePlugins: [
+            'CKBox',
+            'EasyImage',
+            'RealTimeCollaborativeComments',
+            'RealTimeCollaborativeTrackChanges',
+            'RealTimeCollaborativeRevisionHistory',
+            'PresenceList',
+            'Comments',
+            'TrackChanges',
+            'TrackChangesData',
+            'RevisionHistory',
+            'Pagination',
+            'WProofreader',
+            'MathType',
+            'SlashCommand',
+            'Template',
+            'DocumentOutline',
+            'FormatPainter',
+            'TableOfContents',
+        ]
+    });
+</script>
 @stop

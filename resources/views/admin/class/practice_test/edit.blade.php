@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="{{ route('public_test.teacher_test.update', $student_answer->id) }}" method="post" id="form-validate">
+    <form action="{{ route('practice_test.update', $test->test_id) }}" method="post" id="form-validate">
         @csrf
         @method('PUT')
         <div class="container-fluid">
@@ -122,7 +122,7 @@
     </form>
 @stop
 
-@section('css')    
+@section('css')
 @endsection
 
 @section('js')
@@ -172,17 +172,17 @@
         });
     </script>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="/ckfinder_admin/ckfinder.js"></script>
 
     <script>
-        CKEDITOR.ClassicEditor.create(document.getElementById("question"), {           
+        CKEDITOR.ClassicEditor.create(document.getElementById("question"), {
             toolbar: {
                 items: [
                     'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
                     'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', '|',
                     'insertImage', 'CKFinder', 'insertTable', 'link', '|',
-                    'alignment', 'htmlEmbed', '|',                    
+                    'alignment', 'htmlEmbed', '|',
                     '-',
                     'specialCharacters', 'horizontalLine', 'pageBreak', '|',
                     'undo', 'redo', '|',
@@ -192,18 +192,18 @@
                     'removeFormat', '|',
                     'bulletedList', 'numberedList', 'todoList', '|',
                     'outdent', 'indent', '|',
-                    'blockQuote', 'mediaEmbed', 'codeBlock', '|',                    
-                    'textPartLanguage', '|',
+                    'blockQuote', 'mediaEmbed', 'codeBlock', '|',
+                    //'textPartLanguage', '|',
                     'sourceEditing',
                 ],
                 shouldNotGroupWhenFull: false
             },
 
-            ckfinder: {               
-                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',              
+            ckfinder: {
+                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
             },
-            removePlugins: [                
-                'CKBox',                
+            removePlugins: [
+                'CKBox',
                 'EasyImage',
                 'RealTimeCollaborativeComments',
                 'RealTimeCollaborativeTrackChanges',
@@ -232,7 +232,7 @@
                     'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
                     'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript', '|',
                     'insertImage', 'CKFinder', 'insertTable', 'link', '|',
-                    'alignment', 'htmlEmbed', '|',                    
+                    'alignment', 'htmlEmbed', '|',
                     '-',
                     'specialCharacters', 'horizontalLine', 'pageBreak', '|',
                     'undo', 'redo', '|',
@@ -242,18 +242,18 @@
                     'removeFormat', '|',
                     'bulletedList', 'numberedList', 'todoList', '|',
                     'outdent', 'indent', '|',
-                    'blockQuote', 'mediaEmbed', 'codeBlock', '|',                    
-                    'textPartLanguage', '|',
+                    'blockQuote', 'mediaEmbed', 'codeBlock', '|',
+                    //'textPartLanguage', '|',
                     'sourceEditing',
                 ],
                 shouldNotGroupWhenFull: false
             },
 
-            ckfinder: {               
-                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',              
+            ckfinder: {
+                uploadUrl: '/ckfinder_admin/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
             },
-            removePlugins: [                
-                'CKBox',                
+            removePlugins: [
+                'CKBox',
                 'EasyImage',
                 'RealTimeCollaborativeComments',
                 'RealTimeCollaborativeTrackChanges',

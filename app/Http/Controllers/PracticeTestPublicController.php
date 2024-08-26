@@ -62,7 +62,7 @@ class PracticeTestPublicController extends Controller
     }
 
 
-    public function edit($public_test_id, $student_id, Request $request)
+    public function edit($public_test_id, $student_id)
     {
         $public_test = PracticeTestPublic::where('public_test_id', $public_test_id)->first();
 
@@ -73,20 +73,21 @@ class PracticeTestPublicController extends Controller
         return view(
             'admin.class.practice_test.teacher_edit',
             [
-                'test' => $practice_test,
+                'practice_test' => $practice_test,
+                'public_test' => $public_test,
                 'student_answer' => $student_test
             ]
         );
     }
 
 
-    public function update($student_id, Request $request) {
+    public function update($public_test_id, $student_id, Request $request) {
         $student_test = StudentPracticeTest::where('id', $student_id)->first();
         $student_test->comment = $request->comment;
         $student_test->point = $request->point;
         $student_test->teacher_id = Auth::user()->user_id;
         $student_test->save();
         
-        return redirect()->route('practice_test.edit', $student_id)->with('msg_success', 'Đã chấm xong');
+        return redirect()->back()->with('msg_success', 'Đã chấm xong');
     }
 }

@@ -40,8 +40,10 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-12 ck-content">
-                                {!! $test->suggested_answer !!}
+                            <div class="holder">
+                                <div class="col-12 ck-content">
+                                    {!! $test->suggested_answer !!}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,7 +99,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-center">
                         <a class="btn bg-warning text-white w-100 text-nowrap m-1"
                             href="{{ route('practice_test.public', $test->test_id) }}">{{ __('public') }}</a>
@@ -108,20 +109,27 @@
                     </div>
                 </div>
             </div>
-            <!-- /.card -->
         </div>
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-    </style>
-    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
 @endsection
 
 @section('js')
+    <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+    <script>
+        document.querySelectorAll('oembed[url]').forEach(element => {
+            // Create the <a href="..." class="embedly-card"></a> element that Embedly uses
+            // to discover the media.
+            const anchor = document.createElement('a');
+
+            anchor.setAttribute('href', element.getAttribute('url'));
+            anchor.className = 'embedly-card';
+
+            element.appendChild(anchor);
+        });
+    </script>
 @stop
