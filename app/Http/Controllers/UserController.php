@@ -5,43 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
-use Carbon\Carbon;
 use App\Models\User;
-use App\Http\Controllers\CenterController;
-use App\Http\Controllers\UserRoleController;
+use App\Models\Center;
 use App\Models\ListeningBlock;
 use App\Models\StudentListeningBlock;
+use App\Models\UserRole;
 
 class UserController extends Controller
-{
-    public function userQuery()
-    {
-        //Hiển thị danh sách Tài khoản đang sử dụng
-        $users = User::leftjoin('user_roles', 'user_roles.role_id', 'users.role_id')
-            ->leftjoin('centers', 'centers.center_id', 'users.center_id')
-            //->where('users.user_status', 1)
-            ->select('users.*', 'user_roles.role_name', 'centers.center_name')
-            ->orderBy('users.user_id', 'asc')
-            ->get();
-
-        return $users;
-    }
-
-
+{   
+    // Danh sách user
     public function index()
-    {
-        //Hiển thị danh sách Tài khoản đang sử dụng
-        $users = $this->userQuery();
+    {        
+        $users = User::all();
 
         return view('admin.user.index', ['users' => $users]);
     }
 
 
+    // Tạo mới user
     public function create()
     {
-        $centers = (new CenterController)->centerQuery();
-        $userRoles = (new UserRoleController)->roleQuery();
+        $centers = Center::where('center_status', 1)->get();
+        $userRoles = UserRole::where('role_status', 1)->get();
 
         return view('admin.user.create', [
             'userRoles' => $userRoles,
@@ -62,8 +47,8 @@ class UserController extends Controller
 
         //Tạo Nhân viên mới
         $user = new User;
-        $user->name = $request->name;
-        $user->user_name = $request->user_name;
+        $user->name = ucwords($request->name);
+        $user->user_name = strtolower($request->user_name);
         $user->password = Hash::make($request->password);
         $user->address = $request->address;
         $user->tel = $request->tel;
@@ -71,7 +56,6 @@ class UserController extends Controller
         $user->center_id = $request->center_id;
         $user->role_id = $request->role_id;
         $user->user_status = 1;
-        $user->created_at = Carbon::now();
         $user->save();
 
         //Tạo Listening Block cho Student
@@ -102,8 +86,8 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $centers = (new CenterController)->centerQuery();
-        $userRoles = (new UserRoleController)->roleQuery();
+        $centers = Center::where('center_status', 1)->get();
+        $userRoles = UserRole::where('role_status', 1)->get();
 
         $user = User::where('user_id', $id)->first();
 
@@ -127,20 +111,19 @@ class UserController extends Controller
         $user = User::where('user_id', $id)->first();
 
         //Cập nhật thông tin Nhân viên        
-        $user->name = $request->name;
+        $user->name = ucwords($request->name);
         $user->address = $request->address;
         $user->tel = $request->tel;
         $user->email = $request->email;
         $user->center_id = $request->center_id;
         $user->role_id = $request->role_id;
-        $user->updated_at = Carbon::now();
         $user->save();
 
         return redirect()->route('user.show', ['id' => $user->user_id]);
     }
 
 
-    //Khóa tài khoản Nhân viên
+    // Khóa tài khoản Nhân viên
     public function destroy($id)
     {
         $user = User::where('user_id', $id)->first();
@@ -151,7 +134,7 @@ class UserController extends Controller
     }
 
 
-    //Mở lại tài khoản Nhân viên
+    // Mở lại tài khoản Nhân viên
     public function restore($id)
     {
         $user = User::where('user_id', $id)->first();
@@ -173,6 +156,7 @@ class UserController extends Controller
 
         return redirect()->route('user.show', ['id' => $user->user_id]);
     }
+
 
     // Tìm kiếm nhân viên
     public function search(Request $request)

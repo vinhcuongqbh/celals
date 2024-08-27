@@ -35,37 +35,35 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-8">
-                @if ($selected_student > 0)
-                    <div class="card card-default">
-                        <div class="card-body">
-                            <table id="table" class="table table-bordered table-striped">
-                                <colgroup>
-                                    <col style="width:10%;">
-                                    <col style="width:50%;">
-                                    <col style="width:40%;">
-                                </colgroup>
-                                <thead style="text-align: center">
+                <div class="card card-default">
+                    <div class="card-body">
+                        <table id="table" class="table table-bordered table-striped">
+                            <colgroup>
+                                <col style="width:10%;">
+                                <col style="width:50%;">
+                                <col style="width:40%;">
+                            </colgroup>
+                            <thead style="text-align: center">
+                                <tr>
+                                    <th class="text-center align-middle">{{ __('STT') }}</th>
+                                    <th class="text-center align-middle">{{ __('Hình thức coach') }}</th>
+                                    <th class="text-center align-middle">{{ __('Kết quả đạt') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php $i = 1; @endphp
+                                @foreach ($data as $data)
                                     <tr>
-                                        <th class="text-center align-middle">{{ __('STT') }}</th>
-                                        <th class="text-center align-middle">{{ __('Hình thức coach') }}</th>
-                                        <th class="text-center align-middle">{{ __('Kết quả đạt') }}</th>
+                                        <td class="text-center">{{ $i++ }}</td>
+                                        <td>{{ $data['coach_type_name'] }}</td>
+                                        <td class="text-center">
+                                            {{ $data['passed_question'] }}/{{ $data['total_question'] }}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @php $i = 1; @endphp
-                                    @foreach ($data as $data)
-                                        <tr>
-                                            <td class="text-center">{{ $i++ }}</td>
-                                            <td>{{ $data['coach_type_name'] }}</td>
-                                            <td class="text-center">
-                                                {{ $data['passed_question'] }}/{{ $data['total_question'] }}</td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                @endif
+                </div>
             </div>
         </div>
     </div>

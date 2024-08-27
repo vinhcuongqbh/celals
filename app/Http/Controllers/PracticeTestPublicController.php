@@ -40,7 +40,7 @@ class PracticeTestPublicController extends Controller
         $practice_test = PracticeTest::where('test_id', $public_test->practice_test_id)->first();
 
         return view(
-            'front-end.public_test_create',
+            'admin.class.practice_test.public_test_create',
             [
                 'practice_test' => $practice_test,
                 'public_test' => $public_test

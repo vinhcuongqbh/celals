@@ -7,25 +7,6 @@
 @stop
 
 @section('content')
-    @if (session()->has('msg_success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                text: `{{ session()->get('msg_success') }}`,
-                showConfirmButton: false,
-                timer: 3000
-            })
-        </script>
-    @elseif (session()->has('msg_error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                text: `{{ session()->get('msg_error') }}`,
-                showConfirmButton: false,
-                timer: 3000
-            })
-        </script>
-    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-9">
@@ -64,17 +45,8 @@
                         </table>
                     </div>
                 </div>
-                <!-- /.card -->
             </div>
             <div class="col-12 col-sm-3">
-                {{-- <div class="col-12">
-                    <div class="card card-default">
-                        <div class="card-body">
-
-                        </div>
-                    </div>
-                </div> --}}
-                <!-- /.card -->
                 <div class="col-12">
                     <div class="card card-default">
                         <div class="card-body">
@@ -84,24 +56,16 @@
                                     <a
                                         href="{{ url('/') . '/public_test/' . $test->public_test_id . '/testing' }}">{{ url('/') . '/public_test/' . $test->public_test_id . '/testing' }}</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <!-- /.row -->
-    </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="/vendor/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="/vendor/datatables-buttons/css/buttons.bootstrap4.min.css">
 @endsection
 
 @section('js')

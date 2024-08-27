@@ -36,16 +36,17 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $i = 1; @endphp
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td style="text-align: center">{{ $user->user_id }}</td>
+                                        <td class="text-center">{{ $i++ }}</td>
                                         <td><a href="{{ route('user.show', $user->user_id) }}">{{ $user->name }}</a>
                                         </td>
                                         <td>{{ $user->user_name }}</td>
-                                        <td style="text-align: center">{{ $user->tel }}</td>
+                                        <td class="text-center">{{ $user->tel }}</td>
                                         <td>{{ $user->address }}</td>
-                                        <td>{{ $user->center_name }}</td>
-                                        <td>{{ $user->role_name }}</td>
+                                        <td class="text-center">{{ $user->center->center_name }}</td>
+                                        <td class="text-center">{{ $user->role->role_name }}</td>
                                         <td>
                                             @if ($user->user_status == 1)
                                                 <a class="btn bg-danger text-white w-100 text-nowrap"
@@ -66,15 +67,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')

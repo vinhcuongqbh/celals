@@ -39,24 +39,13 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <style>
-        .col-xl-2 {
-            width: 14.285%;
-            flex: 0 0 14.285%;
-            max-width: 14.285%;
-        }
-    </style>
 @stop
 
 @section('js')
