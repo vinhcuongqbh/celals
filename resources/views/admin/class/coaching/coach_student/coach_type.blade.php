@@ -89,14 +89,16 @@
                                     <tbody>
                                         @foreach ($coach_questions as $coach_question)
                                             <tr>
-                                                <td class="text-center align-top">{{ $coach_question->id }}</td>
+                                                <td class="text-center align-top">
+                                                    <input type="checkbox" id="check{{ $coach_question->id }}">
+                                                </td>
                                                 <td class="text-center align-top" id="result{{ $coach_question->id }}">
                                                     {{ isset($coach_question->pass) ? $coach_question->pass : 'Chưa đạt' }}
                                                 </td>
                                                 <td class="text-center align-top">
                                                     {{ $coach_question->coach_subject->subject_name }}
                                                 </td>
-                                                <td class="text-left ck-content align-top">{!! $coach_question->question !!}</td>
+                                                <td class="text-left ck-content align-top" id="question{{ $coach_question->id }}">{!! $coach_question->question !!}</td>
                                                 <td class="text-left ck-content align-top">{!! $coach_question->suggest_answer !!}</td>
                                                 <td class="text-center align-top"><input type="number"
                                                         id="question{{ $coach_question->id }}"
@@ -170,13 +172,21 @@
                 scrollY: 500,
                 dom: 'Bfrtip',
                 buttons: [{
-                    text: 'Cập nhật',
-                    className: 'bg-olive',
-                    action: function(e, dt, node, config) {
-                        $('#table').dataTable().fnFilter('');
-                        document.forms["formSubmit"].submit();
+                        text: 'Cập nhật',
+                        className: 'bg-olive',
+                        action: function(e, dt, node, config) {
+                            $('#table').dataTable().fnFilter('');
+                            document.forms["formSubmit"].submit();
+                        },
                     },
-                }, ],
+                    {
+                        text: 'Copy',
+                        className: 'bg-primary',
+                        action: function(e, dt, node, config) {
+                            
+                        },
+                    }
+                ],
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },
