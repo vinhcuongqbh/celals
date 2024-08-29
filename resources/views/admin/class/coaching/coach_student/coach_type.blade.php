@@ -90,7 +90,7 @@
                                         @foreach ($coach_questions as $coach_question)
                                             <tr>
                                                 <td class="text-center align-top">
-                                                    <input type="checkbox" id="check{{ $coach_question->id }}">
+                                                    <input type="checkbox" id="checkbox{{ $coach_question->id }}">
                                                 </td>
                                                 <td class="text-center align-top" id="result{{ $coach_question->id }}">
                                                     {{ isset($coach_question->pass) ? $coach_question->pass : 'Chưa đạt' }}
@@ -98,7 +98,8 @@
                                                 <td class="text-center align-top">
                                                     {{ $coach_question->coach_subject->subject_name }}
                                                 </td>
-                                                <td class="text-left ck-content align-top" id="question{{ $coach_question->id }}">{!! $coach_question->question !!}</td>
+                                                <td class="text-left ck-content align-top" onclick="popup()">
+                                                    {!! $coach_question->question !!}</td>
                                                 <td class="text-left ck-content align-top">{!! $coach_question->suggest_answer !!}</td>
                                                 <td class="text-center align-top"><input type="number"
                                                         id="question{{ $coach_question->id }}"
@@ -117,11 +118,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <img class="modal-content" id="img01">
+                </div>
+            </div>
+        </div>
+    </div>
+
 @stop
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
-    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />  
 @stop
 
 @section('js')
@@ -183,7 +197,7 @@
                         text: 'Copy',
                         className: 'bg-primary',
                         action: function(e, dt, node, config) {
-                            
+
                         },
                     }
                 ],
@@ -192,5 +206,29 @@
                 },
             }).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
         });
+    </script>
+
+    <script>
+        var images = document.querySelectorAll('.image img')
+        for (var i = 0; i < images.length; i++) {
+            images[i].setAttribute("data-toggle", "modal");
+            images[i].setAttribute("data-target", "#exampleModalCenter");
+            images[i].addEventListener("click", imgClick, false);
+        }
+
+        // Get the modal
+        var modalImg = document.getElementById("img01");
+
+        function imgClick() {
+            modalImg.src = this.src;
+        }
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
     </script>
 @stop
