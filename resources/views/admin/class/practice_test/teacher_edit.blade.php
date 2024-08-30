@@ -56,7 +56,7 @@
                             <label for="" class="col-form-label text-danger p-0">PHẦN GIÁO VIÊN NHẬN XÉT</label>
                         </div>
                         <div class="card-body p-0">
-                            <textarea id="comment" name="comment" class="form-control">{!! $student_answer->comment !!}</textarea>
+                            <textarea id="editor1" name="comment" class="form-control">{!! $student_answer->comment !!}</textarea>
                             <div class="form-group row m-3">
                                 <div class="col-12">
                                     <label for="point">{{ __('point') }}</label>

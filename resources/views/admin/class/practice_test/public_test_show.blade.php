@@ -15,17 +15,20 @@
                         <table id="data-table" class="table table-bordered table-striped">
                             <colgroup>
                                 <col style="width:5%;">
-                                <col style="width:50%;">
+                                <col style="width:35%;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
                                 <col style="width:15%;">
                                 <col style="width:15%;">
                             </colgroup>
-                            <thead style="text-align: center">
+                            <thead>
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Họ và tên</th>
-                                    <th class="text-center">Tuổi</th>
-                                    <th class="text-center">Số điện thoại</th>
-                                    <th class="text-center">Giáo viên chấm bài</th>
+                                    <th class="align-middle text-center">ID</th>
+                                    <th class="align-middle text-center">Họ và tên</th>
+                                    <th class="align-middle text-center">Tuổi</th>
+                                    <th class="align-middle text-center">Số điện thoại</th>
+                                    <th class="align-middle text-center">Điểm</th>
+                                    <th class="align-middle text-center">Giáo viên chấm bài</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,6 +41,7 @@
                                         </td>
                                         <td class="text-center">{{ $data->student_age }}</td>
                                         <td class="text-center">{{ $data->student_tel }}</td>
+                                        <td class="text-center">{{ $data->point }}</td>
                                         <td class="text-center">{{ $data->user->name }}</td>
                                     </tr>
                                 @endforeach

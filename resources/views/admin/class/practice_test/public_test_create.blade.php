@@ -34,7 +34,7 @@
                                                 for="answer">{{ __('answer') }}</label>
                                         </div>
                                         <div class="card-body p-0">
-                                            <textarea id="answer" name="answer" class="form-control">{{ old('answer') }}</textarea>
+                                            <textarea id="editor1" name="answer" class="form-control">{{ old('answer') }}</textarea>
                                         </div>
                                     </div>
                                 </div>

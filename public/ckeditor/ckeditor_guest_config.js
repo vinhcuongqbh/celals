@@ -1,4 +1,4 @@
-CKEDITOR.ClassicEditor.create(document.getElementById("answer"), {
+CKEDITOR.ClassicEditor.create(document.getElementById("editor1"), {
             toolbar: {
                 items: [
                     'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript',
