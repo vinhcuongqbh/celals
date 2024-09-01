@@ -20,7 +20,7 @@ use App\Http\Controllers\StudentListeningBlockController;
 use App\Http\Controllers\StudentListeningTestController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\VocabularyTestController;
-
+use App\Models\Center;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,7 +48,8 @@ Route::get('/khoa-hoc', function () {
 });
 
 Route::get('/dang-ky', function () {
-    return view('front-end.dang-ky', ['centers' => (new CenterController)->centerQuery()]);
+    $centers = Center::all();
+    return view('front-end.dang-ky', ['centers' => $centers]);
 })->name('dang-ky');
 
 Route::get('/co-so-dao-tao', function () {
