@@ -10,14 +10,19 @@
     <meta name="robots" content="noimageindex">
     <title>CELALS</title>
 
+    <!-- REQUIRED CSS -->
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
     <!-- IonIcons -->
     <link rel="stylesheet" href="/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/css/adminlte.min.css">
-    <!-- SweetAlert2 -->
-    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="/css/adminlte.min.css">    
+    {{-- Datatable  --}}
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
@@ -26,8 +31,10 @@
     <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE -->
     <script src="/js/adminlte.js"></script>
-
-    <script src="/js/jquery-3.7.0.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    {{-- Datatable  --}}
+    <script src="/js/jquery-3.7.0.js"></script> 
     <script src="/js/jquery.dataTables.min.js"></script>
     <script src="/js/dataTables.buttons.min.js"></script>
     <script src="/js/jszip.min.js"></script>
@@ -37,12 +44,6 @@
     <script src="/js/buttons.print.min.js"></script>
     <script src="/js/dataTables.rowReorder.min.js"></script>
     <script src="/js/dataTables.responsive.min.js"></script>
-
-    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="/css/rowReorder.dataTables.min.css">
-    <link rel="stylesheet" href="/css/responsive.dataTables.min.css">
-    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 </head>
 
 <body class="sidebar-mini layout-navbar"> <!--<body class="sidebar-mini layout-navbar-fixed">-->
@@ -104,7 +105,7 @@
                             </a>
                         </li> --}}
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
-                            <li class="nav-header text-success">QUẢN TRỊ HỆ THỐNG</li>
+                            <li class="nav-header text-success text-uppercase text-bold">QUẢN TRỊ HỆ THỐNG</li>
                             @if (Auth::user()->role_id == 1)
                                 <li class="nav-item">
                                     <a href="/admin/user" class="nav-link">
@@ -120,26 +121,26 @@
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-music"></i>
+                                        <i class="nav-icon fa fa-music"></i>
                                         <p>{{ __('listening') }}</p>
                                         <i class="fas fa-angle-left right"></i>
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
                                             <a href="/admin/class/listening/lesson_list" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('lesson-list') }}</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="/admin/class/listening/test_list" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('test-list') }}</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="/admin/class/listening/block_list" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('block-list') }}</p>
                                             </a>
                                         </li>
@@ -154,13 +155,13 @@
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
                                             <a href="/admin/class/coaching/coach_subject" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('coach_subject') }}</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="/admin/class/coaching/coach_question" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('coach_question') }}</p>
                                             </a>
                                         </li>
@@ -177,13 +178,13 @@
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
                                             <a href="/admin/referral/customer" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('customer') }}</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="/admin/referral/referrer" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fa fa-angle-right nav-icon"></i>
                                                 <p>{{ __('referrer') }}</p>
                                             </a>
                                         </li>
@@ -192,7 +193,7 @@
                             @endif
                         @endif
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 6)
-                            <li class="nav-header text-success">QUẢN LÝ LỚP HỌC</li>
+                        <li class="nav-header text-success text-uppercase text-bold">QUẢN LÝ LỚP HỌC</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-book"></i>
@@ -202,13 +203,13 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/vocabulary/test_create" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('test-create') }}</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="/admin/class/vocabulary/test_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
                                     </li>
@@ -223,13 +224,13 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/listening/teacher_test_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="/admin/class/listening/student_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('change_block') }}</p>
                                         </a>
                                     </li>
@@ -237,7 +238,7 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                            <li class="nav-header text-success">GIÁO VIÊN</li>
+                        <li class="nav-header text-success text-uppercase text-bold">GIÁO VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-music"></i>
@@ -247,7 +248,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/listening/teacher_test_list" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('test_list') }}</p>
                                         </a>
                                     </li>
@@ -262,7 +263,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/summary" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Tổng quan') }}</p>
                                         </a>
                                     </li>
@@ -270,7 +271,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/1" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Coach phỏng vấn') }}</p>
                                         </a>
                                     </li>
@@ -278,7 +279,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/2" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Coach chủ đề') }}</p>
                                         </a>
                                     </li>
@@ -286,7 +287,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/3" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Coach Ngữ pháp TC') }}</p>
                                         </a>
                                     </li>
@@ -294,7 +295,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/4" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Coach câu 51') }}</p>
                                         </a>
                                     </li>
@@ -302,7 +303,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/5" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Coach câu 52') }}</p>
                                         </a>
                                     </li>
@@ -310,7 +311,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/coaching/coach_student/6" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Coach câu 53') }}</p>
                                         </a>
                                     </li>
@@ -325,7 +326,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/practice_test" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Danh sách đề thi') }}</p>
                                         </a>
                                     </li>
@@ -333,7 +334,7 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/public_test" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('Danh sách kỳ thi') }}</p>
                                         </a>
                                     </li>
@@ -341,7 +342,7 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
-                            <li class="nav-header text-success">HỌC VIÊN</li>
+                        <li class="nav-header text-success text-uppercase text-bold">HỌC VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-music"></i>
@@ -351,13 +352,13 @@
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
                                         <a href="/admin/class/listening/student_block_show" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('self_studing_list') }}</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a href="/admin/class/listening/student_history_study" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                            <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('history_study') }}</p>
                                         </a>
                                     </li>
@@ -405,7 +406,7 @@
                         })
                     </script>
                 @endif
-                
+
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>

@@ -7,25 +7,6 @@
 @stop
 
 @section('content')
-    @if (session()->has('msg_success'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                text: `{{ session()->get('msg_success') }}`,
-                showConfirmButton: false,
-                timer: 3000
-            })
-        </script>
-    @elseif (session()->has('msg_error'))
-        <script>
-            Swal.fire({
-                icon: 'error',
-                text: `{{ session()->get('msg_error') }}`,
-                showConfirmButton: false,
-                timer: 3000
-            })
-        </script>
-    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-sm-9">
@@ -35,19 +16,19 @@
                             <colgroup>
                                 <col style="width:5%;">
                                 <col style="width:20%;">
-                                <col style="width:5%;">
+                                <col style="width:10%;">
                                 <col style="width:15%;">
                                 <col style="width:30%;">
-                                <col style="width:20%;">
+                                <col style="width:15%;">
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Từ vựng</th>
-                                    <th class="text-center">Từ loại</th>
-                                    <th class="text-center">Phát âm</th>
-                                    <th class="text-center">Dịch nghĩa</th>
-                                    <th class="text-center">Chủ đề</th>
+                                    <th class="align-middle text-center">STT</th>
+                                    <th class="align-middle text-center">Từ vựng</th>
+                                    <th class="align-middle text-center">Từ loại</th>
+                                    <th class="align-middle text-center">Phát âm</th>
+                                    <th class="align-middle text-center">Dịch nghĩa</th>
+                                    <th class="align-middle text-center">Chủ đề</th>
                                 </tr>
                             </thead>
                             <tbody>

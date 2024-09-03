@@ -39,8 +39,7 @@ class CoachStudentController extends Controller
             ]);
         }
 
-        return view(
-            'admin.class.coaching.coach_student.summary',
+        return view('admin.class.coaching.coach_student.summary',
             [
                 'students' => $students,
                 'selected_student' => $selected_student,

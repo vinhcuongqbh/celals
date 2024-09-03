@@ -6,37 +6,31 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\PostCatalogue;
-use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
-use Symfony\Component\Console\Logger\ConsoleLogger;
 
 class PostController extends Controller
 {
+    // DANH SÁCH BÀI VIẾT
     public function index()
     {
-        //Hiển thị danh sách bài biết
-        $posts = Post::leftjoin('post_catalogues', 'post_catalogues.post_catalogue_id', 'posts.post_catalogue_id')
-            ->leftjoin('users', 'users.user_id', 'posts.post_author_id')
-            ->select('posts.*', 'post_catalogues.post_catalogue_name', 'users.name')
-            ->orderby('created_at', 'desc')
-            ->get();
+        $posts = Post::orderby('created_at', 'desc')->get();
 
         return view('admin.post.index', ['posts' => $posts]);
     }
 
-
+    // TẠO MỚI BÀI VIẾT
     public function create()
     {
-        $postCatalogues = (new PostCatalogueController)->postCatalogueQuery();
+        $postCatalogues = PostCatalogue::all();
 
         return view('admin.post.create', [
             'postCatalogues' => $postCatalogues,
         ]);
     }
 
-
+    // LƯU BÀI VIẾT
     public function store(Request $request)
     {
         //Kiểm tra thông tin đầu vào
@@ -45,14 +39,14 @@ class PostController extends Controller
             'post_catalogue_id' => 'required',
         ]);
 
-        //Tạo Bài viết mới
+        //Tạo mới BÀI VIẾT
         $post = new Post;
         $post->post_title = $request->post_title;
         $post->post_content = $request->post_content;
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();
         $post->post_status = 0;
-        $post->created_at = Carbon::now();
+
         //Xử lý file tải lên
         if ($request->hasFile('post_img')) {
             $image = $request->post_img;
@@ -71,25 +65,27 @@ class PostController extends Controller
         }
         $post->save();
 
-        return redirect()->route('post.edit', ['id' => $post->post_id])->with('message', __('storedPost'));
+        return redirect()->route('post.edit', ['id' => $post->post_id])->with('msg_success', 'Tạo mới thành công');
     }
 
-
+    // HIỂN THỊ BÀI VIẾT
     public function show($id)
     {
-        $post = Post::where('post_id', $id)->first();
+        $post = Post::find($id);
 
         return view('admin.post.show', ['post' => $post]);
     }
 
+    // SỬA BÀI VIẾT
     public function edit($id)
     {
-        $post = Post::where('post_id', $id)->first();
+        $post = Post::find($id);
         $postCatalogues = PostCatalogue::all();
 
         return view('admin.post.edit', ['post' => $post, 'postCatalogues' => $postCatalogues]);
     }
 
+    // CẬP NHẬT BÀI VIẾT
     public function update(Request $request, $id)
     {
         //Kiểm tra thông tin đầu vào
@@ -98,21 +94,19 @@ class PostController extends Controller
             'post_catalogue_id' => 'required',
         ]);
 
-        //Tìm thông tin Bài viết
-        $post = Post::where('post_id', $id)->first();
         //Cập nhật thông tin Bài viết
+        $post = Post::find($id);
         $post->post_title = $request->post_title;
         $post->post_content = $request->post_content;
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();
         $post->post_status = 0;
-        $post->updated_at = Carbon::now();
 
         //Xử lý file tải lên
         if ($request->hasFile('post_img')) {
-            if (Storage::disk('public')->exists($post->post_img)) {               
-                Storage::disk('public')->delete($post->post_img); 
-            } 
+            if (Storage::disk('public')->exists($post->post_img)) {
+                Storage::disk('public')->delete($post->post_img);
+            }
             $image = $request->post_img;
             $allowedfileExtension = ['jpg', 'jpeg', 'png', 'bmp'];
             $extension = $image->getClientOriginalExtension();
@@ -129,42 +123,36 @@ class PostController extends Controller
         }
         $post->save();
 
-        return redirect()->route('post.edit', ['id' => $post->post_id])->with('message', __('updatedPost'));
+        return redirect()->route('post.edit', ['id' => $post->post_id])->with('msg_success', 'Cập nhật thành công');
     }
 
 
-    //Đăng bài viết
+    // ĐĂNG BÀI VIẾT
     public function public($id)
     {
-        $post = Post::where('post_id', $id)->first();
+        $post = Post::find($id);
         $post->post_status = 1;
         $post->save();
 
-        return back()->with('message', __('publicedPost'));
+        return back()->with('msg_success', 'Đăng bài thành công');
     }
 
-
-    //Ẩn bài viết
+    // ẨN BÀI VIẾT
     public function unpublic($id)
     {
-        $post = Post::where('post_id', $id)->first();
+        $post = Post::find($id);
         $post->post_status = 0;
         $post->save();
 
-        return back()->with('message', __('unpublicedPost'));
+        return back()->with('msg_success', 'Gỡ bài thành công');
     }
 
-    //Xóa bài viết
+    // XÓA BÀI VIẾT
     public function destroy($id)
     {
-        $post = Post::where('post_id', $id)->first();
+        $post = Post::find($id);
         $post->delete();
 
-        return back()->with('message', __('destroyedPost'));
-    }
-
-
-    public function search(Request $request)
-    {
+        return back()->with('msg_success', 'Xóa bài thành công');
     }
 }

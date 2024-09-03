@@ -11,18 +11,6 @@
         <div class="row">
             <div class="col-xl-6">
                 <div class="card card-default">
-                    {{-- <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('newSubject') }}</h3>
-                    </div> --}}
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     <form action="{{ route('coach_subject.update', $coach_subject->id) }}" method="post" id="form">
                         @csrf
                         @method('PUT')
@@ -37,11 +25,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">
+                        <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning col-2 text-nowrap m-1">{{ __('update') }}</button>
-                            <a class="btn bg-olive text-white col-2 text-nowrap m-1"
+                                class="btn bg-olive col-sm-2 mx-1">{{ __('update') }}</button>
+                            <a class="btn btn-secondary col-sm-2"
                                 href="{{ route('coach_subject.index') }}">{{ __('back') }}</a>
                         </div>
                     </form>

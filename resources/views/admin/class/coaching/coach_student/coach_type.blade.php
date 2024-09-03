@@ -126,9 +126,23 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div id="modal1-content" class="modal-body">
-                    <img class="modal-content" id="img01">
+                </div>
+                <div class="modal-footer">
+                    <a id="btn-download" href="#" class="btn btn-secondary">Download</a>
                 </div>
             </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div id="modal3-content" class="modal-body">
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -142,11 +156,6 @@
             </div>
         </div>
     </div>
-
-    <button type="button" class="btn btn-primary" id="btn-preview">Preview</button>
-    <a id="btn-download" href="#" class="btn btn-secondary">Download</a>
-    <h3>Preview :</h3>
-    <div id="previewImage"></div>
 @stop
 
 @section('css')
@@ -196,16 +205,10 @@
     {{-- // Bảng dữ liệu --}}
     <script>
         $(function() {
-            $("#table").DataTable({
-                lengthChange: false,
-                pageLength: 20,
-                searching: true,
-                autoWidth: false,
-                ordering: false,
+            $("#table").DataTable({               
+                fixedHeader: true,
                 paging: false,
-                scrollCollapse: true,
-                scrollX: true,
-                scrollY: 500,
+                responsive: true,
                 dom: 'Bfrtip',
                 buttons: [{
                         text: 'Cập nhật',
@@ -252,6 +255,9 @@
         var checkbox = document.querySelectorAll('input[type=checkbox]')
         var modal1 = new bootstrap.Modal(document.getElementById('modal1'), {});
         var modal1_content = document.getElementById('modal1-content');
+        var modal3_content = document.getElementById('modal3-content');
+        var getCanvas;
+        var btn_download = document.getElementById('btn-download');
 
         function xuatdulieu() {
             modal1_content.innerHTML = '<div class="text-bold">ĐỀ BÀI</div>';
@@ -259,28 +265,27 @@
                 if (checkbox[i].checked == true) {
                     var question = document.getElementById('question' + checkbox[i].value);
                     modal1_content.innerHTML = modal1_content.innerHTML + '<hr>' + question.innerHTML;
+                    modal3_content.innerHTML = modal1_content.innerHTML;
                 }
-            }
-            modal1.show();
+            }    
+
+            modal1.show();  
+
+            html2canvas(document.querySelector('#modal3-content')).then(canvas => {
+                getCanvas = canvas;
+                //btn_download.click();
+            });
+
         }
     </script>
 
-    {{-- <script type="text/javascript" src="/js/html2canvas.js"></script> --}}
-    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script type="text/javascript" src="/js/html2canvas.js"></script>
     <script>
-        
-            var getCanvas; // global variable
-            $('#btn-preview').on('click', function() {                
-                html2canvas(document.querySelector('#modal1')).then(canvas => {
-                    $('#previewImage').append(canvas);
-                    getCanvas = canvas;
-                });
-            });
-
         $("#btn-download").on('click', function() {
             var imgageData = getCanvas.toDataURL("image/png");
             var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-            $("#btn-download").attr("download", "your_pic_name.png").attr("href", newData);
+            $("#btn-download").attr("download", "cau_so_53.png").attr("href", newData);
+            // location.reload();                           
         });
     </script>
 @stop

@@ -9,7 +9,7 @@ class PostCatalogueController extends Controller
 {
     public function PostCatalogueQuery()
     {
-        //Hiển thị danh sách Tài khoản đang sử dụng
+        //Hiển thị danh sách Catalogue đang sử dụng
         $postCatalogue = postCatalogue::where('post_catalogue_status', 1)->get();
 
         return $postCatalogue;

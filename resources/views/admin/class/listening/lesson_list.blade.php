@@ -39,23 +39,12 @@
                         </table>
                     </div>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
-@section('css')   
-    <style>
-        .col-xl-2 {
-            width: 14.285%;
-            flex: 0 0 14.285%;
-            max-width: 14.285%;
-        }
-    </style>
+@section('css')  
 @stop
 
 @section('js')
@@ -63,11 +52,11 @@
         $(function() {
             $("#data-table").DataTable({
                 responsive: true,
-                lengthChange: false,
-                pageLength: 20,
                 searching: true,
+                ordering: true,
+                pageLength: 15,
                 autoWidth: false,
-                ordering: false,
+                lengthChange: false,
                 dom: 'Bfrtip',
                 buttons: [{
                         text: 'Tạo mới',

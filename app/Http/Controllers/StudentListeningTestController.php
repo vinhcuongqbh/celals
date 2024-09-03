@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Level;
 use App\Models\ListeningTest;
-use App\Models\ListeningTestDetail;
 use App\Models\StudentListeningTest;
 use App\Models\TestType;
 use Illuminate\Http\Request;
@@ -16,17 +15,12 @@ class StudentListeningTestController extends Controller
     public function  testCreate($id)
     {
         $test = ListeningTest::where('test_id', $id)->first();
-        $test_details = ListeningTestDetail::where('test_id', $id)->get();
         $test_types = TestType::all();
 
-        return view(
-            'admin.class.listening.student_test_create',
-            [
-                'test' => $test,
-                'test_details' => $test_details,
-                'test_types' => $test_types,
-            ]
-        );
+        return view('admin.class.listening.student_test_create', [
+            'test' => $test,
+            'test_types' => $test_types,
+        ]);
     }
 
     public function  testStore(Request $request)
@@ -69,21 +63,16 @@ class StudentListeningTestController extends Controller
             ->leftjoin('levels', 'levels.level_id', 'listening_tests.level_id')
             ->leftjoin('test_types', 'test_types.test_type_id', 'listening_tests.test_type_id')
             ->select('listening_tests.*', 'levels.level_name', 'test_types.test_type_name')
-            ->first();    
+            ->first();
 
-        $test_details = ListeningTestDetail::where('test_id', $test_id)->get();
         $test_types = TestType::all();
         $levels = Level::all();
 
-        return view(
-            'admin.class.listening.student_history_show',
-            [
-                'test' => $test, 
-                'test_details' => $test_details,
-                'test_types' => $test_types, 
-                'levels' => $levels,
-                'student_answer' => $student_answer
-            ]
-        );
+        return view('admin.class.listening.student_history_show', [
+            'test' => $test,
+            'test_types' => $test_types,
+            'levels' => $levels,
+            'student_answer' => $student_answer
+        ]);
     }
 }

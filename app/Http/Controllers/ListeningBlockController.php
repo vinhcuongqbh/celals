@@ -6,7 +6,6 @@ use App\Models\Level;
 use App\Models\ListeningBlock;
 use App\Models\ListeningLesson;
 use App\Models\ListeningTest;
-use App\Models\ListeningTestDetail;
 use App\Models\StudentListeningBlock;
 use App\Models\StudentListeningTest;
 use App\Models\TestType;
@@ -14,7 +13,6 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
 
 class ListeningBlockController extends Controller
 {
@@ -47,7 +45,7 @@ class ListeningBlockController extends Controller
     }
 
 
-    public function  blockStore(Request $request)
+    public function blockStore(Request $request)
     {
         //Kiểm tra thông tin đầu vào
         $validated = $request->validate([
@@ -236,7 +234,6 @@ class ListeningBlockController extends Controller
             ->select('listening_tests.*', 'levels.level_name', 'test_types.test_type_name')
             ->first();
 
-        $test_details = ListeningTestDetail::where('test_id', $test_id)->get();
         $test_types = TestType::all();
         $levels = Level::all();
 
@@ -244,7 +241,6 @@ class ListeningBlockController extends Controller
             'admin.class.listening.teacher_test_edit',
             [
                 'test' => $test,
-                'test_details' => $test_details,
                 'test_types' => $test_types,
                 'levels' => $levels,
                 'student_answer' => $student_answer

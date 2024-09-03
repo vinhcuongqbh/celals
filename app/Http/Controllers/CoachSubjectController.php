@@ -7,54 +7,41 @@ use Illuminate\Http\Request;
 
 class CoachSubjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Danh sách chủ đề coaching
     public function index()
     {
         $coach_subjects = CoachSubject::all();
 
-        return view('admin.class.coaching.coach_subject.index', ['coach_subjects' => $coach_subjects]);
+        return view('admin.class.coaching.coach_subject.index', [
+            'coach_subjects' => $coach_subjects
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Tạo chủ đề coaching
     public function create()
     {
         return view('admin.class.coaching.coach_subject.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Lưu chủ đề coaching
     public function store(Request $request)
     {
-        $request->validate([
-            'subject_name' => [
-                'required',
-                'string',
-            ]
-        ]);
+        $request->validate(['subject_name' => ['required', 'string',]]);
 
         $coach_subject = new CoachSubject();
         $coach_subject->subject_name = $request->subject_name;
         $coach_subject->save();
 
-        return redirect()->route('coach_subject.index')->with('msg_success','Đã tạo Chủ đề thành công');
+        return redirect()->route('coach_subject.index')->with('msg_success', 'Đã tạo Chủ đề thành công');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // Hiển thị chủ đề coaching
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // Sửa chủ đề coaching
     public function edit(CoachSubject $coach_subject)
     {
         return view('admin.class.coaching.coach_subject.edit', [
@@ -62,29 +49,14 @@ class CoachSubjectController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // Cập nhật chủ đề coaching
     public function update(Request $request, CoachSubject $coach_subject)
     {
-        $request->validate([
-            'subject_name' => [
-                'required',
-                'string',
-            ]
-        ]);
+        $request->validate(['subject_name' => ['required', 'string',]]);
 
         $coach_subject->subject_name = $request->subject_name;
         $coach_subject->save();
 
-        return redirect()->route('coach_subject.index')->with('msg_success','Đã cập nhật Chủ đề thành công');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('coach_subject.index')->with('msg_success', 'Đã cập nhật Chủ đề thành công');
     }
 }

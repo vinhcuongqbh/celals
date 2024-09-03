@@ -10,16 +10,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <form action="{{ route('post.store') }}" method="post" id="form-validate" enctype="multipart/form-data">
+                <form action="{{ route('post.store') }}" method="post" id="form" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-12 col-sm-9">
@@ -28,7 +19,7 @@
                                     <div class="col-12">
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <label for="post_title">{{ __('post_title') }}</label>
+                                                <label class="text-danger" for="post_title">{{ __('post_title') }}</label>
                                             </div>
                                             <div class="col-12">
                                                 <input type="text" id="post_title" name="post_title"
@@ -37,11 +28,11 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-12">
-                                                <label for="post_content">{{ __('post_content') }}</label>
+                                                <label class="text-danger"
+                                                    for="post_content">{{ __('post_content') }}</label>
                                             </div>
                                             <div class="col-12" id="container">
-                                                <textarea id="editor" name="post_content">
-                                        </textarea>
+                                                <textarea id="editor1" name="post_content"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -90,64 +81,39 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.card-body -->
                                 <div class="card-footer d-flex justify-content-center">
-                                    <button type="submit"
-                                        class="btn btn-warning w-100 text-nowrap m-1">{{ __('create') }}</button>
-                                    <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                    <button type="submit" class="btn bg-olive col-sm-4 ml-1">{{ __('create') }}</button>
+                                    <a class="btn btn-secondary col-sm-4 ml-1"
                                         href="{{ route('post') }}">{{ __('back') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- /.card -->
                 </form>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
     <style>
-        .holder {
-            width: 100%;
-            aspect-ratio: 3 / 2;
-            border: 1px solid black;
-        }
-
         #imgPreview {
             max-width: 100%;
             aspect-ratio: 3 / 2;
         }
-
-        #container {
-            width: 1000px;
-            margin: 20px auto;
-        }
-
-        .ck-editor__editable[role="textbox"] {
-            /* editing area */
-            min-height: 200px;
-        }
-
-        .ck-content .image {
-            /* block images */
-            max-width: 80%;
-            margin: 20px auto;
-        }
     </style>
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- jquery-validation -->
     <script src="/vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="/vendor/jquery-validation/additional-methods.min.js"></script>
     <!-- Page specific script -->
     <script>
         $(function() {
-            $('#form-validate').validate({
+            $('#form').validate({
                 rules: {
                     post_title: {
                         required: true,
@@ -179,209 +145,16 @@
             });
         });
     </script>
-    {{-- <script src="/ckeditor5/ckeditor.js"></script>
-    <script>                    
-        CKEDITOR.replace( 'editor');
-    </script> --}}
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/super-build/ckeditor.js"></script>
-    <script type="text/javascript" src="/ckfinder/ckfinder.js"></script>
-
+    {{-- CHỌN FILE UPLOAD --}}
+    <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script>
-        // This sample still does not showcase all CKEditor 5 features (!)
-        // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
-        CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
-            // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
-            toolbar: {
-                items: [
-                    'exportPDF', 'exportWord', '|',
-                    'findAndReplace', 'selectAll', '|',
-                    'heading', '|',
-                    'bold', 'italic', 'strikethrough', 'underline', 'code', 'subscript', 'superscript',
-                    'removeFormat', '|',
-                    'bulletedList', 'numberedList', 'todoList', '|',
-                    'outdent', 'indent', '|',
-                    'undo', 'redo',
-                    '-',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'highlight', '|',
-                    'alignment', '|',
-                    'link', 'insertImage', 'CKFinder', 'blockQuote', 'insertTable', 'mediaEmbed', 'codeBlock',
-                    'htmlEmbed',
-                    '|',
-                    'specialCharacters', 'horizontalLine', 'pageBreak', '|',
-                    'textPartLanguage', '|',
-                    'sourceEditing',
-                ],
-                shouldNotGroupWhenFull: true
-            },
-
-            ckfinder: {
-                // Upload the images to the server using the CKFinder QuickUpload command.
-                uploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-
-                // Define the CKFinder configuration (if necessary).
-                // options: {
-                //     resourceType: 'Images'
-                // }
-            },
-            // Changing the language of the interface requires loading the language file using the <script> tag.
-            // language: 'es',
-            list: {
-                properties: {
-                    styles: true,
-                    startIndex: true,
-                    reversed: true
-                }
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
-            heading: {
-                options: [{
-                        model: 'paragraph',
-                        title: 'Paragraph',
-                        class: 'ck-heading_paragraph'
-                    },
-                    {
-                        model: 'heading1',
-                        view: 'h1',
-                        title: 'Heading 1',
-                        class: 'ck-heading_heading1'
-                    },
-                    {
-                        model: 'heading2',
-                        view: 'h2',
-                        title: 'Heading 2',
-                        class: 'ck-heading_heading2'
-                    },
-                    {
-                        model: 'heading3',
-                        view: 'h3',
-                        title: 'Heading 3',
-                        class: 'ck-heading_heading3'
-                    },
-                    {
-                        model: 'heading4',
-                        view: 'h4',
-                        title: 'Heading 4',
-                        class: 'ck-heading_heading4'
-                    },
-                    {
-                        model: 'heading5',
-                        view: 'h5',
-                        title: 'Heading 5',
-                        class: 'ck-heading_heading5'
-                    },
-                    {
-                        model: 'heading6',
-                        view: 'h6',
-                        title: 'Heading 6',
-                        class: 'ck-heading_heading6'
-                    }
-                ]
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-            placeholder: 'Welcome to CKEditor 5!',
-            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
-            fontFamily: {
-                options: [
-                    'default',
-                    'Arial, Helvetica, sans-serif',
-                    'Courier New, Courier, monospace',
-                    'Georgia, serif',
-                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                    'Tahoma, Geneva, sans-serif',
-                    'Times New Roman, Times, serif',
-                    'Trebuchet MS, Helvetica, sans-serif',
-                    'Verdana, Geneva, sans-serif'
-                ],
-                supportAllValues: true
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-size-feature
-            fontSize: {
-                options: [10, 12, 14, 'default', 18, 20, 22],
-                supportAllValues: true
-            },
-            // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
-            // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
-            htmlSupport: {
-                allow: [{
-                    name: /.*/,
-                    attributes: true,
-                    classes: true,
-                    styles: true
-                }]
-            },
-            // Be careful with enabling previews
-            // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
-            htmlEmbed: {
-                showPreviews: true
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/link.html#custom-link-attributes-decorators
-            link: {
-                decorators: {
-                    addTargetToExternalLinks: true,
-                    defaultProtocol: 'https://',
-                    toggleDownloadable: {
-                        mode: 'manual',
-                        label: 'Downloadable',
-                        attributes: {
-                            download: 'file'
-                        }
-                    }
-                }
-            },
-            // https://ckeditor.com/docs/ckeditor5/latest/features/mentions.html#configuration
-            mention: {
-                feeds: [{
-                    marker: '@',
-                    feed: [
-                        '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes',
-                        '@chocolate', '@cookie', '@cotton', '@cream',
-                        '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread',
-                        '@gummi', '@ice', '@jelly-o',
-                        '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding',
-                        '@sesame', '@snaps', '@soufflé',
-                        '@sugar', '@sweet', '@topping', '@wafer'
-                    ],
-                    minimumCharacters: 1
-                }]
-            },
-            // The "super-build" contains more premium features that require additional configuration, disable them below.
-            // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
-            removePlugins: [
-                // These two are commercial, but you can try them out without registering to a trial.
-                // 'ExportPdf',
-                // 'ExportWord',
-                'CKBox',
-                // 'CKFinder',
-                'EasyImage',
-                // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
-                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
-                // Storing images as Base64 is usually a very bad idea.
-                // Replace it on production website with other solutions:
-                // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
-                // 'Base64UploadAdapter',
-                'RealTimeCollaborativeComments',
-                'RealTimeCollaborativeTrackChanges',
-                'RealTimeCollaborativeRevisionHistory',
-                'PresenceList',
-                'Comments',
-                'TrackChanges',
-                'TrackChangesData',
-                'RevisionHistory',
-                'Pagination',
-                'WProofreader',
-                // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
-                // from a local file system (file://) - load this site via HTTP server if you enable MathType.
-                'MathType',
-                // The following features are part of the Productivity Pack and require additional license.
-                'SlashCommand',
-                'Template',
-                'DocumentOutline',
-                'FormatPainter',
-                'TableOfContents',
-            ]
+        $(function() {
+            bsCustomFileInput.init();
         });
     </script>
+
+    {{-- IMAGE PREVIEW --}}
     <script>
         $(document).ready(() => {
             $('#post_img').change(function() {
@@ -399,10 +172,8 @@
         });
     </script>
 
-<script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-<script>
-    $(function() {
-        bsCustomFileInput.init();
-    });
-</script>
+    {{-- CKEDITOR --}}
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/ckeditor/ckeditor_config.js"></script>
+    <script type="text/javascript" src="/ckfinder/ckfinder.js"></script>
 @stop

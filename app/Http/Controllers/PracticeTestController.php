@@ -49,7 +49,7 @@ class PracticeTestController extends Controller
             'creator_id' => Auth::user()->user_id
         ]);
 
-        return redirect()->route('practice_test.show', ['practice_test' => $test->test_id]);
+        return redirect()->route('practice_test.show', ['practice_test' => $test->test_id])->with('msg_success', 'Đã tạo thành công');
     }
 
 
@@ -57,12 +57,7 @@ class PracticeTestController extends Controller
     {
         $test = PracticeTest::where('test_id', $id)->first();
 
-        return view(
-            'admin.class.practice_test.show',
-            [
-                'test' => $test
-            ]
-        );
+        return view('admin.class.practice_test.show', ['test' => $test]);
     }
 
     public function edit($id)
@@ -72,14 +67,11 @@ class PracticeTestController extends Controller
         $test_types = TestType::all();
         $levels = Level::all();
 
-        return view(
-            'admin.class.practice_test.edit',
-            [
-                'test' => $test,
-                'test_types' => $test_types,
-                'levels' => $levels
-            ]
-        );
+        return view('admin.class.practice_test.edit', [
+            'test' => $test,
+            'test_types' => $test_types,
+            'levels' => $levels
+        ]);
     }
 
 
@@ -104,7 +96,7 @@ class PracticeTestController extends Controller
         $test->creator_id = Auth::user()->user_id;
         $test->save();
 
-        return redirect()->route('practice_test.show', ['practice_test' => $test->test_id]);
+        return redirect()->route('practice_test.show', ['practice_test' => $test->test_id])->with('msg_success', 'Đã cập nhật thành công');
     }
 
 
@@ -112,12 +104,11 @@ class PracticeTestController extends Controller
     {
         $public_date = uniqid();
         $public_test = new PracticeTestPublic();
-        $public_test->public_test_id = $practice_test_id."_".$public_date;
+        $public_test->public_test_id = $practice_test_id . "_" . $public_date;
         $public_test->practice_test_id = $practice_test_id;
         $public_test->creator_id = Auth::user()->user_id;
         $public_test->save();
 
-        return redirect()->route('public_text.show', $public_test->public_test_id);
+        return redirect()->route('public_text.show', $public_test->public_test_id)->with('msg_success', 'Đã tạo kỳ kiểm tra thành công');
     }
-
 }

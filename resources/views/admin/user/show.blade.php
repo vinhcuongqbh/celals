@@ -12,12 +12,12 @@
             <div class="col-xl-6">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">{{ __('user_information') }}</h3>
+                        <h3 class="card-title text-danger text-uppercase text-bold">{{ __('user_information') }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="user_name">{{ __('user_name') }}</label>
+                                <label class="col-form-label" for="user_name">{{ __('user_name') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="user_name" name="user_name" value="{{ $user->user_name }}"
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="name">{{ __('name') }}</label>
+                                <label class="col-form-label" for="name">{{ __('name') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="name" name="name" value="{{ $user->name }}"
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="address">{{ __('address') }}</label>
+                                <label class="col-form-label" for="address">{{ __('address') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="address" name="address" value="{{ $user->address }}"
@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="tel">{{ __('tel') }}</label>
+                                <label class="col-form-label" for="tel">{{ __('tel') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="tel" name="tel" value="{{ $user->tel }}"
@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="email">{{ __('email') }}</label>
+                                <label class="col-form-label" for="email">{{ __('email') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="email" name="email" value="{{ $user->email }}"
@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="center_name">{{ __('center_name') }}</label>
+                                <label class="col-form-label" for="center_name">{{ __('center_name') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="center_name" name="center_name" value="{{ $user->center_name }}"
@@ -71,7 +71,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-3">
-                                <label for="role_name">{{ __('role_name') }}</label>
+                                <label class="col-form-label" for="role_name">{{ __('role_name') }}</label>
                             </div>
                             <div class="col-sm-9">
                                 <input type="text" id="role_name" name="role_name" value="{{ $user->role_name }}"
@@ -79,23 +79,20 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-end">
-                        <button type="button" class="btn btn-danger text-white text-nowrap col-auto m-1" data-toggle="modal"
+                        <button type="button" class="btn btn-primary col-sm-auto ml-1" data-toggle="modal"
                             data-target="#reset-pass">{{ __('changePassword') }}</button>
                         @if (Auth::user()->role_id == 1)
-                            <a class="btn bg-olive text-nowrap col-2 m-1"
+                            <a class="btn bg-olive col-sm-2 ml-1"
                                 href="{{ route('user.edit', $user->user_id) }}">{{ __('edit') }}</a>
                         @endif
-                        <a class="btn bg-primary text-white text-nowrap col-2 m-1"
-                            href="{{ route('user') }}">{{ __('back') }}</a>
+                        <a class="btn btn-secondary col-sm-2 ml-1" href="{{ route('user') }}">{{ __('back') }}</a>
                     </div>
                 </div>
-                <!-- /.card -->
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
+
     {{-- Cấp lại mật mã --}}
     <form action="{{ route('user.resetpass', $user->user_id) }}" method="post" id="form-resetpass">
         @csrf
@@ -111,7 +108,8 @@
                     <div class="modal-body">
                         <div class="form-group row">
                             <div class="col-4">
-                                <label for="password" class="col-form-label">{{ __('newPassword') }}</label>
+                                <label class="col-form-label" for="password"
+                                    class="col-form-label">{{ __('newPassword') }}</label>
                             </div>
                             <div class="col-8">
                                 <input type="password" id="password" name="password" class="form-control">
@@ -119,7 +117,8 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-4">
-                                <label for="confirmPassword" class="col-form-label">{{ __('confirmPassword') }}</label>
+                                <label class="col-form-label" for="confirmPassword"
+                                    class="col-form-label">{{ __('confirmPassword') }}</label>
                             </div>
                             <div class="col-8">
                                 <input type="password" id="confirmPassword" name="confirmPassword" class="form-control">
@@ -129,15 +128,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn bg-olive text-white text-nowrap">{{ __('update') }}</button>
-                        {{-- <button type="button" class="btn bg-olive text-white text-nowrap"
-                        data-dismiss="modal">{{ __('back') }}</button> --}}
                     </div>
                 </div>
-                <!-- /.modal-content -->
             </div>
-            <!-- /.modal-dialog -->
         </div>
-        <!-- /.modal -->
     </form>
 @stop
 

@@ -12,23 +12,14 @@
             <div class="col-xl-6">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('user_information') }}</h3>
+                        <h3 class="card-title text-danger text-uppercase text-bold">{{ __('user_information') }}</h3>
                     </div>
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     <form action="{{ route('user.update', $user->user_id) }}" method="post" id="form-validate">
                         @csrf
                         <div class="card-body">                            
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="user_name">{{ __('user_name') }}</label>
+                                    <label class="col-form-label" for="user_name">{{ __('user_name') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <input type="text" id="user_name" name="user_name" value="{{ $user->user_name }}"
@@ -37,17 +28,16 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="name">{{ __('name') }}</label>
+                                    <label class="col-form-label" for="name">{{ __('name') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <input type="text" id="name" name="name" value="{{ $user->name }}"
                                         class="form-control">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="address">{{ __('address') }}</label>
+                                    <label class="col-form-label" for="address">{{ __('address') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <input type="text" id="address" name="address" value="{{ $user->address }}"
@@ -56,7 +46,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="tel">{{ __('tel') }}</label>
+                                    <label class="col-form-label" for="tel">{{ __('tel') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <input type="text" id="tel" name="tel" value="{{ $user->tel }}"
@@ -65,7 +55,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="tel">{{ __('email') }}</label>
+                                    <label class="col-form-label" for="tel">{{ __('email') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <input type="text" id="email" name="email" value="{{ $user->email }}"
@@ -74,7 +64,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="center_id">{{ __('center_name') }}</label>
+                                    <label class="col-form-label" for="center_id">{{ __('center_name') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <select id="center_id" name="center_id" class="form-control custom-select">
@@ -89,7 +79,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="role_id">{{ __('role_name') }}</label>
+                                    <label class="col-form-label" for="role_id">{{ __('role_name') }}</label>
                                 </div>
                                 <div class="col-sm-9">
                                     <select id="role_id" name="role_id" class="form-control custom-select">
@@ -102,20 +92,17 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.card-body -->
-                        <div class="card-footer d-flex justify-content-center">
+                        <div class="card-footer d-flex justify-content-end">
                             <button type="submit"
-                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('update') }}</button>                            
-                            <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                class="btn bg-olive col-sm-2 mx-1">{{ __('update') }}</button>                            
+                            <a class="btn btn-secondary col-sm-2"
                                 href="{{ route('user.show', $user->user_id) }}">{{ __('back') }}</a>
                         </div>
                     </form>
                 </div>
-                <!-- /.card -->
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('js')

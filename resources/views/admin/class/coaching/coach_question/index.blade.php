@@ -22,11 +22,11 @@
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
-                                    <th class="text-center align-middle">{{ __('ID') }}</th>
-                                    <th class="text-center align-middle">{{ __('coach_type') }}</th>
-                                    <th class="text-center align-middle">{{ __('coach_subject') }}</th>
-                                    <th class="text-center align-middle">{{ __('coach_question') }}</th>
-                                    <th class="text-center align-middle">{{ __('suggest_answer') }}</th>
+                                    <th class="align-middle text-center">{{ __('ID') }}</th>
+                                    <th class="align-middle text-center">{{ __('coach_type') }}</th>
+                                    <th class="align-middle text-center">{{ __('coach_subject') }}</th>
+                                    <th class="align-middle text-center">{{ __('coach_question') }}</th>
+                                    <th class="align-middle text-center">{{ __('suggest_answer') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

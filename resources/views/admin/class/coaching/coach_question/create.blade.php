@@ -14,8 +14,7 @@
                 <div class="col-12 col-sm-9">
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="question"
-                                class="col-form-label text-uppercase text-danger p-0">{{ __('question') }}</label>
+                            <h3 class="card-title text-danger text-uppercase text-bold">{{ __('question') }}</h3>                            
                         </div>
                         <div class="card-body p-0">
                             <textarea id="editor1" name="question" class="form-control">{{ old('question') }}</textarea>
@@ -23,8 +22,7 @@
                     </div>
                     <div class="card card-default">
                         <div class="card-header">
-                            <label for="suggest_answer"
-                                class="col-form-label text-uppercase text-danger p-0">{{ __('suggest_answer') }}</label>
+                            <h3 class="card-title text-danger text-uppercase text-bold">{{ __('suggest_answer') }}</h3>
                         </div>
                         <div class="card-body p-0">
                             <textarea id="editor2" name="suggest_answer" class="form-control">{{ old('suggest_answer') }}</textarea>

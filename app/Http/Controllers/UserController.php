@@ -12,17 +12,17 @@ use App\Models\StudentListeningBlock;
 use App\Models\UserRole;
 
 class UserController extends Controller
-{   
-    // Danh sách user
+{
+    // DANH SÁCH USER
     public function index()
-    {        
+    {
         $users = User::all();
 
         return view('admin.user.index', ['users' => $users]);
     }
 
 
-    // Tạo mới user
+    // TẠO MỚI USER
     public function create()
     {
         $centers = Center::where('center_status', 1)->get();
@@ -34,10 +34,10 @@ class UserController extends Controller
         ]);
     }
 
-
+    // LƯU THÔNG TIN USER
     public function store(Request $request)
     {
-        //Kiểm tra thông tin đầu vào
+        // Kiểm tra thông tin đầu vào
         $validated = $request->validate([
             'name' => 'required',
             'user_name' => 'required|unique:App\Models\User,user_name',
@@ -45,7 +45,7 @@ class UserController extends Controller
             'role_id' => 'required',
         ]);
 
-        //Tạo Nhân viên mới
+        // Tạo mới user
         $user = new User;
         $user->name = ucwords($request->name);
         $user->user_name = strtolower($request->user_name);
@@ -58,7 +58,7 @@ class UserController extends Controller
         $user->user_status = 1;
         $user->save();
 
-        //Tạo Listening Block cho Student
+        // Tạo Listening Block cho Student
         if ($user->role_id == 5) {
             $first_block = ListeningBlock::first();
             $student_listening_block = new StudentListeningBlock();
@@ -67,29 +67,24 @@ class UserController extends Controller
             $student_listening_block->save();
         }
 
-        return redirect()->route('user.show', ['id' => $user->user_id]);
+        return redirect()->route('user.show', ['id' => $user->user_id])->with('msg_success', 'Tạo mới thành công');
     }
 
-
+    // HIỂN THỊ THÔNG TIN USER
     public function show($id)
     {
-        $user = User::where('user_id', $id)
-            ->where('users.user_status', 1)
-            ->leftjoin('user_roles', 'user_roles.role_id', 'users.role_id')
-            ->leftjoin('centers', 'centers.center_id', 'users.center_id')
-            ->select('users.*', 'user_roles.role_name', 'centers.center_name')
-            ->first();
+        $user = User::find($id);
 
         return view('admin.user.show', ['user' => $user,]);
     }
 
-
+    // SỬA THÔNG TIN USER
     public function edit($id)
     {
         $centers = Center::where('center_status', 1)->get();
         $userRoles = UserRole::where('role_status', 1)->get();
 
-        $user = User::where('user_id', $id)->first();
+        $user = User::find($id);
 
         return view('admin.user.edit', [
             'user' => $user,
@@ -98,19 +93,19 @@ class UserController extends Controller
         ]);
     }
 
-
+    // CẬP NHẬT THÔNG TIN USER
     public function update(Request $request, $id)
     {
-        //Kiểm tra thông tin đầu vào
+        // Kiểm tra thông tin đầu vào
         $validated = $request->validate([
             'name' => 'required',
             'role_id' => 'required',
         ]);
 
-        //Tìm thông tin Nhân viên
-        $user = User::where('user_id', $id)->first();
+        // Tìm thông tin user
+        $user = User::find($id);
 
-        //Cập nhật thông tin Nhân viên        
+        // Cập nhật thông tin user        
         $user->name = ucwords($request->name);
         $user->address = $request->address;
         $user->tel = $request->tel;
@@ -119,66 +114,45 @@ class UserController extends Controller
         $user->role_id = $request->role_id;
         $user->save();
 
-        return redirect()->route('user.show', ['id' => $user->user_id]);
+        return redirect()->route('user.show', ['id' => $user->user_id])->with('msg_success', 'Cập nhật thành công');
     }
 
 
-    // Khóa tài khoản Nhân viên
+    // KHÓA TÀI KHOẢN USER
     public function destroy($id)
     {
-        $user = User::where('user_id', $id)->first();
+        $user = User::find($id);
         $user->user_status = 0;
         $user->save();
 
-        return back();
+        return back()->with('msg_success', 'Khóa tài khoản thành công');
     }
 
 
-    // Mở lại tài khoản Nhân viên
+    // MỞ LẠI TÀI KHOẢN USER
     public function restore($id)
     {
-        $user = User::where('user_id', $id)->first();
+        $user = User::find($id);
         $user->user_status = 1;
         $user->save();
 
-        return back();
+        return back()->with('msg_success', 'Mở lại tài khoản thành công');;
     }
 
-    // Cấp lại mật mã cho tài khoản
+    // CẤP LẠI MẬT MÃ
     public function resetpass(Request $request, $id)
     {
-        //Tìm thông tin Nhân viên
-        $user = User::where('user_id', $id)->first();
+        // Tìm thông tin user
+        $user = User::find($id);
 
-        //Cập nhật thông tin Nhân viên        
+        // Cập nhật thông tin user        
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('user.show', ['id' => $user->user_id]);
+        return redirect()->route('user.show', ['id' => $user->user_id])->with('msg_success', 'Cấp lại mật mã thành công');;
     }
 
-
-    // Tìm kiếm nhân viên
-    public function search(Request $request)
-    {
-
-        $user = User::leftjoin('moz_roles', 'moz_roles.roleId', 'moz_users.roleId')
-            ->leftjoin('asahi_center', 'asahi_center.centerId', 'moz_users.centerId')
-            ->select('moz_users.*', 'moz_roles.roleName', 'asahi_center.centerName')
-            ->orderBy('userId', 'desc');
-
-        if (isset($request->userID)) $user->where('userId', $request->userID);
-        if (isset($request->userName)) $user->where('name', 'LIKE', '%' . $request->userName . '%');
-        if (isset($request->centerID)) $user->where('asahi_center.centerId', $request->centerID);
-        if (isset($request->centerName)) $user->where('centerName', 'LIKE', '%' . $request->centerName . '%');
-
-        $user = $user->get();
-
-        if (Auth::user()->roleId != 3) return view('admin.user.result', ['users' => $user]);
-    }
-
-
-    //Thoát tài khoản 
+    // THOÁT TÀI KHOẢN
     public function logout(Request $request)
     {
         Auth::logout();

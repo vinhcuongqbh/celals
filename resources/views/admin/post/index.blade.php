@@ -10,17 +10,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                @if (session()->has('message'))
-                    <script>
-                        Swal.fire({
-                            icon: 'success',
-                            text: `{{ session()->get('message') }}`,
-                            showConfirmButton: false,
-                            timer: 2000
-                        })
-                    </script>
-                @endif
-
                 <div class="card card-default">
                     <div class="card-body">
                         <table id="data-table" class="table table-bordered table-striped">
@@ -34,35 +23,36 @@
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
-                                    <th class="text-center align-middle">{{ __('ID') }}</th>
-                                    <th class="text-center align-middle">{{ __('post_title') }}</th>
-                                    <th class="text-center align-middle">{{ __('post_catalogue') }}</th>
-                                    <th class="text-center align-middle">{{ __('post_author') }}</th>
-                                    <th class="text-center align-middle">{{ __('post_status') }}</th>
-                                    <th class="text-center align-middle">{{ __('action') }}</th>
+                                    <th class="align-middle text-center">{{ __('ID') }}</th>
+                                    <th class="align-middle text-center">{{ __('post_title') }}</th>
+                                    <th class="align-middle text-center">{{ __('post_catalogue') }}</th>
+                                    <th class="align-middle text-center">{{ __('post_author') }}</th>
+                                    <th class="align-middle text-center">{{ __('post_status') }}</th>
+                                    <th class="align-middle text-center">{{ __('action') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($posts as $post)
                                     <tr>
-                                        <td style="text-align:center">{{ $post->post_id }}</td>
-                                        <td><a href="{{ route('post.edit', $post->post_id) }}">{{ $post->post_title }}</a>
+                                        <td class="text-center">{{ $post->post_id }}</td>
+                                        <td>
+                                            <a href="{{ route('post.edit', $post->post_id) }}">{{ $post->post_title }}</a>
                                         </td>
-                                        <td style="text-align:center">{{ $post->post_catalogue_name }}</td>
-                                        <td style="text-align:center">{{ $post->name }}</td>
-                                        <td style="text-align:center">{{ $post->post_status }}</td>
-                                        <td style="text-align:center">
+                                        <td class="text-center">{{ $post->catalogue->post_catalogue_name }}</td>
+                                        <td class="text-center">{{ $post->user->name }}</td>
+                                        <td class="text-center">{{ $post->post_status }}</td>
+                                        <td class="text-center">
                                             <div class="d-flex justify-content-center">
                                                 @if ($post->post_status == 0)
-                                                    <a class="w-100 m-1 btn bg-olive text-white text-nowrap"
+                                                    <a class="btn bg-primary col-sm-6 m-1"
                                                         href="{{ route('post.public', $post->post_id) }}">{{ __('public') }}
                                                     </a>
                                                 @else
-                                                    <a class="w-100 m-1 btn bg-warning text-white text-nowrap"
+                                                    <a class="btn bg-secondary col-sm-6 m-1"
                                                         href="{{ route('post.unpublic', $post->post_id) }}">{{ __('unpublic') }}
                                                     </a>
                                                 @endif
-                                                <a class="w-100 m-1 btn bg-danger text-white text-nowrap destroyedPost"
+                                                <a class="btn bg-danger col-sm-6 m-1 destroyedPost"
                                                     href="{{ route('post.destroy', $post->post_id) }}">{{ __('destroy') }}
                                                 </a>
                                             </div>
@@ -72,25 +62,13 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
-@section('css')   
-    <style>
-        .col-xl-2 {
-            width: 14.285%;
-            flex: 0 0 14.285%;
-            max-width: 14.285%;
-        }
-    </style>
+@section('css')
 @stop
 
 @section('js')
@@ -98,20 +76,19 @@
         $(function() {
             $("#data-table").DataTable({
                 responsive: true,
-                lengthChange: false,
-                pageLength: 25,
                 searching: true,
+                ordering: false,                
+                pageLength: 15,
+                lengthChange: false,
                 autoWidth: false,
-                ordering: false,
                 dom: 'Bfrtip',
                 buttons: [{
-                        text: 'Tạo mới',
-                        className: 'bg-olive',
-                        action: function(e, dt, node, config) {
-                            window.location = '{{ route('post.create') }}';
-                        },
+                    text: 'Tạo mới',
+                    className: 'bg-olive',
+                    action: function(e, dt, node, config) {
+                        window.location = '{{ route('post.create') }}';
                     },
-                ],
+                }, ],
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },

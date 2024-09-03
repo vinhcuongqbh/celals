@@ -11,53 +11,38 @@
         <div class="row">
             <div class="col-12 col-sm-9">
                 <div class="card card-default">
+                    <div class="card-header row">
+                        <div class="col-12 col-sm-2">
+                            <label for="" class="col-form-label text-uppercase text-danger">{{ __('subject') }}</label>
+                        </div>
+                        <div class="col-12 col-sm-10">
+                            <label for="" class="col-form-label">{{ $test->subject }}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-default">
+                    <div class="card-header">
+                        <label for="" class="col-form-label text-uppercase text-danger p-0">{{ __('question') }}</label>
+                    </div>
                     <div class="card-body">
                         <div class="form-group row">
-                            <div class="col-12">
-                                <label for="subject">{{ __('subject') }}</label>
-                            </div>
-                            <div class="col-12">
-                                <input type="text" id="subject" name="subject" value="{{ $test->subject }}"
-                                    class="form-control" readonly>
+                            <div class="col-12 ck-content">
+                                {!! $test->question !!}
                             </div>
                         </div>
-                        @if (isset($test->question))
-                            <div class="form-group row">
-                                <div class="col-12">
-                                    <label for="question">{{ __('question') }}</label>
-                                </div>
-                                <div class="col-12 border ck-content">
-                                    {!! $test->question !!}
-                                </div>
-                            </div>
-                        @endif
-                        {{-- @if (isset($test->link_question))
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="question">{{ __('question') }}</label>
-                                </div>
-                                <div class="col-12 col-sm-10">
-                                    <div class="holder">
-                                        <img id="imgPreview" alt="pic" src="{{ $test->link_question }}" />
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                        @php
-                            $i = 1;
-                        @endphp
-                        @foreach ($test_details as $td)
-                            <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="">{{ __('link_audio') }} {{ $i++ }}</label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <audio controls controlsList="nodownload" src="{{ $td->link_audio }}"></audio>
-                                </div>
-                            </div>
-                        @endforeach --}}
                     </div>
-                    <!-- /.card-body -->                    
+                </div>
+                <div class="card card-default">
+                    <div class="card-header">
+                        <label for="" class="col-form-label text-uppercase text-danger p-0">{{ __('suggested_answer') }}</label>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group row">
+                            <div class="col-12 ck-content">
+                                {!! $test->suggested_answer !!}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-sm-3">
@@ -70,17 +55,19 @@
                                 </div>
                                 <div class="col-12">
                                     <select id="level_id" name="level_id" class="form-control custom-select" disabled>
-                                        <option value="{{ $test->level_id }}">{{ $test->level_name }}</option>
+                                        <option value="{{ $test->level_id }}">{{ $test->level->level_name }}</option>
                                     </select>
                                 </div>
-                            </div>                        
+                            </div>
                             <div class="form-group row">
                                 <div class="col-12">
                                     <label for="">{{ __('test_type') }}</label>
                                 </div>
                                 <div class="col-12">
-                                    <select id="test_type_id" name="test_type_id" class="form-control custom-select" disabled>
-                                        <option value="{{ $test->test_type_id }}">{{ $test->test_type_name }}</option>
+                                    <select id="test_type_id" name="test_type_id" class="form-control custom-select"
+                                        disabled>
+                                        <option value="{{ $test->test_type_id }}">{{ $test->test_type->test_type_name }}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -107,7 +94,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-center">
                         <a class="btn bg-olive text-white w-100 text-nowrap m-1"
                             href="{{ route('listening.test_edit', $test->test_id) }}">{{ __('edit') }}</a>
@@ -116,23 +102,13 @@
                     </div>
                 </div>
             </div>
-            <!-- /.card -->
         </div>
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-
-        #imgPreview {
-            max-width: 100%;
-        }
-    </style>
-    <link rel="stylesheet" href="/css/content-styles.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')

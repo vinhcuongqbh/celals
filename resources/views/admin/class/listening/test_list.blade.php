@@ -14,48 +14,41 @@
                     <div class="card-body">
                         <table id="data-table" class="table table-bordered table-striped">
                             <colgroup>
-                                <col style="width:10%;">
-                                <col style="width:60%;">
-                                <col style="width:30%;">
+                                <col style="width:5%;">
+                                <col style="width:55%;">
+                                <col style="width:20%;">
+                                <col style="width:20%;">
                             </colgroup>
-                            <thead style="text-align: center">
+                            <thead>
                                 <tr>
-                                    <th class="text-center">ID</th>
-                                    <th class="text-center">Chủ đề bài Test</th>
-                                    <th class="text-center">Trình độ</th>
+                                    <th class="align-middle text-center">ID</th>
+                                    <th class="align-middle text-center">Chủ đề bài Test</th>
+                                    <th class="align-middle text-center">Trình độ</th>
+                                    <th class="align-middle text-center">Hình thức</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($tests as $test)
                                     <tr>
                                         <td class="text-center">{{ $test->id }}</td>
-                                        <td><a
+                                        <td>
+                                            <a
                                                 href="{{ route('listening.test_show', $test->test_id) }}">{{ $test->subject }}</a>
                                         </td>
-                                        <td class="text-center">{{ $test->level_name }}</td>
+                                        <td class="text-center">{{ $test->level->level_name }}</td>
+                                        <td class="text-center">{{ $test->test_type->test_type_name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <style>
-        .col-xl-2 {
-            width: 14.285%;
-            flex: 0 0 14.285%;
-            max-width: 14.285%;
-        }
-    </style>
 @stop
 
 @section('js')
@@ -63,20 +56,19 @@
         $(function() {
             $("#data-table").DataTable({
                 responsive: true,
-                lengthChange: false,
-                pageLength: 25,
                 searching: true,
+                ordering: true,
+                pageLength: 15,
                 autoWidth: false,
-                ordering: false,
+                lengthChange: false,
                 dom: 'Bfrtip',
                 buttons: [{
-                        text: 'Tạo mới',
-                        className: 'bg-olive',
-                        action: function(e, dt, node, config) {
-                            window.location = '{{ route('listening.test_create') }}';
-                        },
+                    text: 'Tạo mới',
+                    className: 'bg-olive',
+                    action: function(e, dt, node, config) {
+                        window.location = '{{ route('listening.test_create') }}';
                     },
-                ],
+                }, ],
                 language: {
                     url: '/plugins/datatables/vi.json'
                 },
