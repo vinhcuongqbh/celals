@@ -122,34 +122,29 @@
     </div>
 
     <!-- Modal -->
-    <form action="{{ route('coaching.assignment') }}" method="post" id="form-assignment">
-        @csrf
-        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                    <div id="modal1-content" class="modal-body">
-                    </div>
-                    <div class="modal-footer">
-                        <div class="col-12 col-sm-2">
-                            <label class="h6" for="student_id">{{ __('student') }}</label>
-                        </div>
-                        <div class="col-12 col-sm-auto">
-                            <select id="student_id2" name="student_id2" class="form-control custom-select">
-                                <option selected></option>
-                                @foreach ($students as $student)
-                                    <option value="{{ $student->user_id }}">
-                                        {{ $student->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <input type="hidden" id="question_assignment" name="question_assignment" value="">
-                        <button type="submit" class="btn bg-olive ml-1">GIAO BÀI</button>
-                    </div>
+    <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div id="modal1-content" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <a id="btn-download" href="#" class="btn btn-secondary">Download</a>
                 </div>
             </div>
+
         </div>
-    </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div id="modal3-content" class="modal-body">
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2" aria-hidden="true">
@@ -204,38 +199,13 @@
                     $(element).removeClass('is-invalid');
                 }
             });
-
-            $('#form-assignment').validate({
-                rules: {
-                    student_id2: {
-                        required: true,
-                    },
-                },
-                messages: {
-                    student_id2: {
-                        required: "{{ __('select_content') }}",
-                    },
-                },
-                errorElement: 'span',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    element.closest('.col-12').append(error);
-
-                },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid');
-                },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass('is-invalid');
-                }
-            });
         });
     </script>
 
     {{-- // Bảng dữ liệu --}}
     <script>
         $(function() {
-            $("#table").DataTable({
+            $("#table").DataTable({               
                 fixedHeader: true,
                 paging: false,
                 responsive: true,
@@ -285,7 +255,9 @@
         var checkbox = document.querySelectorAll('input[type=checkbox]')
         var modal1 = new bootstrap.Modal(document.getElementById('modal1'), {});
         var modal1_content = document.getElementById('modal1-content');
-        var question_assignment = document.getElementById('question_assignment');
+        var modal3_content = document.getElementById('modal3-content');
+        var getCanvas;
+        var btn_download = document.getElementById('btn-download');
 
         function xuatdulieu() {
             modal1_content.innerHTML = '<div class="text-bold">ĐỀ BÀI</div>';
@@ -293,11 +265,27 @@
                 if (checkbox[i].checked == true) {
                     var question = document.getElementById('question' + checkbox[i].value);
                     modal1_content.innerHTML = modal1_content.innerHTML + '<hr>' + question.innerHTML;
-                    question_assignment.value = question_assignment.value + checkbox[i].value + ',';
+                    modal3_content.innerHTML = modal1_content.innerHTML;
                 }
-            }
+            }    
 
-            modal1.show();
+            modal1.show();  
+
+            html2canvas(document.querySelector('#modal3-content')).then(canvas => {
+                getCanvas = canvas;
+                //btn_download.click();
+            });
+
         }
+    </script>
+
+    <script type="text/javascript" src="/js/html2canvas.js"></script>
+    <script>
+        $("#btn-download").on('click', function() {
+            var imgageData = getCanvas.toDataURL("image/png");
+            var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+            $("#btn-download").attr("download", "cau_so_53.png").attr("href", newData);
+            // location.reload();                           
+        });
     </script>
 @stop

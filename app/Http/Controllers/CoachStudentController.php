@@ -98,4 +98,13 @@ class CoachStudentController extends Controller
 
         return back()->with('msg_success', 'Đã cập nhật thành công');
     }
+
+    public function assignment(Request $request)
+    {        
+        $questions = explode(",", $request->question_assignment);
+            
+        foreach ($questions as $question) {           
+            
+        }
+    }
 }
