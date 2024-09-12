@@ -16,7 +16,7 @@
     <!-- IonIcons -->
     <link rel="stylesheet" href="/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/css/adminlte.min.css">    
+    <link rel="stylesheet" href="/css/adminlte.min.css">
     {{-- Datatable  --}}
     <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="/css/buttons.dataTables.min.css">
@@ -34,7 +34,7 @@
     <!-- SweetAlert2 -->
     <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
     {{-- Datatable  --}}
-    <script src="/js/jquery-3.7.0.js"></script> 
+    <script src="/js/jquery-3.7.0.js"></script>
     <script src="/js/jquery.dataTables.min.js"></script>
     <script src="/js/dataTables.buttons.min.js"></script>
     <script src="/js/jszip.min.js"></script>
@@ -193,7 +193,7 @@
                             @endif
                         @endif
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 6)
-                        <li class="nav-header text-success text-uppercase text-bold">QUẢN LÝ LỚP HỌC</li>
+                            <li class="nav-header text-success text-uppercase text-bold">QUẢN LÝ LỚP HỌC</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-book"></i>
@@ -238,7 +238,7 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                        <li class="nav-header text-success text-uppercase text-bold">GIÁO VIÊN</li>
+                            <li class="nav-header text-success text-uppercase text-bold">GIÁO VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-music"></i>
@@ -342,7 +342,7 @@
                             </li>
                         @endif
                         @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
-                        <li class="nav-header text-success text-uppercase text-bold">HỌC VIÊN</li>
+                            <li class="nav-header text-success text-uppercase text-bold">HỌC VIÊN</li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-music"></i>
@@ -360,6 +360,21 @@
                                         <a href="/admin/class/listening/student_history_study" class="nav-link">
                                             <i class="fa fa-angle-right nav-icon"></i>
                                             <p>{{ __('history_study') }}</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-music"></i>
+                                    <p>{{ __('coaching') }}</p>
+                                    <i class="fas fa-angle-left right"></i>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/admin/class/coaching/get_coach_question" class="nav-link">
+                                            <i class="fa fa-angle-right nav-icon"></i>
+                                            <p>{{ __('coach_question') }}</p>
                                         </a>
                                     </li>
                                 </ul>

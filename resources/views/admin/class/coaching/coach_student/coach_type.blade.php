@@ -91,7 +91,7 @@
                                             <tr>
                                                 <td class="text-center align-top">
                                                     <input type="checkbox" id="checkbox{{ $coach_question->id }}"
-                                                        value="{{ $coach_question->id }}">
+                                                        value="{{ $coach_question->id }}"><br>{{ $coach_question->id }}
                                                 </td>
                                                 <td class="text-center align-top" id="result{{ $coach_question->id }}">
                                                     {{ isset($coach_question->pass) ? $coach_question->pass : 'Chưa đạt' }}

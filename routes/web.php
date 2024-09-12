@@ -198,6 +198,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('coach_student/{coach_type_id}', [CoachStudentController::class, 'coach_student']);
             Route::post('coach_student/{coach_type_id}', [CoachStudentController::class, 'coach_student'])->name('coaching.coach_student');
             Route::post('assignment', [CoachStudentController::class, 'assignment'])->name('coaching.assignment');
+            Route::get('get_coach_question', [CoachStudentController::class, 'get_coach_question'])->name('coaching.get_coach_question');
             Route::post('{user_id}/{coach_type_id}/student_result_update', [CoachStudentController::class, 'student_result_update'])->name('coaching.student_result.update');
         });
 

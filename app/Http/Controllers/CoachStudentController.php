@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\CoachQuestion;
 use App\Models\CoachStudentResult;
 use App\Models\CoachType;
+use App\Models\StudentAssignmentCoachQuestion;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 
 class CoachStudentController extends Controller
@@ -39,7 +41,8 @@ class CoachStudentController extends Controller
             ]);
         }
 
-        return view('admin.class.coaching.coach_student.summary',
+        return view(
+            'admin.class.coaching.coach_student.summary',
             [
                 'students' => $students,
                 'selected_student' => $selected_student,
@@ -100,11 +103,28 @@ class CoachStudentController extends Controller
     }
 
     public function assignment(Request $request)
-    {        
-        $questions = explode(",", $request->question_assignment);
-            
-        foreach ($questions as $question) {           
-            
+    {
+        $questions = substr_replace($request->question_assignment, '', -1);
+        $questions = explode(",", $questions);
+
+        foreach ($questions as $question) {
+            $que = new StudentAssignmentCoachQuestion();
+            $que->question_id = $question;
+            $que->student_id = $request->student_id2;
+            $que->save();
         }
+
+        return back()->with('msg_success', 'Giao bài thành công');
+    }
+
+
+    public function get_coach_question()
+    {
+        $questions = StudentAssignmentCoachQuestion::where('student_id', Auth::user()->user_id)
+            ->orderby('created_at', 'DESC')            
+            ->take(10)
+            ->get();
+
+        return view('admin.class.coaching.coach_student.student_question_list',['questions' => $questions]);
     }
 }
