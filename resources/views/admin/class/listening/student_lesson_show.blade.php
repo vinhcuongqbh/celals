@@ -66,9 +66,15 @@
                                         <div class="col-sm-2">
                                             <label for="answer">{{ __('answer') }}</label>
                                         </div>
-                                        <div class="col-sm-10">
-                                            <textarea id="answer" name="answer" class="form-control" rows="18" readonly>{{ $lesson->answer }}</textarea>
-                                        </div>
+                                        @if ((stripos($lesson->answer, '<p>') !== false)||(stripos($lesson->answer, '<figure') !== false))
+                                            <div class="col-sm-10 ck-content">
+                                                {!! $lesson->answer !!}
+                                            </div>
+                                        @else
+                                            <div class="col-sm-10">
+                                                <textarea id="answer" name="answer" class="form-control" rows="18" readonly>{{ $lesson->answer }}</textarea>
+                                            </div>
+                                        @endif
                                     </div>
                                 @endif
                                 @if (isset($lesson->link_answer))

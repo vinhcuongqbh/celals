@@ -43,12 +43,18 @@
                         </div>
                         @if (isset($lesson->answer))
                             <div class="form-group row">
-                                <div class="col-sm-2">
+                                <div class="col-sm-12">
                                     <label for="answer">{{ __('answer') }}</label>
                                 </div>
-                                <div class="col-sm-10">
-                                    <textarea id="answer" name="answer" class="form-control" rows="18" readonly>{{ $lesson->answer }}</textarea>
-                                </div>
+                                @if ((stripos($lesson->answer, '<p>') !== false)||(stripos($lesson->answer, '<figure') !== false))
+                                    <div class="col-sm-12 ck-content">
+                                        {!! $lesson->answer !!}
+                                    </div>
+                                @else
+                                    <div class="col-sm-12">
+                                        <textarea id="answer" name="answer" class="form-control" rows="18" readonly>{{ $lesson->answer }}</textarea>
+                                    </div>
+                                @endif
                             </div>
                         @endif
                         @if (isset($lesson->link_answer))
@@ -80,15 +86,8 @@
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-
-        #imgPreview {
-            max-width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')
@@ -131,29 +130,8 @@
         });
     </script>
 
-    <!-- IMG Preview -->
-    <script>
-        $(document).ready(() => {
-            $('#link_answer').change(function() {
-                const file = this.files[0];
-                console.log(file);
-                if (file) {
-                    let reader = new FileReader();
-                    reader.onload = function(event) {
-                        console.log(event.target.result);
-                        $('#imgPreview').attr('src', event.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    </script>
-
-    <!-- Hiển thị tên file khi được upload -->
-    <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
-    <script>
-        $(function() {
-            bsCustomFileInput.init();
-        });
-    </script>
+    {{-- Ckeditor --}}
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/ckeditor/ckeditor_admin_config.js"></script>
+    <script type="text/javascript" src="/ckfinder_admin/ckfinder.js"></script>
 @stop

@@ -11,7 +11,7 @@
         @csrf
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-9">
                     <div class="card card-default">
                         <div class="card-body">
                             <div class="form-group row">
@@ -51,14 +51,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <div class="col-sm-2">
-                                    <label for="answer">{{ __('answer') }}</label>
+                                <div class="col-sm-12">
+                                    <label for="">{{ __('answer') }}</label>
                                 </div>
-                                <div class="col-sm-10">
-                                    <textarea id="answer" name="answer" class="form-control" rows="18">{{ old('answer') }}</textarea>
+                                <div class="col-sm-12">
+                                    <textarea id="editor1" name="answer" class="form-control">{{ old('answer') }}</textarea>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <div class="col-sm-2">
                                     <label for="">{{ __('link_answer') }}</label>
                                 </div>
@@ -71,7 +71,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                             <div class="form-group row">
                                 <div class="col-sm-2">
                                 </div>
@@ -80,12 +80,11 @@
                                         <img id="imgPreview" alt="pic" src="/img/blank_2.png" />
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-end">
-                            <button type="submit"
-                                class="btn bg-olive text-nowrap col-2 m-1">{{ __('create') }}</button>
+                            <button type="submit" class="btn bg-olive text-nowrap col-2 m-1">{{ __('create') }}</button>
                             <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                                 href="{{ route('listening.lesson_list') }}">{{ __('back') }}</a>
                         </div>
@@ -99,15 +98,8 @@
 @stop
 
 @section('css')
-    <style>
-        .holder {
-            width: 100%;
-        }
-
-        #imgPreview {
-            max-width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')
@@ -156,24 +148,6 @@
         });
     </script>
 
-    <!-- IMG Preview -->
-    <script>
-        $(document).ready(() => {
-            $('#link_answer').change(function() {
-                const file = this.files[0];
-                console.log(file);
-                if (file) {
-                    let reader = new FileReader();
-                    reader.onload = function(event) {
-                        console.log(event.target.result);
-                        $('#imgPreview').attr('src', event.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
-    </script>
-
     <!-- Hiển thị tên file khi được upload -->
     <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script>
@@ -181,4 +155,9 @@
             bsCustomFileInput.init();
         });
     </script>
+
+    {{-- Ckeditor --}}
+    <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="/ckeditor/ckeditor_admin_config.js"></script>
+    <script type="text/javascript" src="/ckfinder_admin/ckfinder.js"></script>
 @stop
