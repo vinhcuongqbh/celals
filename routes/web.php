@@ -60,6 +60,11 @@ Route::get('/du-hoc', function () {
     return view('front-end.du-hoc');
 });
 
+Route::prefix('post_catalogue')->group(function () {
+    Route::get('/{post_catalogue}', [PostController::class, 'postCatalogue'])->name('post_catalogue');    
+    Route::get('/{post_catalogue}/{id}', [PostController::class, 'postDetail'])->name('post_detail');
+});
+
 Route::prefix('su-kien')->group(function () {
     Route::get('', [SukienController::class, 'suKien'])->name('su-kien');
     Route::get('/{id}', [SukienController::class, 'suKienChiTiet'])->name('su-kien-chi-tiet');

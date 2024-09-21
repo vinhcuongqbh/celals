@@ -155,4 +155,46 @@ class PostController extends Controller
 
         return back()->with('msg_success', 'Xóa bài thành công');
     }
+
+
+    // DANH SÁCH BÀI VIẾT
+    public function postCatalogue($post_catalogue)
+    {
+        switch ($post_catalogue) {
+            case 'tieng_anh':
+                $post_catalogue_id = 4;
+                break;
+            case 'tieng_han':
+                $post_catalogue_id = 5;
+                break;
+            case 'du_hoc':
+                $post_catalogue_id = 6;
+                break;
+            case 'khac':
+                $post_catalogue_id = 7;
+                break;
+            default:
+                //code block
+        }
+
+        $post_catalogue = PostCatalogue::where('post_catalogue_id', $post_catalogue_id)->first();
+
+        $posts = Post::where('post_catalogue_id', $post_catalogue_id)
+            ->where('post_status', 1)
+            ->orderby('created_at', 'desc')->get();
+
+        return view('front-end.post', [
+            'posts' => $posts,
+            'post_catalogue' => $post_catalogue
+        ]);
+    }
+
+
+    public function postDetail($id)
+    {
+        $post = Post::where('post_id', $id)
+            ->first();
+
+        return view('front-end.post_detail', ['post' => $post]);
+    }
 }

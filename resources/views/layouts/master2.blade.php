@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
     <link rel="stylesheet" href={{ asset('dist/css/asabo.css') }}>
 
+
+    <!-- Bootstrap JS và Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+
     @yield('head')
 </head>
 
@@ -74,10 +79,20 @@
                             <label><a href="/co-so-dao-tao" class="nav-link text-nowrap" style="color:#03396c ">CƠ
                                     SỞ</a></label>
                         </li>
-                        {{-- <li class="nav-item">
-                            <label><a href="/du-hoc" class="nav-link text-nowrap" style="color:#03396c ">DU
-                                    HỌC</a></label>
-                        </li> --}}
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="btn bg-transparent dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <label>KIẾN THỨC</label>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="/post_catalogue/tieng_anh">Tiếng Anh</a></li>
+                                    <li><a class="dropdown-item" href="/post_catalogue/tieng_han">Tiếng Hàn</a></li>
+                                    <li><a class="dropdown-item" href="/post_catalogue/du_hoc">Du học</a></li>
+                                    <li><a class="dropdown-item" href="/post_catalogue/khac">Khác</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <label><a href="/su-kien" class="nav-link text-nowrap" style="color:#03396c ">SỰ KIỆN NỔI
                                     BẬT</a></label>
@@ -90,6 +105,7 @@
                             <label><a href="/gioi-thieu" class="nav-link text-nowrap" style="color:#03396c ">GIỚI
                                     THIỆU</a></label>
                         </li>
+
                         @if (Auth::check())
                             <li class="nav-item">
                                 <a class="btn text-white text-nowrap" style="background-color:#03396c"
