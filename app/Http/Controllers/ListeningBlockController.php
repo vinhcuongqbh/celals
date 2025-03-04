@@ -184,7 +184,35 @@ class ListeningBlockController extends Controller
     }
 
 
-    public function changeBlock($id)
+    public function editStudentBlock($id)
+    {
+        $user = User::where('user_id', $id)
+            ->leftjoin('student_listening_blocks', 'student_listening_blocks.student_id', 'users.user_id')
+            ->leftjoin('listening_blocks', 'listening_blocks.block_id', 'student_listening_blocks.listening_block_id')
+            ->select('users.user_name', 'users.name', 'student_listening_blocks.listening_block_id', 'listening_blocks.level_id', 'listening_blocks.block_name')
+            ->first();
+
+        $levels = Level::all(); 
+        $blocks = ListeningBlock::where('level_id', $user->level_id )->get();
+
+        return view('admin.class.edit_student_block', [
+            'user' => $user, 
+            'levels' => $levels,
+            'blocks' => $blocks
+        ]);
+    }
+
+
+    public function updateStudentBlock($id, Request $request)
+    {
+        $student_listening_block = StudentListeningBlock::where('student_id', $id)->first();
+        $student_listening_block->listening_block_id = $request->block_id;
+        $student_listening_block->save();
+
+        return redirect()->route('listening.edit_student_block', $id)->with('msg_success','Đã cập nhật thành công');
+    }
+
+    public function nextBlock($id)
     {
         $student_listening_block = StudentListeningBlock::where('student_id', $id)->first();
         $level = ListeningBlock::where('block_id', $student_listening_block->listening_block_id)->first();

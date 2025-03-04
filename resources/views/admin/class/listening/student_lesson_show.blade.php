@@ -42,6 +42,22 @@
                                         <audio controls controlsList="nodownload" src="{{ $lesson->link_audio }}"></audio>
                                     </div>
                                 </div>
+                                @if (isset($lesson->question))
+                                    <div class="form-group row">
+                                        <div class="col-sm-2">
+                                            <label for="question">{{ __('question') }}</label>
+                                        </div>
+                                        @if (stripos($lesson->question, '<p>') !== false || stripos($lesson->question, '<figure') !== false)
+                                            <div class="col-sm-10 ck-content">
+                                                {!! $lesson->question !!}
+                                            </div>
+                                        @else
+                                            <div class="col-sm-10">
+                                                <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $lesson->question }}</textarea>
+                                            </div>
+                                        @endif
+                                    </div>
+                                @endif
                                 <div class="form-group row">
                                     <div class="col-sm-2">
                                         <label for="student_answer">{{ __('student_answer') }}</label>
@@ -66,7 +82,7 @@
                                         <div class="col-sm-2">
                                             <label for="answer">{{ __('answer') }}</label>
                                         </div>
-                                        @if ((stripos($lesson->answer, '<p>') !== false)||(stripos($lesson->answer, '<figure') !== false))
+                                        @if (stripos($lesson->answer, '<p>') !== false || stripos($lesson->answer, '<figure') !== false)
                                             <div class="col-sm-10 ck-content">
                                                 {!! $lesson->answer !!}
                                             </div>

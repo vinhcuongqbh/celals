@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlockController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CenterController;
@@ -130,6 +131,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('topicList', [TopicController::class, 'topicList'])->name('topic.topicList');
     });
 
+    Route::group(['prefix' => 'block'], function () {
+        Route::post('blockList', [BlockController::class, 'blockList'])->name('block.blockList');
+    });
+
     Route::group(['prefix' => 'post'], function () {
         Route::get('', [PostController::class, 'index'])->name('post');
         Route::get('create', [PostController::class, 'create'])->name('post.create');
@@ -185,7 +190,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
             Route::get('{id}/teacher_test_edit', [ListeningBlockController::class, 'teacherTestEdit'])->name('listening.teacher_test_edit');
             Route::post('{id}/teacher_test_update', [ListeningBlockController::class, 'teacherTestUpdate'])->name('listening.teacher_test_update');
             Route::get('student_list', [ListeningBlockController::class, 'studentList'])->name('listening.student_list');
-            Route::get('{id}/change_block', [ListeningBlockController::class, 'changeBlock'])->name('listening.change_block');
+            Route::get('student_list/{i}', [ListeningBlockController::class, 'editStudentBlock'])->name('listening.edit_student_block');
+            Route::post('student_list/{i}', [ListeningBlockController::class, 'updateStudentBlock'])->name('listening.update_student_block');
+            Route::get('{id}/next_block', [ListeningBlockController::class, 'nextBlock'])->name('listening.next_block');
 
             Route::get('student_block_show', [StudentListeningBlockController::class, 'blockShow'])->name('listening.student_block_show');
             Route::get('student_history_study', [StudentListeningTestController::class, 'historyList'])->name('listening.student_history_study');

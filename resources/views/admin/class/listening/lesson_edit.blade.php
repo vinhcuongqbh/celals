@@ -62,10 +62,18 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
+                                    <label for="">{{ __('question') }}</label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <textarea id="editor1" name="question" class="form-control" rows="18">{{ $lesson->question }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
                                     <label for="">{{ __('answer') }}</label>
                                 </div>
                                 <div class="col-sm-12">
-                                    <textarea id="editor1" name="answer" class="form-control" rows="18">{{ $lesson->answer }}</textarea>
+                                    <textarea id="editor2" name="answer" class="form-control" rows="18">{{ $lesson->answer }}</textarea>
                                 </div>
                             </div>      
                         </div>

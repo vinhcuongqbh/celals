@@ -41,6 +41,22 @@
                                 <audio controls controlsList="nodownload" src="{{ $lesson->link_audio }}"></audio>
                             </div>
                         </div>
+                        @if (isset($lesson->question))
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label for="question">{{ __('question') }}</label>
+                                </div>
+                                @if ((stripos($lesson->question, '<p>') !== false)||(stripos($lesson->question, '<figure') !== false))
+                                    <div class="col-sm-12 ck-content">
+                                        {!! $lesson->question !!}
+                                    </div>
+                                @else
+                                    <div class="col-sm-12">
+                                        <textarea id="question" name="question" class="form-control" rows="18" readonly>{{ $lesson->question }}</textarea>
+                                    </div>
+                                @endif
+                            </div>
+                        @endif
                         @if (isset($lesson->answer))
                             <div class="form-group row">
                                 <div class="col-sm-12">

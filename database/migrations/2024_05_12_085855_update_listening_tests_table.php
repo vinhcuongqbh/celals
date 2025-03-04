@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('listening_tests', function (Blueprint $table) {          
-            $table->tinyInteger('test_id')->after('level_id');
+            $table->dropColumn('level_id');
         });
     }
 };

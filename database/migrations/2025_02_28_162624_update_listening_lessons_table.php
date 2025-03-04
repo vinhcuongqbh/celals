@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('listening_lessons', function (Blueprint $table) {          
-            $table->tinyInteger('level_id')->after('lesson_id');
+            $table->text('question')->nullable()->after('link_audio');
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('listening_lessons', function (Blueprint $table) {          
-            $table->dropColumn('level_id');
-        });
+            $table->dropColumn('question');
+        });        
     }
 };

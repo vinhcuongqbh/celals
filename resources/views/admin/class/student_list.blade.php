@@ -22,12 +22,12 @@
                             </colgroup>
                             <thead style="text-align: center">
                                 <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">{{ __('user_id') }}</th>
-                                    <th class="text-center">{{ __('name') }}</th>   
-                                    <th class="text-center">Block hiện tại</th>   
-                                    <th class="text-center">Trình độ</th>
-                                    <th class="text-center">Thay đổi</th>   
+                                    <th class="text-center align-middle">STT</th>
+                                    <th class="text-center align-middle">{{ __('user_id') }}</th>
+                                    <th class="text-center align-middle">{{ __('name') }}</th>   
+                                    <th class="text-center align-middle">Block hiện tại</th>   
+                                    <th class="text-center align-middle">Trình độ</th>
+                                    <th class="text-center align-middle">Block<br>tiếp theo</th>   
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,11 +36,11 @@
                                     <tr>
                                         <td class="text-center">{{ $i++ }}</td>
                                         <td class="text-center">{{ $user->user_id }}</td>
-                                        <td>{{ $user->name }}</td>                                       
+                                        <td><a href="{{ route('listening.edit_student_block', $user->user_id) }}">{{ $user->name }}</a></td>                                       
                                         <td class="text-center">{{ $user->block_name }}</td>    
                                         <td class="text-center">{{ $user->level_id }}</td>  
                                         <td class="text-center"> <a class="btn bg-olive text-white text-nowrap"
-                                            href="{{ route('listening.change_block', $user->user_id) }}">Đổi Block</td>
+                                            href="{{ route('listening.next_block', $user->user_id) }}">Block +1</td>
                                     </tr>
                                 @endforeach
                             </tbody>

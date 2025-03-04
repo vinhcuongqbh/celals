@@ -45,6 +45,7 @@ class ListeningLessonController extends Controller
             $path = Storage::url($file);
             $lesson->link_audio = $path;
         }        
+        $lesson->question = $request->question;
         $lesson->answer = $request->answer;
         //Xử lý link đáp án
         if (!empty($request->file('link_answer'))) {
@@ -100,6 +101,7 @@ class ListeningLessonController extends Controller
             $path = Storage::url($file);
             $lesson->link_audio = $path;
         }        
+        $lesson->question = $request->question;
         $lesson->answer = $request->answer;
         //Xử lý link câu trả lời
         if (!empty($request->file('link_answer'))) {
