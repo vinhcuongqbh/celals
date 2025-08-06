@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:1seJgrfiLecohNyGdaJnTdIjBB0XpNZQsl3QXYPbm/0=',
+    'key' => 'base64:BDbRre9I5AKpasM1DX0txsJSYdpIWWCKxfjQI4ADtiI=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -741,7 +741,7 @@
   ),
   'ignition' => 
   array (
-    'editor' => 'phpstorm',
+    'editor' => 'vscode',
     'theme' => 'auto',
     'enable_share_button' => true,
     'register_commands' => false,

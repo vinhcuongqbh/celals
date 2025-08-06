@@ -9,6 +9,8 @@ use App\Models\PostCatalogue;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class PostController extends Controller
 {
@@ -42,6 +44,7 @@ class PostController extends Controller
         //Tạo mới BÀI VIẾT
         $post = new Post;
         $post->post_title = $request->post_title;
+        $post->post_slug= Str::slug($request->post_title);
         $post->post_content = $request->post_content;
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();
@@ -97,6 +100,7 @@ class PostController extends Controller
         //Cập nhật thông tin Bài viết
         $post = Post::find($id);
         $post->post_title = $request->post_title;
+        $post->post_slug= Str::slug($request->post_title);
         $post->post_content = $request->post_content;
         $post->post_catalogue_id = $request->post_catalogue_id;
         $post->post_author_id = Auth::id();

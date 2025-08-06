@@ -73,7 +73,7 @@ Route::prefix('su-kien')->group(function () {
 
 Route::prefix('tin-tuc')->group(function () {
     Route::get('', [TinTucController::class, 'tinTuc'])->name('tin-tuc');
-    Route::get('/{id}', [TinTucController::class, 'tinTucChiTiet'])->name('tin-tuc-chi-tiet');
+    Route::get('/{slug}_{id}', [TinTucController::class, 'tinTucChiTiet'])->name('tin-tuc-chi-tiet');
 });
 
 Route::prefix('gioi-thieu')->group(function () {

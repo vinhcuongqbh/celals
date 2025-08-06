@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Str;
 
 class TintucController extends Controller
 {
@@ -17,59 +18,18 @@ class TintucController extends Controller
         return view('front-end.tin-tuc', ['posts' => $posts]);
     }
 
-    public function tinTucChiTiet($id)
-    {
-        $post = Post::where('post_id', $id)            
-            ->first();        
+    public function tinTucChiTiet($slug, $id)
+    {   
+        $post = Post::findOrFail($id);
+
+        // Nếu slug không khớp thì redirect 301 về đúng link
+        if ($slug !== Str::slug($post->post_title)) {
+            return redirect()->route('posts.show', [
+                'id' => $post->id,
+                'slug' => Str::slug($post->post_title)
+            ], 301);
+        }
         
-        return view('front-end.tin-tuc-chi-tiet', ['post' => $post]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return view('front-end.tin-tuc-chi-tiet', compact('post'));
     }
 }
