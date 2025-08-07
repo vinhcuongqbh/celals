@@ -68,7 +68,7 @@ Route::prefix('post_catalogue')->group(function () {
 
 Route::prefix('su-kien')->group(function () {
     Route::get('', [SukienController::class, 'suKien'])->name('su-kien');
-    Route::get('/{id}', [SukienController::class, 'suKienChiTiet'])->name('su-kien-chi-tiet');
+    Route::get('/{slug}_{id}', [SukienController::class, 'suKienChiTiet'])->name('su-kien-chi-tiet');
 });
 
 Route::prefix('tin-tuc')->group(function () {
