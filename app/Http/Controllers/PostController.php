@@ -108,7 +108,7 @@ class PostController extends Controller
 
         //Xử lý file tải lên
         if ($request->hasFile('post_img')) {
-            if (Storage::disk('public')->exists($post->post_img)) {
+            if (!empty($post->post_img) && Storage::disk('public')->exists($post->post_img)) {
                 Storage::disk('public')->delete($post->post_img);
             }
             $image = $request->post_img;
