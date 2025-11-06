@@ -22,6 +22,7 @@ use App\Http\Controllers\StudentListeningTestController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\VocabularyTestController;
 use App\Models\Center;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,9 +37,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+// Route::get('/', function () {
+//     return view('front-end.home', ['centers' => (new CenterController)->centerQuery()]);
+// })->name('home');
+
+// Route::get('/', function () {
+//     return view('front-end.home');
+// });
+
 Route::get('/', function () {
-    return view('front-end.home', ['centers' => (new CenterController)->centerQuery()]);
-})->name('home');
+    return redirect()->route('login');
+});
 
 Route::get('/diem-khac-biet', function () {
     return view('front-end.diem-khac-biet');
@@ -62,7 +71,7 @@ Route::get('/du-hoc', function () {
 });
 
 Route::prefix('post_catalogue')->group(function () {
-    Route::get('/{post_catalogue}', [PostController::class, 'postCatalogue'])->name('post_catalogue');    
+    Route::get('/{post_catalogue}', [PostController::class, 'postCatalogue'])->name('post_catalogue');
     Route::get('/{post_catalogue}/{id}', [PostController::class, 'postDetail'])->name('post_detail');
 });
 
@@ -90,11 +99,6 @@ Route::prefix('test')->group(function () {
 
 Route::get('public_test/{test_id}/testing', [PracticeTestPublicController::class, 'testing'])->name('public_test.testing');
 Route::post('public_test/{test_id}/store', [PracticeTestPublicController::class, 'store'])->name('public_test.store');
-
-
-Route::get('/', function () {
-    return view('front-end.home');
-});
 
 
 Route::get('/login', function () {

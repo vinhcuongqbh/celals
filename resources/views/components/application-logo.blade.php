@@ -1,1 +1,1 @@
-<img src="/img/logo.png" alt="Celals" style="width: 500px">
+<img src="/img/hoctieng.png" alt="Celals" style="width: 300px">

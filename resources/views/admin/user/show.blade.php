@@ -86,7 +86,7 @@
                             <a class="btn bg-olive col-sm-2 ml-1"
                                 href="{{ route('user.edit', $user->user_id) }}">{{ __('edit') }}</a>
                         @endif
-                        <a class="btn btn-secondary col-sm-2 ml-1" href="{{ route('user') }}">{{ __('back') }}</a>
+                        <a class="btn btn-secondary col-sm-2 ml-1" href="{{ route('dashboard') }}">{{ __('back') }}</a>
                     </div>
                 </div>
             </div>

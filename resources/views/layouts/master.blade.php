@@ -79,9 +79,15 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar elevation-4 sidebar-light-olive">
             <!-- Brand Logo -->
-            <a href="/" class="brand-link text-center">
-                <span class="brand-text font-weight-light"><b>CELALS</b></span>
+            <a class="brand-link text-center">
+                <?php
+                use App\Models\Center;
+                $center = Center::find(Auth::user()->center_id);
+                ?>
+                <img src="{{ $center->link_logo }}" alt="Logo Đơn vị" style="height: 25px; object-fit: contain;">
             </a>
+
+
             <!-- Sidebar -->
             <div class="sidebar os-theme-light">
                 <!-- Sidebar Menu -->
