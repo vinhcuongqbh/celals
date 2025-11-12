@@ -3,85 +3,49 @@
 @section('title', 'Center Management')
 
 @section('heading')
-    {{ __('centerManagement') }}
+    {{ __('center_management') }}
 @stop
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12">               
                 <div class="card card-default">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-auto">
-                                <a href="{{ route('center.create') }}"><button type="button" class="btn bg-olive text-white w-100">{{ __('newCenter') }}</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('center.search') }}" method="post" id="center-search">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerID" name="centerID" placeholder="{{ __('centerID') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerName" name="centerName" placeholder="{{ __('centerName') }}">
-                                </div>   
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="{{ __('address') }}">
-                                </div> 
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="{{ __('telephone') }}">
-                                </div>                              
-                                <div class="col-12 col-xl-2 my-2">
-                                    <button type="submit" class="btn bg-olive text-white w-100">{{ __('search') }}</button>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </form>
                         <table id="center-table" class="table table-bordered table-striped">
                             <colgroup>
-                                <col style="width:10%;">
-                                <col style="width:28%;">
-                                <col style="width:36%;">
-                                <col style="width:10%;">
-                                <col style="width:8%;">
-                                <col style="width:8%;">
+                                <col style="width:5%;">
+                                <col style="width:25%;">
+                                <col style="width:65%;">
+                                <col style="width:5%;">                                
                             </colgroup>
-                            <thead style="text-align: center">
+                            <thead>
                                 <tr>
-                                    <th>{{ __('centerID') }}</th>
-                                    <th>{{ __('centerName') }}</th>
-                                    <th>{{ __('address') }}</th>
-                                    <th>{{ __('telephone') }}</th>
-                                    <th>{{ __('edit') }}</th>
-                                    <th class="text-nowrap">{{ __('enable') }}/{{ __('disable') }}</th>
+                                    <th class="text-center align-middle">{{ __('ID') }}</th>                                    
+                                    <th class="text-center align-middle">{{ __('center_name') }}</th>                                    
+                                    <th class="text-center align-middle">{{ __('address') }}</th>
+                                    <th class="text-center align-middle">{{ __('enable') }}/{{ __('disable') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $i = 1; @endphp
                                 @foreach ($centers as $center)
                                     <tr>
-                                        <td style="text-align: center"><a href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a></td>
-                                        <td>{{ $center->centerName }}</td>
-                                        <td>{{ $center->centerAddr }}</td>
-                                        <td>{{ $center->centerTel }}</td>
-                                        <td style="text-align: center">
-                                            <a href="{{ route('center.edit', $center->centerId) }}">
-                                                <button type="button" class="btn bg-warning text-white w-100 text-nowrap">{{ __('edit') }}</button>
-                                            </a>
-                                        </td>
+                                        <td class="text-center">{{ $i++ }}</td>
+                                        <td><a href="{{ route('center.show', $center->center_id) }}">{{ $center->center_name }}</a></td>
+                                        <td>{{ $center->center_address }}</td>
                                         <td>
-                                            @if ($center->isDeleted == 0)
-                                                <a href="{{ route('center.delete', $center->centerId) }}"
-                                                    onclick="return confirm('{{ __('deleteCenter') }}')">
-                                                    <button type="button" class="btn bg-olive text-white w-100 text-nowrap">{{ __('enable') }}</button>
+                                            @if ($center->center_status == 1)
+                                                <a class="btn bg-danger text-white w-100 text-nowrap"
+                                                    href="{{ route('center.delete', $center->center_id) }}"
+                                                    onclick="return confirm('{{ __('disable_center') }}')">
+                                                    {{ __('disable') }}
                                                 </a>
                                             @else
-                                                <a class="btn bg-danger text-white w-100 text-nowrap" href="{{ route('center.restore', $center->centerId) }}"
-                                                    onclick="return confirm('{{ __('restoreCenter') }}')">
-                                                    {{ __('disable') }}
+                                                <a class="btn bg-olive text-white w-100 text-nowrap"
+                                                    href="{{ route('center.restore', $center->center_id) }}"
+                                                    onclick="return confirm('{{ __('enable_center') }}')">
+                                                    {{ __('enable') }}
                                                 </a>
                                             @endif
                                         </td>
@@ -90,50 +54,35 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 @stop
 
 @section('css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="/vendor/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="/vendor/datatables-buttons/css/buttons.bootstrap4.min.css">
 @stop
 
 @section('js')
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <!-- DataTables  & Plugins -->
-    <script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/vendor/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="/vendor/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-    <script src="/vendor/jszip/jszip.min.js"></script>
-    <script src="/vendor/pdfmake/pdfmake.min.js"></script>
-    <script src="/vendor/pdfmake/vfs_fonts.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.html5.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.print.min.js"></script>
-    <script src="/vendor/datatables-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Page specific script -->
     <script>
         $(function() {
             $("#center-table").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "pageLength": 25,
-                "searching": false,
-                "autoWidth": false,                
-                "ordering": false,                
-                "language": {
+                responsive: true,
+                lengthChange: false,
+                pageLength: 25,
+                searching: true,
+                autoWidth: false,
+                ordering: false,
+                dom: 'Bfrtip',
+                buttons: [{
+                        text: 'Tạo mới',
+                        className: 'bg-olive',
+                        action: function(e, dt, node, config) {
+                            window.location = '{{ route('center.create') }}';
+                        },
+                    },
+                ],
+                language: {
                     url: '/plugins/datatables/vi.json'
                 },
             }).buttons().container().appendTo('#center-table_wrapper .col-md-6:eq(0)');

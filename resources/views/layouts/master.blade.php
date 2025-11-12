@@ -81,12 +81,13 @@
             <!-- Brand Logo -->
             <a class="brand-link text-center">
                 <?php
+
                 use App\Models\Center;
+
                 $center = Center::find(Auth::user()->center_id);
                 ?>
                 <img src="{{ $center->link_logo }}" alt="Logo Đơn vị" style="height: 25px; object-fit: contain;">
             </a>
-
 
             <!-- Sidebar -->
             <div class="sidebar os-theme-light">
@@ -108,283 +109,290 @@
                             <a href="/admin/dashboard" class="nav-link">
                                 <i class="nav-icon fa-solid fa-gauge-high"></i>
                                 <p>{{ __('dash_board') }}</p>
-                            </a>
+                        </a>
                         </li> --}}
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
-                            <li class="nav-header text-success text-uppercase text-bold">QUẢN TRỊ HỆ THỐNG</li>
-                            @if (Auth::user()->role_id == 1)
+                        <li class="nav-header text-success text-uppercase text-bold">QUẢN TRỊ HỆ THỐNG</li>
+                        @if (Auth::user()->role_id == 1)
+                        <li class="nav-item">
+                            <a href="/admin/center" class="nav-link">
+                                <i class="nav-icon fa fa-warehouse"></i>
+                                <p>{{ __('center_management') }}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/user" class="nav-link">
+                                <i class="nav-icon fa fa-user"></i>
+                                <p>{{ __('user_management') }}</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/admin/post" class="nav-link">
+                                <i class="nav-icon fas fa-newspaper"></i>
+                                <p>{{ __('post_management') }}</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-music"></i>
+                                <p>{{ __('listening') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/admin/user" class="nav-link">
-                                        <i class="nav-icon fa fa-user"></i>
-                                        <p>{{ __('user_management') }}</p>
+                                    <a href="/admin/class/listening/lesson_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('lesson-list') }}</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/admin/post" class="nav-link">
-                                        <i class="nav-icon fas fa-newspaper"></i>
-                                        <p>{{ __('post_management') }}</p>
+                                    <a href="/admin/class/listening/test_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('test-list') }}</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fa fa-music"></i>
-                                        <p>{{ __('listening') }}</p>
-                                        <i class="fas fa-angle-left right"></i>
+                                    <a href="/admin/class/listening/block_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('block-list') }}</p>
                                     </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="/admin/class/listening/lesson_list" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('lesson-list') }}</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/admin/class/listening/test_list" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('test-list') }}</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/admin/class/listening/block_list" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('block-list') }}</p>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-heartbeat"></i>
+                                <p>{{ __('coaching') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_subject" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('coach_subject') }}</p>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-heartbeat"></i>
-                                        <p>{{ __('coaching') }}</p>
-                                        <i class="fas fa-angle-left right"></i>
+                                    <a href="/admin/class/coaching/coach_question" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('coach_question') }}</p>
                                     </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="/admin/class/coaching/coach_subject" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('coach_subject') }}</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/admin/class/coaching/coach_question" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('coach_question') }}</p>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
-                            @endif
-                            @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
+                            </ul>
+                        </li>
+                        @endif
+                        @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 2 or Auth::user()->role_id == 3)
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-warehouse"></i>
+                                <p>{{ __('referral_management') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="nav-icon fas fa-warehouse"></i>
-                                        <p>{{ __('referral_management') }}</p>
-                                        <i class="fas fa-angle-left right"></i>
+                                    <a href="/admin/referral/customer" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('customer') }}</p>
                                     </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="/admin/referral/customer" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('customer') }}</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="/admin/referral/referrer" class="nav-link">
-                                                <i class="fa fa-angle-right nav-icon"></i>
-                                                <p>{{ __('referrer') }}</p>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
-                            @endif
+                                <li class="nav-item">
+                                    <a href="/admin/referral/referrer" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('referrer') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif
                         @endif
                         @if (Auth::user()->role_id == 1 or Auth::user()->role_id == 6)
-                            <li class="nav-header text-success text-uppercase text-bold">QUẢN LÝ LỚP HỌC</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-book"></i>
-                                    <p>{{ __('vocabulary') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/vocabulary/test_create" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('test-create') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/vocabulary/test_list" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('test_list') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-music"></i>
-                                    <p>{{ __('listening') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/teacher_test_list" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('test_list') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/student_list" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('change_block') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                        <li class="nav-header text-success text-uppercase text-bold">QUẢN LÝ LỚP HỌC</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>{{ __('vocabulary') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/vocabulary/test_create" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('test-create') }}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/class/vocabulary/test_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('test_list') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-music"></i>
+                                <p>{{ __('listening') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/listening/teacher_test_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('test_list') }}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/class/listening/student_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('change_block') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         @endif
                         @if (Auth::user()->role_id == 4 or Auth::user()->role_id == 1)
-                            <li class="nav-header text-success text-uppercase text-bold">GIÁO VIÊN</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-music"></i>
-                                    <p>{{ __('listening') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/teacher_test_list" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('test_list') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-heartbeat"></i>
-                                    <p>{{ __('coaching') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/summary" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Tổng quan') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_student/1" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Coach phỏng vấn') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_student/2" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Coach chủ đề') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_student/3" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Coach Ngữ pháp TC') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_student/4" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Coach câu 51') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_student/5" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Coach câu 52') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/coach_student/6" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Coach câu 53') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-heartbeat"></i>
-                                    <p>{{ __('Phần Thi thử') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/practice_test" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Danh sách đề thi') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/public_test" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('Danh sách kỳ thi') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                        <li class="nav-header text-success text-uppercase text-bold">GIÁO VIÊN</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-music"></i>
+                                <p>{{ __('listening') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/listening/teacher_test_list" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('test_list') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-heartbeat"></i>
+                                <p>{{ __('coaching') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/summary" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Tổng quan') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_student/1" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Coach phỏng vấn') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_student/2" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Coach chủ đề') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_student/3" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Coach Ngữ pháp TC') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_student/4" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Coach câu 51') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_student/5" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Coach câu 52') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/coach_student/6" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Coach câu 53') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-heartbeat"></i>
+                                <p>{{ __('Phần Thi thử') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/practice_test" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Danh sách đề thi') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/public_test" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('Danh sách kỳ thi') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         @endif
                         @if (Auth::user()->role_id == 5 or Auth::user()->role_id == 1)
-                            <li class="nav-header text-success text-uppercase text-bold">HỌC VIÊN</li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-music"></i>
-                                    <p>{{ __('listening') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/student_block_show" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('self_studing_list') }}</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="/admin/class/listening/student_history_study" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('history_study') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-music"></i>
-                                    <p>{{ __('coaching') }}</p>
-                                    <i class="fas fa-angle-left right"></i>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="/admin/class/coaching/get_coach_question" class="nav-link">
-                                            <i class="fa fa-angle-right nav-icon"></i>
-                                            <p>{{ __('coach_question') }}</p>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                        <li class="nav-header text-success text-uppercase text-bold">HỌC VIÊN</li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-music"></i>
+                                <p>{{ __('listening') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/listening/student_block_show" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('self_studing_list') }}</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/admin/class/listening/student_history_study" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('history_study') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-music"></i>
+                                <p>{{ __('coaching') }}</p>
+                                <i class="fas fa-angle-left right"></i>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/class/coaching/get_coach_question" class="nav-link">
+                                        <i class="fa fa-angle-right nav-icon"></i>
+                                        <p>{{ __('coach_question') }}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         @endif
                     </ul>
                 </nav>
@@ -409,33 +417,33 @@
             <!-- Main content -->
             <section class="content">
                 @if (session()->has('msg_success'))
-                    <script>
-                        Swal.fire({
-                            icon: 'success',
-                            text: `{{ session()->get('msg_success') }}`,
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                    </script>
+                <script>
+                    Swal.fire({
+                        icon: 'success',
+                        text: `{{ session()->get('msg_success') }}`,
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                </script>
                 @elseif (session()->has('msg_error'))
-                    <script>
-                        Swal.fire({
-                            icon: 'error',
-                            text: `{{ session()->get('msg_error') }}`,
-                            showConfirmButton: false,
-                            timer: 3000
-                        })
-                    </script>
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        text: `{{ session()->get('msg_error') }}`,
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                </script>
                 @endif
 
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
                 @endif
 
                 @yield('content')

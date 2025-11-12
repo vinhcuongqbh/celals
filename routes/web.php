@@ -36,13 +36,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 // Route::get('/', function () {
-//     return view('front-end.home', ['centers' => (new CenterController)->centerQuery()]);
-// })->name('home');
+//     $host = $_SERVER['HTTP_HOST'];
 
-// Route::get('/', function () {
-//     return view('front-end.home');
+//     if ($host === 'tienghan.hoctieng.vn') {
+//         return redirect()->route('login');
+//     } elseif ($host === 'celals.vn') {
+//         return view('front-end.home');
+//     } else {
+//         // Nếu cần xử lý cho domain khác
+//         abort(404);
+//     }
 // });
 
 Route::get('/', function () {
@@ -129,6 +133,18 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{id}/restore', [UserController::class, 'restore'])->name('user.restore');
         Route::post('{id}/resetpass', [UserController::class, 'resetpass'])->name('user.resetpass');
         Route::post('search', [UserController::class, 'search'])->name('user.search');
+    });
+
+    Route::group(['prefix' => 'center'], function () {
+        Route::get('', [CenterController::class, 'index'])->name('center');
+        Route::get('create', [CenterController::class, 'create'])->name('center.create');
+        Route::post('store', [CenterController::class, 'store'])->name('center.store');
+        Route::get('{id}/', [CenterController::class, 'show'])->name('center.show');
+        Route::get('{id}/edit', [CenterController::class, 'edit'])->name('center.edit');
+        Route::post('{id}/update', [CenterController::class, 'update'])->name('center.update');
+        Route::get('{id}/delete', [CenterController::class, 'destroy'])->name('center.delete');
+        Route::get('{id}/restore', [CenterController::class, 'restore'])->name('center.restore');        
+        Route::post('search', [CenterController::class, 'search'])->name('center.search');
     });
 
     Route::group(['prefix' => 'topic'], function () {
