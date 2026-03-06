@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CELALS</title>
+    <title>...</title>
     <link rel="icon" href="img/book-icon.png">
 
     <!-- Google Font: Source Sans Pro -->

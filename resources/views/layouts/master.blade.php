@@ -8,7 +8,7 @@
     <meta name="googlebot" content="noindex, nofollow">
     <meta name="robots" content="noindex, nofollow">
     <meta name="robots" content="noimageindex">
-    <title>CELALS</title>
+    <title>...</title>
 
     <!-- REQUIRED CSS -->
     <!-- Font Awesome Icons -->
