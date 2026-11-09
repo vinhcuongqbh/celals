@@ -1,0 +1,27 @@
+[02-Dec-2025 11:45:57 UTC] PHP Warning:  require(/home/ieltscel/public_html/public../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/ieltscel/public_html/public../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ieltscel/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:58 UTC] PHP Warning:  require(/home/ieltscel/public_html/public../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/ieltscel/public_html/public../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ieltscel/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:58 UTC] PHP Warning:  require(/home/ieltscel/public_html/public../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/ieltscel/public_html/public../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ieltscel/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:58 UTC] PHP Warning:  require(/home/ieltscel/public_html/public../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ieltscel/public_html/public/index.php on line 34
+[02-Dec-2025 11:45:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/ieltscel/public_html/public../vendor/autoload.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/ieltscel/public_html/public/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/ieltscel/public_html/public/index.php on line 34
+[25-Oct-2026 19:53:14 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12
+[25-Oct-2026 19:53:16 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12
+[25-Oct-2026 19:53:17 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12
+[25-Oct-2026 19:53:21 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12
+[25-Oct-2026 19:53:38 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12
+[25-Oct-2026 19:53:52 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12
+[25-Oct-2026 19:53:57 Asia/Ho_Chi_Minh] PHP Fatal error:  Trait "App\Http\Controllers\Illuminate\Http\Request" not found in /home/ieltscel/public_html/app/Http/Controllers/ListeningLessonController.php on line 12

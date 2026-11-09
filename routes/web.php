@@ -36,22 +36,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     $host = $_SERVER['HTTP_HOST'];
-
-//     if ($host === 'tienghan.hoctieng.vn') {
-//         return redirect()->route('login');
-//     } elseif ($host === 'celals.vn') {
-//         return view('front-end.home');
-//     } else {
-//         // Nếu cần xử lý cho domain khác
-//         abort(404);
-//     }
-// });
-
 Route::get('/', function () {
-    return redirect()->route('login');
+    $host = $_SERVER['HTTP_HOST'];
+
+    if ($host === 'tienghan.hoctieng.vn') {
+        return redirect()->route('login');
+    } elseif ($host === 'celals.vn') {
+        return view('front-end.home');
+    } elseif ($host === 'cela.edu.vn') {
+        return view('front-end.home');
+    } else {
+        // Nếu cần xử lý cho domain khác
+        abort(404);
+    }
 });
+
 
 Route::get('/diem-khac-biet', function () {
     return view('front-end.diem-khac-biet');

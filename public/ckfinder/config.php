@@ -32,8 +32,8 @@ $config['authentication'] = function () {
 /*============================ License Key ============================================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_licenseKey
 
-$config['licenseName'] = 'celals.vn';
-$config['licenseKey']  = 'NJ7JGBDTR28CVS5YA95839Q6WDUCE';
+$config['licenseName'] = 'hoctieng.vn';
+$config['licenseKey']  = '2VPVUD87PV7D5Q4NXPCDQTJQD5MHL';
 
 /*============================ CKFinder Internal Directory ============================*/
 // https://ckeditor.com/docs/ckfinder/ckfinder3-php/configuration.html#configuration_options_privateDir
@@ -51,7 +51,7 @@ $config['privateDir'] = array(
 
 $config['images'] = array(
     'maxWidth'  => 1600,
-    'maxHeight' => 0,
+    'maxHeight' => 1200,
     'quality'   => 80,
     'sizes' => array(
         'small'  => array('width' => 480, 'height' => 320, 'quality' => 80),
@@ -66,8 +66,8 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => '/ckfinder/userfiles/',
-    //'root'         => '/',
+    'baseUrl'      => '/public/ckfinder/userfiles/',
+//  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',
@@ -91,9 +91,6 @@ $config['resourceTypes'][] = array(
     'name'              => 'Images',
     'directory'         => 'images',
     'maxSize'           => 0,
-    'maxWidth'  => 1600,
-    'maxHeight' => 0,
-    'quality'   => 80,
     'allowedExtensions' => 'bmp,gif,jpeg,jpg,png',
     'deniedExtensions'  => '',
     'backend'           => 'default'

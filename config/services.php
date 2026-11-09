@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'bunny' => [
+         'storage_zone' => env('BUNNY_STORAGE_ZONE'),
+         'storage_password' => env('BUNNY_STORAGE_PASSWORD'),
+         'storage_region' => env('BUNNY_STORAGE_REGION', 'storage'),
+         'cdn_url' => env('BUNNY_CDN_URL'),
+     ],
 ];

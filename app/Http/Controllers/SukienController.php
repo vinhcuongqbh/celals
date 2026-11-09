@@ -21,7 +21,7 @@ class SukienController extends Controller
         return view('front-end.su-kien', ['posts' => $posts]);
     }
 
-    public function suKienChiTiet($id)
+    public function suKienChiTiet($slug, $id)
     {
         $post = Post::findOrFail($id);
 
@@ -31,7 +31,7 @@ class SukienController extends Controller
                 'id' => $post->id,
                 'slug' => Str::slug($post->post_title)
             ], 301);
-        }
+        }    
         
         return view('front-end.su-kien-chi-tiet', ['post' => $post]);
     }

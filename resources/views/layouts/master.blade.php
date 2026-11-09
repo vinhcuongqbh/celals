@@ -79,7 +79,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar elevation-4 sidebar-light-olive">
             <!-- Brand Logo -->
-            <a class="brand-link text-center">
+            <a class="brand-link text-center" href="https://cela.edu.vn">
                 <?php
                 
                 use App\Models\Center;

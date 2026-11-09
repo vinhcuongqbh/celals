@@ -1,1 +1,1 @@
-<img src="/img/hoctieng.png" alt="Celals" style="width: 300px">
+<img src="/img/hoctiengvn.png" alt="Celals" style="width: 300px">

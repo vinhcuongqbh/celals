@@ -75,12 +75,11 @@
                                 <div class="col-sm-12">
                                     <textarea id="editor2" name="answer" class="form-control" rows="18">{{ $lesson->answer }}</textarea>
                                 </div>
-                            </div>      
+                            </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-end">
-                            <button type="submit"
-                                class="btn bg-olive text-nowrap col-2 m-1">{{ __('update') }}</button>
+                            <button type="submit" class="btn bg-olive text-nowrap col-2 m-1">{{ __('update') }}</button>
                             <a class="btn bg-primary text-white text-nowrap col-2 m-1"
                                 href="{{ route('listening.lesson_list') }}">{{ __('back') }}</a>
                         </div>
@@ -94,8 +93,8 @@
 @stop
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
-<link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/ckeditor5.css" />
+    <link rel="stylesheet" type="text/css" href="/ckeditor/styles.css" />
 @endsection
 
 @section('js')
@@ -135,6 +134,14 @@
                     $(element).removeClass('is-invalid');
                 }
             });
+        });
+    </script>
+
+    <!-- Hiển thị tên file khi được upload -->
+    <script src="/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
         });
     </script>
 
